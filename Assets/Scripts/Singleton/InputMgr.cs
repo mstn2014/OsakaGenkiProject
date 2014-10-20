@@ -5,10 +5,10 @@ using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 
-public class InputWrapper : SingletonMonoBehaviourFast<InputWrapper> 
+public class InputMgr: SingletonMonoBehaviourFast<InputMgr> 
 {
 	GameObject go;
-	CFadeMgr fade;
+	FadeMgr fade;
 
 	public void Awake()
 	{
@@ -23,11 +23,11 @@ public class InputWrapper : SingletonMonoBehaviourFast<InputWrapper>
 		DontDestroyOnLoad(this);
 
 		// Fade 生成or見つける
-		go = GameObject.FindGameObjectWithTag("Fade");
+		go = GameObject.FindGameObjectWithTag("FadeMgr");
 		if (go == null) {
-			go = GameObject.Instantiate (Resources.Load ("Fade")) as GameObject;
+            go = GameObject.Instantiate(Resources.Load("Singleton/FadeMgr")) as GameObject;
 		}
-		fade = go.GetComponent<CFadeMgr>();
+		fade = go.GetComponent<FadeMgr>();
 	}	
 
     //-----------XBOXコントローラキーコード--------------S

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CFadeMgr : SingletonMonoBehaviourFast<CFadeMgr>
+public class FadeMgr : SingletonMonoBehaviourFast<FadeMgr>
 {
     /// <summary>暗転用黒テクスチャ</summary>
     private Texture2D blackTexture;
@@ -9,9 +9,6 @@ public class CFadeMgr : SingletonMonoBehaviourFast<CFadeMgr>
     private float fadeAlpha = 0;
     /// <summary>フェード中かどうか</summary>
     private bool isFading = false;
-
-	// リボンマネージャ用
-	public GameObject go;
 
 	int finish_flg=0;
 

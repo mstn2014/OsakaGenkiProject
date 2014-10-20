@@ -6,8 +6,8 @@ public abstract class SingletonMonoBehaviourFast<T> : MonoBehaviour where T : Si
 {
 	protected static readonly string[] findTags  =
 	{
-		"InputWrapper",
-		"Fade",
+		"FadeMgr",
+        "InputMgr",
 	};
 	
 	protected static T instance;
