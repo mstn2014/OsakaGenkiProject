@@ -56,13 +56,13 @@ public class InputMgr: SingletonMonoBehaviourFast<InputMgr>
 
     public bool RedButtonTrigger{
         get{
-            return Input.GetKeyDown(KeyCode.JoystickButton1) & !fade.IsFading() || Input.GetKey(KeyCode.Alpha1);
+            return Input.GetKeyDown(KeyCode.JoystickButton1) & !fade.IsFading() || Input.GetKeyDown(KeyCode.Alpha1);
         }
     }
 
     public bool RedButtonRelease{
         get{
-            return Input.GetKeyUp(KeyCode.JoystickButton1) & !fade.IsFading() || Input.GetKey(KeyCode.Alpha1);
+            return Input.GetKeyUp(KeyCode.JoystickButton1) & !fade.IsFading() || Input.GetKeyUp(KeyCode.Alpha1);
         }
     }
 
@@ -81,14 +81,14 @@ public class InputMgr: SingletonMonoBehaviourFast<InputMgr>
     public bool GreenButtonTrigger
     {
         get{
-            return Input.GetKeyDown(KeyCode.JoystickButton0) & !fade.IsFading() || Input.GetKey(KeyCode.Alpha2);
+            return Input.GetKeyDown(KeyCode.JoystickButton0) & !fade.IsFading() || Input.GetKeyDown(KeyCode.Alpha2);
         }
     }
 
     public bool GreenButtonRelease
     {
         get{
-            return Input.GetKeyUp(KeyCode.JoystickButton0) & !fade.IsFading() || Input.GetKey(KeyCode.Alpha2);
+            return Input.GetKeyUp(KeyCode.JoystickButton0) & !fade.IsFading() || Input.GetKeyUp(KeyCode.Alpha2);
         }
     }
 
@@ -106,14 +106,14 @@ public class InputMgr: SingletonMonoBehaviourFast<InputMgr>
     public bool BlueButtonTrigger
     {
         get{
-            return Input.GetKeyDown(KeyCode.JoystickButton2) & !fade.IsFading() || Input.GetKey(KeyCode.Alpha3);
+            return Input.GetKeyDown(KeyCode.JoystickButton2) & !fade.IsFading() || Input.GetKeyDown(KeyCode.Alpha3);
         }
     }
 
     public bool BlueButtonRelease
     {
         get{
-            return Input.GetKeyUp(KeyCode.JoystickButton2) & !fade.IsFading() || Input.GetKey(KeyCode.Alpha3);
+            return Input.GetKeyUp(KeyCode.JoystickButton2) & !fade.IsFading() || Input.GetKeyUp(KeyCode.Alpha3);
         }
     }
 
@@ -131,14 +131,14 @@ public class InputMgr: SingletonMonoBehaviourFast<InputMgr>
     public bool YellowButtonTrigger
     {
         get{
-            return Input.GetKeyDown(KeyCode.JoystickButton3) & !fade.IsFading() || Input.GetKey(KeyCode.Alpha4);
+            return Input.GetKeyDown(KeyCode.JoystickButton3) & !fade.IsFading() || Input.GetKeyDown(KeyCode.Alpha4);
         }
     }
 
     public bool YellowButtonRelease
     {
         get{
-            return Input.GetKeyUp(KeyCode.JoystickButton3) & !fade.IsFading() || Input.GetKey(KeyCode.Alpha4);
+            return Input.GetKeyUp(KeyCode.JoystickButton3) & !fade.IsFading() || Input.GetKeyUp(KeyCode.Alpha4);
         }
     }
 
