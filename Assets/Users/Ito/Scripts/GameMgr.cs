@@ -4,28 +4,26 @@ using System.Collections.Generic;
 
 public class GameMgr : MonoBehaviour {
 
-    InputMgr m_btnState;            // 入力インスタンス
-
-    WindowMgr m_windowMgr;          // ウィンドウマネージャー
-
-    List<string> m_messageText;        // メッセージデータ 
+    InputMgr m_btnState;                    // 入力インスタンス
+    FadeMgr m_fadeMgr;                      // フェード
+    WindowMgr m_windowMgr;                  // ウィンドウマネージャー
+    List<string> m_messageText;             // メッセージデータ 
+    public Stage1Setting m_sceneSetting;    // シーンの設定ファイル
 
 	// Use this for initialization
 	void Start () {
-        // インプットのプレハブを見つけるor生成
-        GameObject go = GameObject.FindGameObjectWithTag("InputMgr");
-        if (go == null)
-        {
-            go = GameObject.Instantiate(Resources.Load("Singleton/InputMgr")) as GameObject;
-        }
-        m_btnState = go.GetComponent<InputMgr>();
+        // 共通設定の呼び出し
+        GlobalSetting gs = Resources.Load<GlobalSetting>("Setting/GlobalSetting");
+        m_btnState = gs.InputMgr;
+        m_fadeMgr = gs.FadeMgr;
 
+        // ウィンドウクラスの呼び出し
         m_windowMgr = GameObject.Find("WindowMgr").GetComponent<WindowMgr>();
 
         // テキストを読み込んでおく
         ParseMessageText textParser = new ParseMessageText();
         m_messageText = new List<string>();
-        m_messageText = textParser.LoadText("Ito/stage_1");
+        m_messageText = textParser.LoadText(m_sceneSetting.messageTextPath);
 	}
 	
 	// Update is called once per frame
@@ -58,8 +56,8 @@ public class GameMgr : MonoBehaviour {
             string str = "YellowButtonが押されました。";
             Debug.Log(str);
             m_windowMgr.Text = m_messageText[1];
+            m_fadeMgr.LoadLevel("Ito", 1);
         }
-
         
 	}
 }

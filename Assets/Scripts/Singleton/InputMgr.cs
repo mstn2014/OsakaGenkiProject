@@ -24,11 +24,8 @@ public class InputMgr: SingletonMonoBehaviourFast<InputMgr>
 		DontDestroyOnLoad(this);
 
 		// Fade 生成or見つける
-		go = GameObject.FindGameObjectWithTag("FadeMgr");
-		if (go == null) {
-            go = GameObject.Instantiate(Resources.Load("Singleton/FadeMgr")) as GameObject;
-		}
-		fade = go.GetComponent<FadeMgr>();
+        GlobalSetting gs = Resources.Load<GlobalSetting>("Setting/GlobalSetting");
+        fade = gs.FadeMgr;
 	}	
 
     //-----------XBOXコントローラキーコード--------------S

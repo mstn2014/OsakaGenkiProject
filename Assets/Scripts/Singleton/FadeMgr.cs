@@ -25,7 +25,7 @@ public class FadeMgr : SingletonMonoBehaviourFast<FadeMgr>
 		//ここで黒テクスチャ作る
 		this.blackTexture = new Texture2D(1,1);
 		this.blackTexture.ReadPixels(new Rect(0, 0, 32, 32), 0, 0, false);
-		this.blackTexture.SetPixel(0, 0, new Color(1, 1, 1, 1));
+		this.blackTexture.SetPixel(0, 0, new Color(0, 0, 0, 1));
 		this.blackTexture.Apply();
 
     }
