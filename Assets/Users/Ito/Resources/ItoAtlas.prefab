@@ -44,14 +44,14 @@ MonoBehaviour:
   - name: Window
     outer:
       serializedVersion: 2
-      x: 0
-      y: 632
+      x: 1267
+      y: 3704
       width: 256
       height: 256
     inner:
       serializedVersion: 2
-      x: 0
-      y: 632
+      x: 1267
+      y: 3704
       width: 256
       height: 256
     rotated: 0
@@ -62,14 +62,14 @@ MonoBehaviour:
   - name: MessageBack
     outer:
       serializedVersion: 2
-      x: 0
-      y: 889
+      x: 1267
+      y: 3961
       width: 542
       height: 135
     inner:
       serializedVersion: 2
-      x: 0
-      y: 889
+      x: 1267
+      y: 3961
       width: 542
       height: 135
     rotated: 0
@@ -77,6 +77,24 @@ MonoBehaviour:
     paddingRight: .00184501847
     paddingTop: .0814814791
     paddingBottom: .1037037
+  - name: guide
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 1724
+      width: 1266
+      height: 2372
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 1724
+      width: 1266
+      height: 2372
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   mCoordinates: 0
   mPixelSize: 1
   mReplacement: {fileID: 0}
