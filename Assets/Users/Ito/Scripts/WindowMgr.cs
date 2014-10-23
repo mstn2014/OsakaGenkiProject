@@ -3,8 +3,8 @@ using System.Collections;
 
 public class WindowMgr : MonoBehaviour {
 
-    WindowContller m_talkWindowContller;
-    MessageContller m_messageContller;
+    WindowController m_talkWindowContller;
+    MessageController m_messageContller;
 
     // set getアクセサ
     public string Text
@@ -16,9 +16,9 @@ public class WindowMgr : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         // ウィンドウコントローラーの呼び出し
-        m_talkWindowContller = this.GetComponent<WindowContller>();
+        m_talkWindowContller = this.GetComponentInChildren<WindowController>();
         // メッセージコントローラーの呼び出し
-        m_messageContller = this.GetComponent<MessageContller>();
+        m_messageContller = this.GetComponentInChildren<MessageController>();
 	}
 	
 	// Update is called once per frame

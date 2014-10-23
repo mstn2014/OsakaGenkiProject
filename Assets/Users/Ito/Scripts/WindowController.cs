@@ -1,20 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class WindowContller : MonoBehaviour
+[RequireComponent(typeof(TweenScale))]
+public class WindowController : MonoBehaviour
 {
-    InputMgr m_btnState;        // 入力インスタンス
-    GameObject m_windowObj;     // プレハブから生成した実体
     string className;           // エラーで現在のクラス名を返す
     TweenScale m_tweenScale;    // トゥウィーンの設定
     Vector3 m_tempScale;        // スケールを保存する
     bool m_isBig;               // 大きい状態か
     bool m_isSmall;             // 小さい状態か
     bool m_isToBig;             // 大きくする操作してるかどうか
-
-    // public
-    [Header("ウィンドウオブジェクト登録")]
-    public GameObject m_talkWindow;
 
     //set getプロパティ
     public bool IsBig
@@ -33,17 +28,17 @@ public class WindowContller : MonoBehaviour
         className = this.GetType().FullName;
 
         // TweenScaleの設定
-        if (m_talkWindow == null)
+        if (this == null)
         {
-            Debug.Log("ウィンドウプレハブが登録されていません！インスペクター上で設定してください。");
+            Debug.Log("ウィンドウプレハブが登録されていません！インスペクター上で設定してください。" + className);
         }
 
         // サイズの保存
-        m_tempScale = m_talkWindow.transform.localScale;
-        m_talkWindow.transform.localScale = new Vector3(0, 0, 1);
+        m_tempScale = this.transform.localScale;
+        this.transform.localScale = new Vector3(0, 0, 1);
 
         // tweenScaleの設定
-        m_tweenScale = m_talkWindow.GetComponent<TweenScale>();
+        m_tweenScale = this.GetComponent<TweenScale>();
         m_tweenScale.eventReceiver = this.gameObject;
         m_tweenScale.from = new Vector3(0, 0, 1);
         m_tweenScale.to = m_tempScale;

@@ -7,6 +7,7 @@ public class GameMgr : MonoBehaviour {
     InputMgr m_btnState;                    // 入力インスタンス
     FadeMgr m_fadeMgr;                      // フェード
     WindowMgr m_windowMgr;                  // ウィンドウマネージャー
+    GuideMgr m_guideMgr;                    // ガイド役のマネージャー
     List<string> m_messageText;             // メッセージデータ 
     public Stage1Setting m_sceneSetting;    // シーンの設定ファイル
 
@@ -19,6 +20,9 @@ public class GameMgr : MonoBehaviour {
 
         // ウィンドウクラスの呼び出し
         m_windowMgr = GameObject.Find("WindowMgr").GetComponent<WindowMgr>();
+
+        // ガイドを呼び出す
+        m_guideMgr = GameObject.Find("GuideMgr").GetComponent<GuideMgr>();
 
         // テキストを読み込んでおく
         ParseMessageText textParser = new ParseMessageText();
@@ -33,6 +37,7 @@ public class GameMgr : MonoBehaviour {
         {
             Debug.Log("RedButtonが押されました。");
             m_windowMgr.OpenWindow();
+            m_guideMgr.CallGuide();
         }
         
         // 2
@@ -40,6 +45,7 @@ public class GameMgr : MonoBehaviour {
         {
             Debug.Log("GreenButtonが押されました。");
             m_windowMgr.CloseWindow();
+            m_guideMgr.EndGuide();
         }
 
         // 3

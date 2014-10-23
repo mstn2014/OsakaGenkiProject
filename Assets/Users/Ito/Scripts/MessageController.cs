@@ -1,14 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MessageContller : MonoBehaviour {
+[RequireComponent(typeof(UILabel))]
+[RequireComponent(typeof(TypewriterEffect))]
+public class MessageController : MonoBehaviour {
 
     UILabel m_uiLabel;
     TypewriterEffect m_typeEffect;
     string m_text;      // 表示する文字
-
-    [Header("メッセージオブジェクト登録")]
-    public GameObject m_Message;
 
     //set getアクセサ
     public string Text
@@ -25,13 +24,13 @@ public class MessageContller : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        if (m_Message == null)
+        if (this == null)
         {
             Debug.Log("メッセージオブジェクトが登録されていません。");
         }
 
-        m_uiLabel = m_Message.GetComponent<UILabel>();
-        m_typeEffect = m_Message.GetComponent<TypewriterEffect>();
+        m_uiLabel = this.GetComponent<UILabel>();
+        m_typeEffect = this.GetComponent<TypewriterEffect>();
 
 	}
 	
@@ -49,11 +48,6 @@ public class MessageContller : MonoBehaviour {
     //======================================================
     public void Call()
     {
-        if (m_typeEffect == null)
-        {
-            m_Message.AddComponent<TypewriterEffect>();
-        }
-
         m_typeEffect.enabled = true;
         // 同時にtrueにすると一瞬文字が表示されるためにコルーチンでm_typeEffectがtrueになるのを待つ
         StartCoroutine(AddTypeEffect());
