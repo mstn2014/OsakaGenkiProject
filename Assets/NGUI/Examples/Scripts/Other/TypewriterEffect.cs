@@ -14,6 +14,12 @@ public class TypewriterEffect : MonoBehaviour
 	string mText;
 	int mOffset = 0;
 	float mNextChar = 0f;
+    bool mFinished = false;
+
+    public bool IsFinished
+    {
+        get { return mFinished; }
+    }
 
 	void Update ()
 	{
@@ -41,6 +47,14 @@ public class TypewriterEffect : MonoBehaviour
 				mLabel.text = mText.Substring(0, ++mOffset);
 			}
 		}
-		else Destroy(this);
+        else mFinished = true;
 	}
+
+    public void Reset()
+    {
+        mOffset = 0;
+        mNextChar = 0f;
+        mText = mLabel.text;
+        mFinished = false;
+    }
 }
