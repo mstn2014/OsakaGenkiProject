@@ -18,7 +18,6 @@ public class GameMain : MonoBehaviour {
 		GreenChar_clone = Resources.Load<GameObject> ("Kawamoto/GreenChar");
 		YerrowChar_clone = Resources.Load<GameObject> ("Kawamoto/YerrowChar");
 
-
 		// 最初のターゲットを選択
 		//CharMoveOrder ();
 		GameObject.Find("RedChar").SendMessage("OnGo");
@@ -29,13 +28,10 @@ public class GameMain : MonoBehaviour {
 
 	}
 
-	//public static void Model_House(GameObject obj){
-	//	}
-
 	// スポットライトに行くターゲットを選択
-	public static void CharMoveOrder(){
+	public void CharMoveOrder(){
 		// コード(1～4の乱数)
-		int Cord = Random.Range (1,4);
+		int Cord = Random.Range (1,5);
 
 		switch (Cord) {
 			case 1:
@@ -66,32 +62,40 @@ public class GameMain : MonoBehaviour {
 	// キャラをランダムで生成する
 	public void NewModelMake(){
 		// コード(1～4の乱数)
-		int Cord = Random.Range (1,4);
-		
+		int Cord = Random.Range (1,5);
+		int Lng = Random.Range (1,5);
+
 		switch (Cord) {
 			case 1:
-				Instantiate (RedChar_clone, new Vector3 (20, 0, 5), Quaternion.identity);	// 新たなモデルを生成
+			// 新たなモデルを生成
+				RedChar_clone = Instantiate (RedChar_clone, new Vector3 (20, 0, 5+Lng), Quaternion.identity) as GameObject;
 				break;
 				
 			case 2:
-				Instantiate (BlueChar_clone, new Vector3 (20, 0, 5), Quaternion.identity);	// 新たなモデルを生成
+			// 新たなモデルを生成
+				RedChar_clone = Instantiate (RedChar_clone, new Vector3 (20, 0, 5+Lng), Quaternion.identity) as GameObject;
+			//Instantiate (BlueChar_clone, new Vector3 (20, 0, 5+Lng), Quaternion.identity);	// 新たなモデルを生成
 				break;
 				
 			case 3:
-				Instantiate (GreenChar_clone, new Vector3 (20, 0, 5), Quaternion.identity);	// 新たなモデルを生成
+			// 新たなモデルを生成
+				RedChar_clone = Instantiate (RedChar_clone, new Vector3 (20, 0, 5+Lng), Quaternion.identity) as GameObject;
+			//Instantiate (GreenChar_clone, new Vector3 (20, 0, 5+Lng), Quaternion.identity);	// 新たなモデルを生成
 				break;
 				
 			case 4:
-				Instantiate (YerrowChar_clone, new Vector3 (20, 0, 5), Quaternion.identity);// 新たなモデルを生成
+			// 新たなモデルを生成
+				RedChar_clone = Instantiate (RedChar_clone, new Vector3 (20, 0, 5+Lng), Quaternion.identity) as GameObject;
+			//Instantiate (YerrowChar_clone, new Vector3 (20, 0, 5+Lng), Quaternion.identity);// 新たなモデルを生成
 				break;
 		}
 	}
 
 	//　削除開始
-	public static void ModelDelete(GameObject obj){ Destroy (obj.gameObject); }
+	public void ModelDelete(GameObject obj){ Destroy (obj.gameObject); }
 
 	// 削除と選定
-	public static void ModelDeleteOrder(GameObject obj){
+	public void ModelDeleteOrder(GameObject obj){
 		Destroy (obj.gameObject);
 		CharMoveOrder ();
 	}
