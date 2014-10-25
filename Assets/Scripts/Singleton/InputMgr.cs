@@ -13,6 +13,7 @@ public class InputMgr: SingletonMonoBehaviourFast<InputMgr>
 	public void Awake()
 	{
 		if(this != Instance)
+
 		{
 			Destroy(this);
 			return;
@@ -23,11 +24,8 @@ public class InputMgr: SingletonMonoBehaviourFast<InputMgr>
 		DontDestroyOnLoad(this);
 
 		// Fade 生成or見つける
-		go = GameObject.FindGameObjectWithTag("FadeMgr");
-		if (go == null) {
-            go = GameObject.Instantiate(Resources.Load("Singleton/FadeMgr")) as GameObject;
-		}
-		fade = go.GetComponent<FadeMgr>();
+        GlobalSetting gs = Resources.Load<GlobalSetting>("Setting/GlobalSetting");
+        fade = gs.FadeMgr;
 	}	
 
     //-----------XBOXコントローラキーコード--------------S
@@ -50,19 +48,19 @@ public class InputMgr: SingletonMonoBehaviourFast<InputMgr>
 
     public bool RedButtonPress{
         get{
-            return Input.GetKey(KeyCode.JoystickButton1) & !fade.IsFading() || Input.GetKey(KeyCode.Alpha1);
+            return (Input.GetKey(KeyCode.JoystickButton1) | Input.GetKey(KeyCode.Alpha1) ) & !fade.IsFading();
         }
     }
 
     public bool RedButtonTrigger{
         get{
-            return Input.GetKey(KeyCode.JoystickButton1) & !fade.IsFading() || Input.GetKey(KeyCode.Alpha1);
+            return (Input.GetKeyDown(KeyCode.JoystickButton1) | Input.GetKeyDown(KeyCode.Alpha1)) & !fade.IsFading();
         }
     }
 
     public bool RedButtonRelease{
         get{
-            return Input.GetKey(KeyCode.JoystickButton1) & !fade.IsFading() || Input.GetKey(KeyCode.Alpha1);
+            return (Input.GetKeyUp(KeyCode.JoystickButton1) | Input.GetKeyUp(KeyCode.Alpha1)) & !fade.IsFading();
         }
     }
 
@@ -74,21 +72,21 @@ public class InputMgr: SingletonMonoBehaviourFast<InputMgr>
     public bool GreenButtonPress
     {
         get{
-            return Input.GetKey(KeyCode.JoystickButton0) & !fade.IsFading() || Input.GetKey(KeyCode.Alpha2);
+            return (Input.GetKey(KeyCode.JoystickButton0) | Input.GetKey(KeyCode.Alpha2)) & !fade.IsFading();
         }
     }
 
     public bool GreenButtonTrigger
     {
         get{
-            return Input.GetKey(KeyCode.JoystickButton0) & !fade.IsFading() || Input.GetKey(KeyCode.Alpha2);
+            return (Input.GetKeyDown(KeyCode.JoystickButton0) | Input.GetKeyDown(KeyCode.Alpha2)) & !fade.IsFading();
         }
     }
 
     public bool GreenButtonRelease
     {
         get{
-            return Input.GetKey(KeyCode.JoystickButton0) & !fade.IsFading() || Input.GetKey(KeyCode.Alpha2);
+           return (Input.GetKeyUp(KeyCode.JoystickButton0) | Input.GetKeyUp(KeyCode.Alpha2)) & !fade.IsFading();
         }
     }
 
@@ -99,21 +97,21 @@ public class InputMgr: SingletonMonoBehaviourFast<InputMgr>
     public bool BlueButtonPress
     {
         get{
-            return Input.GetKey(KeyCode.JoystickButton2) & !fade.IsFading() || Input.GetKey(KeyCode.Alpha3);
+            return (Input.GetKey(KeyCode.JoystickButton2) | Input.GetKey(KeyCode.Alpha3)) & !fade.IsFading();
         }
     }
 
     public bool BlueButtonTrigger
     {
         get{
-            return Input.GetKey(KeyCode.JoystickButton2) & !fade.IsFading() || Input.GetKey(KeyCode.Alpha3);
+            return (Input.GetKeyDown(KeyCode.JoystickButton2) | Input.GetKeyDown(KeyCode.Alpha3)) & !fade.IsFading();
         }
     }
 
     public bool BlueButtonRelease
     {
         get{
-            return Input.GetKey(KeyCode.JoystickButton2) & !fade.IsFading() || Input.GetKey(KeyCode.Alpha3);
+            return (Input.GetKeyUp(KeyCode.JoystickButton2) | Input.GetKeyUp(KeyCode.Alpha3)) & !fade.IsFading();
         }
     }
 
@@ -124,21 +122,21 @@ public class InputMgr: SingletonMonoBehaviourFast<InputMgr>
     public bool YellowButtonPress
     {
         get{
-            return Input.GetKey(KeyCode.JoystickButton3) & !fade.IsFading() || Input.GetKey(KeyCode.Alpha4);
+            return (Input.GetKey(KeyCode.JoystickButton3) | Input.GetKey(KeyCode.Alpha4)) & !fade.IsFading();
         }
     }
 
     public bool YellowButtonTrigger
     {
         get{
-            return Input.GetKey(KeyCode.JoystickButton3) & !fade.IsFading() || Input.GetKey(KeyCode.Alpha4);
+            return (Input.GetKeyDown(KeyCode.JoystickButton3) | Input.GetKeyDown(KeyCode.Alpha4)) & !fade.IsFading();
         }
     }
 
     public bool YellowButtonRelease
     {
         get{
-            return Input.GetKey(KeyCode.JoystickButton3) & !fade.IsFading() || Input.GetKey(KeyCode.Alpha4);
+            return (Input.GetKeyUp(KeyCode.JoystickButton3) | Input.GetKeyUp(KeyCode.Alpha4)) & !fade.IsFading();
         }
     }
 

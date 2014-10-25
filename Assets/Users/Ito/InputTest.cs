@@ -4,7 +4,7 @@ using System.Collections;
 public class InputTest : MonoBehaviour {
 
     InputMgr m_btnState;
-
+    int cnt = 0;
 	// Use this for initialization
 	void Start () {
         // Fade 生成or見つける
@@ -24,7 +24,9 @@ public class InputTest : MonoBehaviour {
             return;
         }
 
-        if ( m_btnState.RedButtonPress )
-            Debug.Log("REDはいりまーす");
+        if (m_btnState.RedButtonTrigger)
+        {
+            Debug.Log("押した回数:" + (++cnt).ToString() );
+        }
 	}
 }
