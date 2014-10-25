@@ -154,7 +154,7 @@ Transform:
   m_GameObject: {fileID: 92863920}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .00625000009, y: .00625000009, z: .00625000009}
+  m_LocalScale: {x: .00444444455, y: .00444444455, z: .00444444455}
   m_Children:
   - {fileID: 809084153}
   m_Father: {fileID: 0}
@@ -320,7 +320,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 445c017fc286d2f468e4f8f482e34bb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_createTime: 30
 --- !u!1001 &497184450
 Prefab:
   m_ObjectHideFlags: 0
@@ -596,7 +595,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 996504819}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .903954744, y: -.903954804, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1903864878}
@@ -2124,17 +2123,17 @@ MonoBehaviour:
   widgetsAreStatic: 0
   cullWhileDragging: 0
   worldToLocal:
-    e00: 160
+    e00: 225
     e01: 0
     e02: 0
-    e03: -.903954744
+    e03: 0
     e10: 0
-    e11: 160
+    e11: 225
     e12: 0
-    e13: .903954804
+    e13: 0
     e20: 0
     e21: 0
-    e22: 160
+    e22: 225
     e23: 0
     e30: 0
     e31: 0
