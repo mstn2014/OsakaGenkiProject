@@ -22,10 +22,12 @@ public class Move : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		float radian = Mathf.PI/180*degree;
+		/*float radian = Mathf.PI/180*degree;
 		x = centerx+r*Mathf.Cos(radian);
 		y = centery+r*Mathf.Sin(radian) / 2;
-		degree += 5;
+		degree += 5;*/
+
+		x += 0.1f;
 
 		transform.position =  new Vector3(x, y, 0);
 	}
