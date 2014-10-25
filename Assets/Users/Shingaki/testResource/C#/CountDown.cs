@@ -36,7 +36,7 @@ public class CountDown : MonoBehaviour {
 		}
 	}
 
-	void ResetTimer(){
+	public void ResetTimer(){
 		m_timer = m_startTime;
 		m_paused = true;
 	}
