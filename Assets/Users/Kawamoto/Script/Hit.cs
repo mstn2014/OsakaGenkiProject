@@ -34,23 +34,5 @@ public class Hit : MonoBehaviour {
 				gamemain.ModelDeleteOrder(other.gameObject);// モデルの削除＆新しいターゲットの選定
 			}
 		}
-
-		if (other.gameObject.name == "BlueChar(Clone)" || other.gameObject.name == "BlueChar") {
-			if (input_bt.BlueButtonTrigger){ 
-				gamemain.ModelDeleteOrder(other.gameObject);// モデルの削除＆新しいターゲットの選定
-			}
-		}
-
-		if (other.gameObject.name == "GreenChar(Clone)" || other.gameObject.name == "GreenChar") {
-			if (input_bt.GreenButtonTrigger){ 
-				gamemain.ModelDeleteOrder(other.gameObject);// モデルの削除＆新しいターゲットの選定
-			}
-		}
-
-		if (other.gameObject.name == "YerrowChar(Clone)" || other.gameObject.name == "YerrowChar") {
-			if (input_bt.YellowButtonTrigger){ 
-				gamemain.ModelDeleteOrder(other.gameObject);// モデルの削除＆新しいターゲットの選定
-			}
-		}
 	}
 }
