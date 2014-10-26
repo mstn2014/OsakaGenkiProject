@@ -2,7 +2,7 @@
 // @brief:赤、青、黄色、緑のアイコンの動的生成を行う
 //------------------------------------------------------
 // @author:前田稚隼
-// @param:　なし
+// @param:　m_createTime 生成する時間（60で１秒に１回生成)
 // @return:　なし
 //======================================================
 
@@ -49,7 +49,7 @@ public class CreateIcon : MonoBehaviour {
 					break;
 			}
 
-			m_gameObject.transform.parent = GameObject.Find ("Panel").transform;
+			m_gameObject.transform.parent = GameObject.Find ("GameManager").transform;
 		}
 
 		if (Time.frameCount % 240 == 0) {
