@@ -26,12 +26,11 @@ public class Hit : MonoBehaviour {
 	
 	}
 
-
+	// ボタンを押したときの処理
 	private void OnTriggerStay(Collider other)
 	{
 		if (other.gameObject.name == "RedChar(Clone)" || other.gameObject.name == "RedChar") {
 			if (input_bt.RedButtonTrigger){ 
-				gamemain.NewModelMake();// モデルを生成
 				gamemain.ModelDeleteOrder(other.gameObject);// モデルの削除＆新しいターゲットの選定
 			}
 		}
