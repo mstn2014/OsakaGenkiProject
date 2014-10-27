@@ -551,6 +551,61 @@ MonoBehaviour:
   runOnlyOnce: 0
   relativeOffset: {x: 0, y: 0}
   pixelOffset: {x: 0, y: 0}
+--- !u!1 &1053762642
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1053762645}
+  - 50: {fileID: 1053762644}
+  - 58: {fileID: 1053762643}
+  m_Layer: 0
+  m_Name: Good
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!58 &1053762643
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1053762642}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Radius: .170000002
+  m_Center: {x: 0, y: 0}
+--- !u!50 &1053762644
+Rigidbody2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1053762642}
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: .0500000007
+  m_GravityScale: 0
+  m_FixedAngle: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+--- !u!4 &1053762645
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1053762642}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -.484795809, y: 126.67189, z: 0}
+  m_LocalScale: {x: 160, y: 160, z: 160}
+  m_Children: []
+  m_Father: {fileID: 1903864878}
+  m_RootOrder: 5
 --- !u!1001 &1326818375
 Prefab:
   m_ObjectHideFlags: 0
@@ -1717,9 +1772,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 1497440859}
   - 114: {fileID: 1497440860}
-  - 58: {fileID: 1497440861}
   - 50: {fileID: 1497440862}
   - 114: {fileID: 1497440863}
+  - 58: {fileID: 1497440861}
   m_Layer: 5
   m_Name: ring
   m_TagString: Untagged
@@ -1752,7 +1807,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mDepth: 3
+  mDepth: 4
   mAtlas: {fileID: 11400000, guid: 24e48d26a15299048a0386272873e7cd, type: 2}
   mSpriteName: ring
   mFillCenter: 1
@@ -1856,7 +1911,7 @@ GameObject:
   - 4: {fileID: 1822499546}
   - 114: {fileID: 1822499548}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: IconManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1917,6 +1972,7 @@ Transform:
   - {fileID: 810417038}
   - {fileID: 1497440859}
   - {fileID: 1822499546}
+  - {fileID: 1053762645}
   m_Father: {fileID: 996504820}
   m_RootOrder: 0
 --- !u!114 &1903864879

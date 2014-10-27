@@ -58,7 +58,7 @@ public class CreateIcon : MonoBehaviour {
 
 			nowTime = 0.0f;
 
-			m_gameObject.transform.parent = GameObject.Find ("GameManager").transform;
+			m_gameObject.transform.parent = GameObject.Find ("IconManager").transform;
 		}
 
 		if (nowTime >= aliveTime){
