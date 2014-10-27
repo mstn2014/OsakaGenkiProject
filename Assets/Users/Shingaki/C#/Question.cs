@@ -99,10 +99,19 @@ public class Question : MonoBehaviour {
 				for(int i=0; i<m_nowQuestionNum; i++){
 					HideButton(i);
 				}
+				/*
 				m_clear = true;
 				m_nowAns=0;
 				m_nowQuestionNum++;
 				m_create = false;
+				*/
+
+				// 毎回ランダムの場合
+				int workQuest = m_nowQuestionNum;
+				InitQuest();
+				m_clear = true;
+				m_nowQuestionNum = workQuest+1;
+
 			}
 			return true;
 		}else{
