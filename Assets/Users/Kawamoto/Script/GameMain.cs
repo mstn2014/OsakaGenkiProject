@@ -3,10 +3,12 @@ using System.Collections;
 
 public class GameMain : MonoBehaviour {
 
-	GameObject RedChar_clone;
-	GameObject BlueChar_clone;
-	GameObject GreenChar_clone;
-	GameObject YerrowChar_clone;
+	GameObject m_char;
+	GameObject[] m_obj = new GameObject[4];
+	Vector3[] pos = new Vector3[4];
+	Vector3[] sce = new Vector3[4];
+	
+	string[] material = { "red", "green", "blue", "yellow" };
 
 	// コンポーネント用
 	Char_sp	m_Char_sp;
@@ -17,17 +19,17 @@ public class GameMain : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
-			// クローンロード
-			RedChar_clone = Resources.Load<GameObject> ("Kawamoto/RedChar");
-			BlueChar_clone = Resources.Load<GameObject> ("Kawamoto/BlueChar");
-			GreenChar_clone = Resources.Load<GameObject> ("Kawamoto/GreenChar");
-			YerrowChar_clone = Resources.Load<GameObject> ("Kawamoto/YerrowChar");
-
-			// 最初のターゲットを選択
-			//CharMoveOrder ();
-			m_Char_sp = GameObject.Find ("RedChar").GetComponent<Char_sp> ();
-			m_Char_sp.SetFig = true;
+		// プレハブロード
+		m_char = Resources.Load<GameObject>("Kawamoto/Char");
+		// タグ付けしたオブジェクトをまとめて取得
+		m_obj = GameObject.FindGameObjectsWithTag("Player");
+		for (int i = 0; i < 4;i++ )
+		{
+			pos[i] = m_obj[i].transform.localPosition;
+			sce[i] = m_obj[i].transform.localScale;
+		}
+		// 最初のターゲットを選択
+		CharMoveOrder ();
 	}
 	
 	// Update is called once per frame
@@ -37,64 +39,23 @@ public class GameMain : MonoBehaviour {
 
 	// スポットライトに行くターゲットを選択
 	public void CharMoveOrder(){
-		// コード(1～4の乱数)
-		int Cord = Random.Range (min,max);
-
-		switch (Cord) {
-			case 1:
-				m_Char_sp = GameObject.Find("RedChar(Clone)").GetComponent<Char_sp>();
-				m_Char_sp.SetFig = true;
-				break;
-
-			case 2:
-				m_Char_sp = GameObject.Find("RedChar(Clone)").GetComponent<Char_sp>();
-				//m_Char_sp = GameObject.Find("BlueChar(Clone)").GetComponent<Char_sp>();
-				m_Char_sp.SetFig = true;
-				break;
-
-			case 3:
-				m_Char_sp = GameObject.Find("RedChar(Clone)").GetComponent<Char_sp>();
-				//m_Char_sp = GameObject.Find("GreenChar(Clone)").GetComponent<Char_sp>();
-				m_Char_sp.SetFig = true;
-				break;
-
-			case 4:
-				m_Char_sp = GameObject.Find("RedChar(Clone)").GetComponent<Char_sp>();
-				//m_Char_sp = GameObject.Find("YerrowChar(Clone)").GetComponent<Char_sp>();
-				m_Char_sp.SetFig = true;
-				break;
-		}
+		m_Char_sp = m_obj [Random.Range (0, 4)].GetComponent<Char_sp> ();
+		m_Char_sp.SetFig = true;
 	}
 
 	// キャラをランダムで生成する
 	public void NewModelMake(){
-		// コード(1～4の乱数)
-		int Cord = Random.Range (min,max);
-		int Lng = Random.Range (1,5);
-
-		switch (Cord) {
-			case 1:
-			// 新たなモデルを生成
-				RedChar_clone = Instantiate (RedChar_clone, new Vector3 (20, 0, 5+Lng), Quaternion.identity) as GameObject;
-				break;
-				
-			case 2:
-			// 新たなモデルを生成
-				RedChar_clone = Instantiate (RedChar_clone, new Vector3 (20, 0, 5+Lng), Quaternion.identity) as GameObject;
-				//BlueChar_clone = Instantiate (BlueChar_clone, new Vector3 (20, 0, 5+Lng), Quaternion.identity) as GameObject;
-				break;
-				
-			case 3:
-			// 新たなモデルを生成
-				RedChar_clone = Instantiate (RedChar_clone, new Vector3 (20, 0, 5+Lng), Quaternion.identity) as GameObject;
-				//GreenChar_clone = Instantiate (GreenChar_clone, new Vector3 (20, 0, 5+Lng), Quaternion.identity) as GameObject;
-				break;
-				
-			case 4:
-			// 新たなモデルを生成
-				RedChar_clone = Instantiate (RedChar_clone, new Vector3 (20, 0, 5+Lng), Quaternion.identity) as GameObject;
-				//YerrowChar_clone = Instantiate (YerrowChar_clone, new Vector3 (20, 0, 5+Lng), Quaternion.identity) as GameObject;
-				break;
+		for(int i = 0;i<4;i++)
+		{
+			if( m_obj[i] == null)
+			{
+				m_obj[i] = CreatePrefab.InstantiateGameObject(m_char,pos[i],Quaternion.identity,sce[i],GameObject.Find("CharMane"));
+				string m_cl = material[Random.Range (0, 4)];
+				if(m_cl == "blue") 		m_obj[i].renderer.material.color = Color.blue;
+				if(m_cl == "yellow") 	m_obj[i].renderer.material.color = Color.yellow;
+				if(m_cl == "green") 	m_obj[i].renderer.material.color = Color.green;
+				if(m_cl == "red") 		m_obj[i].renderer.material.color = Color.red;
+			}
 		}
 	}
 
@@ -102,12 +63,14 @@ public class GameMain : MonoBehaviour {
 	public void ModelDelete(GameObject obj){
 		Destroy (obj.gameObject); 
 		NewModelMake ();
+		//Invoke ("NewModelMake",0.5f);
 	}
 
 	// 削除と選定
 	public void ModelDeleteOrder(GameObject obj){
 		Destroy (obj.gameObject);
 		NewModelMake ();
+		//Invoke ("NewModelMake",0.5f);
 		CharMoveOrder ();
 	}
 }
