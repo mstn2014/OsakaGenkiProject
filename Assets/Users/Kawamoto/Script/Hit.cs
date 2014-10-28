@@ -26,12 +26,30 @@ public class Hit : MonoBehaviour {
 	
 	}
 
-
+	// ボタンを押したときの処理
 	private void OnTriggerStay(Collider other)
 	{
-		if (other.gameObject.name == "RedChar(Clone)" || other.gameObject.name == "RedChar") {
+		Debug.Log(other.gameObject.renderer.material.name);
+		if (other.gameObject.renderer.material.name == "Red (Instance)") {
 			if (input_bt.RedButtonTrigger){ 
-				gamemain.NewModelMake();// モデルを生成
+				gamemain.ModelDeleteOrder(other.gameObject);// モデルの削除＆新しいターゲットの選定
+			}
+		}
+
+		if (other.gameObject.renderer.material.name == "Green (Instance)") {
+			if (input_bt.GreenButtonTrigger){ 
+				gamemain.ModelDeleteOrder(other.gameObject);// モデルの削除＆新しいターゲットの選定
+			}
+		}
+
+		if (other.gameObject.renderer.material.name == "Blue (Instance)") {
+			if (input_bt.BlueButtonTrigger){ 
+				gamemain.ModelDeleteOrder(other.gameObject);// モデルの削除＆新しいターゲットの選定
+			}
+		}
+
+		if (other.gameObject.renderer.material.name == "Yerrow (Instance)") {
+			if (input_bt.YellowButtonTrigger){ 
 				gamemain.ModelDeleteOrder(other.gameObject);// モデルの削除＆新しいターゲットの選定
 			}
 		}
