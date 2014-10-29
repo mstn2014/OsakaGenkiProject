@@ -44,13 +44,13 @@ MonoBehaviour:
   - name: Window
     outer:
       serializedVersion: 2
-      x: 1267
+      x: 1781
       y: 3704
       width: 256
       height: 256
     inner:
       serializedVersion: 2
-      x: 1267
+      x: 1781
       y: 3704
       width: 256
       height: 256
@@ -90,6 +90,42 @@ MonoBehaviour:
       y: 1724
       width: 1266
       height: 2372
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: ArrowLeft
+    outer:
+      serializedVersion: 2
+      x: 1267
+      y: 3704
+      width: 256
+      height: 256
+    inner:
+      serializedVersion: 2
+      x: 1267
+      y: 3704
+      width: 256
+      height: 256
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: ArrowRight
+    outer:
+      serializedVersion: 2
+      x: 1524
+      y: 3704
+      width: 256
+      height: 256
+    inner:
+      serializedVersion: 2
+      x: 1524
+      y: 3704
+      width: 256
+      height: 256
     rotated: 0
     paddingLeft: 0
     paddingRight: 0
