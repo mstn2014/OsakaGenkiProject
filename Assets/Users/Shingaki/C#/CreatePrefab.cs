@@ -15,11 +15,11 @@ public class CreatePrefab : MonoBehaviour {
 	//======================================================
 	// @brief:(生成したいプレハブ・座標・角度・拡縮・親)を入れることができます.
 	//------------------------------------------------------
-	// @author:新垣.
-	// @param:引数名　clone:作りたいGameObject(public定義のあとInspectorでprefabを設定すること).
+	// @author:T.Shingaki
+	// @param:clone:作りたいGameObject(public定義のあとInspectorでprefabを設定すること).
 	//				 potion:座標		angle:角度	scale:拡縮		(オプション引数使いたい).
-	//				 parent:生成したい場所(親).
-	// @return:戻り値　生成したGameObject.
+	//				 parent:生成したい階層(親).
+	// @return:GameObject:生成したGameObject.
 	//======================================================
 	public static GameObject InstantiateGameObject
 		(GameObject clone, Vector3 position, Quaternion angle,
