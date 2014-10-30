@@ -1,17 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class GameMain : MonoBehaviour {
 
+	int MaxChar = 4;
 	GameObject m_char;
 	GameObject[] m_obj = new GameObject[4];
 	Vector3[] pos = new Vector3[4];
 	Vector3[] sce = new Vector3[4];
 	
-	string[] material = { "red", "green", "blue", "yellow" };
+	string[] material = { "red", "green", "blue", "yerrow" };
 
 	// コンポーネント用
 	Char_sp	m_Char_sp;
+
+	GameObject obj;
+
+	// リスト
+	List<GameObject> ObjList = new List<GameObject> ();
 
 	// 乱数範囲
 	int min = 1;
@@ -39,38 +46,66 @@ public class GameMain : MonoBehaviour {
 
 	// スポットライトに行くターゲットを選択
 	public void CharMoveOrder(){
-		m_Char_sp = m_obj [Random.Range (0, 4)].GetComponent<Char_sp> ();
-		m_Char_sp.SetFig = true;
+		int ren;
+		do {
+			ren = Random.Range (0, 4);
+		} while(m_obj [ren] == null);
+		//if (m_obj [ren] == null)	Debug.Log ("null");
+		obj = m_obj [ren];
+		m_obj [ren] = null;
+		NewModelMake ();
+		m_Char_sp = obj.GetComponent<Char_sp> ();
+		m_Char_sp.SetFig = 1;
 	}
 
 	// キャラをランダムで生成する
 	public void NewModelMake(){
-		for(int i = 0;i<4;i++)
+		for(int i = 0;i<MaxChar;i++)
 		{
 			if( m_obj[i] == null)
 			{
 				m_obj[i] = CreatePrefab.InstantiateGameObject(m_char,pos[i],Quaternion.identity,sce[i],GameObject.Find("CharMane"));
 				string m_cl = material[Random.Range (0, 4)];
-				if(m_cl == "blue") 		m_obj[i].renderer.material.color = Color.blue;
-				if(m_cl == "yellow") 	m_obj[i].renderer.material.color = Color.yellow;
-				if(m_cl == "green") 	m_obj[i].renderer.material.color = Color.green;
-				if(m_cl == "red") 		m_obj[i].renderer.material.color = Color.red;
+				if(m_cl == "blue"){
+					m_obj[i].renderer.material.color = Color.blue;
+					m_obj[i].renderer.material.name = "blue";
+				}
+
+				if(m_cl == "yerrow"){
+					m_obj[i].renderer.material.color = Color.yellow;
+					m_obj[i].renderer.material.name = "yerrow";
+				}
+
+				if(m_cl == "green"){
+					m_obj[i].renderer.material.color = Color.green;
+					m_obj[i].renderer.material.name = "green";
+				}
+
+				if(m_cl == "red"){
+					m_obj[i].renderer.material.color = Color.red;
+					m_obj[i].renderer.material.name = "red";
+				}
 			}
 		}
 	}
 
-	//　削除開始
-	public void ModelDelete(GameObject obj){
-		Destroy (obj.gameObject); 
+	//　削除と生成
+	public void ModelDelete_Make(GameObject obj){
+		Destroy (obj.gameObject);
 		NewModelMake ();
-		//Invoke ("NewModelMake",0.5f);
 	}
 
 	// 削除と選定
-	public void ModelDeleteOrder(GameObject obj){
+	public void DeleteMoveOrder(GameObject obj){
 		Destroy (obj.gameObject);
-		NewModelMake ();
-		//Invoke ("NewModelMake",0.5f);
 		CharMoveOrder ();
+	}
+
+	// リストにオブジェクトを格納
+	public void ObjInList(GameObject obj){
+		obj.GetComponent<Char_sp> ().enabled = false;	// 移動スクリプトを無効化
+		obj.AddComponent<GoParade> ();					// パレ―ドの後ろについてくるスクリプトを接続
+		ObjList.Add (obj);								// リストに格納
+		obj = null;
 	}
 }
