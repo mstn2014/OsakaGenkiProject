@@ -73,15 +73,15 @@ public class Question_ver2 : MonoBehaviour {
 			// m_box[i].button = 
 			if (Random.value < m_createWeight) {
 				// ToDo問題の生成
-				m_box[i].button = CreatePrefab.InstantiateGameObject(m_yellow,Vector3.one,Quaternion.identity,
-				                                                     new Vector3(100,100,1),m_panel);
+			//	m_box[i].button = CreatePrefab.InstantiateGameObject(m_yellow,Vector3.one,Quaternion.identity,	前田エラーが邪魔だったので
+				//	                                                     new Vector3(100,100,1),m_panel);			前田エラーが邪魔だったので
 				m_box[i].ans = 1;
 				
 				m_createWeight -= m_value;
 			}else{
 				// 緑生成.
-				m_box[i].button = CreatePrefab.InstantiateGameObject(m_green,Vector3.one,Quaternion.identity,
-				                                                     new Vector3(100,100,1),m_panel);
+				//	m_box[i].button = CreatePrefab.InstantiateGameObject(m_green,Vector3.one,Quaternion.identity,	前田エラーが邪魔だったので
+				//                                                     new Vector3(100,100,1),m_panel);	前田エラーが邪魔だったので
 				m_box[i].ans = 2;
 				m_createWeight += m_value;
 			}
