@@ -46,7 +46,11 @@ public class GameMain : MonoBehaviour {
 
 	// スポットライトに行くターゲットを選択
 	public void CharMoveOrder(){
-		int ren = Random.Range (0, 4);
+		int ren;
+		do {
+			ren = Random.Range (0, 4);
+		} while(m_obj [ren] == null);
+		//if (m_obj [ren] == null)	Debug.Log ("null");
 		obj = m_obj [ren];
 		m_obj [ren] = null;
 		NewModelMake ();
