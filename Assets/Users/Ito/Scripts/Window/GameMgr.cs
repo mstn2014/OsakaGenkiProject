@@ -62,7 +62,7 @@ public class GameMgr : MonoBehaviour {
             string str = "YellowButtonが押されました。";
             Debug.Log(str);
             m_windowMgr.Text = m_messageText[1];
-            m_fadeMgr.LoadLevel("Ito", 1);
+            m_fadeMgr.LoadLevel("WindowSample", 1);
         }
         
 	}
