@@ -1,31 +1,31 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Hit : MonoBehaviour {
+public class Hit_sub : MonoBehaviour {
 
 	//入力
 	InputMgr input_bt;
 	GameObject go;
-
+	
 	// コンポーネント用
-	GameMain 	gamemain;
-
+	GameMain_sub 	gamemain;
+	
 	// Use this for initialization
 	void Start () {
 		// 共通設定の呼び出し
 		GlobalSetting gs = Resources.Load<GlobalSetting>("Setting/GlobalSetting");
 		input_bt = gs.InputMgr;
-
+		
 		// コンポーネントをゲット
-		gamemain = GameObject.Find ("Pare").GetComponent<GameMain> ();
-
+		gamemain = GameObject.Find ("Pare").GetComponent<GameMain_sub> ();
+		
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+		
 	}
-
+	
 	// ボタンを押したときの処理
 	private void OnTriggerStay(Collider other)
 	{
@@ -37,7 +37,7 @@ public class Hit : MonoBehaviour {
 				gamemain.CharMoveOrder();// 新しいターゲットの選定
 			}
 		}
-
+		
 		if (other.gameObject.renderer.material.name == "Green (Instance)" ||
 		    other.gameObject.renderer.material.name == "green") {
 			if (input_bt.GreenButtonTrigger){ 
@@ -45,7 +45,7 @@ public class Hit : MonoBehaviour {
 				gamemain.CharMoveOrder();// 新しいターゲットの選定
 			}
 		}
-
+		
 		if (other.gameObject.renderer.material.name == "Blue (Instance)" ||
 		    other.gameObject.renderer.material.name == "blue") {
 			if (input_bt.BlueButtonTrigger){ 
@@ -53,7 +53,7 @@ public class Hit : MonoBehaviour {
 				gamemain.CharMoveOrder();// 新しいターゲットの選定
 			}
 		}
-
+		
 		if (other.gameObject.renderer.material.name == "Yerrow (Instance)" ||
 		    other.gameObject.renderer.material.name == "yerrow") {
 			if (input_bt.YellowButtonTrigger){ 
