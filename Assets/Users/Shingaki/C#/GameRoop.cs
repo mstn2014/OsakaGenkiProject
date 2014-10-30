@@ -4,12 +4,12 @@ using System.Collections;
 public class GameRoop : MonoBehaviour {
 
 	enum GameState{stop, ready, play, end};
-	private bool m_start;				// スタート確認
-	private GameState m_state;			// ゲームの状態
+	private bool m_start;				// スタート確認.
+	private GameState m_state;			// ゲームの状態.
 	private CountDown	m_timer;
-	private Question_ver2	m_quest;	// ToDo 今だけ_ver2ついてる
-	InputMgr m_btnState;                // 入力インスタンス
-	FadeMgr m_fadeMgr;                  // フェード
+	private Question_ver2	m_quest;	// ToDo 今だけ_ver2ついてる.
+	InputMgr m_btnState;                // 入力インスタンス.
+	FadeMgr m_fadeMgr;                  // フェード.
 
 	// Use this for initialization
 	IEnumerator Start () {
@@ -18,14 +18,14 @@ public class GameRoop : MonoBehaviour {
 		GameObject countDown = GameObject.Find("Timer");
 		m_timer = countDown.GetComponent<CountDown>();
 		m_quest = GetComponent<Question_ver2>();
-		// ToDo最大問題数の取得
+		// ToDo最大問題数の取得.
 
-		// 共通設定の呼び出し
+		// 共通設定の呼び出し.
 		GlobalSetting gs = Resources.Load<GlobalSetting>("Setting/GlobalSetting");
 		m_btnState = gs.InputMgr;
 		m_fadeMgr = gs.FadeMgr;
 
-		// ゲームループ
+		// ゲームループ.
 		while (true) {
 			// スタート.
 			if (m_start) {
@@ -53,12 +53,12 @@ public class GameRoop : MonoBehaviour {
 							m_state = GameState.end;
 						}
 					}
-					// クリアチェック
+					// クリアチェック.
 					if(m_quest.IsComplete || m_timer.IsPaused){
-						// コンプリートならゲーム終了
+						// コンプリートならゲーム終了.
 						m_state = GameState.end;
 					}else if(m_quest.IsClear){
-						// ステージクリアなら次のゲームへ
+						// ステージクリアなら次のゲームへ.
 						m_timer.ResetTimer();
 						m_state = GameState.ready;
 					}
@@ -66,7 +66,7 @@ public class GameRoop : MonoBehaviour {
 					break;
 				case GameState.end:
 					Debug.Log("終了");
-					// 各クラスの初期化
+					// 各クラスの初期化.
 					m_quest.InitQuest();
 					m_timer.ResetTimer();
 					m_start = false;
