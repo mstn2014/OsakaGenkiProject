@@ -5,11 +5,11 @@ public class GameRoop : MonoBehaviour {
 
 	enum GameState{stop, ready, play, end};
 	private bool m_start;				// スタート確認
-	private GameState m_state;		// ゲームの状態
+	private GameState m_state;			// ゲームの状態
 	private CountDown	m_timer;
-	private Question	m_quest;
-	InputMgr m_btnState;                    // 入力インスタンス
-	FadeMgr m_fadeMgr;                      // フェード
+	private Question_ver2	m_quest;	// ToDo 今だけ_ver2ついてる
+	InputMgr m_btnState;                // 入力インスタンス
+	FadeMgr m_fadeMgr;                  // フェード
 
 	// Use this for initialization
 	IEnumerator Start () {
@@ -17,7 +17,7 @@ public class GameRoop : MonoBehaviour {
 		m_state = GameState.stop;
 		GameObject countDown = GameObject.Find("Timer");
 		m_timer = countDown.GetComponent<CountDown>();
-		m_quest = GetComponent<Question>();
+		m_quest = GetComponent<Question_ver2>();
 		// ToDo最大問題数の取得
 
 		// 共通設定の呼び出し

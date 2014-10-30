@@ -11,17 +11,17 @@ public class Question : MonoBehaviour {
 	private const int m_minQuestionNum = 3;	// 表示されるボタンの最小の数.
 	private const int m_maxQuestionNum = 10;// 表示されるボタンの最大の数.
 	private int m_nowQuestionNum;		// 現在のボタン数.
-	private int m_nowAns;				// 今何ボタン目か
+	private int m_nowAns;				// 今何ボタン目か.
 	
 	private float m_createWeight; // 生成されるボタンの重み.
 	private const float m_value = 0.1f;	// m_createWeightの増減値.
-	private QuesBox[] m_box;			// 格納用配列
-	private bool m_create;				// 生成確認
-	private bool m_clear;				// ステージクリア確認
-	private bool m_complete;			// ゲームクリア確認
-	private GameObject m_panel;			// 生成されるボタンの親
-	public GameObject m_yellow;			// 黄ボタンのprefab(Inspectorより設定)
-	public GameObject m_green;			// 緑ボタンのprefab(Inspectorより設定)
+	private QuesBox[] m_box;			// 格納用配列.
+	private bool m_create;				// 生成確認.
+	private bool m_clear;				// ステージクリア確認.
+	private bool m_complete;			// ゲームクリア確認.
+	private GameObject m_panel;			// 生成されるボタンの親.
+	public GameObject m_yellow;			// 黄ボタンのprefab(Inspectorより設定).
+	public GameObject m_green;			// 緑ボタンのprefab(Inspectorより設定).
 
 	// get プロパティ.
 	public bool IsCreate{
@@ -39,7 +39,7 @@ public class Question : MonoBehaviour {
 		m_panel = GameObject.Find("Panel");
 		// 表示されるボタンの数だけ配列生成.
 		m_box = new QuesBox[m_maxQuestionNum];
-		InitQuest();			// 初期化
+		InitQuest();			// 初期化.
 	}
 	
 	// Update is called once per frame
@@ -71,7 +71,7 @@ public class Question : MonoBehaviour {
 				m_createWeight += m_value;
 			}
 			
-			// 生成後時間をおく
+			// 生成後時間をおく.
 			yield return new WaitForSeconds(1f);
 		}
 		yield return new WaitForSeconds(1f);
@@ -82,19 +82,19 @@ public class Question : MonoBehaviour {
 		m_clear = false;
 	}
 
-	// 答え合わせ
+	// 答え合わせ.
 	public bool CheckAns(int ans){
-		// 正解なら
+		// 正解なら.
 		if (ans == m_box [m_nowAns].ans) {
 			Debug.Log("正解");
 			DispButton(m_nowAns);
 			m_nowAns++;
 
-			// コンプリートなら
+			// コンプリートなら.
 			if(m_nowAns == m_maxQuestionNum){
 				m_complete = true;
 			}
-			// ステージクリアなら次のゲームへ
+			// ステージクリアなら次のゲームへ.
 			if(m_nowAns == m_nowQuestionNum){
 				for(int i=0; i<m_nowQuestionNum; i++){
 					HideButton(i);
