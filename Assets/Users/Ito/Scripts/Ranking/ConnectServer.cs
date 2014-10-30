@@ -8,7 +8,9 @@ using MiniJSON;
 // ランキングサーバーと通信するクラス
 //========================================================================
 public class ConnectServer : MonoBehaviour {
-    WWWClientManager cm;        // WWWラッパークラス
+    WWWClientManager cmGet;        // WWWラッパークラス
+    WWWClientManager cmPost;
+    bool m_isGet;               // ゲットが終わったかどうか
 
     public class RankingData    // ランキングデータを格納するクラス
     {
@@ -39,10 +41,18 @@ public class ConnectServer : MonoBehaviour {
         get { return m_data; }
     }
 
+    public bool IsGet
+    {
+        set { m_isGet = value; }
+        get { return m_isGet; }
+    }
+
 	// Use this for initialization
 	void Start () {
-        cm = new WWWClientManager(this);
+        cmGet = new WWWClientManager(this);
+        cmPost = new WWWClientManager(this);
         m_data = new List<RankingData>();
+        m_isGet = false;
 	}
 	
 	// Update is called once per frame
@@ -63,7 +73,7 @@ public class ConnectServer : MonoBehaviour {
         Dictionary<string, string> post = new Dictionary<string, string>();
         post.Add("name", name);
         post.Add("score", score.ToString());
-        cm.POST(m_rankSetteing.postURL, post, "ReceivePost");
+        cmPost.POST(m_rankSetteing.postURL, post, "ReceivePost");
     }
 
     void ReceivePost(WWW www)
@@ -81,7 +91,7 @@ public class ConnectServer : MonoBehaviour {
     //======================================================
     public void getRanking()
     {
-        cm.GET(m_rankSetteing.getURL, "ReceiveGet","ReceiveGetError");
+        cmGet.GET(m_rankSetteing.getURL, "ReceiveGet","ReceiveGetError");
     }
 
     void ReceiveGet(WWW www)
@@ -100,10 +110,12 @@ public class ConnectServer : MonoBehaviour {
 
             i++;
         }
+        m_isGet = true;
     }
 
     void ReceiveGetError()
     {
         Debug.Log("ランキングの取得に失敗しました。");
+        m_isGet = true;
     }
 }

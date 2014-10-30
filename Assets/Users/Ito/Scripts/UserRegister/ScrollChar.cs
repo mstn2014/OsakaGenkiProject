@@ -19,9 +19,14 @@ public class ScrollChar : MonoBehaviour {
     GameObject[] m_keyborad = new GameObject[dispCharNum];  // 各文字のプレハブ
 
     [Header("設定ファイル")]
-    public UserRegSetting m_userSetting;
+    [SerializeField]
+    UserRegSetting m_userSetting;
     [Header("名前を入力するオブジェクト")]
-    public GameObject m_inputName;
+    [SerializeField]
+    GameObject m_inputName;
+    [Header("セーブデータ")]
+    [SerializeField]
+    SaveData m_saveData;
 
 	
 	void Start () {
@@ -71,6 +76,7 @@ public class ScrollChar : MonoBehaviour {
             string str = m_inputName.GetComponentInChildren<UILabel>().text;
             if (m_triggerTime >= m_userSetting.returnTime && str.Length > 0)
             {
+                m_saveData.userName = str;
                 m_fadeMgr.LoadLevel("UserRegisterSample", 0.5f);
             }
         }
