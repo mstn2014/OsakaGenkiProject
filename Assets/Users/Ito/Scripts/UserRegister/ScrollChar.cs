@@ -1,33 +1,46 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+//======================================================
+// @brief:スクロールする文字を制御するクラス
+//------------------------------------------------------
+// @author:K.Ito
+// @param:none
+// @return:none
+//======================================================
 public class ScrollChar : MonoBehaviour {
 
-    const int dispCharNum = 7;
-
-    int index = 1;  // 現在の選ばれている文字
-    int tempIndex = 1;
-    InputMgr m_btnState;
-    CharState[] m_charState = new CharState[dispCharNum];
-    GameObject[] m_keyborad = new GameObject[dispCharNum];
+    const int dispCharNum = 7;      // 画面に表示する最大文字数
+    float m_triggerTime;            // 決定ボタンを押してからの時間
+    int index = 1;                  // 現在の選ばれている文字
+    InputMgr m_btnState;            // ボタン
+    FadeMgr m_fadeMgr;              // シーン遷移
+    CharState[] m_charState = new CharState[dispCharNum];   // 各文字を制御するスクリプト
+    GameObject[] m_keyborad = new GameObject[dispCharNum];  // 各文字のプレハブ
 
     [Header("設定ファイル")]
     public UserRegSetting m_userSetting;
+    [Header("名前を入力するオブジェクト")]
+    public GameObject m_inputName;
 
-	// Use this for initialization
+	
 	void Start () {
+        // 入力クラスの取得
         GlobalSetting gs = Resources.Load<GlobalSetting>("Setting/GlobalSetting");
         m_btnState = gs.InputMgr;
+        m_fadeMgr = gs.FadeMgr;
+        
+        // 設定ファイルから初期文字位置を取り出す
+        index = m_userSetting.initChar;
 
-        index = tempIndex = m_userSetting.initChar;
-
+        // 各文字を生成する
         for (int i = 0; i < dispCharNum; i++)
         {
             CreateChar(i,i);
         }
 	}
 	
-	// Update is called once per frame
+	
 	void Update () {
         // 右に動かす
         if (m_btnState.YellowButtonTrigger)
@@ -46,8 +59,58 @@ public class ScrollChar : MonoBehaviour {
                 cs.MoveRight();
             }
         }
+
+        // Redボタンで決定の有効をとる
+        if (m_btnState.RedButtonTrigger)
+        {
+            m_triggerTime = 0;
+        }
+        else if (m_btnState.RedButtonPress)
+        {
+            m_triggerTime += Time.deltaTime;
+            string str = m_inputName.GetComponentInChildren<UILabel>().text;
+            if (m_triggerTime >= m_userSetting.returnTime && str.Length > 0)
+            {
+                m_fadeMgr.LoadLevel("UserRegisterSample", 0.5f);
+            }
+        }
+
+        // Redボタンで文字入力
+        if (m_btnState.RedButtonRelease)
+        {
+            // ボタンを離すとリセット
+            m_triggerTime = 0;
+
+            foreach (CharState cs in m_charState)
+            {
+                if (cs.Pos == 3)
+                {
+                    if (m_inputName.GetComponentInChildren<UILabel>().text.Length < m_userSetting.nameLength)
+                    {
+                        m_inputName.GetComponentInChildren<UILabel>().text += cs.Text;
+                    }
+                }
+            } 
+        }
+
+        // Blueボタンで文字削除
+        if (m_btnState.BlueButtonTrigger)
+        {
+            string str = m_inputName.GetComponentInChildren<UILabel>().text;
+            if (str.Length > 0)
+            {
+                m_inputName.GetComponentInChildren<UILabel>().text = str.Substring(0, str.Length - 1);
+            }
+        }
 	}
 
+    //======================================================
+    // @brief:スクロールする文字を生成する
+    //------------------------------------------------------
+    // @author:K.Ito
+    // @param:none
+    // @return:none
+    //======================================================
     public void CreateChar(int arry,int param)
     {
         // 文字を生成
