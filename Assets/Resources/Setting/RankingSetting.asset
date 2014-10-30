@@ -13,3 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   postURL: http://mstn2014-osaka.herokuapp.com/users/regist
   getURL: http://mstn2014-osaka.herokuapp.com/users/score
+  firstHeight: 300
+  heightPitch: 10
+  rankXpos: -630
+  nameXpos: -430
+  scoreXpos: 0

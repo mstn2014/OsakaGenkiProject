@@ -22,6 +22,8 @@ public class RankingBoard : MonoBehaviour {
         m_server = GetComponent<ConnectServer>();
         m_server.getRanking();
 
+
+
         // ランキングオブジェクトからUILabelを取り出しておく
         foreach (GameObject go in m_rank)
         {
