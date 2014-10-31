@@ -45,7 +45,6 @@ public class DispLabel : MonoBehaviour
 		m_getDispLabel = m_buf.GetComponent<PushButtonTest>();
 
 		m_dispLabel = Instantiate(m_safeLabel,transform.position,transform.rotation) as GameObject; 
-
 		switch(m_getDispLabel.dispLabel)
 		{
 			case "safe":
@@ -56,7 +55,6 @@ public class DispLabel : MonoBehaviour
 				m_dispLabel = Instantiate(m_missLabel,transform.position,transform.rotation) as GameObject; 
 				break;
 		}
-
 		m_dispLabel.transform.parent = GameObject.Find ("DispLabel").transform;
 		m_nowTime = 0.0f;
 	}

@@ -66,7 +66,8 @@ public class PushButtonTest : MonoBehaviour {
 						{
 							m_redButtonCount++;
 							dispLabel = "safe";
-						}
+						}else
+							dispLabel = "miss";
 						break;
 
 					case "blue(Clone)":
@@ -75,7 +76,8 @@ public class PushButtonTest : MonoBehaviour {
 						{
 							m_blueButtonCount++;
 							dispLabel = "safe";
-						}
+						}else
+							dispLabel = "miss";
 						break;
 
 					case "green(Clone)":
@@ -84,7 +86,8 @@ public class PushButtonTest : MonoBehaviour {
 						{
 							m_greenButtonCount++;
 							dispLabel = "safe";
-						}
+						}else
+							dispLabel = "miss";
 						break;
 
 					case "yellow(Clone)":
@@ -93,7 +96,8 @@ public class PushButtonTest : MonoBehaviour {
 						{
 							m_yellowButtonCount++;
 							dispLabel = "safe";
-						}
+						}else
+							dispLabel = "miss";
 						break;
 
 				}
@@ -105,6 +109,7 @@ public class PushButtonTest : MonoBehaviour {
 
 	void OnTriggerEnter2D (Collider2D button)
 	{
+		dispLabel = "miss";
 		m_triggerFlg = true;
 		m_bufName = button.name;
 	}
