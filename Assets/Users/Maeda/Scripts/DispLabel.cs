@@ -1,4 +1,4 @@
-﻿//======================================================
+//======================================================
 // @brief:Miss,Safe,Good,Perfectのラベルを表示する
 //------------------------------------------------------
 // @author:前田稚隼
@@ -19,6 +19,7 @@ public class DispLabel : MonoBehaviour
 	public  float	   m_dispTime = 0.3f;	//	表示する時間.
 	private float	   m_nowTime;			//  時間.
 	PushButtonTest 	   m_getDispLabel;		//	表示するラベル（判定結果).
+	private GameObject m_buf;
 
 	// Use this for initialization
 	void Start () {
@@ -40,9 +41,9 @@ public class DispLabel : MonoBehaviour
 	void OnTriggerEnter2D (Collider2D button)
 	{
 		//	判定結果をもらう
-		m_getDispLabel = GetComponent<PushButtonTest>();
+		m_buf = GameObject.Find ("ring");
+		m_getDispLabel = m_buf.GetComponent<PushButtonTest>();
 
-	//	m_getDispLabel.dispLabel = "safe";
 		m_dispLabel = Instantiate(m_safeLabel,transform.position,transform.rotation) as GameObject; 
 
 		switch(m_getDispLabel.dispLabel)
@@ -58,25 +59,5 @@ public class DispLabel : MonoBehaviour
 
 		m_dispLabel.transform.parent = GameObject.Find ("DispLabel").transform;
 		m_nowTime = 0.0f;
-	}
-
-	public void DispDecisionLabel	()
-	{
-	/*	m_getDispLabel = GetComponent<PushButtonTest>();
-
-		switch(m_getDispLabel.dispLabel)
-		{
-			case "miss":
-				m_dispLabel = Instantiate(m_missLabel,transform.position,transform.rotation) as GameObject; 
-				break;
-
-			case "safe":
-				m_dispLabel = Instantiate(m_safeLabel,transform.position,transform.rotation) as GameObject; 
-				break;
-		}
-
-		m_dispLabel.transform.parent = GameObject.Find ("DispLabel").transform;
-		m_nowTime = 0.0f;
-	*/
 	}
 }

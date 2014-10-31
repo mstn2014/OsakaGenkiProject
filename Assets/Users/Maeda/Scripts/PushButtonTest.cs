@@ -44,15 +44,13 @@ public class PushButtonTest : MonoBehaviour {
 		m_blueButtonCount = 0;	//	青ボタンを押した回数.
 		m_yellowButtonCount = 0;//	黄色ボタンを押した回数.
 		m_greenButtonCount = 0;	//	緑ボタンを押した回数.
+
+		dispLabel = "miss";
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
-		disp = GetComponent<DispLabel>();
-
-		dispLabel = "miss";
-
 		//	ボタンが押されたか.
 		if (true == m_btnState.AnyButtonTrigger()) 
 		{
@@ -68,26 +66,34 @@ public class PushButtonTest : MonoBehaviour {
 						{
 							m_redButtonCount++;
 							dispLabel = "safe";
-							//disp.DispDecisionLabel();
 						}
 						break;
 
 					case "blue(Clone)":
 						//Debug.Log("青いボタンが流れてきました");
 						if(m_btnState.BlueButtonPress == true)
+						{
 							m_blueButtonCount++;
+							dispLabel = "safe";
+						}
 						break;
 
 					case "green(Clone)":
 						//Debug.Log("緑色ボタンが流れてきました");
 						if(m_btnState.GreenButtonPress == true)
+						{
 							m_greenButtonCount++;
+							dispLabel = "safe";
+						}
 						break;
 
 					case "yellow(Clone)":
 						//Debug.Log("黄色いボタンが流れてきました");
 						if(m_btnState.YellowButtonPress == true)
+						{
 							m_yellowButtonCount++;
+							dispLabel = "safe";
+						}
 						break;
 
 				}
@@ -95,7 +101,6 @@ public class PushButtonTest : MonoBehaviour {
 			}
 			m_triggerFlg=false;
 		}
-		//disp.DispDecisionLabel ();
 	}
 
 	void OnTriggerEnter2D (Collider2D button)
