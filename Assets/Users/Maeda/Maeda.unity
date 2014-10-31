@@ -175,9 +175,9 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: .300000012
-  far clip plane: 1010
-  field of view: 60
+  near clip plane: 1.41999996
+  far clip plane: 3
+  field of view: 48
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -198,7 +198,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 157962651}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -719.799622}
+  m_LocalPosition: {x: 0, y: 0, z: -2.17000008}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -274,7 +274,7 @@ Transform:
   m_LocalScale: {x: 60, y: 60, z: 0}
   m_Children: []
   m_Father: {fileID: 1903864878}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!114 &614685410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -464,7 +464,7 @@ Transform:
   m_LocalScale: {x: 3, y: 3, z: 0}
   m_Children: []
   m_Father: {fileID: 1903864878}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!114 &866010578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -487,6 +487,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07e404d1c3834404f88c6af9689f6dd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_dispLabel: {fileID: 0}
   m_dispTime: .300000012
 --- !u!58 &866010580
 CircleCollider2D:
@@ -730,7 +731,7 @@ Transform:
   - {fileID: 908549613}
   - {fileID: 1852468818}
   m_Father: {fileID: 1903864878}
-  m_RootOrder: 5
+  m_RootOrder: 4
 --- !u!1001 &1150254574
 Prefab:
   m_ObjectHideFlags: 0
@@ -839,12 +840,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_pressKeyCount: 0
-  m_redButtonCount: 0
-  m_blueButtonCount: 0
-  m_yellowButtonCount: 0
-  m_greenButtonCount: 0
   m_triggerFlg: 0
-  dispLabel: 
+  m_bufName: 
+  m_sendMessage: 
 --- !u!58 &1497440862
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -938,11 +936,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1822499545}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 9, z: 0}
+  m_LocalPosition: {x: 0, y: 8.99999905, z: 0}
   m_LocalScale: {x: 160, y: 160, z: 160}
   m_Children: []
   m_Father: {fileID: 1903864878}
-  m_RootOrder: 2
+  m_RootOrder: 6
 --- !u!114 &1822499548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -981,7 +979,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1903864878}
-  m_RootOrder: 6
+  m_RootOrder: 5
 --- !u!1 &1852468817
 GameObject:
   m_ObjectHideFlags: 0
@@ -1104,11 +1102,11 @@ Transform:
   m_Children:
   - {fileID: 810417038}
   - {fileID: 1497440859}
-  - {fileID: 1822499546}
   - {fileID: 614685409}
   - {fileID: 866010577}
   - {fileID: 1025104053}
   - {fileID: 1829233120}
+  - {fileID: 1822499546}
   m_Father: {fileID: 996504820}
   m_RootOrder: 0
 --- !u!114 &1903864879

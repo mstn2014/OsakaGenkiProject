@@ -19,17 +19,13 @@ public class PushButtonTest : MonoBehaviour {
 
 	//	カウント関連
 	public	int	m_pressKeyCount;	//	ボタンを押した回数.
-	public	int	m_redButtonCount;	//	赤ボタンを押した回数.
-	public	int	m_blueButtonCount;	//	青ボタンを押した回数.
-	public	int	m_yellowButtonCount;//	黄色ボタンを押した回数.
-	public	int	m_greenButtonCount;	//	緑ボタンを押した回数.
 
 	//	判定関連
 	public  bool m_triggerFlg;		//	何かに当たっているかのフラグ.
-	private string m_bufName;		//	当たっているオブジェの名前格納用.
+	public  string m_bufName;		//	当たっているオブジェの名前格納用.
 
-	//	ラベル表示（判定結果）関連
-	public	string dispLabel;		//	表示するラベル.
+	//	判定結果関連
+	public	string m_sendMessage;	//	判定結果（miss,sefeなど).
 	DispLabel disp;
 
 	// Use this for initialization
@@ -40,12 +36,8 @@ public class PushButtonTest : MonoBehaviour {
 
 		m_triggerFlg = false;
 		m_pressKeyCount = 0;
-		m_redButtonCount = 0;	//	赤ボタンを押した回数.
-		m_blueButtonCount = 0;	//	青ボタンを押した回数.
-		m_yellowButtonCount = 0;//	黄ボタンを押した回数.
-		m_greenButtonCount = 0;	//	緑ボタンを押した回数.
 
-		dispLabel = "miss";
+		m_sendMessage = "miss";
 	}
 	
 	// Update is called once per frame
@@ -63,53 +55,47 @@ public class PushButtonTest : MonoBehaviour {
 					case "red(Clone)":
 						//Debug.Log("赤いボタンが流れてきました");
 						if(m_btnState.RedButtonTrigger == true)
-						{
-							m_redButtonCount++;
-							dispLabel = "safe";
-						}else
-							dispLabel = "miss";
+							m_sendMessage = "safe";
+						else
+							m_sendMessage = "miss";
 						break;
 
 					case "blue(Clone)":
 						//Debug.Log("青いボタンが流れてきました");
 						if(m_btnState.BlueButtonPress == true)
-						{
-							m_blueButtonCount++;
-							dispLabel = "safe";
-						}else
-							dispLabel = "miss";
+							m_sendMessage = "safe";
+						else
+							m_sendMessage = "miss";
 						break;
 
 					case "green(Clone)":
 						//Debug.Log("緑色ボタンが流れてきました");
 						if(m_btnState.GreenButtonPress == true)
-						{
-							m_greenButtonCount++;
-							dispLabel = "safe";
-						}else
-							dispLabel = "miss";
+							m_sendMessage = "safe";
+						else
+							m_sendMessage = "miss";
 						break;
 
 					case "yellow(Clone)":
 						//Debug.Log("黄色いボタンが流れてきました");
 						if(m_btnState.YellowButtonPress == true)
-						{
-							m_yellowButtonCount++;
-							dispLabel = "safe";
-						}else
-							dispLabel = "miss";
+							m_sendMessage = "safe";
+						else
+							m_sendMessage = "miss";
 						break;
 
 				}
+				//Debug.Log("PushButtonTest");
 				//	タイミングは合っているか.
+				m_triggerFlg=false;
 			}
-			m_triggerFlg=false;
+			//Debug.Log(m_sendMessage+1);
 		}
 	}
 
 	void OnTriggerEnter2D (Collider2D button)
 	{
-		dispLabel = "miss";
+		m_sendMessage = "miss";
 		m_triggerFlg = true;
 		m_bufName = button.name;
 	}

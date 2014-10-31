@@ -35,7 +35,6 @@ public class CreateButton : MonoBehaviour {
 
 		nowTime += Time.deltaTime;
 
-
 		if ( nowTime >= m_createTime)
 		{
 			//m_gameObject = Instantiate(m_redGameObject,transform.position,transform.rotation)  as GameObject; 
