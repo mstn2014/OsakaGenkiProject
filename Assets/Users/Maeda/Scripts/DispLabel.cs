@@ -17,12 +17,13 @@ public class DispLabel : MonoBehaviour
 	private GameObject m_safeLabel;			//	"Safe!!"と書かれたラベル.
 	private GameObject m_dispLabel;			//	表示するラベル.
 	public  float	   m_dispTime = 0.3f;	//	表示する時間.
-	private float	   m_nowTime;			//  時間.
+	private float	   m_nowTime;			//  経過時間.
 	PushButtonTest 	   m_getDispLabel;		//	表示するラベル（判定結果).
 	private GameObject m_buf;
 
 	// Use this for initialization
 	void Start () {
+		m_buf = GameObject.Find ("ring");
 		m_missLabel = Resources.Load<GameObject>("LabelMiss");  
 		m_safeLabel = Resources.Load<GameObject>("LabelSafe");  
 		m_nowTime = 0.0f;
@@ -40,11 +41,9 @@ public class DispLabel : MonoBehaviour
 	
 	void OnTriggerEnter2D (Collider2D button)
 	{
-		//	判定結果をもらう
-		m_buf = GameObject.Find ("ring");
+		//	判定結果をもらう.
 		m_getDispLabel = m_buf.GetComponent<PushButtonTest>();
 
-		m_dispLabel = Instantiate(m_safeLabel,transform.position,transform.rotation) as GameObject; 
 		switch(m_getDispLabel.dispLabel)
 		{
 			case "safe":
