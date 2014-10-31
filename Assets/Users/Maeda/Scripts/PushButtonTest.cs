@@ -42,7 +42,7 @@ public class PushButtonTest : MonoBehaviour {
 		m_pressKeyCount = 0;
 		m_redButtonCount = 0;	//	赤ボタンを押した回数.
 		m_blueButtonCount = 0;	//	青ボタンを押した回数.
-		m_yellowButtonCount = 0;//	黄色ボタンを押した回数.
+		m_yellowButtonCount = 0;//	黄ボタンを押した回数.
 		m_greenButtonCount = 0;	//	緑ボタンを押した回数.
 
 		dispLabel = "miss";

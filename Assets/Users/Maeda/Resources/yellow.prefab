@@ -11,6 +11,7 @@ GameObject:
   - 114: {fileID: 11400002}
   - 58: {fileID: 5800000}
   - 50: {fileID: 5000000}
+  - 114: {fileID: 11400000}
   m_Layer: 5
   m_Name: yellow
   m_TagString: Untagged
@@ -56,6 +57,18 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_Radius: .5
   m_Center: {x: 0, y: 0}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c021c2e262e961349a2c455379f766f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_upSpeed: {x: 0, y: .0500000007, z: 0}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
