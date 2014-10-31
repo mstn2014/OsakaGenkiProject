@@ -10,66 +10,73 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class DispLabel : MonoBehaviour {
-
-	//	共通関連
-	FadeMgr m_fadeMgr;                      // フェード
-	InputMgr m_btnState; 					// 入力インスタンス
-	private GameObject   m_dispLabel;		// 表示するラベル
-	public  Game2Setting m_sceneSetting;    // シーンの設定ファイル
-
+public class DispLabel : MonoBehaviour
+{
 	//	ラベル関連
-	private GameObject m_safeLabel;			//	"Safe!!"と書かれたラベル
-	private bool	   m_dispFlg;			//	表示フラグ
-	public  float	   m_dispTime = 3.0f;	//	表示する時間
-	private float	   m_nowTime;			//  時間
-
-	//	判定関連
-	private GameObject m_button;	//	当たり判定を行うボタン
-
+	private GameObject m_missLabel;			//	"Miss!!"と書かれたラベル.
+	private GameObject m_safeLabel;			//	"Safe!!"と書かれたラベル.
+	private GameObject m_dispLabel;			//	表示するラベル.
+	public  float	   m_dispTime = 0.3f;	//	表示する時間.
+	private float	   m_nowTime;			//  時間.
+	PushButtonTest 	   m_getDispLabel;		//	表示するラベル（判定結果).
 
 	// Use this for initialization
 	void Start () {
-
-		// 共通設定の呼び出し
-		GlobalSetting gs = Resources.Load<GlobalSetting>("Setting/GlobalSetting");
-		m_btnState = gs.InputMgr;
-		m_fadeMgr = gs.FadeMgr;
-
-		//	ラベル関連
+		m_missLabel = Resources.Load<GameObject>("LabelMiss");  
 		m_safeLabel = Resources.Load<GameObject>("LabelSafe");  
-		m_dispFlg = false;
 		m_nowTime = 0.0f;
-
-		//	判定関連
-		//Button = GameObject.Find("TargetEnemy");
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
 		m_nowTime += Time.deltaTime;
-
+		
 		if (m_nowTime >= m_dispTime)
-				Destroy (m_dispLabel);
-
-		//if (m_btnState.RedButtonTrigger)
-			//Debug.Log("RedButtonが押されました。");
+			Destroy (m_dispLabel);
 	}
 	
-
+	
 	void OnTriggerEnter2D (Collider2D button)
 	{
-	
-		if (m_btnState.RedButtonTrigger)
+		//	判定結果をもらう
+		m_getDispLabel = GetComponent<PushButtonTest>();
+
+	//	m_getDispLabel.dispLabel = "safe";
+		m_dispLabel = Instantiate(m_safeLabel,transform.position,transform.rotation) as GameObject; 
+
+		switch(m_getDispLabel.dispLabel)
 		{
-			if(button.gameObject == Resources.Load<GameObject>("red") )
-			{
+			case "safe":
 				m_dispLabel = Instantiate(m_safeLabel,transform.position,transform.rotation) as GameObject; 
-				m_dispLabel.transform.parent = GameObject.Find ("DispMiss").transform;
-				m_nowTime = 0.0f;
-				Debug.Log("RedButtonが押されました。");
-			}
+				break;
+
+			case "miss":
+				m_dispLabel = Instantiate(m_missLabel,transform.position,transform.rotation) as GameObject; 
+				break;
 		}
+
+		m_dispLabel.transform.parent = GameObject.Find ("DispLabel").transform;
+		m_nowTime = 0.0f;
+	}
+
+	public void DispDecisionLabel	()
+	{
+	/*	m_getDispLabel = GetComponent<PushButtonTest>();
+
+		switch(m_getDispLabel.dispLabel)
+		{
+			case "miss":
+				m_dispLabel = Instantiate(m_missLabel,transform.position,transform.rotation) as GameObject; 
+				break;
+
+			case "safe":
+				m_dispLabel = Instantiate(m_safeLabel,transform.position,transform.rotation) as GameObject; 
+				break;
+		}
+
+		m_dispLabel.transform.parent = GameObject.Find ("DispLabel").transform;
+		m_nowTime = 0.0f;
+	*/
 	}
 }

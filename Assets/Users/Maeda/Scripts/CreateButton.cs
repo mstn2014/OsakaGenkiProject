@@ -38,8 +38,8 @@ public class CreateButton : MonoBehaviour {
 
 		if ( nowTime >= m_createTime)
 		{
-			m_gameObject = Instantiate(m_redGameObject,transform.position,transform.rotation)  as GameObject; 
-			/*switch(Random.Range(0, 4))
+			//m_gameObject = Instantiate(m_redGameObject,transform.position,transform.rotation)  as GameObject; 
+			switch(Random.Range(0, 4))
 			{
 				case 0:
 					m_gameObject = Instantiate(m_blueGameObject,transform.position,transform.rotation) as GameObject; 
@@ -56,7 +56,7 @@ public class CreateButton : MonoBehaviour {
 				case 3: 
 					m_gameObject = Instantiate(m_yellowGameObject,transform.position,transform.rotation)  as GameObject; 
 					break;
-			}*/
+			}
 
 			nowTime = 0.0f;
 

@@ -12,17 +12,25 @@ using System.Collections.Generic;
 
 public class PushButtonTest : MonoBehaviour {
 
+	//	共通設定
 	FadeMgr m_fadeMgr;              // フェード.
 	InputMgr m_btnState; 			// 入力インスタンス.
-	private GameObject m_button;	//	当たり判定を行うボタン.
+	//private GameObject m_button;	//	当たり判定を行うボタン.
+
+	//	カウント関連
 	public	int	m_pressKeyCount;	//	ボタンを押した回数.
+	public	int	m_redButtonCount;	//	赤ボタンを押した回数.
+	public	int	m_blueButtonCount;	//	青ボタンを押した回数.
+	public	int	m_yellowButtonCount;//	黄色ボタンを押した回数.
+	public	int	m_greenButtonCount;	//	緑ボタンを押した回数.
+
+	//	判定関連
 	public  bool m_triggerFlg;		//	何かに当たっているかのフラグ.
-	private GameObject m_redGameObject;		//	赤いボタン.
-	private GameObject m_blueGameObject;	//	青いボタン.
-	private GameObject m_greenGameObject;	//	緑のボタン.
-	private GameObject m_yellowGameObject;	//	黄色のボタン.
-	private GameObject m_buttonBuf;			//	ボタンのバッファ.
-	private string m_bufName;
+	private string m_bufName;		//	当たっているオブジェの名前格納用.
+
+	//	ラベル表示（判定結果）関連
+	public	string dispLabel;		//	表示するラベル.
+	DispLabel disp;
 
 	// Use this for initialization
 	void Start () {
@@ -30,33 +38,64 @@ public class PushButtonTest : MonoBehaviour {
 		GlobalSetting gs = Resources.Load<GlobalSetting>("Setting/GlobalSetting");
 		m_btnState = gs.InputMgr;
 
-		//	ボタン情報代入.
-		m_blueGameObject = Resources.Load<GameObject>("blue");  
-		m_redGameObject = Resources.Load<GameObject>("red");  
-		m_greenGameObject = Resources.Load<GameObject>("green");  
-		m_yellowGameObject = Resources.Load<GameObject>("yellow"); 
-
 		m_triggerFlg = false;
 		m_pressKeyCount = 0;
+		m_redButtonCount = 0;	//	赤ボタンを押した回数.
+		m_blueButtonCount = 0;	//	青ボタンを押した回数.
+		m_yellowButtonCount = 0;//	黄色ボタンを押した回数.
+		m_greenButtonCount = 0;	//	緑ボタンを押した回数.
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+	{
+		disp = GetComponent<DispLabel>();
+
+		dispLabel = "miss";
+
 		//	ボタンが押されたか.
 		if (true == m_btnState.AnyButtonTrigger()) 
 		{
 			m_pressKeyCount++;	//	ボタン押下回数+1.
 			if(m_triggerFlg == true)	//	何かに当たっているか.
 			{
-				//if(true == Collision2D.Equals (m_redGameObject,m_buttonBuf))  //	同じ色か.
-				if("red(Clone)" == m_bufName)
-						Debug.Log("赤いボタンです");
-		
-				//	違う色ならMiss.
+				//	同じ色か判定（違う色ならMiss）.
+				switch(m_bufName)
+				{
+					case "red(Clone)":
+						//Debug.Log("赤いボタンが流れてきました");
+						if(m_btnState.RedButtonTrigger == true)
+						{
+							m_redButtonCount++;
+							dispLabel = "safe";
+							//disp.DispDecisionLabel();
+						}
+						break;
+
+					case "blue(Clone)":
+						//Debug.Log("青いボタンが流れてきました");
+						if(m_btnState.BlueButtonPress == true)
+							m_blueButtonCount++;
+						break;
+
+					case "green(Clone)":
+						//Debug.Log("緑色ボタンが流れてきました");
+						if(m_btnState.GreenButtonPress == true)
+							m_greenButtonCount++;
+						break;
+
+					case "yellow(Clone)":
+						//Debug.Log("黄色いボタンが流れてきました");
+						if(m_btnState.YellowButtonPress == true)
+							m_yellowButtonCount++;
+						break;
+
+				}
 				//	タイミングは合っているか.
-				m_triggerFlg=false;
 			}
+			m_triggerFlg=false;
 		}
+		//disp.DispDecisionLabel ();
 	}
 
 	void OnTriggerEnter2D (Collider2D button)
