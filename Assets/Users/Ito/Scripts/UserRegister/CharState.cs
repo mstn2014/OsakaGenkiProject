@@ -18,8 +18,14 @@ public class CharState : MonoBehaviour {
     [Header("設定ファイル")]
     public UserRegSetting m_userSetting;
 
+    public string Text
+    {
+        get { return m_text.text; }
+    }
+
     public int Pos
     {
+        get { return m_pos; }
         set { m_pos = value; }
     }
 

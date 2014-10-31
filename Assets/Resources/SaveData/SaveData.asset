@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d403812dc18715478684f0b97a419ab, type: 3}
+  m_Name: SaveData
+  m_EditorClassIdentifier: 
+  userName: "\u304F\u3046"
+  userScore: 1000
+  userRank: 23

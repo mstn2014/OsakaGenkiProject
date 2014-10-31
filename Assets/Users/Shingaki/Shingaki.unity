@@ -304,11 +304,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 666063831}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a796b33c0e04f0448902461cc6d89e5d, type: 3}
+  m_Script: {fileID: 11500000, guid: 61283dbb0347d154dbbe8dbfb6c11845, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_yellow: {fileID: 100000, guid: e53e02385b8364c46ac933daf2b52776, type: 2}
-  m_green: {fileID: 100000, guid: 29144ff384149f2458a49c38e19154fd, type: 2}
+  m_interval: 50
+  m_QuestPanel: {fileID: 100000, guid: 7c92d035c0f82664d8a51ad1a97a401c, type: 2}
+  m_Quest: {fileID: 100004, guid: 48ac11227d8d3d34e9bb886cd1db44e6, type: 2}
 --- !u!1 &786277488
 GameObject:
   m_ObjectHideFlags: 0
@@ -491,7 +492,7 @@ GameObject:
   - 4: {fileID: 1688554126}
   - 114: {fileID: 1688554127}
   m_Layer: 5
-  m_Name: TestWindow
+  m_Name: TextWindow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -684,7 +685,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1938432216}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.54285705, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2075223574}
@@ -865,7 +866,7 @@ MonoBehaviour:
     e00: 540
     e01: 0
     e02: 0
-    e03: 1.54285705
+    e03: 0
     e10: 0
     e11: 540
     e12: 0

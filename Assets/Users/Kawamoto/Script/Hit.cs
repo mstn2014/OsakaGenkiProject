@@ -29,28 +29,36 @@ public class Hit : MonoBehaviour {
 	// ボタンを押したときの処理
 	private void OnTriggerStay(Collider other)
 	{
-		Debug.Log(other.gameObject.renderer.material.name);
-		if (other.gameObject.renderer.material.name == "Red (Instance)") {
+		//Debug.Log(other.gameObject.renderer.material.name);
+		if (other.gameObject.renderer.material.name == "Red (Instance)" || 
+		    other.gameObject.renderer.material.name == "red") {
 			if (input_bt.RedButtonTrigger){ 
-				gamemain.ModelDeleteOrder(other.gameObject);// モデルの削除＆新しいターゲットの選定
+				gamemain.ObjInList(other.gameObject);// リストに格納
+				gamemain.CharMoveOrder();// 新しいターゲットの選定
 			}
 		}
 
-		if (other.gameObject.renderer.material.name == "Green (Instance)") {
+		if (other.gameObject.renderer.material.name == "Green (Instance)" ||
+		    other.gameObject.renderer.material.name == "green") {
 			if (input_bt.GreenButtonTrigger){ 
-				gamemain.ModelDeleteOrder(other.gameObject);// モデルの削除＆新しいターゲットの選定
+				gamemain.ObjInList(other.gameObject);// リストに格納
+				gamemain.CharMoveOrder();// 新しいターゲットの選定
 			}
 		}
 
-		if (other.gameObject.renderer.material.name == "Blue (Instance)") {
+		if (other.gameObject.renderer.material.name == "Blue (Instance)" ||
+		    other.gameObject.renderer.material.name == "blue") {
 			if (input_bt.BlueButtonTrigger){ 
-				gamemain.ModelDeleteOrder(other.gameObject);// モデルの削除＆新しいターゲットの選定
+				gamemain.ObjInList(other.gameObject);// リストに格納
+				gamemain.CharMoveOrder();// 新しいターゲットの選定
 			}
 		}
 
-		if (other.gameObject.renderer.material.name == "Yerrow (Instance)") {
+		if (other.gameObject.renderer.material.name == "Yerrow (Instance)" ||
+		    other.gameObject.renderer.material.name == "yerrow") {
 			if (input_bt.YellowButtonTrigger){ 
-				gamemain.ModelDeleteOrder(other.gameObject);// モデルの削除＆新しいターゲットの選定
+				gamemain.ObjInList(other.gameObject);// リストに格納
+				gamemain.CharMoveOrder();// 新しいターゲットの選定
 			}
 		}
 	}
