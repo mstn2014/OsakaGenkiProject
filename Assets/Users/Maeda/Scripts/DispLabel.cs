@@ -1,9 +1,9 @@
 //======================================================
-// @brief:Miss,Safe,Good,Perfectのラベルを表示する
+// @brief:Miss,Safe,Good,Perfectのラベルを表示する.
 //------------------------------------------------------
-// @author:前田稚隼
-// @param:　m_dispTime 表示する時間
-// @return:　なし
+// @author:前田稚隼.
+// @param:　m_dispTime 表示する時間.
+// @return:　なし.
 //======================================================
 
 using UnityEngine;
@@ -43,21 +43,23 @@ public class DispLabel : MonoBehaviour
 	
 	void OnTriggerEnter2D (Collider2D button)
 	{
-		//	判定結果をもらう.
-		m_getClass = m_buf.GetComponent<PushButtonTest>();
+		m_dispLabel = Instantiate(m_missLabel,transform.position,transform.rotation) as GameObject; 
+		m_dispLabel.transform.parent = GameObject.Find ("DispLabel").transform;
+		m_nowTime = 0.0f;
+	}
 
-		switch(m_getClass.m_sendMessage)
+	public void CDispLabel(string labelName)
+	{
+		switch(labelName)
 		{
 			case "safe":
 				m_dispLabel = Instantiate(m_safeLabel,transform.position,transform.rotation) as GameObject; 
 				break;
-
+			
 			case "miss":
 				m_dispLabel = Instantiate(m_missLabel,transform.position,transform.rotation) as GameObject; 
 				break;
 		}
-		//Debug.Log("DispLabel");
-		//Debug.Log(m_getClass.m_sendMessage+2);
 		m_dispLabel.transform.parent = GameObject.Find ("DispLabel").transform;
 		m_nowTime = 0.0f;
 	}
