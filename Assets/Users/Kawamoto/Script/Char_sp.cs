@@ -18,6 +18,7 @@ public class Char_sp : MonoBehaviour {
 	// フラグ
 	bool GoFlag = false;		// ライト方向に行くかどうか
 	bool SerectFlag = false;	// スポットライトに選ばれたかどうか
+	bool HitFlag = false;		// 当たったかどうか
 
 
 	// Use this for initialization
@@ -67,8 +68,17 @@ public class Char_sp : MonoBehaviour {
 			if(value == 1){
 				GoFlag = true;
 				SerectFlag = true;
-				iTween.MoveTo(this.gameObject, GameObject.Find("Spot_L").transform.position, 2.0f);
+				iTween.MoveTo(this.gameObject, GameObject.Find("Spot_L").transform.position, 1.0f);
 			}
+
+			if(value == 2){
+				HitFlag = true;
+			}
+		}
+
+		get{
+			if(HitFlag == true)	return 2;
+			else                return 0;
 		}
 	}
 }

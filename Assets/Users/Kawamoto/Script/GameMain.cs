@@ -47,10 +47,10 @@ public class GameMain : MonoBehaviour {
 	// スポットライトに行くターゲットを選択
 	public void CharMoveOrder(){
 		int ren;
+		obj = null;
 		do {
 			ren = Random.Range (0, 4);
 		} while(m_obj [ren] == null);
-		//if (m_obj [ren] == null)	Debug.Log ("null");
 		obj = m_obj [ren];
 		m_obj [ren] = null;
 		NewModelMake ();
@@ -106,6 +106,21 @@ public class GameMain : MonoBehaviour {
 		obj.GetComponent<Char_sp> ().enabled = false;	// 移動スクリプトを無効化
 		obj.AddComponent<GoParade> ();					// パレ―ドの後ろについてくるスクリプトを接続
 		ObjList.Add (obj);								// リストに格納
-		obj = null;
+	}
+
+	// 選択されたオブジェクトがライトに当たったフラグを立てる
+	public void ObjHitOn(){
+		m_Char_sp.SetFig = 2;
+	}
+
+	// 選択されたオブジェクトのフラグチェック
+	public int ObjFlagC(){
+		return m_Char_sp.SetFig;
+	}
+
+	// 選択されたオブジェクトを画面外に飛ばす
+	public void SayonaraObj(){
+		//Debug.Log(m_Char_sp.SetFig);
+		iTween.MoveTo (obj, GameObject.Find ("RetPosition").transform.position, 4.0f);
 	}
 }
