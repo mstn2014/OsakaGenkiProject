@@ -25,9 +25,6 @@ public class PushButtonTest : MonoBehaviour {
 	private  bool   m_triggerFlg;	//	何かに当たっているかのフラグ.
 	private  string m_bufName;		//	当たっているオブジェの名前格納用.
 
-	//	判定結果関連.
-	public	string m_sendMessage;	//	判定結果（miss,sefeなど).
-
 	//	ラベル表示用.
 	DispLabel m_dispClass;	
 	private GameObject m_dispBuf;	//	DispLabelクラス代入用.
@@ -46,16 +43,10 @@ public class PushButtonTest : MonoBehaviour {
 		m_dispBuf = GameObject.Find ("DispLabel");
 		m_dispClass = m_dispBuf.GetComponent<DispLabel>();
 
-		//	ボタン上昇移動.
-		//m_moveBuf = GameObject.Find ("DispLabel");
-		//m_moveUpClass = m_moveBuf.GetComponent<MoveUp>();
-
 		m_triggerFlg = false;
 		m_pressKeyCount = 0;
 		m_missCount = 0;
 		m_safeCount = 0;
-
-		m_sendMessage = "miss";
 	}
 	
 	// Update is called once per frame
@@ -67,7 +58,6 @@ public class PushButtonTest : MonoBehaviour {
 			m_pressKeyCount++;	//	ボタン押下回数+1.
 			if(m_triggerFlg == true)	//	何かに当たっているか.
 			{
-				m_sendMessage = "miss";
 				//	同じ色か判定（違う色ならMiss）.
 				switch(m_bufName)
 				{
@@ -76,11 +66,13 @@ public class PushButtonTest : MonoBehaviour {
 						{
 							m_dispClass.CDispLabel("safe");
 							m_moveUpClass.CMoveUpButton();
+							m_safeCount++;
 						}
 						else
 						{
 							m_dispClass.CDispLabel("miss");
 							m_moveUpClass.CDestroyButton();
+							m_missCount++;
 						}
 						break;
 
@@ -89,11 +81,13 @@ public class PushButtonTest : MonoBehaviour {
 						{
 							m_dispClass.CDispLabel("safe");
 							m_moveUpClass.CMoveUpButton();
+							m_safeCount++;
 						}
 						else
 						{
 							m_dispClass.CDispLabel("miss");
 							m_moveUpClass.CDestroyButton();
+							m_missCount++;	
 						}
 						break;
 
@@ -102,11 +96,13 @@ public class PushButtonTest : MonoBehaviour {
 						{
 							m_dispClass.CDispLabel("safe");
 							m_moveUpClass.CMoveUpButton();
+							m_safeCount++;
 						}
 						else
 						{
 							m_dispClass.CDispLabel("miss");
 							m_moveUpClass.CDestroyButton();
+							m_missCount++;
 						}
 						break;
 
@@ -115,31 +111,25 @@ public class PushButtonTest : MonoBehaviour {
 						{
 							m_dispClass.CDispLabel("safe");
 							m_moveUpClass.CMoveUpButton();
+							m_safeCount++;
 						}
 						else
 						{
 							m_dispClass.CDispLabel("miss");
 							m_moveUpClass.CDestroyButton();
+							m_missCount++;
 						}
 						break;
 
 				}
-				//Debug.Log("PushButtonTest");
-				//	タイミングは合っているか.
+				//	タイミングは合っているか ToDo.
 				m_triggerFlg=false;
-				if(m_sendMessage == "safe")
-					m_safeCount++;
-
-				if(m_sendMessage == "miss")
-					m_missCount++;
 			}
-			//Debug.Log(m_sendMessage+1);
 		}
 	}
 
 	void OnTriggerEnter2D (Collider2D button)
 	{
-		m_sendMessage = "miss";
 		m_triggerFlg = true;
 		m_bufName = button.name;
 		m_moveUpClass = button.GetComponent<MoveUp>();

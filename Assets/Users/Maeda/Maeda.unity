@@ -286,7 +286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 445c017fc286d2f468e4f8f482e34bb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_createTime: 3
+  m_createTime: 1
 --- !u!1 &809084152
 GameObject:
   m_ObjectHideFlags: 0
@@ -840,7 +840,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_pressKeyCount: 0
-  m_sendMessage: 
 --- !u!58 &1497440862
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -950,7 +949,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6951d675242c94644bbe001bb4c3eed6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_rotationSpeed: {x: 0, y: 0, z: 1.5}
+  m_rotationSpeed: {x: 0, y: 0, z: 2}
 --- !u!1 &1829233119
 GameObject:
   m_ObjectHideFlags: 0
