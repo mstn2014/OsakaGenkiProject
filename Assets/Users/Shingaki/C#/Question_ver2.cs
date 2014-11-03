@@ -13,7 +13,7 @@ public class Question_ver2 : MonoBehaviour {
 	private int m_nowQuestionNum;		// 現在のボタン数.
 	private int m_nowAns;				// 今何ボタン目か.
 	[Header("ボタン間隔")]
-	public	float m_interval = 10.0f;	// ボタンの間隔.
+	public	float m_interval = 30.0f;	// ボタンの間隔.
 	
 	private float m_createWeight;		// 生成されるボタンの重み.
 	private const float m_value = 0.1f;	// m_createWeightの増減値.
@@ -40,9 +40,11 @@ public class Question_ver2 : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		// TextWindowとQuestPanelの発見と生成.
+		m_panel = GameObject.Find("Panel");
 		m_textWindow = GameObject.Find("TextWindow");
-		m_QuestPanel = CreatePrefab.InstantiateGameObject (m_QuestPanel, Vector3.zero, Quaternion.identity,
-		                                   Vector3.one, m_textWindow);
+		Vector3 position = m_textWindow.transform.localPosition;
+		m_QuestPanel = CreatePrefab.InstantiateGameObject (m_QuestPanel, position, Quaternion.identity,
+		                                   Vector3.one, m_panel);
 		// 表示されるボタンの数だけ配列生成.
 		m_box = new QuesBox[m_maxQuestionNum];
 		InitQuest();			// 初期化.
@@ -72,18 +74,29 @@ public class Question_ver2 : MonoBehaviour {
 			///////////////////////////////////////////////////////
 			// ToDo ボタンの位置設定.
 			// ボタン生成と出現位置計算.
-			interval = i*(-m_interval/2)+(m_interval/2)*(m_nowQuestionNum - m_nowQuestionNum/2);
-			m_box[i].button = CreatePrefab.InstantiateGameObject(m_Quest, new Vector3(0,interval,0), Quaternion.identity,
-			                                                     Vector3.one, m_QuestPanel);
+			interval = i*(-m_interval)+(m_interval/2)*(m_nowQuestionNum-1);
+			/*m_box[i].button = CreatePrefab.InstantiateGameObject(m_Quest, new Vector3(0,interval,0), Quaternion.identity,
+			                                                     Vector3.one, m_QuestPanel);*/
+			m_box[i].button = Instantiate(m_Quest) as GameObject;
+			m_box[i].button.transform.parent = m_QuestPanel.transform;
+			m_box[i].button.transform.localPosition = new Vector3(0,interval,0);
+			GameObject button = m_box[i].button.transform.FindChild("Button").gameObject;
+			GameObject label = m_box[i].button.transform.FindChild("Label").gameObject;
+			UISprite sprite = button.GetComponent<UISprite>() as UISprite;
+			UILabel text = label.GetComponent<UILabel>() as UILabel;
+
 			if (Random.value < m_createWeight) {
 				// 黄生成.
-				// ToDoアタッチ.
-				// スクリプトとラベルの設定
+				// ToDo Spriteの名前は.
+				// スクリプトとラベルの設定.
+				sprite.spriteName = "Bright";
+				text.text = ("password");
 				m_box[i].ans = 1;
 				m_createWeight -= m_value;
 			}else{
 				// 緑生成.
-
+				sprite.spriteName = "Smooth";
+				text.text = ("pause");
 				m_box[i].ans = 2;
 				m_createWeight += m_value;
 			}
@@ -92,7 +105,7 @@ public class Question_ver2 : MonoBehaviour {
 			yield return new WaitForSeconds(1f);
 		}
 		yield return new WaitForSeconds(1f);
-		for (int i=0; i<m_maxQuestionNum; i++) {
+			for(int i=0; i<m_nowQuestionNum; i++){
 			HideButton(i);
 		}
 		m_create = true;
@@ -103,8 +116,8 @@ public class Question_ver2 : MonoBehaviour {
 	// @brief:答え合わせ.
 	//------------------------------------------------------
 	// @author: T.Shingaki
-	// @param: int:回答	1:黄色	2:緑
-	// @return: bool:	true:正解	false:不正解
+	// @param: int:回答	1:黄色	2:緑.
+	// @return: bool:	true:正解	false:不正解.
 	//======================================================
 	public bool CheckAns(int ans){
 		// 正解なら.
@@ -119,9 +132,7 @@ public class Question_ver2 : MonoBehaviour {
 			}
 			// ステージクリアなら次のゲームへ.
 			if (m_nowAns == m_nowQuestionNum) {
-				for (int i=0; i<m_nowQuestionNum; i++) {
-					HideButton (i);
-				}
+				HideButton();
 				/* ///// 生成したボタンを次の問題に保持するときのみ有効 /////
 				m_clear = true;
 				m_nowAns=0;
@@ -146,7 +157,7 @@ public class Question_ver2 : MonoBehaviour {
 	
 	// ボタンの表示.
 	public void DispButton(int i=-1){
-		// 引数がない場合は全体表示
+		// 引数がない場合は全体表示.
 		if (i == -1) {
 			m_QuestPanel.SetActive (true);
 			return;
@@ -157,9 +168,10 @@ public class Question_ver2 : MonoBehaviour {
 	}
 	// ボタンの非表示.
 	public void HideButton(int i=-1){
-		// 引数がない場合は全体非表示
+		// 引数がない場合は全体非表示.
 		if (i == -1) {
 			m_QuestPanel.SetActive (false);
+			return;
 		}
 		// GameObjectがない場合は処理しない.
 		if (m_box [i].button == null)	return;
