@@ -68,10 +68,10 @@ MonoBehaviour:
       height: 135
     inner:
       serializedVersion: 2
-      x: 1267
-      y: 3961
-      width: 542
-      height: 135
+      x: 1268
+      y: 3962
+      width: 540
+      height: 133
     rotated: 0
     paddingLeft: .00184501847
     paddingRight: .00184501847
