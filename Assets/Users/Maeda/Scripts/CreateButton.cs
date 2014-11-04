@@ -1,9 +1,9 @@
 ﻿//======================================================
-// @brief:赤、青、黄色、緑のボタンの動的生成を行う
+// @brief:赤、青、黄色、緑のボタンの動的生成を行う.
 //------------------------------------------------------
-// @author:前田稚隼
-// @param:　m_createTime 生成する時間
-// @return:　なし
+// @author:前田稚隼.
+// @param:　m_createTime 生成する時間.
+// @return:　なし.
 //======================================================
 
 using UnityEngine;
@@ -11,14 +11,14 @@ using System.Collections;
 
 public class CreateButton : MonoBehaviour {
 
-	public  float  m_createTime = 3.0f;			//	現状は時間で管理してるが、今後サウンドにあわせて生成する
+	public  float  m_createTime = 3.0f;			//	現状は時間で管理してるが、今後サウンドにあわせて生成する.
 	private float nowTime;
 
-	private GameObject m_gameObject;		//	ゲームオブジェクト本体
-	private GameObject m_redGameObject;		//	赤いアイコン
-	private GameObject m_blueGameObject;	//	青いアイコン
-	private GameObject m_greenGameObject;	//	緑のアイコン
-	private GameObject m_yellowGameObject;	//	黄色のアイコン
+	private GameObject m_gameObject;		//	ゲームオブジェクト本体.
+	private GameObject m_redGameObject;		//	赤いアイコン.
+	private GameObject m_blueGameObject;	//	青いアイコン.
+	private GameObject m_greenGameObject;	//	緑のアイコン.
+	private GameObject m_yellowGameObject;	//	黄色のアイコン.
 
 	// Use this for initialization
 	void Start () {
@@ -37,7 +37,6 @@ public class CreateButton : MonoBehaviour {
 
 		if ( nowTime >= m_createTime)
 		{
-			//m_gameObject = Instantiate(m_redGameObject,transform.position,transform.rotation)  as GameObject; 
 			switch(Random.Range(0, 4))
 			{
 				case 0:
