@@ -110,14 +110,13 @@ public class FadeMgr : SingletonMonoBehaviourFast<FadeMgr>
             this.fadeAlpha = Mathf.Lerp(0f, 1f, time / interval);
             time += Time.deltaTime;
             yield return 0;
-        }
-
-        // 暗転してから一秒待つ
-        yield return new WaitForSeconds(1.0f);
+        }    
 
         //シーン切替
         Application.LoadLevel(scene);
 
+        // 暗転してから一秒待つ
+        yield return new WaitForSeconds(1.0f);
 
         //だんだん明るく
         time = 0;

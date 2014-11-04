@@ -44,13 +44,13 @@ MonoBehaviour:
   - name: Window
     outer:
       serializedVersion: 2
-      x: 1781
+      x: 1267
       y: 3704
       width: 256
       height: 256
     inner:
       serializedVersion: 2
-      x: 1781
+      x: 1267
       y: 3704
       width: 256
       height: 256
@@ -98,13 +98,13 @@ MonoBehaviour:
   - name: ArrowLeft
     outer:
       serializedVersion: 2
-      x: 1267
+      x: 1524
       y: 3704
       width: 256
       height: 256
     inner:
       serializedVersion: 2
-      x: 1267
+      x: 1524
       y: 3704
       width: 256
       height: 256
@@ -116,13 +116,13 @@ MonoBehaviour:
   - name: ArrowRight
     outer:
       serializedVersion: 2
-      x: 1524
+      x: 1781
       y: 3704
       width: 256
       height: 256
     inner:
       serializedVersion: 2
-      x: 1524
+      x: 1781
       y: 3704
       width: 256
       height: 256
@@ -131,6 +131,78 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: go
+    outer:
+      serializedVersion: 2
+      x: 1267
+      y: 3466
+      width: 238
+      height: 237
+    inner:
+      serializedVersion: 2
+      x: 1267
+      y: 3466
+      width: 238
+      height: 237
+    rotated: 0
+    paddingLeft: .0588235296
+    paddingRight: .0168067235
+    paddingTop: .0590717308
+    paddingBottom: .0210970473
+  - name: 2
+    outer:
+      serializedVersion: 2
+      x: 1506
+      y: 3474
+      width: 241
+      height: 229
+    inner:
+      serializedVersion: 2
+      x: 1506
+      y: 3474
+      width: 241
+      height: 229
+    rotated: 0
+    paddingLeft: .0165975112
+    paddingRight: .0456431545
+    paddingTop: .0524017476
+    paddingBottom: .0655021816
+  - name: 1
+    outer:
+      serializedVersion: 2
+      x: 1267
+      y: 3226
+      width: 124
+      height: 239
+    inner:
+      serializedVersion: 2
+      x: 1267
+      y: 3226
+      width: 124
+      height: 239
+    rotated: 0
+    paddingLeft: .419354826
+    paddingRight: .645161271
+    paddingTop: .041841004
+    paddingBottom: .0292887036
+  - name: 3
+    outer:
+      serializedVersion: 2
+      x: 1748
+      y: 3478
+      width: 138
+      height: 225
+    inner:
+      serializedVersion: 2
+      x: 1748
+      y: 3478
+      width: 138
+      height: 225
+    rotated: 0
+    paddingLeft: .384057969
+    paddingRight: .4710145
+    paddingTop: .0666666701
+    paddingBottom: .0711111128
   mCoordinates: 0
   mPixelSize: 1
   mReplacement: {fileID: 0}
