@@ -47,35 +47,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: e7ef61ebb5c25394c8706a7ea658349f, type: 2}
   sprites:
-  - name: Orc Armor - Shoulders
-    outer:
-      serializedVersion: 2
-      x: 0
-      y: 212
-      width: 128
-      height: 128
-    inner:
-      serializedVersion: 2
-      x: 0
-      y: 212
-      width: 128
-      height: 128
-    rotated: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
   - name: Orc Armor - Bracers
     outer:
       serializedVersion: 2
-      x: 130
-      y: 208
+      x: 258
+      y: 911
       width: 123
       height: 113
     inner:
       serializedVersion: 2
-      x: 130
-      y: 208
+      x: 258
+      y: 911
       width: 123
       height: 113
     rotated: 0
@@ -86,14 +68,14 @@ MonoBehaviour:
   - name: Window
     outer:
       serializedVersion: 2
-      x: 0
-      y: 342
+      x: 257
+      y: 597
       width: 254
       height: 169
     inner:
       serializedVersion: 2
-      x: 8
-      y: 350
+      x: 265
+      y: 605
       width: 238
       height: 153
     rotated: 0
@@ -104,14 +86,14 @@ MonoBehaviour:
   - name: Paper Background
     outer:
       serializedVersion: 2
-      x: 255
-      y: 255
+      x: 0
+      y: 767
       width: 257
       height: 257
     inner:
       serializedVersion: 2
-      x: 256
-      y: 256
+      x: 1
+      y: 768
       width: 255
       height: 255
     rotated: 0
@@ -122,14 +104,14 @@ MonoBehaviour:
   - name: Smooth
     outer:
       serializedVersion: 2
-      x: 236
-      y: 189
+      x: 382
+      y: 1007
       width: 17
       height: 17
     inner:
       serializedVersion: 2
-      x: 240
-      y: 193
+      x: 386
+      y: 1011
       width: 9
       height: 9
     rotated: 0
@@ -140,14 +122,14 @@ MonoBehaviour:
   - name: Glow
     outer:
       serializedVersion: 2
-      x: 217
-      y: 189
+      x: 382
+      y: 919
       width: 17
       height: 15
     inner:
       serializedVersion: 2
-      x: 221
-      y: 193
+      x: 386
+      y: 923
       width: 9
       height: 7
     rotated: 0
@@ -158,14 +140,14 @@ MonoBehaviour:
   - name: Dark
     outer:
       serializedVersion: 2
-      x: 234
-      y: 323
+      x: 382
+      y: 989
       width: 17
       height: 17
     inner:
       serializedVersion: 2
-      x: 239
-      y: 328
+      x: 387
+      y: 994
       width: 7
       height: 7
     rotated: 0
@@ -176,14 +158,14 @@ MonoBehaviour:
   - name: Flat Outline
     outer:
       serializedVersion: 2
-      x: 181
-      y: 323
+      x: 382
+      y: 971
       width: 17
       height: 17
     inner:
       serializedVersion: 2
-      x: 186
-      y: 328
+      x: 387
+      y: 976
       width: 7
       height: 7
     rotated: 0
@@ -194,14 +176,14 @@ MonoBehaviour:
   - name: Bright
     outer:
       serializedVersion: 2
-      x: 198
-      y: 323
+      x: 382
+      y: 953
       width: 17
       height: 17
     inner:
       serializedVersion: 2
-      x: 203
-      y: 328
+      x: 387
+      y: 958
       width: 7
       height: 7
     rotated: 0
@@ -212,14 +194,14 @@ MonoBehaviour:
   - name: Beveled Outline
     outer:
       serializedVersion: 2
-      x: 215
-      y: 323
+      x: 382
+      y: 935
       width: 17
       height: 17
     inner:
       serializedVersion: 2
-      x: 220
-      y: 328
+      x: 387
+      y: 940
       width: 7
       height: 7
     rotated: 0
@@ -230,14 +212,14 @@ MonoBehaviour:
   - name: Orc Armor - Boots
     outer:
       serializedVersion: 2
-      x: 256
-      y: 0
+      x: 258
+      y: 782
       width: 96
       height: 128
     inner:
       serializedVersion: 2
-      x: 256
-      y: 0
+      x: 258
+      y: 782
       width: 96
       height: 128
     rotated: 0
@@ -249,13 +231,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 0
-      y: 0
+      y: 554
       width: 256
       height: 212
     inner:
       serializedVersion: 2
       x: 0
-      y: 0
+      y: 554
       width: 256
       height: 212
     rotated: 0
@@ -266,14 +248,14 @@ MonoBehaviour:
   - name: NGUI
     outer:
       serializedVersion: 2
-      x: 256
-      y: 178
+      x: 0
+      y: 477
       width: 255
       height: 76
     inner:
       serializedVersion: 2
-      x: 256
-      y: 178
+      x: 0
+      y: 477
       width: 255
       height: 76
     rotated: 0

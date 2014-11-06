@@ -1,9 +1,9 @@
 //======================================================
-// @brief:Miss,Safe,Good,Perfectのラベルを表示する
+// @brief:Miss,Safe,Good,Perfectのラベルを表示する.
 //------------------------------------------------------
-// @author:前田稚隼
-// @param:　m_dispTime 表示する時間
-// @return:　なし
+// @author:前田稚隼.
+// @param:　m_dispTime 表示する時間.
+// @return:　なし.
 //======================================================
 
 using UnityEngine;
@@ -15,19 +15,18 @@ public class DispLabel : MonoBehaviour
 	//	ラベル関連
 	private GameObject m_missLabel;			//	"Miss!!"と書かれたラベル.
 	private GameObject m_safeLabel;			//	"Safe!!"と書かれたラベル.
+	private GameObject m_goodLabel;			//	"Good!!"と書かれたラベル.
+	private GameObject m_perfectLabel;		//	"perfect!!"と書かれたラベル.
 	public  GameObject m_dispLabel;			//	表示するラベル.
 	public  float	   m_dispTime = 0.3f;	//	表示する時間.
 	private float	   m_nowTime;			//  経過時間.
 
-	//	判定関連
-	PushButtonTest 	   m_getClass;			//	表示するラベル（判定結果).
-	private GameObject m_buf;				//	ラベル格納用.
-
 	// Use this for initialization
 	void Start () {
-		m_buf = GameObject.Find ("ring");
 		m_missLabel = Resources.Load<GameObject>("LabelMiss");  
 		m_safeLabel = Resources.Load<GameObject>("LabelSafe");  
+		m_goodLabel = Resources.Load<GameObject>("LabelGood");  
+		m_perfectLabel = Resources.Load<GameObject>("LabelPerfect");  
 		m_nowTime = 0.0f;
 	}
 	
@@ -40,24 +39,45 @@ public class DispLabel : MonoBehaviour
 			Destroy (m_dispLabel);
 	}
 	
-	
-	void OnTriggerEnter2D (Collider2D button)
+	//======================================================
+	// @brief:一定の位置までボタンが流れてきたら"MISS"を表示.
+	//------------------------------------------------------
+	// @author:前田稚隼.
+	// @param:　なし.
+	// @return:　なし.
+	//======================================================
+	void OnTriggerEnter2D ()
 	{
-		//	判定結果をもらう.
-		m_getClass = m_buf.GetComponent<PushButtonTest>();
-
-		switch(m_getClass.m_sendMessage)
+		CDispLabel("miss");
+	}
+	
+	//======================================================
+	// @brief:(MISS,SAFE)などのラベルを表示する.
+	//------------------------------------------------------
+	// @author:前田稚隼.
+	// @param:　string labelName 表示するラベルの名前.
+	// @return:　なし.
+	//======================================================
+	public void CDispLabel(string labelName)
+	{
+		switch(labelName)
 		{
 			case "safe":
 				m_dispLabel = Instantiate(m_safeLabel,transform.position,transform.rotation) as GameObject; 
 				break;
-
+			
 			case "miss":
 				m_dispLabel = Instantiate(m_missLabel,transform.position,transform.rotation) as GameObject; 
 				break;
+
+			case "good":
+				m_dispLabel = Instantiate(m_goodLabel,transform.position,transform.rotation) as GameObject; 
+				break;
+
+			case "perfect":
+				m_dispLabel = Instantiate(m_perfectLabel,transform.position,transform.rotation) as GameObject; 
+				break;
 		}
-		//Debug.Log("DispLabel");
-		//Debug.Log(m_getClass.m_sendMessage+2);
 		m_dispLabel.transform.parent = GameObject.Find ("DispLabel").transform;
 		m_nowTime = 0.0f;
 	}

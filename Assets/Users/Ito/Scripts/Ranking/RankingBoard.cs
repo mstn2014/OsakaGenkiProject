@@ -38,9 +38,7 @@ public class RankingBoard : MonoBehaviour {
             m_rankText.Add(go.transform.FindChild("Rank").gameObject.GetComponent<UILabel>());
             m_nameText.Add(go.transform.FindChild("Name").gameObject.GetComponent<UILabel>());
             m_scoreText.Add(go.transform.FindChild("Score").gameObject.GetComponent<UILabel>());
-
         }
-        Debug.Log(m_server.Data.Count);
 
         // 取得したデータを表示する
         for (int i = 0; i < m_rankSetting.dispRank; i++)

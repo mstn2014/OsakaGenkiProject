@@ -6,8 +6,8 @@ public class GameRoop : MonoBehaviour {
 	enum GameState{stop, ready, play, end};
 	private bool m_start;				// スタート確認.
 	private GameState m_state;			// ゲームの状態.
-	private CountDown	m_timer;
-	private Question_ver2	m_quest;	// ToDo 今だけ_ver2ついてる.
+	private CountDown	m_timer;		
+	private Question	m_quest;		// 問題生成.
 	InputMgr m_btnState;                // 入力インスタンス.
 	FadeMgr m_fadeMgr;                  // フェード.
 
@@ -17,13 +17,15 @@ public class GameRoop : MonoBehaviour {
 		m_state = GameState.stop;
 		GameObject countDown = GameObject.Find("Timer");
 		m_timer = countDown.GetComponent<CountDown>();
-		m_quest = GetComponent<Question_ver2>();
-		// ToDo最大問題数の取得.
+		m_quest = GetComponent<Question>();
 
 		// 共通設定の呼び出し.
 		GlobalSetting gs = Resources.Load<GlobalSetting>("Setting/GlobalSetting");
 		m_btnState = gs.InputMgr;
 		m_fadeMgr = gs.FadeMgr;
+
+		// プレイヤー,ギャラリー,背景の設置.
+		// ToDo クラス呼び出し(そのクラスに移動なども任せる).
 
 		// ゲームループ.
 		while (true) {

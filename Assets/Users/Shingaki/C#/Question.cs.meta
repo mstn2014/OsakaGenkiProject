@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a796b33c0e04f0448902461cc6d89e5d
+guid: 61283dbb0347d154dbbe8dbfb6c11845
 MonoImporter:
   serializedVersion: 2
   defaultReferences:
-  - m_yellow: {fileID: 100000, guid: e53e02385b8364c46ac933daf2b52776, type: 2}
-  - m_green: {fileID: 100000, guid: 29144ff384149f2458a49c38e19154fd, type: 2}
+  - m_QuestPanel: {fileID: 100000, guid: 7c92d035c0f82664d8a51ad1a97a401c, type: 2}
+  - m_Quest: {fileID: 100004, guid: 48ac11227d8d3d34e9bb886cd1db44e6, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

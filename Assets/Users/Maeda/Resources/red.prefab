@@ -83,7 +83,7 @@ MonoBehaviour:
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
   mDepth: 3
-  mAtlas: {fileID: 11400000, guid: 24e48d26a15299048a0386272873e7cd, type: 2}
+  mAtlas: {fileID: 11400000, guid: bdabc320f265c79428ff2cc8fd5e10d2, type: 2}
   mSpriteName: red
   mFillCenter: 1
   mType: 0
