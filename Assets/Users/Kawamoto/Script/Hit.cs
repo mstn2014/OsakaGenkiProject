@@ -34,7 +34,7 @@ public class Hit : MonoBehaviour {
 		if (input_bt.AnyTrigger()) {
 			if (gamemain.ObjFlagC () == 0) {
 				gamemain.SayonaraObj();
-				charspeed_mgr.SpeedDown();
+				//charspeed_mgr.SpeedDown();
 			}
 		}
 	}
