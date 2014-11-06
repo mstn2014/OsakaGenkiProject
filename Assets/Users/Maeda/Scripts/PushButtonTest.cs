@@ -33,6 +33,12 @@ public class PushButtonTest : MonoBehaviour {
 	MoveUp m_moveUpClass;
 	private GameObject m_moveBuf;	//	MoveUpクラス代入用.
 
+	//	セーフ、グッド、パーフェクトの判定.
+	private Vector3 m_buttonPosition;	//	ボタンの座標.
+	public	float	m_safeRange = 0.3f;	//	セーフの範囲.
+	public	float	m_goodRange = 0.2f;	//	グッドの範囲.
+	public	float	m_perfectRange = 0.1f;	//	パーフェクトの範囲.
+
 	// Use this for initialization
 	void Start () {
 		// 共通設定の呼び出し.
@@ -58,13 +64,14 @@ public class PushButtonTest : MonoBehaviour {
 			m_pressKeyCount++;	//	ボタン押下回数+1.
 			if(m_triggerFlg == true)	//	何かに当たっているか.
 			{
+				m_triggerFlg=false;
 				//	同じ色か判定（違う色ならMiss）.
 				switch(m_bufName)
 				{
 					case "red(Clone)":
 						if(m_btnState.RedButtonTrigger == true)
 						{
-							m_dispClass.CDispLabel("safe");
+							CheckButaneTiming();
 							m_moveUpClass.CMoveUpButton();
 							m_safeCount++;
 						}
@@ -79,7 +86,7 @@ public class PushButtonTest : MonoBehaviour {
 					case "blue(Clone)":
 						if(m_btnState.BlueButtonPress == true)
 						{
-							m_dispClass.CDispLabel("safe");
+							CheckButaneTiming();
 							m_moveUpClass.CMoveUpButton();
 							m_safeCount++;
 						}
@@ -94,7 +101,7 @@ public class PushButtonTest : MonoBehaviour {
 					case "green(Clone)":
 						if(m_btnState.GreenButtonPress == true)
 						{
-							m_dispClass.CDispLabel("safe");
+							CheckButaneTiming();
 							m_moveUpClass.CMoveUpButton();
 							m_safeCount++;
 						}
@@ -109,7 +116,7 @@ public class PushButtonTest : MonoBehaviour {
 					case "yellow(Clone)":
 						if(m_btnState.YellowButtonPress == true)
 						{
-							m_dispClass.CDispLabel("safe");
+							CheckButaneTiming();
 							m_moveUpClass.CMoveUpButton();
 							m_safeCount++;
 						}
@@ -120,18 +127,42 @@ public class PushButtonTest : MonoBehaviour {
 							m_missCount++;
 						}
 						break;
-
 				}
-				//	タイミングは合っているか ToDo.
-				m_triggerFlg=false;
 			}
 		}
 	}
 
-	void OnTriggerEnter2D (Collider2D button)
+	void OnTriggerStay2D (Collider2D button)
 	{
-		m_triggerFlg = true;
-		m_bufName = button.name;
-		m_moveUpClass = button.GetComponent<MoveUp>();
+		m_triggerFlg = true;							//	当たってるフラグON.
+		m_bufName = button.name;						//	ボタンの種類取得.
+		m_moveUpClass = button.GetComponent<MoveUp>();	//	ボタンのクラスの関数取得.
+		m_buttonPosition = button.transform.position;	//	ボタンの座標取得.
+	}
+
+
+	//======================================================
+	// @brief:(MISS,SAFE)などの判定を行う.
+	//------------------------------------------------------
+	// @author:前田稚隼.
+	// @param:　なし.
+	// @return:　なし.
+	//======================================================
+	private void CheckButaneTiming()
+	{
+		float kyori;
+
+		kyori = Vector3.Distance (this.transform.position , m_buttonPosition) * 10.0f;
+	
+		if (kyori <= m_perfectRange)
+			m_dispClass.CDispLabel ("perfect");
+		else if (kyori <= m_goodRange)
+			m_dispClass.CDispLabel ("good");
+		else if (kyori <= m_safeRange)
+			m_dispClass.CDispLabel ("safe");
+		else
+			m_dispClass.CDispLabel ("miss");
+	
+		//Debug.Log("kyori : " + kyori);
 	}
 }
