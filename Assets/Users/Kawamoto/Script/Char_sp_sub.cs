@@ -8,12 +8,14 @@ public class Char_sp_sub : MonoBehaviour {
 	
 	// コンポーネント用
 	GameMain_sub 	gamemain;
+	CharSpeedMgr	charspeed_mgr;
 	
 	// カウント
 	float TimeCount = 0;
 	float TimeLimit = 3;
 	float nowTime = 0;		// 現在の時間
 	float Detline;			// 死亡ライン
+	float D_time = 1.0f;
 	
 	// フラグ
 	bool GoFlag = false;		// ライト方向に行くかどうか
@@ -27,8 +29,12 @@ public class Char_sp_sub : MonoBehaviour {
 		Seting.L_R_Position = GameObject.Find ("Spot_R").transform.position;
 		// コンポーネントをゲット
 		gamemain = GameObject.Find ("Pare").GetComponent<GameMain_sub> ();
+		charspeed_mgr = GameObject.Find ("Speed_Mgr").GetComponent<CharSpeedMgr> ();
 		// 削除するライン
 		Detline = GameObject.Find ("DeleteLine").transform.position.x;
+		// ダンススピード調整
+		TimeLimit = TimeLimit - charspeed_mgr.GetDansSpeed ();
+		D_time = D_time - charspeed_mgr.GetSpeed ();
 	}
 	
 	// Update is called once per frame
@@ -68,7 +74,7 @@ public class Char_sp_sub : MonoBehaviour {
 			if(value == 1){
 				GoFlag = true;
 				SerectFlag = true;
-				iTween.MoveTo(this.gameObject, GameObject.Find("Spot_R").transform.position, 1.0f);
+				iTween.MoveTo(this.gameObject, GameObject.Find("Spot_R").transform.position, D_time);
 			}
 
 			if(value == 2){
