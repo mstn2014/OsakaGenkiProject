@@ -38,7 +38,7 @@ public class InputMg : MonoBehaviour {
 	}
 
 	public bool AnyTrigger(){
-		if (input_bt.AnyButtonTrigger())			return true;
+		if (input_bt.AnyButtonTrigger)			return true;
 		else                                        return false;
 	}
 

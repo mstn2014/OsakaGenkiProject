@@ -14,7 +14,7 @@ public class MessageController : MonoBehaviour {
     {
         set {
             if (m_typeEffect.IsFinished)
-            { 
+            {
                 m_uiLabel.text = value;
                 m_typeEffect.Reset();
             }
@@ -22,8 +22,13 @@ public class MessageController : MonoBehaviour {
         get { return m_uiLabel.text; }
     }
 
+    public bool IsFinished
+    {
+        get { return m_typeEffect.IsFinished; }
+    }
+
 	// Use this for initialization
-	void Start () {
+	void Awake() {
         if (this == null)
         {
             Debug.Log("メッセージオブジェクトが登録されていません。");

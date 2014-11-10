@@ -14,24 +14,24 @@ public class TypewriterEffect : MonoBehaviour
 	string mText;
 	int mOffset = 0;
 	float mNextChar = 0f;
-    bool mFinished = false;
+    bool mFinished = true;
 
     public bool IsFinished
     {
         get { return mFinished; }
     }
 
+    void Awake()
+    {
+        mLabel = GetComponent<UILabel>();
+        mLabel.supportEncoding = false;
+        mLabel.symbolStyle = UIFont.SymbolStyle.None;
+        Vector2 scale = mLabel.cachedTransform.localScale;
+        mLabel.font.WrapText(mLabel.text, out mText, mLabel.lineWidth / scale.x, mLabel.lineHeight / scale.y, mLabel.maxLineCount, false, UIFont.SymbolStyle.None);
+    }
+
 	void Update ()
 	{
-		if (mLabel == null)
-		{
-			mLabel = GetComponent<UILabel>();
-			mLabel.supportEncoding = false;
-			mLabel.symbolStyle = UIFont.SymbolStyle.None;
-			Vector2 scale = mLabel.cachedTransform.localScale;
-			mLabel.font.WrapText(mLabel.text, out mText, mLabel.lineWidth / scale.x, mLabel.lineHeight / scale.y, mLabel.maxLineCount, false, UIFont.SymbolStyle.None);
-		}
-
 		if (mOffset < mText.Length)
 		{
 			if (mNextChar <= Time.time)

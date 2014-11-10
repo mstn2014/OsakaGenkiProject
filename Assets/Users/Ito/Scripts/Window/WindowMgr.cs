@@ -13,12 +13,22 @@ public class WindowMgr : MonoBehaviour {
         get { return m_messageContller.Text; }
     }
 
-	// Use this for initialization
-	void Start () {
+    public bool IsFinished
+    {
+        get { return m_messageContller.IsFinished; }
+    }
+
+    void Awake()
+    {
         // ウィンドウコントローラーの呼び出し
         m_talkWindowContller = this.GetComponentInChildren<WindowController>();
         // メッセージコントローラーの呼び出し
         m_messageContller = this.GetComponentInChildren<MessageController>();
+    }
+
+	// Use this for initialization
+	void Start () {
+        
 	}
 	
 	// Update is called once per frame

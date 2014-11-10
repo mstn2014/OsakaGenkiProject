@@ -146,36 +146,45 @@ public class InputMgr: SingletonMonoBehaviourFast<InputMgr>
 
 	// ++++++++++++ 何かのボタン ++++++++++++++++S
 
-	public bool AnyButtonTrigger(){
-        if (RedButtonTrigger
-           || YellowButtonTrigger
-           || BlueButtonTrigger
-           || GreenButtonTrigger)
+	public bool AnyButtonTrigger{
+        get
         {
-			return true;
-		}
-		return false;
+            if (RedButtonTrigger
+               || YellowButtonTrigger
+               || BlueButtonTrigger
+               || GreenButtonTrigger)
+            {
+                return true;
+            }
+            return false;
+        }
 	}
 
-	public bool AnyButtonPress(){
-        if (RedButtonPress
-           || YellowButtonPress
-           || BlueButtonPress
-           || GreenButtonPress)
+	public bool AnyButtonPress{
+        get
         {
-			return true;
-		}
-		return false;
+            if (RedButtonPress
+               || YellowButtonPress
+               || BlueButtonPress
+               || GreenButtonPress)
+            {
+                return true;
+            }
+            return false;
+        }
 	}
 
-	public bool AnyButtonRelease(){
-        if (RedButtonRelease
-           || YellowButtonRelease
-           || BlueButtonRelease
-           || GreenButtonRelease)
+	public bool AnyButtonRelease{
+        get
         {
-			return true;
-		}
-		return false;
+            if (RedButtonRelease
+               || YellowButtonRelease
+               || BlueButtonRelease
+               || GreenButtonRelease)
+            {
+                return true;
+            }
+            return false;
+        }
 	}
 }

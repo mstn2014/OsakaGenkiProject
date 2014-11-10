@@ -9,7 +9,7 @@ public class GameMgr : MonoBehaviour {
     WindowMgr m_windowMgr;                  // ウィンドウマネージャー
     GuideMgr m_guideMgr;                    // ガイド役のマネージャー
     List<string> m_messageText;             // メッセージデータ 
-    public Stage1Setting m_sceneSetting;    // シーンの設定ファイル
+    public Game1Setting m_sceneSetting;    // シーンの設定ファイル
 
 	// Use this for initialization
 	void Start () {
