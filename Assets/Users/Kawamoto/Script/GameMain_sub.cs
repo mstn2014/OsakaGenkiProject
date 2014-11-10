@@ -14,11 +14,8 @@ public class GameMain_sub : MonoBehaviour {
 	
 	// コンポーネント用
 	Char_sp_sub	m_Char_sp;
-	
+	Char_List char_list;
 	GameObject obj;
-	
-	// リスト
-	List<GameObject> ObjList = new List<GameObject> ();
 	
 	// 乱数範囲
 	int min = 1;
@@ -28,6 +25,7 @@ public class GameMain_sub : MonoBehaviour {
 	void Start () {
 		// プレハブロード
 		m_char = Resources.Load<GameObject>("Kawamoto/Char_sub");
+		char_list = GameObject.Find("CharmgrSc").GetComponent<Char_List> ();
 		// タグ付けしたオブジェクトをまとめて取得
 		m_obj = GameObject.FindGameObjectsWithTag("Player_sub");
 		for (int i = 0; i < 4;i++ )
@@ -105,7 +103,7 @@ public class GameMain_sub : MonoBehaviour {
 	public void ObjInList(GameObject obj){
 		obj.GetComponent<Char_sp_sub> ().enabled = false;	// 移動スクリプトを無効化
 		obj.AddComponent<GoParade> ();						// パレ―ドの後ろについてくるスクリプトを接続
-		ObjList.Add (obj);									// リストに格納
+		char_list.Push (obj);								// リストに格納
 	}
 
 	// 選択されたオブジェクトがライトに当たったフラグを立てる
@@ -122,5 +120,6 @@ public class GameMain_sub : MonoBehaviour {
 	public void SayonaraObj(){
 		//Debug.Log("sub" + m_Char_sp.SetFig);
 		iTween.MoveTo (obj, GameObject.Find ("RetPosition").transform.position, 4.0f);
+		obj.gameObject.rigidbody.detectCollisions = false;
 	}
 }
