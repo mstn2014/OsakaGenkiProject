@@ -60,7 +60,7 @@ public class GameRoop : MonoBehaviour {
 						// コンプリートならゲーム終了.
 						m_state = GameState.end;
 					}else if(m_quest.IsClear){
-						// ステージクリアなら次のゲームへ.
+						// ラウンドクリアなら次のゲームへ.
 						m_timer.ResetTimer();
 						m_state = GameState.ready;
 					}
