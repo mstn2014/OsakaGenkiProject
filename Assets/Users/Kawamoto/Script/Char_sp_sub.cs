@@ -47,6 +47,7 @@ public class Char_sp_sub : MonoBehaviour {
 				TimeCount += Time.deltaTime;
 				if (TimeCount > TimeLimit) {
 					iTween.MoveTo (this.gameObject, GameObject.Find ("RetPosition").transform.position, 4.0f);
+					this.gameObject.rigidbody.detectCollisions = false;		// あたり判定を無効化
 				}
 			}
 		} else { // GoFlag off時の処理
@@ -55,9 +56,9 @@ public class Char_sp_sub : MonoBehaviour {
 				new Vector3 (this.transform.position.x - Seting.Speed, this.transform.position.y, this.transform.position.z);
 		}
 		
-		
+
 		// 画面外まで出た時の処理
-		if (this.transform.position.x < Detline) {
+		if (this.transform.position.z > Detline) {
 			// スポットライトから画面外に出た時（選ばれていなければそのまま削除）
 			if (SerectFlag) {
 				gamemain.DeleteMoveOrder (this.gameObject);// モデルの削除と選定
@@ -74,7 +75,7 @@ public class Char_sp_sub : MonoBehaviour {
 			if(value == 1){
 				GoFlag = true;
 				SerectFlag = true;
-				iTween.MoveTo(this.gameObject, GameObject.Find("Spot_R").transform.position, D_time);
+				iTween.MoveTo(this.gameObject, iTween.Hash( "position", GameObject.Find("Spot_R").transform.position, "time",D_time ,"easetype",iTween.EaseType.linear) );
 			}
 
 			if(value == 2){

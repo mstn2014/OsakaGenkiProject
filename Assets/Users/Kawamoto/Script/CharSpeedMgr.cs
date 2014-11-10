@@ -23,8 +23,8 @@ public class CharSpeedMgr : MonoBehaviour {
 		if(Speed_velo < 0.5f)	Speed_velo += 0.1f;
 		if(Dans_Speed < 0.9f)	Dans_Speed += 0.1f;
 		if (Count == 5) 		Count = 0;
-		Debug.Log("速度" + Speed_velo);
-		Debug.Log("ダンス速度" + Dans_Speed);
+		//Debug.Log("速度" + Speed_velo);
+		//Debug.Log("ダンス速度" + Dans_Speed);
 	}
 
 	// 失敗時に0.1スピードダウン
