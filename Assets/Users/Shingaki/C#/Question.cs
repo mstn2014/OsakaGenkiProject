@@ -18,8 +18,9 @@ public class Question : MonoBehaviour {
 	private bool m_complete;			// ゲームクリア確認.
 	private GameObject m_panel;			// パネル(一番上の親).
 	private GameObject m_textWindow;	// テキストウィンドウ(座標参照).
-	public GameObject m_QuestPanel;		// 生成されるボタンの親(Inspectorより設定).
-	public GameObject m_Quest;			// 生成されるボタン(Inspectorより設定).
+	private GameObject m_QuestPanel;	// 生成されるボタンの親.
+	private GameObject m_Quest;			// 生成されるボタン.
+	private EffectMgr m_effect;			// エフェクト
 
 	// Game1共通設定
 	private Game1_Setting GAME1;
@@ -40,15 +41,18 @@ public class Question : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
+		// Game1共通設定
+		GAME1 = Resources.Load<Game1_Setting>("Setting/Game1_Setting");
+
 		// TextWindowとQuestPanelの発見と生成.
 		m_panel = GameObject.Find("Panel");
 		m_textWindow = GameObject.Find("TextWindow");
 		Vector3 position = m_textWindow.transform.localPosition;
+		m_QuestPanel = Resources.Load("Shingaki/testResource/prefab/QuestPanel") as GameObject;
+		m_Quest = Resources.Load("Shingaki/testResource/prefab/Quest") as GameObject;
 		m_QuestPanel = CreatePrefab.InstantiateGameObject (m_QuestPanel, position, Quaternion.identity,
 		                                                   Vector3.one, m_panel);
-
-		// Game1共通設定
-		GAME1 = Resources.Load<Game1_Setting>("Setting/Game1_Setting");
+		m_effect = GameObject.Find ("GameMain").GetComponent<EffectMgr> ();
 
 		// 表示されるボタンの数だけ配列生成.
 		m_box = new QuesBox[GAME1.MaxQuestNum];
@@ -78,7 +82,6 @@ public class Question : MonoBehaviour {
 				DispButton(i);
 			}else */
 			///////////////////////////////////////////////////////
-			// ToDo ボタンの位置設定.
 			// ボタン生成と出現位置計算.
 			interval = i*(-GAME1.QuestInterval)+(GAME1.QuestInterval/2)*(m_nowQuestNum-1);
 			/*m_box[i].button = CreatePrefab.InstantiateGameObject(m_Quest, new Vector3(0,interval,0), Quaternion.identity,
@@ -90,7 +93,7 @@ public class Question : MonoBehaviour {
 			GameObject label = m_box[i].button.transform.FindChild("Label").gameObject;
 			UISprite sprite = button.GetComponent<UISprite>() as UISprite;
 			UILabel text = label.GetComponent<UILabel>() as UILabel;
-			
+
 			if (Random.value < m_createWeight) {
 				// 黄生成.
 				// ToDo Spriteの名前は.
@@ -131,6 +134,9 @@ public class Question : MonoBehaviour {
 			Debug.Log ("正解");
 			DispButton (m_nowAns);
 			m_nowAns++;
+
+			///// エフェクト /////
+			m_effect.SpreadCircle();	// サークルが広がる.
 			
 			// コンプリートなら.
 			if (m_nowAns == GAME1.MaxQuestNum) {
@@ -155,6 +161,8 @@ public class Question : MonoBehaviour {
 				m_nowQuestNum	= workQuest + 1;
 				m_nowRound		= workRound + 1;
 				//////////////////////////////////////////////
+				m_effect.InitCircle();
+
 				
 			}
 			return true;

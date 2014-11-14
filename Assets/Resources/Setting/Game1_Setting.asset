@@ -23,3 +23,12 @@ MonoBehaviour:
   MaxQuestNum: 10
   QuestInterval: 30
   WeightValue: .100000001
+  GalleryNum: 10
+  Gallery_MinX: -5
+  Gallery_MaxX: 5
+  Gallery_MinZ: -5
+  Gallery_MaxZ: 5
+  Obj_Y: .5
+  Gallery_NG_Range: 1
+  FadeTime_combo: 2
+  MoveY_combo: 3
