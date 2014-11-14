@@ -36,10 +36,10 @@ public class CreateButton : MonoBehaviour {
         Setting = Resources.Load<Game2Setting>("Setting/Game2Setting");
         m_createTime = Setting.createButtonTime;
 		//	ボタン情報代入.
-		m_blueGameObject = Resources.Load<GameObject>("blue");  
-		m_redGameObject = Resources.Load<GameObject>("red");  
-		m_greenGameObject = Resources.Load<GameObject>("green");  
-		m_yellowGameObject = Resources.Load<GameObject>("yellow"); 
+		m_blueGameObject = Resources.Load<GameObject>("Prefab/Game2/blue");  
+		m_redGameObject = Resources.Load<GameObject>("Prefab/Game2/red");  
+		m_greenGameObject = Resources.Load<GameObject>("Prefab/Game2/green");  
+		m_yellowGameObject = Resources.Load<GameObject>("Prefab/Game2/yellow"); 
 		nowTime = 0.0f;
         m_patternIndex = 0;
         // 各国のパターン情報を呼び出しておく

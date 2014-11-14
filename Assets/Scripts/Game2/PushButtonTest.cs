@@ -12,19 +12,19 @@ using System.Collections.Generic;
 
 public class PushButtonTest : MonoBehaviour {
 
-	//	共通設定
+	//	共通設定.
 	FadeMgr m_fadeMgr;              // フェード.
 	InputMgr m_btnState; 			// 入力インスタンス.
 
-    // Game2設定
+    // Game2設定.
     Game2Setting Setting;          // ゲーム設定ファイル
 
-	//	カウント関連
+	//	カウント関連.
 	private	int	m_pressKeyCount;	//	ボタンを押した回数.
 	private int m_missCount;		//	ミスの回数.
 	private int m_safeCount;		//	セーフの回数.
 
-	//	判定関連
+	//	判定関連.
 	private  bool   m_triggerFlg;	//	何かに当たっているかのフラグ.
 	private  string m_bufName;		//	当たっているオブジェの名前格納用.
 
@@ -144,7 +144,7 @@ public class PushButtonTest : MonoBehaviour {
 	void OnTriggerStay2D (Collider2D button)
 	{
 		m_triggerFlg = true;							//	当たってるフラグON.
-		m_bufName = button.tag;						//	ボタンの種類取得.
+		m_bufName = button.tag;							//	ボタンの種類取得.
 		m_moveUpClass = button.GetComponent<MoveUp>();	//	ボタンのクラスの関数取得.
 		m_buttonPosition = button.transform.position;	//	ボタンの座標取得.
 	}
