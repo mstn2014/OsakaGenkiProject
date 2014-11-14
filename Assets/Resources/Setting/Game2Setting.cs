@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Game2Setting : ScriptableObject
 {
@@ -57,4 +58,12 @@ public class Game2Setting : ScriptableObject
     public float perfectPoint = 3.0f;
     public float goodPoint = 2.0f;
     public float safePoint = 1.0f;
+    public float maxPoint = 387.0f;
+    [System.Serializable]
+    public class CRank
+    {
+        public string key;
+        public float value;
+    }
+    public CRank[] rank;
 }
