@@ -137,6 +137,9 @@ public class Question : MonoBehaviour {
 
 			///// エフェクト /////
 			m_effect.SpreadCircle();	// サークルが広がる.
+			int work = m_effect.IsComboNum;
+			m_effect.IsComboNum = ++work;
+			m_effect.DispCombo();
 			
 			// コンプリートなら.
 			if (m_nowAns == GAME1.MaxQuestNum) {
