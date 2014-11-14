@@ -46,6 +46,7 @@ public class TypewriterEffect : MonoBehaviour
 				mNextChar = Time.time + delay;
 				mLabel.text = mText.Substring(0, ++mOffset);
 			}
+            mFinished = false;
 		}
         else mFinished = true;
 	}
@@ -55,6 +56,6 @@ public class TypewriterEffect : MonoBehaviour
         mOffset = 0;
         mNextChar = 0f;
         mText = mLabel.text;
-        mFinished = false;
+        mFinished = true;
     }
 }

@@ -9,7 +9,7 @@ public class MoveUp : MonoBehaviour
 
 	// Use this for initialization
 	void Start () {
-		m_bufGameObj = GameObject.Find("DestroyButton") as GameObject;
+		m_bufGameObj = GameObject.Find("DestroyButton");
 		m_moveFlg = false;
 	}
 	

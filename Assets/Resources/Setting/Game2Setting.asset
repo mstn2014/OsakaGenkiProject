@@ -11,6 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c75791ab78c993d46b27778954ee75c7, type: 3}
   m_Name: Game2Setting
   m_EditorClassIdentifier: 
+  messageTextPath: Message/game1
   JapanButtounType:
   - blue
   - red
@@ -44,3 +45,28 @@ MonoBehaviour:
   perfectRange: .100000001
   playDistance: 10
   dispTime: .300000012
+  perfectPoint: 3
+  goodPoint: 2
+  safePoint: 1
+  maxPoint: 387
+  rank:
+  - key: SSS
+    value: 1
+  - key: SS
+    value: .949999988
+  - key: S
+    value: .899999976
+  - key: AAA
+    value: .850000024
+  - key: AA
+    value: .699999988
+  - key: A
+    value: .5
+  - key: B
+    value: .400000006
+  - key: C
+    value: .300000012
+  - key: D
+    value: .150000006
+  - key: E
+    value: 0

@@ -8,7 +8,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48bab0b5af8a54c4d82c696806b942bf, type: 3}
-  m_Name: Game1Setting
+  m_Script: {fileID: 11500000, guid: 07de20ac63e0e9d4e86b149fcf9bdc3d, type: 3}
+  m_Name: TitleSetting
   m_EditorClassIdentifier: 
-  messageTextPath: Message/game2
+  scale: 3
+  rotateTime: 2
+  disappearSpeed: .75

@@ -1379,6 +1379,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 614685409}
   - 114: {fileID: 614685410}
+  - 114: {fileID: 614685411}
   m_Layer: 0
   m_Name: CreateButton
   m_TagString: Untagged
@@ -1409,7 +1410,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 445c017fc286d2f468e4f8f482e34bb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_parent: {fileID: 1822499545}
+--- !u!114 &614685411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 614685408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6951d675242c94644bbe001bb4c3eed6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_rotationSpeed: {x: 0, y: 0, z: .5}
 --- !u!1 &644676726
 GameObject:
   m_ObjectHideFlags: 0
