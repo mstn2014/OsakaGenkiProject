@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: f5c389caa338b3a44a50be866a7810c3
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - m_circle: {fileID: 21300000, guid: 5431a36b6bea4254e9f1ac4a48e4103b, type: 3}
+  - m_test: {fileID: 100018, guid: 60d006d0825fafb409846068e1ac3f7e, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 

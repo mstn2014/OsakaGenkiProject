@@ -8,6 +8,8 @@ public class GameRoop : MonoBehaviour {
 	private GameState m_state;			// ゲームの状態.
 	private CountDown	m_timer;		
 	private Question	m_quest;		// 問題生成.
+	private EffectMgr	m_effect;		// エフェクト
+
 	InputMgr m_btnState;                // 入力インスタンス.
 	FadeMgr m_fadeMgr;                  // フェード.
 
@@ -18,6 +20,7 @@ public class GameRoop : MonoBehaviour {
 		GameObject countDown = GameObject.Find("Timer");
 		m_timer = countDown.GetComponent<CountDown>();
 		m_quest = GetComponent<Question>();
+
 
 		// 共通設定の呼び出し.
 		GlobalSetting gs = Resources.Load<GlobalSetting>("Setting/GlobalSetting");
@@ -60,7 +63,7 @@ public class GameRoop : MonoBehaviour {
 						// コンプリートならゲーム終了.
 						m_state = GameState.end;
 					}else if(m_quest.IsClear){
-						// ステージクリアなら次のゲームへ.
+						// ラウンドクリアなら次のゲームへ.
 						m_timer.ResetTimer();
 						m_state = GameState.ready;
 					}

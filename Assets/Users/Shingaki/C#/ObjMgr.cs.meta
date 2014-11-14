@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: 03ff1f2321d1e48428824c28293d89ee
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - m_objParent: {fileID: 100000, guid: 13ff09ff51f612d49a6e09dd33a01788, type: 2}
+  - m_player: {fileID: 100000, guid: a4adaa7ccdcc7224e9d2f7af62b96cd6, type: 2}
+  - m_gallery: {fileID: 100000, guid: fdd949bd0eb9c4a4eb7a634dc59396e7, type: 2}
+  - m_Groud: {fileID: 100000, guid: 8f4fc1c6917db884f8b65931791a3476, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 

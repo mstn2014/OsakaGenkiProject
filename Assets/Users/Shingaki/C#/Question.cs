@@ -7,47 +7,57 @@ public class Question : MonoBehaviour {
 		public GameObject 	button;
 		public int			ans;		// 	0:初期   1:黄色   2:緑.
 	}
-	
-	private const int m_minQuestionNum = 3;	// 表示されるボタンの最小の数.
-	private const int m_maxQuestionNum = 10;// 表示されるボタンの最大の数.
-	private int m_nowQuestionNum;		// 現在のボタン数.
+
+	private int m_nowRound;				// 現在のラウンド.
+	private int m_nowQuestNum;			// 現在のボタン数.
 	private int m_nowAns;				// 今何ボタン目か.
-	[Header("ボタン間隔")]
-	public	float m_interval = 30.0f;	// ボタンの間隔.
-	
 	private float m_createWeight;		// 生成されるボタンの重み.
-	private const float m_value = 0.1f;	// m_createWeightの増減値.
 	private QuesBox[] m_box;			// 格納用配列.
 	private bool m_create;				// 生成確認.
 	private bool m_clear;				// ステージクリア確認.
 	private bool m_complete;			// ゲームクリア確認.
 	private GameObject m_panel;			// パネル(一番上の親).
 	private GameObject m_textWindow;	// テキストウィンドウ(座標参照).
-	public GameObject m_QuestPanel;		// 生成されるボタンの親(Inspectorより設定).
-	public GameObject m_Quest;			// 生成されるボタン(Inspectorより設定).
+	private GameObject m_QuestPanel;	// 生成されるボタンの親.
+	private GameObject m_Quest;			// 生成されるボタン.
+	private EffectMgr m_effect;			// エフェクト
+
+	// Game1共通設定
+	private Game1_Setting GAME1;
 	
 	// get プロパティ.
-	public bool IsCreate{
+	public bool IsCreate{			// 生成フラグ
 		get{return m_create;}
 	}
-	public bool IsClear{
+	public bool IsClear{			// ラウンドクリアフラグ
 		get{return m_clear;}
 	}
-	public bool IsComplete{
+	public bool IsComplete{			// ゲーム終了フラグ(全問正解)
 		get{return m_complete;}
+	}
+	public int IsNowRound{
+		get{return m_nowRound;}
 	}
 	
 	// Use this for initialization
 	void Start () {
+		// Game1共通設定
+		GAME1 = Resources.Load<Game1_Setting>("Setting/Game1_Setting");
+
 		// TextWindowとQuestPanelの発見と生成.
 		m_panel = GameObject.Find("Panel");
 		m_textWindow = GameObject.Find("TextWindow");
 		Vector3 position = m_textWindow.transform.localPosition;
+		m_QuestPanel = Resources.Load("Shingaki/testResource/prefab/QuestPanel") as GameObject;
+		m_Quest = Resources.Load("Shingaki/testResource/prefab/Quest") as GameObject;
 		m_QuestPanel = CreatePrefab.InstantiateGameObject (m_QuestPanel, position, Quaternion.identity,
-		                                   Vector3.one, m_panel);
+		                                                   Vector3.one, m_panel);
+		m_effect = GameObject.Find ("GameMain").GetComponent<EffectMgr> ();
+
 		// 表示されるボタンの数だけ配列生成.
-		m_box = new QuesBox[m_maxQuestionNum];
+		m_box = new QuesBox[GAME1.MaxQuestNum];
 		InitQuest();			// 初期化.
+
 	}
 	
 	// Update is called once per frame
@@ -65,16 +75,15 @@ public class Question : MonoBehaviour {
 	public IEnumerator CreateQuestion(){
 		float interval;
 		// ボタンの数だけ配列生成.
-		for (int i=0; i<m_nowQuestionNum; i++) {
+		for (int i=0; i<m_nowQuestNum; i++) {
 			/* ///// 生成したボタンを次の問題に保持するときのみ有効 /////
 			// もし生成済みの場合表示のみ.
 			if(m_box[i].button != null){
 				DispButton(i);
 			}else */
 			///////////////////////////////////////////////////////
-			// ToDo ボタンの位置設定.
 			// ボタン生成と出現位置計算.
-			interval = i*(-m_interval)+(m_interval/2)*(m_nowQuestionNum-1);
+			interval = i*(-GAME1.QuestInterval)+(GAME1.QuestInterval/2)*(m_nowQuestNum-1);
 			/*m_box[i].button = CreatePrefab.InstantiateGameObject(m_Quest, new Vector3(0,interval,0), Quaternion.identity,
 			                                                     Vector3.one, m_QuestPanel);*/
 			m_box[i].button = Instantiate(m_Quest) as GameObject;
@@ -92,20 +101,20 @@ public class Question : MonoBehaviour {
 				sprite.spriteName = "Bright";
 				text.text = ("password");
 				m_box[i].ans = 1;
-				m_createWeight -= m_value;
+				m_createWeight -= GAME1.WeightValue;
 			}else{
 				// 緑生成.
 				sprite.spriteName = "Smooth";
 				text.text = ("pause");
 				m_box[i].ans = 2;
-				m_createWeight += m_value;
+				m_createWeight += GAME1.WeightValue;
 			}
 			
 			// 生成後時間をおく.
 			yield return new WaitForSeconds(1f);
 		}
 		yield return new WaitForSeconds(1f);
-			for(int i=0; i<m_nowQuestionNum; i++){
+		for(int i=0; i<m_nowQuestNum; i++){
 			HideButton(i);
 		}
 		m_create = true;
@@ -125,36 +134,43 @@ public class Question : MonoBehaviour {
 			Debug.Log ("正解");
 			DispButton (m_nowAns);
 			m_nowAns++;
-	
+
+			///// エフェクト /////
+			m_effect.SpreadCircle();	// サークルが広がる.
+			
 			// コンプリートなら.
-			if (m_nowAns == m_maxQuestionNum) {
+			if (m_nowAns == GAME1.MaxQuestNum) {
 				m_complete = true;
 			}
 			// ステージクリアなら次のゲームへ.
-			if (m_nowAns == m_nowQuestionNum) {
+			if (m_nowAns == m_nowQuestNum) {
 				HideButton();
 				/* ///// 生成したボタンを次の問題に保持するときのみ有効 /////
 				m_QuestPanel.SetActive (true);
 				m_clear = true;
 				m_nowAns=0;
-				m_nowQuestionNum++;
+				m_nowQuestNum++;
 				m_create = false;
 				*//////////////////////////////////////////////
-	
+				
 				// ///// 毎回ランダムの場合.  /////
-				int workQuest = m_nowQuestionNum;
+				int workQuest = m_nowQuestNum;
+				int workRound = m_nowRound;
 				InitQuest ();
 				m_clear = true;
-				m_nowQuestionNum = workQuest + 1;
+				m_nowQuestNum	= workQuest + 1;
+				m_nowRound		= workRound + 1;
 				//////////////////////////////////////////////
-	
+				m_effect.InitCircle();
+
+				
 			}
-				return true;
-			} else {
-				Debug.Log ("はずれ");
-				return false;
-			}
+			return true;
+		} else {
+			Debug.Log ("はずれ");
+			return false;
 		}
+	}
 	
 	// ボタンの表示.
 	public void DispButton(int i=-1){
@@ -181,7 +197,7 @@ public class Question : MonoBehaviour {
 	
 	// 問題の初期化.
 	public void InitQuest(){
-		for (int i=0; i<m_maxQuestionNum; i++) {
+		for (int i=0; i<GAME1.MaxQuestNum; i++) {
 			if(m_box[i].button != null){
 				Destroy(m_box[i].button);
 				m_box[i].button = null;
@@ -192,8 +208,9 @@ public class Question : MonoBehaviour {
 		m_create = false;
 		m_clear = false;
 		m_complete = false;
+		m_nowRound = 1;
 		m_nowAns = 0;
-		m_nowQuestionNum = m_minQuestionNum;
+		m_nowQuestNum = GAME1.MinQuestNum;
 		m_createWeight = 0.5f;
 	}
 }
