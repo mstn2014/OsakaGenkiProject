@@ -3,9 +3,14 @@ using System.Collections;
 
 public class EffectMgr : MonoBehaviour {
 
+	private GameObject	m_circleParent;		// サークルの親.
+	private GameObject	m_circle_ver2;		// サークルver2
+	private GameObject	m_oldcircle_Ver2;	// 前回のサークル
+
 	private GameObject	m_topCircle;		// サークル
 	private GameObject	m_target;
 	private GameObject	m_comboText;		// combo表示.
+	private GameObject	m_oldCombo;			// 古いコンボ.
 	private int			m_comboNum;			// コンボ数
 	private GameObject	m_panel;			// NGUIの親
 	
@@ -33,10 +38,50 @@ public class EffectMgr : MonoBehaviour {
 		angle.eulerAngles  = new Vector3 (90, 0, 0);
 		m_topCircle = Instantiate (m_topCircle, new Vector3 (0, 0.1f, 0), angle) as GameObject; 
 		InitCircle ();
+
+
+		// サークルver2
+		m_circle_ver2 = Resources.Load("Shingaki/testResource/prefab/circle1") as GameObject;
+
+		InitCircle_ver2 ();
+
 	}
 	
 	// Update is called once per frame
 	void Update () {}
+
+	///// サークルver2 /////
+	public void SpreadCircle_ver2(int scalenum){
+		Vector3 scale;
+		if (m_oldcircle_Ver2 != null) {
+			scale = m_oldcircle_Ver2.transform.localScale;
+		} else {
+			scale = Vector3.zero;
+		}
+		// サークル作成	拡縮はこの前に作られたやつ参照
+		GameObject circle = CreatePrefab.InstantiateGameObject (m_circle_ver2, Vector3.zero, Quaternion.identity,
+		                                                       scale, m_circleParent);
+
+		iTween.ScaleTo (circle, iTween.Hash ("x", scalenum, "y", scalenum, "time", GAME1.ScaleTime_circle));
+
+		m_oldcircle_Ver2 = circle;
+	}
+
+	// サークルの初期化
+	public void InitCircle_ver2(){
+		if (m_circleParent != null) {
+			Destroy (m_circleParent);
+			m_circleParent = null;
+		}
+		m_circleParent = new GameObject("CirclParent");
+		m_circleParent.transform.localRotation = Quaternion.Euler (new Vector3 (90, 0, 0));
+		m_circleParent.transform.localPosition = new Vector3 (0,0.1f,0);
+
+		m_oldcircle_Ver2 = null;
+	}
+
+
+	///// サークルver2 /////
 
 	// 正解を受け取るとサークルが広がる.
 	public void SpreadCircle(){
@@ -47,7 +92,6 @@ public class EffectMgr : MonoBehaviour {
 			Debug.Log("true");
 			m_target = m_target.transform.FindChild ("circle").gameObject;
 		}
-
 	}
 
 	// サークルの初期化.
@@ -86,6 +130,7 @@ public class EffectMgr : MonoBehaviour {
 		comboAlpha.from = 1f;
 		comboAlpha.to = 0f;
 		comboAlpha.duration = GAME1.FadeTime_combo;
+		comboAlpha.Play (true);
 		// 時間経過後削除
 		Destroy (combo, GAME1.FadeTime_combo);
 	}

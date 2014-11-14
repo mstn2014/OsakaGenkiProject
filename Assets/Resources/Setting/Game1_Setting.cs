@@ -31,4 +31,5 @@ public class Game1_Setting : ScriptableObject {
 	[Header("Effect関連")]
 	public float FadeTime_combo;	// フェードアウトする時間
 	public float MoveY_combo;		// 移動距離
+	public float ScaleTime_circle;	// サークルの拡大時間
 }

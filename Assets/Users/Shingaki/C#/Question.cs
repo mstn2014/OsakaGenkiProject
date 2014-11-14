@@ -35,7 +35,10 @@ public class Question : MonoBehaviour {
 	public bool IsComplete{			// ゲーム終了フラグ(全問正解)
 		get{return m_complete;}
 	}
-	public int IsNowRound{
+	public int IsNowAns{			// 何ボタン目答えている?
+		get{return m_nowAns;}
+	}
+	public int IsNowRound{			// ラウンド数取得
 		get{return m_nowRound;}
 	}
 	
@@ -136,10 +139,13 @@ public class Question : MonoBehaviour {
 			m_nowAns++;
 
 			///// エフェクト /////
-			m_effect.SpreadCircle();	// サークルが広がる.
-			int work = m_effect.IsComboNum;
+			/*m_effect.SpreadCircle();	// サークルが広がる.
+			 * */
+			m_effect.SpreadCircle_ver2(m_nowAns);
+
+			int work = m_effect.IsComboNum;	// コンボ数表示
 			m_effect.IsComboNum = ++work;
-			m_effect.DispCombo();
+			m_effect.DispCombo();		
 			
 			// コンプリートなら.
 			if (m_nowAns == GAME1.MaxQuestNum) {
@@ -150,7 +156,7 @@ public class Question : MonoBehaviour {
 				HideButton();
 				/* ///// 生成したボタンを次の問題に保持するときのみ有効 /////
 				m_QuestPanel.SetActive (true);
-				m_clear = true;
+				m_clear = true;w
 				m_nowAns=0;
 				m_nowQuestNum++;
 				m_create = false;
@@ -164,13 +170,17 @@ public class Question : MonoBehaviour {
 				m_nowQuestNum	= workQuest + 1;
 				m_nowRound		= workRound + 1;
 				//////////////////////////////////////////////
-				m_effect.InitCircle();
+				//m_effect.InitCircle();
+				m_effect.InitCircle_ver2();
 
 				
 			}
 			return true;
 		} else {
 			Debug.Log ("はずれ");
+
+			///// エフェクト /////
+			m_effect.IsComboNum = 0;
 			return false;
 		}
 	}

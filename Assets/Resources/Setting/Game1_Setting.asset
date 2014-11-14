@@ -30,5 +30,6 @@ MonoBehaviour:
   Gallery_MaxZ: 5
   Obj_Y: .5
   Gallery_NG_Range: 1
-  FadeTime_combo: 2
+  FadeTime_combo: 1
   MoveY_combo: 30
+  ScaleTime_circle: 1
