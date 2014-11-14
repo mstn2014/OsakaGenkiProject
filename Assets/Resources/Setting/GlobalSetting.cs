@@ -3,8 +3,16 @@ using System.Collections;
 
 public class GlobalSetting : ScriptableObject
 {
+    [Header("マネージャークラス")]
     public string inputMgrPath;
     public string fadeMgrPath;
+    [Header("FPS")]
+    public int fps = 60;
+
+    GlobalSetting()
+    {
+        Application.targetFrameRate = fps;
+    }
     
     // 入力クラスを取得
     public InputMgr InputMgr{

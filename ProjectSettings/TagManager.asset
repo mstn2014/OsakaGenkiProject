@@ -7,6 +7,10 @@ TagManager:
   - InputMgr
   - charactor
   - Player_sub
+  - Yellow
+  - Blue
+  - Red
+  - Green
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

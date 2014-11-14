@@ -41,7 +41,7 @@ public class MoveUp : MonoBehaviour
 	// @param:　なし.
 	// @return:　なし.
 	//======================================================
-	public void CMoveUpButton()
+	public void MoveUpButton()
 	{
 		m_moveFlg = true;
 		transform.parent = m_bufGameObj.transform;	//	回転から外す.
@@ -55,7 +55,7 @@ public class MoveUp : MonoBehaviour
 	// @param:　なし.
 	// @return:　なし.
 	//======================================================
-	public void CDestroyButton()
+	public void DestroyButton()
 	{
 		Destroy (this.gameObject);
 	}

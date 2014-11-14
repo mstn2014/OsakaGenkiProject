@@ -4,15 +4,15 @@ using System.Collections;
 public class Hit : MonoBehaviour {
 
 	//入力
-	//InputMgr input_bt;
 	InputMg	   input_bt;
 	GameObject go;
 
 	// コンポーネント用
 	GameMain 		gamemain;
 	GameMain_sub	gamemain_sub;
-
+	CharSpeedMgr	charspeed_mgr;
 	Hit_sub			hit_sub;
+	Score			score;
 
 	// ヒットしている色
 	int HitNum = 0;
@@ -25,6 +25,8 @@ public class Hit : MonoBehaviour {
 		gamemain_sub = GameObject.Find ("Pare").GetComponent<GameMain_sub> ();
 		hit_sub = GameObject.Find ("Spot_R").GetComponent<Hit_sub> ();
 		input_bt = GameObject.Find ("InputMane").GetComponent<InputMg> ();
+		charspeed_mgr = GameObject.Find ("Speed_Mgr").GetComponent<CharSpeedMgr> ();
+		score = GameObject.Find ("Score_name").GetComponent<Score> ();
 
 	}
 	
@@ -32,8 +34,10 @@ public class Hit : MonoBehaviour {
 	void Update () {
 		// 当たっていないときにボタンを押すと飛ぶ
 		if (input_bt.AnyTrigger()) {
-			if (gamemain.ObjFlagC () == 0) {
+			if (gamemain.ObjFlagC () == 0 && gamemain_sub.ObjFlagC () == 0 && 
+			    GameObject.Find ("SayonaraLine").transform.position.x < this.transform.position.x) {
 				gamemain.SayonaraObj();
+				//charspeed_mgr.SpeedDown();
 			}
 		}
 	}
@@ -48,14 +52,18 @@ public class Hit : MonoBehaviour {
 			other.gameObject.renderer.material.name == "red") {
 			HitNum = 1;
 			if (input_bt.RedTrigger()) { 
+				charspeed_mgr.CountUp();		// 難易度設定カウントアップ
+				score.Count_Up(1);				// スコアカウントアップ
 				gamemain.ObjInList (other.gameObject);// リストに格納
 				gamemain.CharMoveOrder ();// 新しいターゲットの選定
 			}
 		} else {
 			if (input_bt.RedTrigger()) {
 				if (gamemain_sub.ObjFlagC () == 2 && hit_sub.GetNum() != 1 ) {
-					iTween.MoveTo (other.gameObject, GameObject.Find ("RetPosition").transform.position, 4.0f);
+					//iTween.MoveTo (other.gameObject, GameObject.Find ("RetPosition").transform.position, 4.0f);
+					gamemain.SayonaraObj();
 				}
+				charspeed_mgr.SpeedDown();
 			}
 		}
 
@@ -63,14 +71,18 @@ public class Hit : MonoBehaviour {
 		    other.gameObject.renderer.material.name == "green") {
 			HitNum = 2;
 			if (input_bt.GreenTrigger()){ 
+				charspeed_mgr.CountUp();		// 難易度設定カウントアップ
+				score.Count_Up(1);				// スコアカウントアップ
 				gamemain.ObjInList(other.gameObject);// リストに格納
 				gamemain.CharMoveOrder();// 新しいターゲットの選定
 			}
 		} else {
 			if (input_bt.GreenTrigger()) { 
 				if (gamemain_sub.ObjFlagC () == 2 && hit_sub.GetNum() != 2 ) {
-					iTween.MoveTo (other.gameObject, GameObject.Find ("RetPosition").transform.position, 4.0f);
+					//iTween.MoveTo (other.gameObject, GameObject.Find ("RetPosition").transform.position, 4.0f);
+					gamemain.SayonaraObj();
 				}
+				charspeed_mgr.SpeedDown();
 			}
 		}
 
@@ -78,14 +90,18 @@ public class Hit : MonoBehaviour {
 		    other.gameObject.renderer.material.name == "blue") {
 			HitNum = 3;
 			if (input_bt.BlueTrigger()){ 
+				charspeed_mgr.CountUp();		// 難易度設定カウントアップ
+				score.Count_Up(1);				// スコアカウントアップ
 				gamemain.ObjInList(other.gameObject);// リストに格納
 				gamemain.CharMoveOrder();// 新しいターゲットの選定
 			}
 		} else {
 			if (input_bt.BlueTrigger()) { 
 				if (gamemain_sub.ObjFlagC () == 2 && hit_sub.GetNum() != 3 ) {
-					iTween.MoveTo (other.gameObject, GameObject.Find ("RetPosition").transform.position, 4.0f);
+					//iTween.MoveTo (other.gameObject, GameObject.Find ("RetPosition").transform.position, 4.0f);
+					gamemain.SayonaraObj();
 				}
+				charspeed_mgr.SpeedDown();
 			}
 		}
 
@@ -93,14 +109,18 @@ public class Hit : MonoBehaviour {
 		    other.gameObject.renderer.material.name == "yerrow") {
 			HitNum = 4;
 			if (input_bt.YellowTrigger()){ 
+				charspeed_mgr.CountUp();		// 難易度設定カウントアップ
+				score.Count_Up(1);				// スコアカウントアップ
 				gamemain.ObjInList(other.gameObject);// リストに格納
 				gamemain.CharMoveOrder();// 新しいターゲットの選定
 			}
 		} else {
 			if (input_bt.YellowTrigger()) { 
 				if (gamemain_sub.ObjFlagC () == 2 && hit_sub.GetNum() != 4 ) {
-					iTween.MoveTo (other.gameObject, GameObject.Find ("RetPosition").transform.position, 4.0f);
+					//iTween.MoveTo (other.gameObject, GameObject.Find ("RetPosition").transform.position, 4.0f);
+					gamemain.SayonaraObj();
 				}
+				charspeed_mgr.SpeedDown();
 			}
 		}
 	}

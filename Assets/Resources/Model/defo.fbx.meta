@@ -1,0 +1,616 @@
+fileFormatVersion: 2
+guid: 9274149915ec7ca49a2da4a22c055c14
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: asi_L
+    100002: asi_R
+    100004: asikubi_L
+    100006: asikubi_R
+    100008: atama
+    100010: //RootNode
+    100012: defocos
+    100014: eye
+    100016: foot1
+    100018: foot2
+    100020: hear1
+    100022: hiji_L
+    100024: hiji_R
+    100026: hito1_L
+    100028: hito1_R
+    100030: hito2_L
+    100032: hito2_R
+    100034: hito3_L
+    100036: hito3_R
+    100038: hito4_L
+    100040: hito4_R
+    100042: hiza_L
+    100044: hiza_R
+    100046: kata_L
+    100048: kata_R
+    100050: ko1_L
+    100052: ko1_R
+    100054: ko2_L
+    100056: ko2_R
+    100058: ko3_L
+    100060: ko3_R
+    100062: ko4_L
+    100064: ko4_R
+    100066: kosi
+    100068: kubi1
+    100070: kubi2
+    100072: kusuri1_L
+    100074: kusuri1_R
+    100076: kusuri2_L
+    100078: kusuri2_R
+    100080: kusuri3_L
+    100082: kusuri3_R
+    100084: kusuri4_L
+    100086: kusuri4_R
+    100088: kuti
+    100090: mayu
+    100092: mune
+    100094: naka1_L
+    100096: naka1_R
+    100098: naka2_L
+    100100: naka2_R
+    100102: naka3_L
+    100104: naka3_R
+    100106: naka4_L
+    100108: naka4_R
+    100110: onaka
+    100112: oya1_L
+    100114: oya1_R
+    100116: oya2_L
+    100118: oya2_R
+    100120: oya3_L
+    100122: oya3_R
+    100124: oya4_L
+    100126: oya4_R
+    100128: pantsu1
+    100130: polySurface11
+    100132: polySurface12
+    100134: polySurface14
+    100136: polySurface16
+    100138: polySurface32
+    100140: root
+    100142: sakotu_L
+    100144: sakotu_R
+    100146: syatu1
+    100148: tekubi_L
+    100150: tekubi_R
+    100152: tukene_L
+    100154: tukene_R
+    100156: tumasaki_L
+    100158: tumasaki_R
+    400000: asi_L
+    400002: asi_R
+    400004: asikubi_L
+    400006: asikubi_R
+    400008: atama
+    400010: //RootNode
+    400012: defocos
+    400014: eye
+    400016: foot1
+    400018: foot2
+    400020: hear1
+    400022: hiji_L
+    400024: hiji_R
+    400026: hito1_L
+    400028: hito1_R
+    400030: hito2_L
+    400032: hito2_R
+    400034: hito3_L
+    400036: hito3_R
+    400038: hito4_L
+    400040: hito4_R
+    400042: hiza_L
+    400044: hiza_R
+    400046: kata_L
+    400048: kata_R
+    400050: ko1_L
+    400052: ko1_R
+    400054: ko2_L
+    400056: ko2_R
+    400058: ko3_L
+    400060: ko3_R
+    400062: ko4_L
+    400064: ko4_R
+    400066: kosi
+    400068: kubi1
+    400070: kubi2
+    400072: kusuri1_L
+    400074: kusuri1_R
+    400076: kusuri2_L
+    400078: kusuri2_R
+    400080: kusuri3_L
+    400082: kusuri3_R
+    400084: kusuri4_L
+    400086: kusuri4_R
+    400088: kuti
+    400090: mayu
+    400092: mune
+    400094: naka1_L
+    400096: naka1_R
+    400098: naka2_L
+    400100: naka2_R
+    400102: naka3_L
+    400104: naka3_R
+    400106: naka4_L
+    400108: naka4_R
+    400110: onaka
+    400112: oya1_L
+    400114: oya1_R
+    400116: oya2_L
+    400118: oya2_R
+    400120: oya3_L
+    400122: oya3_R
+    400124: oya4_L
+    400126: oya4_R
+    400128: pantsu1
+    400130: polySurface11
+    400132: polySurface12
+    400134: polySurface14
+    400136: polySurface16
+    400138: polySurface32
+    400140: root
+    400142: sakotu_L
+    400144: sakotu_R
+    400146: syatu1
+    400148: tekubi_L
+    400150: tekubi_R
+    400152: tukene_L
+    400154: tukene_R
+    400156: tumasaki_L
+    400158: tumasaki_R
+    2300000: eye
+    2300002: hear1
+    2300004: kuti
+    2300006: mayu
+    3300000: eye
+    3300002: hear1
+    3300004: kuti
+    3300006: mayu
+    4300000: defocos
+    4300002: foot1
+    4300004: foot2
+    4300006: pantsu1
+    4300008: syatu1
+    4300010: eye
+    4300012: mayu
+    4300014: hear1
+    4300016: kuti
+    7400000: normalStand
+    7400002: rythemStand
+    9500000: //RootNode
+    13700000: defocos
+    13700002: foot1
+    13700004: foot2
+    13700006: pantsu1
+    13700008: syatu1
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: normalStand
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: polySurface11
+        weight: 1
+      - path: polySurface11/polySurface12
+        weight: 1
+      - path: polySurface11/polySurface12/pantsu1
+        weight: 1
+      - path: polySurface11/polySurface12/polySurface14
+        weight: 1
+      - path: polySurface11/polySurface12/polySurface14/foot1
+        weight: 1
+      - path: polySurface11/polySurface12/polySurface14/foot2
+        weight: 1
+      - path: polySurface11/polySurface12/polySurface14/polySurface16
+        weight: 1
+      - path: polySurface11/polySurface12/polySurface14/polySurface16/polySurface32
+        weight: 1
+      - path: polySurface11/polySurface12/polySurface14/polySurface16/polySurface32/defocos
+        weight: 1
+      - path: polySurface11/syatu1
+        weight: 1
+      - path: root
+        weight: 1
+      - path: root/kosi
+        weight: 1
+      - path: root/kosi/onaka
+        weight: 1
+      - path: root/kosi/onaka/mune
+        weight: 1
+      - path: root/kosi/onaka/mune/kubi1
+        weight: 1
+      - path: root/kosi/onaka/mune/kubi1/kubi2
+        weight: 1
+      - path: root/kosi/onaka/mune/kubi1/kubi2/atama
+        weight: 1
+      - path: root/kosi/onaka/mune/kubi1/kubi2/atama/eye
+        weight: 1
+      - path: root/kosi/onaka/mune/kubi1/kubi2/atama/hear1
+        weight: 1
+      - path: root/kosi/onaka/mune/kubi1/kubi2/atama/kuti
+        weight: 1
+      - path: root/kosi/onaka/mune/kubi1/kubi2/atama/mayu
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_L
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_L/kata_L
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_L/kata_L/hiji_L
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_L/kata_L/hiji_L/tekubi_L
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_L/kata_L/hiji_L/tekubi_L/hito1_L
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_L/kata_L/hiji_L/tekubi_L/hito1_L/hito2_L
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_L/kata_L/hiji_L/tekubi_L/hito1_L/hito2_L/hito3_L
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_L/kata_L/hiji_L/tekubi_L/hito1_L/hito2_L/hito3_L/hito4_L
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_L/kata_L/hiji_L/tekubi_L/ko1_L
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_L/kata_L/hiji_L/tekubi_L/ko1_L/ko2_L
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_L/kata_L/hiji_L/tekubi_L/ko1_L/ko2_L/ko3_L
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_L/kata_L/hiji_L/tekubi_L/ko1_L/ko2_L/ko3_L/ko4_L
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_L/kata_L/hiji_L/tekubi_L/kusuri1_L
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_L/kata_L/hiji_L/tekubi_L/kusuri1_L/kusuri2_L
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_L/kata_L/hiji_L/tekubi_L/kusuri1_L/kusuri2_L/kusuri3_L
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_L/kata_L/hiji_L/tekubi_L/kusuri1_L/kusuri2_L/kusuri3_L/kusuri4_L
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_L/kata_L/hiji_L/tekubi_L/naka1_L
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_L/kata_L/hiji_L/tekubi_L/naka1_L/naka2_L
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_L/kata_L/hiji_L/tekubi_L/naka1_L/naka2_L/naka3_L
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_L/kata_L/hiji_L/tekubi_L/naka1_L/naka2_L/naka3_L/naka4_L
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_L/kata_L/hiji_L/tekubi_L/oya1_L
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_L/kata_L/hiji_L/tekubi_L/oya1_L/oya2_L
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_L/kata_L/hiji_L/tekubi_L/oya1_L/oya2_L/oya3_L
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_L/kata_L/hiji_L/tekubi_L/oya1_L/oya2_L/oya3_L/oya4_L
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_R
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_R/kata_R
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_R/kata_R/hiji_R
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_R/kata_R/hiji_R/tekubi_R
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_R/kata_R/hiji_R/tekubi_R/hito1_R
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_R/kata_R/hiji_R/tekubi_R/hito1_R/hito2_R
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_R/kata_R/hiji_R/tekubi_R/hito1_R/hito2_R/hito3_R
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_R/kata_R/hiji_R/tekubi_R/hito1_R/hito2_R/hito3_R/hito4_R
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_R/kata_R/hiji_R/tekubi_R/ko1_R
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_R/kata_R/hiji_R/tekubi_R/ko1_R/ko2_R
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_R/kata_R/hiji_R/tekubi_R/ko1_R/ko2_R/ko3_R
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_R/kata_R/hiji_R/tekubi_R/ko1_R/ko2_R/ko3_R/ko4_R
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_R/kata_R/hiji_R/tekubi_R/kusuri1_R
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_R/kata_R/hiji_R/tekubi_R/kusuri1_R/kusuri2_R
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_R/kata_R/hiji_R/tekubi_R/kusuri1_R/kusuri2_R/kusuri3_R
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_R/kata_R/hiji_R/tekubi_R/kusuri1_R/kusuri2_R/kusuri3_R/kusuri4_R
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_R/kata_R/hiji_R/tekubi_R/naka1_R
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_R/kata_R/hiji_R/tekubi_R/naka1_R/naka2_R
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_R/kata_R/hiji_R/tekubi_R/naka1_R/naka2_R/naka3_R
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_R/kata_R/hiji_R/tekubi_R/naka1_R/naka2_R/naka3_R/naka4_R
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_R/kata_R/hiji_R/tekubi_R/oya1_R
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_R/kata_R/hiji_R/tekubi_R/oya1_R/oya2_R
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_R/kata_R/hiji_R/tekubi_R/oya1_R/oya2_R/oya3_R
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_R/kata_R/hiji_R/tekubi_R/oya1_R/oya2_R/oya3_R/oya4_R
+        weight: 1
+      - path: root/tukene_L
+        weight: 1
+      - path: root/tukene_L/hiza_L
+        weight: 1
+      - path: root/tukene_L/hiza_L/asikubi_L
+        weight: 1
+      - path: root/tukene_L/hiza_L/asikubi_L/tumasaki_L
+        weight: 1
+      - path: root/tukene_L/hiza_L/asikubi_L/tumasaki_L/asi_L
+        weight: 1
+      - path: root/tukene_R
+        weight: 1
+      - path: root/tukene_R/hiza_R
+        weight: 1
+      - path: root/tukene_R/hiza_R/asikubi_R
+        weight: 1
+      - path: root/tukene_R/hiza_R/asikubi_R/tumasaki_R
+        weight: 1
+      - path: root/tukene_R/hiza_R/asikubi_R/tumasaki_R/asi_R
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: rythemStand
+      takeName: Take 001
+      firstFrame: 91
+      lastFrame: 150
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: polySurface11
+        weight: 1
+      - path: polySurface11/polySurface12
+        weight: 1
+      - path: polySurface11/polySurface12/pantsu1
+        weight: 1
+      - path: polySurface11/polySurface12/polySurface14
+        weight: 1
+      - path: polySurface11/polySurface12/polySurface14/foot1
+        weight: 1
+      - path: polySurface11/polySurface12/polySurface14/foot2
+        weight: 1
+      - path: polySurface11/polySurface12/polySurface14/polySurface16
+        weight: 1
+      - path: polySurface11/polySurface12/polySurface14/polySurface16/polySurface32
+        weight: 1
+      - path: polySurface11/polySurface12/polySurface14/polySurface16/polySurface32/defocos
+        weight: 1
+      - path: polySurface11/syatu1
+        weight: 1
+      - path: root
+        weight: 1
+      - path: root/kosi
+        weight: 1
+      - path: root/kosi/onaka
+        weight: 1
+      - path: root/kosi/onaka/mune
+        weight: 1
+      - path: root/kosi/onaka/mune/kubi1
+        weight: 1
+      - path: root/kosi/onaka/mune/kubi1/kubi2
+        weight: 1
+      - path: root/kosi/onaka/mune/kubi1/kubi2/atama
+        weight: 1
+      - path: root/kosi/onaka/mune/kubi1/kubi2/atama/eye
+        weight: 1
+      - path: root/kosi/onaka/mune/kubi1/kubi2/atama/hear1
+        weight: 1
+      - path: root/kosi/onaka/mune/kubi1/kubi2/atama/kuti
+        weight: 1
+      - path: root/kosi/onaka/mune/kubi1/kubi2/atama/mayu
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_L
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_L/kata_L
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_L/kata_L/hiji_L
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_L/kata_L/hiji_L/tekubi_L
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_L/kata_L/hiji_L/tekubi_L/hito1_L
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_L/kata_L/hiji_L/tekubi_L/hito1_L/hito2_L
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_L/kata_L/hiji_L/tekubi_L/hito1_L/hito2_L/hito3_L
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_L/kata_L/hiji_L/tekubi_L/hito1_L/hito2_L/hito3_L/hito4_L
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_L/kata_L/hiji_L/tekubi_L/ko1_L
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_L/kata_L/hiji_L/tekubi_L/ko1_L/ko2_L
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_L/kata_L/hiji_L/tekubi_L/ko1_L/ko2_L/ko3_L
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_L/kata_L/hiji_L/tekubi_L/ko1_L/ko2_L/ko3_L/ko4_L
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_L/kata_L/hiji_L/tekubi_L/kusuri1_L
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_L/kata_L/hiji_L/tekubi_L/kusuri1_L/kusuri2_L
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_L/kata_L/hiji_L/tekubi_L/kusuri1_L/kusuri2_L/kusuri3_L
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_L/kata_L/hiji_L/tekubi_L/kusuri1_L/kusuri2_L/kusuri3_L/kusuri4_L
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_L/kata_L/hiji_L/tekubi_L/naka1_L
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_L/kata_L/hiji_L/tekubi_L/naka1_L/naka2_L
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_L/kata_L/hiji_L/tekubi_L/naka1_L/naka2_L/naka3_L
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_L/kata_L/hiji_L/tekubi_L/naka1_L/naka2_L/naka3_L/naka4_L
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_L/kata_L/hiji_L/tekubi_L/oya1_L
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_L/kata_L/hiji_L/tekubi_L/oya1_L/oya2_L
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_L/kata_L/hiji_L/tekubi_L/oya1_L/oya2_L/oya3_L
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_L/kata_L/hiji_L/tekubi_L/oya1_L/oya2_L/oya3_L/oya4_L
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_R
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_R/kata_R
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_R/kata_R/hiji_R
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_R/kata_R/hiji_R/tekubi_R
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_R/kata_R/hiji_R/tekubi_R/hito1_R
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_R/kata_R/hiji_R/tekubi_R/hito1_R/hito2_R
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_R/kata_R/hiji_R/tekubi_R/hito1_R/hito2_R/hito3_R
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_R/kata_R/hiji_R/tekubi_R/hito1_R/hito2_R/hito3_R/hito4_R
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_R/kata_R/hiji_R/tekubi_R/ko1_R
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_R/kata_R/hiji_R/tekubi_R/ko1_R/ko2_R
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_R/kata_R/hiji_R/tekubi_R/ko1_R/ko2_R/ko3_R
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_R/kata_R/hiji_R/tekubi_R/ko1_R/ko2_R/ko3_R/ko4_R
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_R/kata_R/hiji_R/tekubi_R/kusuri1_R
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_R/kata_R/hiji_R/tekubi_R/kusuri1_R/kusuri2_R
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_R/kata_R/hiji_R/tekubi_R/kusuri1_R/kusuri2_R/kusuri3_R
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_R/kata_R/hiji_R/tekubi_R/kusuri1_R/kusuri2_R/kusuri3_R/kusuri4_R
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_R/kata_R/hiji_R/tekubi_R/naka1_R
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_R/kata_R/hiji_R/tekubi_R/naka1_R/naka2_R
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_R/kata_R/hiji_R/tekubi_R/naka1_R/naka2_R/naka3_R
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_R/kata_R/hiji_R/tekubi_R/naka1_R/naka2_R/naka3_R/naka4_R
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_R/kata_R/hiji_R/tekubi_R/oya1_R
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_R/kata_R/hiji_R/tekubi_R/oya1_R/oya2_R
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_R/kata_R/hiji_R/tekubi_R/oya1_R/oya2_R/oya3_R
+        weight: 1
+      - path: root/kosi/onaka/mune/sakotu_R/kata_R/hiji_R/tekubi_R/oya1_R/oya2_R/oya3_R/oya4_R
+        weight: 1
+      - path: root/tukene_L
+        weight: 1
+      - path: root/tukene_L/hiza_L
+        weight: 1
+      - path: root/tukene_L/hiza_L/asikubi_L
+        weight: 1
+      - path: root/tukene_L/hiza_L/asikubi_L/tumasaki_L
+        weight: 1
+      - path: root/tukene_L/hiza_L/asikubi_L/tumasaki_L/asi_L
+        weight: 1
+      - path: root/tukene_R
+        weight: 1
+      - path: root/tukene_R/hiza_R
+        weight: 1
+      - path: root/tukene_R/hiza_R/asikubi_R
+        weight: 1
+      - path: root/tukene_R/hiza_R/asikubi_R/tumasaki_R
+        weight: 1
+      - path: root/tukene_R/hiza_R/asikubi_R/tumasaki_R/asi_R
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 

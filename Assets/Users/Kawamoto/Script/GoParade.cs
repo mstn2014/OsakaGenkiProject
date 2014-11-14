@@ -15,7 +15,7 @@ public class GoParade : MonoBehaviour {
 		path [0] = this.gameObject.transform.position;
 		path [2] = p_list.GetPos ();
 		iTween.MoveTo(this.gameObject,iTween.Hash("path",path,"time",0.5f,"easetype",iTween.EaseType.linear));
-		iTween.RotateTo(this.gameObject, iTween.Hash("z", 180, "time", 0.5f));
+		iTween.RotateAdd(this.gameObject, iTween.Hash("z", 360, "time", 0.5f));
 	}
 	
 	// Update is called once per frame
