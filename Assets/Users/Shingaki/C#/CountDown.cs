@@ -4,17 +4,15 @@ using System.Collections;
 public class CountDown : MonoBehaviour {
 
 	[Header("TIME")]
-	public 	float	m_startTime = 20.0f;	// ToDo:最終的には消す
 	private float[] m_timelimit;			// 制限時間格納用.
 	private float	m_timer;
-	private float	m_timelimit_test;			// 制限時間
 	private bool	m_paused;
 
 	private GameObject	m_lavel;
 	private UILabel		m_text;
 	private Question	m_quest;
 
-	// Game1共通設定
+	// Game1共通設定.
 	private Game1_Setting GAME1;
 
 	// get プロパティ.
@@ -24,13 +22,13 @@ public class CountDown : MonoBehaviour {
 	public float IsTimer{
 		get{return m_timer;}
 	}
-	/*
 	public float IsTimeLimit{
-		get{return m_timelimit_test;}
-	}4*/
+		get{return m_timelimit[m_quest.IsNowRound-1];}
+	}
+
 	// Use this for initialization
 	void Start () {
-		// Game1共通設定
+		// Game1共通設定.
 		GAME1 = Resources.Load<Game1_Setting>("Setting/Game1_Setting");
 
 		// ラウンドごとの時間格納.
@@ -38,6 +36,7 @@ public class CountDown : MonoBehaviour {
 		SetTimelimit();
 
 		m_paused = true;
+		// ToDo 最終的にGameMainにatachする形にするので↓の１行いらない.
 		GameObject obj = GameObject.Find ("GameMain") as GameObject;
 		m_quest = obj.GetComponent<Question>();
 		m_lavel = GameObject.Find ("Timer") as GameObject;

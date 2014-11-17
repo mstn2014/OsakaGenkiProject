@@ -21,15 +21,16 @@ public class Game1_Setting : ScriptableObject {
 
 	[Header("Objetc関連")]
 	public int		GalleryNum;
-	public float	Gallery_MinX;	// ギャラリーの最小のｘ座標
-	public float	Gallery_MaxX;	// ギャラリーの最大のｘ座標
-	public float	Gallery_MinZ;	// ギャラリーの最小のz座標
-	public float	Gallery_MaxZ;	// ギャラリーの最大のz座標
-	public float	Obj_Y;			// ギャラリーの高さ
-	public float	Gallery_NG_Range;// (プレイヤーから見て)ギャラリーが生成されてはいけない範囲
+	public float	Gallery_MinX;	// ギャラリーの最小のｘ座標.
+	public float	Gallery_MaxX;	// ギャラリーの最大のｘ座標.
+	public float	Gallery_MinZ;	// ギャラリーの最小のz座標.
+	public float	Gallery_MaxZ;	// ギャラリーの最大のz座標.
+	public float	Obj_Y;			// オブジェの高さ
+	public float	Gallery_NG_Range;// (プレイヤーから見て)ギャラリーが生成されてはいけない範囲.
 
 	[Header("Effect関連")]
-	public float FadeTime_combo;	// フェードアウトする時間
-	public float MoveY_combo;		// 移動距離
-	public float ScaleTime_circle;	// サークルの拡大時間
+	public float ScaleXY_comboText;	// ラベルのScale.
+	public float FadeTime_combo;	// フェードアウトする時間.
+	public float MoveY_combo;		// 移動距離.
+	public float ScaleTime_circle;	// サークルの拡大時間.
 }

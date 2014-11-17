@@ -10,16 +10,16 @@ public class ObjMgr : MonoBehaviour {
 	private GameObject m_ground;		// 生成する背景(Inspectorより設定).
 	//private GameObject m_panel;		// NGUIの親.
 	
-	// Game1共通設定
+	// Game1共通設定.
 	private Game1_Setting GAME1;
 	
 	
 	// Use this for initialization
 	void Start () {
-		// Game1共通設定
+		// Game1共通設定.
 		GAME1 = Resources.Load<Game1_Setting>("Setting/Game1_Setting");
 
-		// リソースの読み込み
+		// リソースの読み込み.
 		m_objParent = Resources.Load("Shingaki/testResource/prefab/Objparent") as GameObject;
 		m_player = Resources.Load ("Shingaki/testResource/prefab/Player") as GameObject;
 		m_gallery = Resources.Load ("Shingaki/testResource/prefab/Gallery") as GameObject;
@@ -39,9 +39,7 @@ public class ObjMgr : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
-	}
+	void Update () {}
 	
 	// ギャラリー生成.
 	private void CreateGallery(){
@@ -54,12 +52,12 @@ public class ObjMgr : MonoBehaviour {
 				workPos.z = Random.Range(GAME1.Gallery_MinZ, GAME1.Gallery_MaxZ);
 			}while((-GAME1.Gallery_NG_Range<workPos.x && workPos.x<GAME1.Gallery_NG_Range) &&
 			       (-GAME1.Gallery_NG_Range<workPos.z && workPos.z<GAME1.Gallery_NG_Range));
-			// gameobjectの生成
+			// gameobjectの生成.
 			workObj = CreatePrefab.InstantiateGameObject(m_gallery,workPos,Quaternion.identity,
 			                                             Vector3.one,m_objParent);
-			// スクリプトの割り当て(このスクリプトから個々で座標を決める・次ラウンドの時もここから)
-			// アニメーション割り当て
-			// テクスチャ割り当て
+			// スクリプトの割り当て(このスクリプトから個々で座標を決める・次ラウンドの時もここから).
+			// アニメーション割り当て.
+			// テクスチャ割り当て.
 		}
 	}
 }

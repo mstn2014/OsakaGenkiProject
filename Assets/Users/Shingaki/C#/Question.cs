@@ -20,31 +20,31 @@ public class Question : MonoBehaviour {
 	private GameObject m_textWindow;	// テキストウィンドウ(座標参照).
 	private GameObject m_QuestPanel;	// 生成されるボタンの親.
 	private GameObject m_Quest;			// 生成されるボタン.
-	private EffectMgr m_effect;			// エフェクト
+	private EffectMgr m_effect;			// エフェクト.
 
-	// Game1共通設定
+	// Game1共通設定.
 	private Game1_Setting GAME1;
 	
 	// get プロパティ.
-	public bool IsCreate{			// 生成フラグ
+	public bool IsCreate{			// 生成フラグ.
 		get{return m_create;}
 	}
-	public bool IsClear{			// ラウンドクリアフラグ
+	public bool IsClear{			// ラウンドクリアフラグ.
 		get{return m_clear;}
 	}
-	public bool IsComplete{			// ゲーム終了フラグ(全問正解)
+	public bool IsComplete{			// ゲーム終了フラグ(全問正解).
 		get{return m_complete;}
 	}
-	public int IsNowAns{			// 何ボタン目答えている?
+	public int IsNowAns{			// 何ボタン目答えている?.
 		get{return m_nowAns;}
 	}
-	public int IsNowRound{			// ラウンド数取得
+	public int IsNowRound{			// ラウンド数取得.
 		get{return m_nowRound;}
 	}
 	
 	// Use this for initialization
 	void Start () {
-		// Game1共通設定
+		// Game1共通設定.
 		GAME1 = Resources.Load<Game1_Setting>("Setting/Game1_Setting");
 
 		// TextWindowとQuestPanelの発見と生成.
@@ -87,8 +87,6 @@ public class Question : MonoBehaviour {
 			///////////////////////////////////////////////////////
 			// ボタン生成と出現位置計算.
 			interval = i*(-GAME1.QuestInterval)+(GAME1.QuestInterval/2)*(m_nowQuestNum-1);
-			/*m_box[i].button = CreatePrefab.InstantiateGameObject(m_Quest, new Vector3(0,interval,0), Quaternion.identity,
-			                                                     Vector3.one, m_QuestPanel);*/
 			m_box[i].button = Instantiate(m_Quest) as GameObject;
 			m_box[i].button.transform.parent = m_QuestPanel.transform;
 			m_box[i].button.transform.localPosition = new Vector3(0,interval,0);
@@ -139,11 +137,9 @@ public class Question : MonoBehaviour {
 			m_nowAns++;
 
 			///// エフェクト /////
-			/*m_effect.SpreadCircle();	// サークルが広がる.
-			 * */
-			m_effect.SpreadCircle_ver2(m_nowAns);
+			m_effect.SpreadCircle(m_nowAns);
 
-			int work = m_effect.IsComboNum;	// コンボ数表示
+			int work = m_effect.IsComboNum;	// コンボ数表示.
 			m_effect.IsComboNum = ++work;
 			m_effect.DispCombo();		
 			
@@ -170,10 +166,6 @@ public class Question : MonoBehaviour {
 				m_nowQuestNum	= workQuest + 1;
 				m_nowRound		= workRound + 1;
 				//////////////////////////////////////////////
-				//m_effect.InitCircle();
-				m_effect.InitCircle_ver2();
-
-				
 			}
 			return true;
 		} else {
