@@ -10,9 +10,12 @@ public class TitleMgr : MonoBehaviour {
 
     // コンポーネント関連
     TitleLogo m_logo;          // ロゴ
+    TitlePlayerController m_player;
 
     // オブジェクト関連
     GameObject m_camera;
+
+    bool m_isStart;
 
 	// Use this for initialization
 	void Start () {
@@ -25,17 +28,21 @@ public class TitleMgr : MonoBehaviour {
 
         // ゲームオブジェクトのアタッチ
         m_logo = GameObject.Find("Logo").GetComponent<TitleLogo>();
+        m_player = GameObject.Find("motion_defo").GetComponent<TitlePlayerController>();
 
         m_camera = GameObject.Find("Main Camera");
+
+        m_isStart = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
         // 赤ボタンでロゴを消す(ゲームスタート)
-        if (m_btnState.RedButtonTrigger)
+        if (m_btnState.RedButtonTrigger && !m_isStart)
         {
             StartCoroutine(LogoEffect());
             m_logo.FadeOut();
+            m_isStart = true;
         }
 	}
 
@@ -43,5 +50,6 @@ public class TitleMgr : MonoBehaviour {
     {
         yield return new WaitForSeconds(m_setting.disappearSpeed);
         iTweenEvent.GetEvent(m_camera, "MoveOut").Play();
+        m_player.MoveToFront();
     }
 }

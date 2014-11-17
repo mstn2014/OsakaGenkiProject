@@ -31,4 +31,4 @@ MonoBehaviour:
   Obj_Y: .5
   Gallery_NG_Range: 1
   FadeTime_combo: 2
-  MoveY_combo: 3
+  MoveY_combo: 30

@@ -480,7 +480,7 @@ MonoBehaviour:
   mSpriteName: TimeCount2
   mFillCenter: 1
   mType: 3
-  mFillDirection: 0
+  mFillDirection: 4
   mFillAmount: 1
   mInvert: 1
 --- !u!114 &996935111

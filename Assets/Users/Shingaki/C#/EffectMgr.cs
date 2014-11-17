@@ -14,6 +14,7 @@ public class EffectMgr : MonoBehaviour {
 
 	// get プロパティ.
 	public int IsComboNum{			// 生成フラグ
+		get{return m_comboNum;}
 		set{m_comboNum = value;}
 	}
 
@@ -27,11 +28,11 @@ public class EffectMgr : MonoBehaviour {
 		m_comboText = Resources.Load("Shingaki/testResource/prefab/ComboText") as GameObject;
 		m_panel = GameObject.Find ("Panel");
 
+		m_comboNum = 0;
 		Quaternion angle = new Quaternion();
 		angle.eulerAngles  = new Vector3 (90, 0, 0);
 		m_topCircle = Instantiate (m_topCircle, new Vector3 (0, 0.1f, 0), angle) as GameObject; 
 		InitCircle ();
-		//DispCombo ();
 	}
 	
 	// Update is called once per frame
@@ -70,14 +71,14 @@ public class EffectMgr : MonoBehaviour {
 	}
 
 	// コンボ数表示
-	public void DispCombo(int num){
+	public void DispCombo(){
 		GameObject combo;
 		combo = CreatePrefab.InstantiateGameObject (m_comboText, Vector3.zero, Quaternion.identity,
 		                                           new Vector3(75, 75,0), m_panel);
 		// comboの取得
 		UILabel comboNum;
 		comboNum = combo.GetComponent ("UILabel") as UILabel;
-		//comboNum.text = num.ToString+("Combo!!");
+		comboNum.text = m_comboNum.ToString()+("Combo!!");
 		// ラベルの移動.
 		iTween.MoveTo (combo, iTween.Hash ("y", GAME1.MoveY_combo, "time", GAME1.FadeTime_combo,"islocal",true));
 		// ラベルの透過.
