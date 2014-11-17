@@ -626,6 +626,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_upSpeed: {x: 0, y: .0500000007, z: 0}
+  m_hitNumber: 0
 --- !u!50 &135216339
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -1055,6 +1056,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_upSpeed: {x: 0, y: .0500000007, z: 0}
+  m_hitNumber: 0
 --- !u!50 &266017277
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -2677,6 +2679,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_upSpeed: {x: 0, y: .0500000007, z: 0}
+  m_hitNumber: 0
 --- !u!50 &1006017581
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -3552,6 +3555,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_upSpeed: {x: 0, y: .0500000007, z: 0}
+  m_hitNumber: 0
 --- !u!50 &1329491544
 Rigidbody2D:
   m_ObjectHideFlags: 0

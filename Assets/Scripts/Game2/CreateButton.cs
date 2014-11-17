@@ -12,18 +12,18 @@ using System.Collections;
 public class CreateButton : MonoBehaviour {
 
 	private float nowTime;
-    private int m_playCount;                // ゲームのカウント
-    private float m_createTime;             // ボタン生成時間
-    private int m_patternIndex;             // パターン情報のインデックス
-    private int m_contryIndex;              // 国のインデックス
-    private int[][] m_pattern;              // 各国のパターン情報を格納
-    private string[][] m_buttonName;        // 使用するボタンを取り出す
+    private int m_playCount;                // ゲームのカウント.
+    private float m_createTime;             // ボタン生成時間.
+    private int m_patternIndex;             // パターン情報のインデックス.
+    private int m_contryIndex;              // 国のインデックス.
+    private int[][] m_pattern;              // 各国のパターン情報を格納.
+    private string[][] m_buttonName;        // 使用するボタンを取り出す.
 	private GameObject m_gameObject;		//	ゲームオブジェクト本体.
 	private GameObject m_redGameObject;		//	赤いアイコン.
 	private GameObject m_blueGameObject;	//	青いアイコン.
 	private GameObject m_greenGameObject;	//	緑のアイコン.
 	private GameObject m_yellowGameObject;	//	黄色のアイコン.
-    private Vector3 m_createPosition;    // ボタンを生成する位置
+    private Vector3 m_createPosition;   	// ボタンを生成する位置.
     const int countryNum = 5;
 
     Game2Setting Setting;                   // 設定ファイル
