@@ -11,26 +11,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b08f1e45b16a6f448570e04e3343ebd, type: 3}
   m_Name: Game1_Setting
   m_EditorClassIdentifier: 
-  Round1_TimeLimit: 2.9000001
-  Round2_TimeLimit: 3.5999999
-  Round3_TimeLimit: 4.30000019
-  Round4_TimeLimit: 5
-  Round5_TimeLimit: 5.69999981
-  Round6_TimeLimit: 6.4000001
-  Round7_TimeLimit: 7.0999999
-  Round8_TimeLimit: 7.80000019
+  Round_TimeLimit:
+  - 2.9000001
+  - 3.5999999
+  - 4.30000019
+  - 5
+  - 5.69999981
+  - 6.4000001
+  - 7.0999999
+  - 7.80000019
   MinQuestNum: 3
   MaxQuestNum: 10
   QuestInterval: 30
   WeightValue: .100000001
   GalleryNum: 10
+  Gallery_SomeNum: 10
   Gallery_MinX: -5
   Gallery_MaxX: 5
+  Gallery_Width: 2
   Gallery_MinZ: -5
   Gallery_MaxZ: 5
   Obj_Y: .5
-  Gallery_NG_Range: 1
-  ScaleXY_comboText: 75
-  FadeTime_combo: 1
-  MoveY_combo: 30
-  ScaleTime_circle: 1
+  Gallery_NG_Range: 5
+  Gallery_DivNum: 3
+  comboText_ScaleXY: 75
+  combo_FadeTime: 1
+  combo_MoveY: 50
+  circle_ScaleTime: 2

@@ -55,7 +55,7 @@ public class EffectMgr : MonoBehaviour {
 		                                                       scale, m_circleParent);
 		circle.renderer.material.color = new Color(1f,0.1f*scalenum, 0f, 1f);
 
-		iTween.ScaleTo (circle, iTween.Hash ("x", scalenum, "y", scalenum, "time", GAME1.ScaleTime_circle));
+		iTween.ScaleTo (circle, iTween.Hash ("x", scalenum, "y", scalenum, "time", GAME1.circle_ScaleTime));
 
 		m_oldcircle = circle;
 	}
@@ -88,21 +88,21 @@ public class EffectMgr : MonoBehaviour {
 	public void DispCombo(){
 		GameObject combo;
 		combo = CreatePrefab.InstantiateGameObject (m_comboText, Vector3.zero, Quaternion.identity,
-		                                           new Vector3(GAME1.ScaleXY_comboText, GAME1.ScaleXY_comboText,0), m_panel);
+		                                           new Vector3(GAME1.comboText_ScaleXY, GAME1.comboText_ScaleXY,0), m_panel);
 		// comboの取得.
 		UILabel comboNum;
 		comboNum = combo.GetComponent ("UILabel") as UILabel;
 		comboNum.text = m_comboNum.ToString()+("Combo!!");
 		// ラベルの移動.
-		iTween.MoveTo (combo, iTween.Hash ("y", GAME1.MoveY_combo, "time", GAME1.FadeTime_combo,"islocal",true));
+		iTween.MoveTo (combo, iTween.Hash ("y", GAME1.combo_MoveY, "time", GAME1.combo_FadeTime,"islocal",true));
 		// ラベルの透過.
 		TweenAlpha comboAlpha = combo.GetComponent<TweenAlpha> ();
 		comboAlpha.from = 1f;
 		comboAlpha.to = 0f;
-		comboAlpha.duration = GAME1.FadeTime_combo;
+		comboAlpha.duration = GAME1.combo_FadeTime;
 		comboAlpha.Play (true);
 		// 時間経過後削除.
-		Destroy (combo, GAME1.FadeTime_combo);
+		Destroy (combo, GAME1.combo_FadeTime);
 	}
 
 	//======================================================

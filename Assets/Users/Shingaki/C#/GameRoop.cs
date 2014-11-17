@@ -16,15 +16,19 @@ public class GameRoop : MonoBehaviour {
 	// Game1共通設定.
 	private Game1_Setting GAME1;
 
+	// データセーブ用
+	private SaveData SAVE;
+
 	// Use this for initialization
 	IEnumerator Start () {
 		// Game1共通設定.
 		GAME1 = Resources.Load<Game1_Setting>("Setting/Game1_Setting");
+		// データセーブ用
+		SAVE = Resources.Load<SaveData>("SaveData/SaveData");
 
 		m_start = false;
 		m_state = GameState.stop;
-		GameObject countDown = GameObject.Find("Timer");
-		m_timer = countDown.GetComponent<CountDown>();
+		m_timer = GetComponent<CountDown>();
 		m_quest = GetComponent<Question>();
 		m_effect = GetComponent<EffectMgr> ();
 

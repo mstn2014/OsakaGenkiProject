@@ -13,8 +13,7 @@ public class TimeFrame : MonoBehaviour {
 	private float m_timelimit;
 	// Use this for initialization
 	void Start () {
-		GameObject countDown = GameObject.Find("Timer");
-		m_timer = countDown.GetComponent<CountDown>();
+		m_timer = GetComponent<CountDown>();
 
 		m_timeCount = new UISprite[(int)TimeCount.Total];
 		m_timeCount [(int)TimeCount.Count0] = GameObject.Find ("TimeCount_0").GetComponent<UISprite>();
@@ -30,28 +29,29 @@ public class TimeFrame : MonoBehaviour {
 		m_countRatio [(int)TimeCount.Count4] = 8;
 		InitTimeCount ();
 
+
 		m_frame = GetComponent<UISprite> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (m_timer.IsPaused != true) {
-			if(m_count == TimeCount.Total){
-				return;
-			}
-			float timelimit = m_timer.IsTimeLimit;
-			float time = m_timer.IsTimer;
+						if (m_count == TimeCount.Total) {
+								return;
+						}
+						float timelimit = m_timer.IsTimeLimit;
+						float time = m_timer.IsTimer;
 
-			// timeが1/50進んだら1/比率(8,9,16)fillAmouthを進ませる.
-			m_timeCount[(int)m_count].fillAmount = ((timelimit-time)*timelimit/50) / m_countRatio[(int)m_count];
+						// timeが1/50進んだら1/比率(8,9,16)fillAmouthを進ませる.
+						m_timeCount [(int)m_count].fillAmount = (((timelimit - time) * 50 / timelimit)-m_revisionTime) / m_countRatio [(int)m_count];
 
-			// ToDo 2つ目以降の進んだ分の分母を０に戻す作業.
-
-			// if(m_timeCount[m_count].fillAmount == 1){
-				// m_revisionTime += m_countRatio[m_count];
-				// m_count++;
-			//}
-		}
+						if (m_timeCount [(int)m_count].fillAmount == 1) {
+								m_revisionTime += m_countRatio [(int)m_count];
+								m_count++;
+						}
+				} else {
+			InitTimeCount();		
+				}
 	}
 
 	private void InitTimeCount(){
