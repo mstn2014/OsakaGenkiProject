@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-
+/*
 public class Char_List : MonoBehaviour {
 
 	// リスト
@@ -20,4 +20,4 @@ public class Char_List : MonoBehaviour {
 	public void Push(GameObject obj){
 		CharList.Add (obj);
 	}
-}
+}*/

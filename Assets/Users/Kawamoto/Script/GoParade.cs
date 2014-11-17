@@ -13,13 +13,15 @@ public class GoParade : MonoBehaviour {
 		// 最初と最後の座標だけ指定
 		path = iTweenPath.GetPath ("New Path 1");
 		path [0] = this.gameObject.transform.position;
-		path [2] = p_list.GetPos ();
+	//	path [2] = p_list.GetPos ();
+	//	if (path [2].x == 0) 	path [2] = GameObject.Find ("parepos").transform.position;
 		iTween.MoveTo(this.gameObject,iTween.Hash("path",path,"time",0.5f,"easetype",iTween.EaseType.linear));
 		iTween.RotateAdd(this.gameObject, iTween.Hash("z", 360, "time", 0.5f));
+		this.gameObject.rigidbody.detectCollisions = true;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+
 	}
 }

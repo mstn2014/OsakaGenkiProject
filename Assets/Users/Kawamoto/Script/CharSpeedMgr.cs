@@ -20,11 +20,13 @@ public class CharSpeedMgr : MonoBehaviour {
 	// 初速をアップ(五回成功で0.1UP)
 	public void CountUp(){
 		Count++;
-		if(Speed_velo < 0.5f)	Speed_velo += 0.1f;
-		if(Dans_Speed < 0.9f)	Dans_Speed += 0.1f;
-		if (Count == 5) 		Count = 0;
-		//Debug.Log("速度" + Speed_velo);
-		//Debug.Log("ダンス速度" + Dans_Speed);
+		if (Count == 5) {
+			if(Speed_velo < 0.6f)	Speed_velo += 0.1f;
+			if(Dans_Speed < 1.0f)	Dans_Speed += 0.1f;
+			Count = 0;
+		}
+		Debug.Log("速度" + Speed_velo);
+		Debug.Log("ダンス速度" + Dans_Speed);
 	}
 
 	// 失敗時に0.1スピードダウン

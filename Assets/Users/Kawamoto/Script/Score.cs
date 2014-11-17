@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+/*
 public class Score : MonoBehaviour {
 
 	UILabel Score_text;
@@ -26,4 +26,4 @@ public class Score : MonoBehaviour {
 		// 最後に数字以外は0を埋める
 		Score_text.text = score.PadLeft(6, '0');
 	}
-}
+}*/

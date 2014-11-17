@@ -103,6 +103,7 @@ public class GameMain_sub : MonoBehaviour {
 	public void ObjInList(GameObject obj){
 		obj.GetComponent<Char_sp_sub> ().enabled = false;	// 移動スクリプトを無効化
 		obj.AddComponent<GoParade> ();						// パレ―ドの後ろについてくるスクリプトを接続
+		obj.gameObject.rigidbody.detectCollisions = false;
 		char_list.Push (obj);								// リストに格納
 	}
 
