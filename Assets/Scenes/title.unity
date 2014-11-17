@@ -648,7 +648,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 335037877}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0401554a0e6f9466db3c1a798d358b8c, type: 3}
   m_Name: 
@@ -671,7 +671,7 @@ MonoBehaviour:
   - 
   ints: 
   floats:
-  - 3
+  - 1.5
   bools: 
   strings:
   - OnCompleteMove
@@ -2823,8 +2823,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1588520324}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .347465694, y: -.347465664, z: 0}
-  m_LocalScale: {x: 1106.79602, y: 1071.57483, z: .482473999}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalScale: {x: 1071.9353, y: 1037.8241, z: .467277855}
   m_Children: []
   m_Father: {fileID: 2044782132}
   m_RootOrder: 0
@@ -2842,7 +2842,7 @@ MonoBehaviour:
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
   mDepth: 0
-  mAtlas: {fileID: 11400000, guid: 9331c07037eeb5042a15b24ac00054f8, type: 2}
+  mAtlas: {fileID: 11400000, guid: 7731deda6bfc16643b4bbdd93d9e9193, type: 2}
   mSpriteName: 'OGS_logo '
   mFillCenter: 1
   mType: 0

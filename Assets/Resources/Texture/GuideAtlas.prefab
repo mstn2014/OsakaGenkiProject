@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 400000}
   - 114: {fileID: 11400000}
   m_Layer: 0
-  m_Name: Title
+  m_Name: GuideAtlas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39,26 +39,62 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d0c51bb0b6e93049af5e88f93826e3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: dc24584398d7c8d4ab674409ddda9e76, type: 2}
+  material: {fileID: 2100000, guid: 9bc2b1c53c2849e4e89907842e1ce0b3, type: 2}
   sprites:
-  - name: 'OGS_logo '
+  - name: torayaki_hukidashi
+    outer:
+      serializedVersion: 2
+      x: 1267
+      y: 3836
+      width: 421
+      height: 260
+    inner:
+      serializedVersion: 2
+      x: 1267
+      y: 3836
+      width: 421
+      height: 260
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: guide
     outer:
       serializedVersion: 2
       x: 0
-      y: 1875
-      width: 2294
-      height: 2221
+      y: 1724
+      width: 1266
+      height: 2372
     inner:
       serializedVersion: 2
       x: 0
-      y: 1875
-      width: 2294
-      height: 2221
+      y: 1724
+      width: 1266
+      height: 2372
     rotated: 0
-    paddingLeft: .0448997393
-    paddingRight: .0448997393
-    paddingTop: .0630346686
-    paddingBottom: .0625844225
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: sidouyaku_hukidashi
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 871
+      width: 907
+      height: 852
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 871
+      width: 907
+      height: 852
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   mCoordinates: 0
   mPixelSize: 1
   mReplacement: {fileID: 0}

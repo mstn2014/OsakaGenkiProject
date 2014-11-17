@@ -110,7 +110,8 @@ public class FadeMgr : SingletonMonoBehaviourFast<FadeMgr>
             this.fadeAlpha = Mathf.Lerp(0f, 1f, time / interval);
             time += Time.deltaTime;
             yield return 0;
-        }    
+        }
+        time = 0;
 
         //シーン切替
         Application.LoadLevel(scene);
@@ -119,7 +120,7 @@ public class FadeMgr : SingletonMonoBehaviourFast<FadeMgr>
         yield return new WaitForSeconds(1.0f);
 
         //だんだん明るく
-        time = 0;
+        
         while (time <= interval)
         {
             this.fadeAlpha = Mathf.Lerp(1f, 0f, time / interval);

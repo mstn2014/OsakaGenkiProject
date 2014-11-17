@@ -7,6 +7,7 @@ public class TitleMgr : MonoBehaviour {
 
     // マネージャー関連
     InputMgr m_btnState;        // 入力インスタンス
+    FadeMgr m_fade;             // フェードマネージャ 
 
     // コンポーネント関連
     TitleLogo m_logo;          // ロゴ
@@ -22,6 +23,7 @@ public class TitleMgr : MonoBehaviour {
 	    // 共通設定の呼び出し
         GlobalSetting gs = Resources.Load<GlobalSetting>("Setting/GlobalSetting");
         m_btnState = gs.InputMgr;
+        m_fade = gs.FadeMgr;
 
         // 設定ファイルの読み込み
         m_setting = Resources.Load<TitleSetting>("Setting/TitleSetting");
@@ -51,5 +53,7 @@ public class TitleMgr : MonoBehaviour {
         yield return new WaitForSeconds(m_setting.disappearSpeed);
         iTweenEvent.GetEvent(m_camera, "MoveOut").Play();
         m_player.MoveToFront();
+        yield return new WaitForSeconds(5.0f);
+        m_fade.LoadLevel("bigIvent1", 0.5f);
     }
 }
