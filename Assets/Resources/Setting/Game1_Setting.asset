@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b08f1e45b16a6f448570e04e3343ebd, type: 3}
+  m_Name: Game1_Setting
+  m_EditorClassIdentifier: 
+  Round_TimeLimit:
+  - 2.9000001
+  - 3.5999999
+  - 4.30000019
+  - 5
+  - 5.69999981
+  - 6.4000001
+  - 7.0999999
+  - 7.80000019
+  MinQuestNum: 3
+  MaxQuestNum: 10
+  QuestInterval: 50
+  WeightValue: .100000001
+  Gallery_Width: 10
+  Gallery_Height: 5
+  Gallery_Interval: 2.5
+  Gallery_Roll: .800000012
+  Obj_Y: .5
+  Gallery_NG_Range: 1.29999995
+  comboText_ScaleXY: 75
+  combo_FadeTime: 1
+  combo_MoveY: 50
+  circle_ScaleTime: 2

@@ -18,28 +18,28 @@ public class InputMg : MonoBehaviour {
 	}
 
 	public bool RedTrigger(){
-		if (input_bt.RedButtonTrigger)				return true;
-		else                                        return false;
+		//if(input_bt.RedButtonTrigger)	Debug.Log("レッドボタン入力成功！");
+		return input_bt.RedButtonTrigger;
 	}
 
 	public bool BlueTrigger(){
-		if (input_bt.BlueButtonTrigger)				return true;
-		else                                        return false;
+		//if(input_bt.BlueButtonTrigger)	Debug.Log("ブルーボタン入力成功！");
+		return input_bt.BlueButtonTrigger;
 	}
 
 	public bool GreenTrigger(){
-		if (input_bt.GreenButtonTrigger)			return true;
-		else                                        return false;
+		//if(input_bt.GreenButtonTrigger)	Debug.Log("グリーンボタン入力成功！");
+		return input_bt.GreenButtonTrigger;
 	}
 
 	public bool YellowTrigger(){
-		if (input_bt.YellowButtonTrigger)			return true;
-		else                                        return false;
+		//if(input_bt.YellowButtonTrigger)Debug.Log("イエローボタン入力成功！");
+		return input_bt.YellowButtonTrigger;
 	}
 
 	public bool AnyTrigger(){
-		if (input_bt.AnyButtonTrigger)			return true;
-		else                                        return false;
+		//if(input_bt.AnyButtonTrigger)	Debug.Log("ボタン入力成功！");
+		return input_bt.AnyButtonTrigger;
 	}
 
 }

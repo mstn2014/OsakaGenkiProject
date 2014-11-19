@@ -6,6 +6,7 @@ public class MoveUp : MonoBehaviour
 	private GameObject m_bufGameObj;		//	移動する階層先のオブジェの名前格納用.
 	private bool	   m_moveFlg;			//	移動フラグ.
 	public  Vector3    m_upSpeed = new Vector3(0.0f, 0.05f, 0.0f); //	上に上昇するスピード.
+	public	int		   m_hitNumber;			//	何番目に当たったか（複数のボタンが同時に判定されるのを防ぐ）.
 
 	// Use this for initialization
 	void Start () {
@@ -45,6 +46,7 @@ public class MoveUp : MonoBehaviour
 	{
 		m_moveFlg = true;
 		transform.parent = m_bufGameObj.transform;	//	回転から外す.
+		//	コライダー消す.
 	}
 
 

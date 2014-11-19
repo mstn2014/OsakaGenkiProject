@@ -12,23 +12,23 @@ using System.Collections;
 public class CreateButton : MonoBehaviour {
 
 	private float nowTime;
-    private int m_playCount;                // ゲームのカウント
-    private float m_createTime;             // ボタン生成時間
-    private int m_patternIndex;             // パターン情報のインデックス
-    private int m_contryIndex;              // 国のインデックス
-    private int[][] m_pattern;              // 各国のパターン情報を格納
-    private string[][] m_buttonName;        // 使用するボタンを取り出す
+    private int m_playCount;                // ゲームのカウント.
+    private float m_createTime;             // ボタン生成時間.
+    private int m_patternIndex;             // パターン情報のインデックス.
+    private int m_contryIndex;              // 国のインデックス.
+    private int[][] m_pattern;              // 各国のパターン情報を格納.
+    private string[][] m_buttonName;        // 使用するボタンを取り出す.
 	private GameObject m_gameObject;		//	ゲームオブジェクト本体.
 	private GameObject m_redGameObject;		//	赤いアイコン.
 	private GameObject m_blueGameObject;	//	青いアイコン.
 	private GameObject m_greenGameObject;	//	緑のアイコン.
 	private GameObject m_yellowGameObject;	//	黄色のアイコン.
-    private Vector3 m_createPosition;    // ボタンを生成する位置
+    private Vector3 m_createPosition;   	// ボタンを生成する位置.
     const int countryNum = 5;
 
     Game2Setting Setting;                   // 設定ファイル
     //set getアクセサ
-    public bool WaitFlg{set;get;}                  // 盛り上がりイベントを待つフラグ
+    public bool WaitFlg{set;get;}           // 盛り上がりイベントを待つフラグ
     public bool IsFinished { set; get; }    // すべてのボタンを生成したらたてる
 
 	// Use this for initialization
@@ -36,10 +36,10 @@ public class CreateButton : MonoBehaviour {
         Setting = Resources.Load<Game2Setting>("Setting/Game2Setting");
         m_createTime = Setting.createButtonTime;
 		//	ボタン情報代入.
-		m_blueGameObject = Resources.Load<GameObject>("blue");  
-		m_redGameObject = Resources.Load<GameObject>("red");  
-		m_greenGameObject = Resources.Load<GameObject>("green");  
-		m_yellowGameObject = Resources.Load<GameObject>("yellow"); 
+		m_blueGameObject = Resources.Load<GameObject>("Prefab/Game2/blue");  
+		m_redGameObject = Resources.Load<GameObject>("Prefab/Game2/red");  
+		m_greenGameObject = Resources.Load<GameObject>("Prefab/Game2/green");  
+		m_yellowGameObject = Resources.Load<GameObject>("Prefab/Game2/yellow"); 
 		nowTime = 0.0f;
         m_patternIndex = 0;
         // 各国のパターン情報を呼び出しておく
@@ -107,8 +107,8 @@ public class CreateButton : MonoBehaviour {
             // パターンが最後までいったとき
             if (m_patternIndex == m_pattern[m_contryIndex].Length )
             {
-                // 試行回数が3回なら次
-                if (m_playCount >= 2)
+                // 試行回数が2回なら次
+                if (m_playCount >= 1)
                 {
                     // とりあえず次の国のパターンを表示
                     m_playCount = 0;
