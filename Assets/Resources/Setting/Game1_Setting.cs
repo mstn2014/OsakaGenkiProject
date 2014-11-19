@@ -14,16 +14,12 @@ public class Game1_Setting : ScriptableObject {
 	public float	WeightValue;
 
 	[Header("Objetc関連")]
-	public int		GalleryNum;
-	public int		Gallery_SomeNum;// 分けられた一部に生成されるギャラリーの数.
-	public float	Gallery_MinX;	// ギャラリーの最小のｘ座標.
-	public float	Gallery_MaxX;	// ギャラリーの最大のｘ座標.
-	public float	Gallery_Width;	// NG_Rangeからの増え幅:X
-	public float	Gallery_MinZ;	// ギャラリーの最小のz座標.
-	public float	Gallery_MaxZ;	// ギャラリーの最大のz座標.
-	public float	Obj_Y;			// オブジェの高さ.
-	public float	Gallery_NG_Range;// (プレイヤーから見て)ギャラリーが生成されてはいけない範囲.
-	public int		Gallery_DivNum;
+	public int		Gallery_Width;		// ギャラリーが生成される列数
+	public int		Gallery_Height;		// ギャラリーが生成される行数
+	public float	Gallery_Interval;	// Galleryの間隔
+	public float	Gallery_Roll;		// ギャラリーの揺れ幅
+	public float	Obj_Y;				// オブジェの高さ.
+	public float	Gallery_NG_Range;	// (プレイヤーから見て)ギャラリーが生成されてはいけない範囲.
 
 	[Header("Effect関連")]
 	public float comboText_ScaleXY;	// ラベルのScale.

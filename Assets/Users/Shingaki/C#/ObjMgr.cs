@@ -30,81 +30,37 @@ public class ObjMgr : MonoBehaviour {
 		m_ground = Instantiate (m_ground) as GameObject;
 		m_ground.transform.parent = m_objParent.transform;
 
-		CreateGallery ();
+		CreateGallery();
 	}
 	
 	// Update is called once per frame
 	void Update () {}
 	
 	// ギャラリー生成 範囲範囲で生成する人数を決めておく(重なりは難しいようなら固定).
+	// ver2
 	private void CreateGallery(){
 		Vector3 workPos;
 		GameObject workObj;
-		float	minCreateRange;	// MIN生成場所:x
-		float	maxCreateRange;	// MAX生成場所:x
+		float checkPos;
+		float ngCircle;
+		int i, j;
 
-		float checkpos;
-		float min_rad;
-		float max_rad;
+		ngCircle = GAME1.Gallery_NG_Range * GAME1.Gallery_NG_Range;
+		workPos.y = GAME1.Obj_Y;
+		for (i=0; i<GAME1.Gallery_Width; i++) {
 
-		minCreateRange = GAME1.Gallery_NG_Range;
-		maxCreateRange = GAME1.Gallery_NG_Range + GAME1.Gallery_Width;
-		// 中心座標(0,0)
+			for(j=0; j<GAME1.Gallery_Height; j++){
+				workPos.x = i*GAME1.Gallery_Interval-(GAME1.Gallery_Width/2*GAME1.Gallery_Interval);
+				workPos.z = j*GAME1.Gallery_Interval-(GAME1.Gallery_Height/2*GAME1.Gallery_Interval);
+				workPos.x += Random.Range(-GAME1.Gallery_Roll,GAME1.Gallery_Roll);
+				workPos.z += Random.Range(-GAME1.Gallery_Roll,GAME1.Gallery_Roll);
 
-
-		// NOW 人数分回して,NGの場所以外に行けたら生成.
-
-		// 部分に人数生成したら次の部分へ
-		// 部分-人数分生成-部分へ 最後の部分だけ割り切れなかったギャラリーを生成する
-
-		// ver2
-		//
-		// 1. 1/3 to NG_RANGE
-		// 2. 2/3 to 1/3
-		// 3. 3/3 to 2/3
-
-		// 円の公式(x-a)^2 + (y-b)^2 = r^2
-		for (int i=1; i<=GAME1.Gallery_DivNum; i++) {	// 生成する場所ごとに
-			for(int j=0; j<GAME1.Gallery_SomeNum; j++){	// 生成するギャラリー分
-				do{
-					workPos.x = Random.Range(-maxCreateRange, maxCreateRange);
-					workPos.z = Random.Range(-maxCreateRange, maxCreateRange);
-
-					checkpos = (workPos.x*workPos.x) + (workPos.z*workPos.z);
-					max_rad = maxCreateRange*maxCreateRange;
-					min_rad = minCreateRange*minCreateRange;
-				}while(max_rad<checkpos && min_rad>checkpos);
-	
-				workPos.y = GAME1.Obj_Y;
-				// gameobjectの生成.
-				workObj = CreatePrefab.InstantiateGameObject(m_gallery,workPos,Quaternion.identity,
-				                                             Vector3.one,m_objParent);
-				// スクリプトの割り当て(このスクリプトから個々で座標を決める・次ラウンドの時もここから).
-				// アニメーション割り当て.
-				// テクスチャ割り当て.
+				checkPos = (workPos.x*workPos.x) + (workPos.z*workPos.z);
+				if(checkPos>ngCircle ){
+					workObj = CreatePrefab.InstantiateGameObject(m_gallery,workPos,Quaternion.identity,
+				                                          	   Vector3.one,m_objParent);
+				}
 			}
-			// 範囲の変更
-			minCreateRange = maxCreateRange;
-			maxCreateRange += GAME1.Gallery_Width;
-
 		}
-		//
-		/*
-		// 現在のver
-		for (int i=0; i<GAME1.GalleryNum; i++) {
-			do{
-				workPos.x = Random.Range(GAME1.Gallery_MinX, GAME1.Gallery_MaxX);
-				workPos.z = Random.Range(GAME1.Gallery_MinZ, GAME1.Gallery_MaxZ);
-			}while((-GAME1.Gallery_NG_Range<workPos.x && workPos.x<GAME1.Gallery_NG_Range) &&
-			       (-GAME1.Gallery_NG_Range<workPos.z && workPos.z<GAME1.Gallery_NG_Range));
-			workPos.y = GAME1.Obj_Y;
-			// gameobjectの生成.
-			workObj = CreatePrefab.InstantiateGameObject(m_gallery,workPos,Quaternion.identity,
-			                                             Vector3.one,m_objParent);
-			// スクリプトの割り当て(このスクリプトから個々で座標を決める・次ラウンドの時もここから).
-			// アニメーション割り当て.
-			// テクスチャ割り当て.
-		}
-		*/
 	}
 }
