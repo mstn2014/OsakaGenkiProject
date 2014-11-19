@@ -1,2 +1,0 @@
-1-30 loop normalStand
-91-150 loop rhythmStand

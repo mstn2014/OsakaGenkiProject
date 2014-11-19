@@ -17,7 +17,8 @@ public class LabelMgr : MonoBehaviour
 	private GameObject m_safeLabel;			//	"Safe!!"と書かれたラベル.
 	private GameObject m_goodLabel;			//	"Good!!"と書かれたラベル.
 	private GameObject m_perfectLabel;		//	"perfect!!"と書かれたラベル.
-    private GameObject m_dispLabel;         // 成功を表示するオブジェクト
+    private GameObject m_dispLabel;         // 成功を表示するオブジェクト.
+
 
     // 設定ファイル
     Game2Setting Setting;
@@ -29,10 +30,10 @@ public class LabelMgr : MonoBehaviour
         // 設定ファイルの読み込み
         Setting = Resources.Load<Game2Setting>("Setting/Game2Setting");
         // ラベルオブジェクトの読み込み
-		m_missLabel = Resources.Load<GameObject>("LabelMiss");
-		m_safeLabel = Resources.Load<GameObject>("LabelSafe");
-		m_goodLabel = Resources.Load<GameObject>("LabelGood");
-		m_perfectLabel = Resources.Load<GameObject>("LabelPerfect");
+		m_missLabel = Resources.Load<GameObject>("Prefab/Game2/LabelMiss");
+		m_safeLabel = Resources.Load<GameObject>("Prefab/Game2/LabelSafe");
+		m_goodLabel = Resources.Load<GameObject>("Prefab/Game2/LabelGood");
+		m_perfectLabel = Resources.Load<GameObject>("Prefab/Game2/LabelPerfect");
 	}
 	
 	// Update is called once per frame

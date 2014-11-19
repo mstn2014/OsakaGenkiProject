@@ -12,21 +12,23 @@ using System.Collections.Generic;
 
 public class PushButtonTest : MonoBehaviour {
 
-	//	共通設定
+	//	共通設定.
 	FadeMgr m_fadeMgr;              // フェード.
 	InputMgr m_btnState; 			// 入力インスタンス.
 
-    // Game2設定
+    // Game2設定.
     Game2Setting Setting;          // ゲーム設定ファイル
 
-	//	カウント関連
+	//	カウント関連.
 	private	int	m_pressKeyCount;	//	ボタンを押した回数.
 	private int m_missCount;		//	ミスの回数.
 	private int m_safeCount;		//	セーフの回数.
 
-	//	判定関連
+	//	判定関連.
 	private  bool   m_triggerFlg;	//	何かに当たっているかのフラグ.
 	private  string m_bufName;		//	当たっているオブジェの名前格納用.
+	private  int    m_hitNumber;	//	何番目に当たったか（複数のボタンが同時に判定されるのを防ぐ）.
+	private  int    m_nowHitNumber;	//	今何番目のボタンを判定しているか.
 
 	//	ラベル表示用.
 	LabelMgr m_dispClass;	
@@ -58,6 +60,7 @@ public class PushButtonTest : MonoBehaviour {
         // スコア表示用
         m_score = GameObject.Find("ScoreMgr").GetComponent<ScoreMgr>();
 
+		//	スコアカウント用
 		m_triggerFlg = false;
 		m_pressKeyCount = 0;
 		m_missCount = 0;
@@ -73,6 +76,7 @@ public class PushButtonTest : MonoBehaviour {
 			m_pressKeyCount++;	//	ボタン押下回数+1.
 			if(m_triggerFlg == true)	//	何かに当たっているか.
 			{
+				m_nowHitNumber++;
 				m_triggerFlg=false;
 				//	同じ色か判定（違う色ならMiss）.
 				switch(m_bufName)
@@ -143,12 +147,18 @@ public class PushButtonTest : MonoBehaviour {
 
 	void OnTriggerStay2D (Collider2D button)
 	{
-		m_triggerFlg = true;							//	当たってるフラグON.
-		m_bufName = button.tag;						//	ボタンの種類取得.
-		m_moveUpClass = button.GetComponent<MoveUp>();	//	ボタンのクラスの関数取得.
-		m_buttonPosition = button.transform.position;	//	ボタンの座標取得.
+		if(	m_triggerFlg == false)
+		{
+			m_triggerFlg = true;							//	当たってるフラグON.
+			m_bufName = button.tag;							//	ボタンの種類取得.
+			m_moveUpClass = button.GetComponent<MoveUp>();	//	ボタンのクラスの関数取得.
+			m_buttonPosition = button.transform.position;	//	ボタンの座標取得.
+		}
 	}
 
+	void OnTriggerExit2D (Collider2D button){
+		m_triggerFlg = false;
+	}
 
 	//======================================================
 	// @brief:(MISS,SAFE)などの判定を行う.
