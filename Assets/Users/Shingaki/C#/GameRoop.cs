@@ -8,18 +8,29 @@ public class GameRoop : MonoBehaviour {
 	private GameState m_state;			// ゲームの状態.
 	private CountDown	m_timer;		
 	private Question	m_quest;		// 問題生成.
-	private EffectMgr	m_effect;		// エフェクト
+	private EffectMgr	m_effect;		// エフェクト.
 
 	InputMgr m_btnState;                // 入力インスタンス.
 	FadeMgr m_fadeMgr;                  // フェード.
 
+	// Game1共通設定.
+	private Game1_Setting GAME1;
+
+	// データセーブ用
+	private SaveData SAVE;
+
 	// Use this for initialization
 	IEnumerator Start () {
+		// Game1共通設定.
+		GAME1 = Resources.Load<Game1_Setting>("Setting/Game1_Setting");
+		// データセーブ用
+		SAVE = Resources.Load<SaveData>("SaveData/SaveData");
+
 		m_start = false;
 		m_state = GameState.stop;
-		GameObject countDown = GameObject.Find("Timer");
-		m_timer = countDown.GetComponent<CountDown>();
+		m_timer = GetComponent<CountDown>();
 		m_quest = GetComponent<Question>();
+		m_effect = GetComponent<EffectMgr> ();
 
 
 		// 共通設定の呼び出し.
@@ -37,11 +48,14 @@ public class GameRoop : MonoBehaviour {
 				switch(m_state){
 				case GameState.ready:
 					Debug.Log("ゲーム準備");
-					StartCoroutine (m_quest.CreateQuestion ());
+					///// ラウンドへの初期化 /////
+					m_timer.ResetTimer();		// タイマー初期化.
+					m_effect.InitEffect();		// エフェクト関連初期化.
+					StartCoroutine (m_quest.CreateQuestion ());	// 問題生成.
 					while (!m_quest.IsCreate) {
 						yield return null;
 					}
-					m_timer.ResetTimer();
+
 					m_timer.StartTimer();
 					m_state = GameState.play;
 					break;
@@ -64,7 +78,6 @@ public class GameRoop : MonoBehaviour {
 						m_state = GameState.end;
 					}else if(m_quest.IsClear){
 						// ラウンドクリアなら次のゲームへ.
-						m_timer.ResetTimer();
 						m_state = GameState.ready;
 					}
 					

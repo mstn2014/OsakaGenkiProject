@@ -45,35 +45,107 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 0
-      y: 63
-      width: 640
-      height: 480
+      y: 3016
+      width: 1920
+      height: 1080
     inner:
       serializedVersion: 2
       x: 0
-      y: 63
-      width: 640
-      height: 480
+      y: 3016
+      width: 1920
+      height: 1080
     rotated: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: TimeCount2
+  - name: TimeCount_1
+    outer:
+      serializedVersion: 2
+      x: 1081
+      y: 2774
+      width: 959
+      height: 120
+    inner:
+      serializedVersion: 2
+      x: 1081
+      y: 2774
+      width: 959
+      height: 120
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: .00104275288
+    paddingTop: 0
+    paddingBottom: 0
+  - name: TimeCount_2
+    outer:
+      serializedVersion: 2
+      x: 1921
+      y: 3017
+      width: 120
+      height: 1079
+    inner:
+      serializedVersion: 2
+      x: 1921
+      y: 3017
+      width: 120
+      height: 1079
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: .000926784065
+  - name: TimeCount_3
     outer:
       serializedVersion: 2
       x: 0
-      y: 544
-      width: 640
-      height: 480
+      y: 2895
+      width: 1920
+      height: 120
     inner:
       serializedVersion: 2
       x: 0
-      y: 544
-      width: 640
-      height: 480
+      y: 2895
+      width: 1920
+      height: 120
     rotated: 0
     paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: TimeCount_4
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 1815
+      width: 120
+      height: 1079
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 1815
+      width: 120
+      height: 1079
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: .000926784065
+  - name: TimeCount_5
+    outer:
+      serializedVersion: 2
+      x: 121
+      y: 2774
+      width: 959
+      height: 120
+    inner:
+      serializedVersion: 2
+      x: 121
+      y: 2774
+      width: 959
+      height: 120
+    rotated: 0
+    paddingLeft: .00104275288
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0

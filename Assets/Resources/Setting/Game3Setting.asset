@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bbb72342818f624aa582c4a15119cef, type: 3}
+  m_Name: Game3Setting
+  m_EditorClassIdentifier: 
+  Speed: .100000001
+  L_L_Position: {x: -45, y: 0, z: 1.5}
+  L_R_Position: {x: -45, y: 0, z: -1.5}
+  RetPosition: {x: 0, y: 0, z: 0}
+  pash: Message/game3
