@@ -27,6 +27,12 @@ public class Game2StateMgr : MonoBehaviour {
     // コンポーネント関連
     public GameObject m_frame;              // フレームとリングのオブジェクト
     public GameObject m_extra;              // そのたのゲーム関連オブジェクト
+	public GameObject m_buf;
+	public GameObject m_Event1;				//	盛りあがりイベント1
+	public GameObject m_Event2;				//	盛りあがりイベント2
+	public GameObject m_Event3;				//	盛りあがりイベント3
+	public GameObject m_Event4;				//	盛りあがりイベント4
+	public GameObject m_Event5;				//	盛りあがりイベント5
 
     public Game2Setting m_sceneSetting;    // シーンの設定ファイル
 
@@ -58,6 +64,21 @@ public class Game2StateMgr : MonoBehaviour {
         m_messageIndex = 0;
         m_windowMgr.Text = m_messageText[m_messageIndex];
 
+		//　イベント関連読み込み
+		m_Event1 = GameObject.Find("Event1");
+		m_Event1.gameObject.SetActive(false);
+
+		m_Event2 = GameObject.Find("Event2");
+		m_Event2.gameObject.SetActive(false);
+
+		m_Event3 = GameObject.Find("Event3");
+		m_Event3.gameObject.SetActive(false);
+
+		m_Event4 = GameObject.Find("Event4");
+		m_Event4.gameObject.SetActive(false);
+
+		m_Event5 = GameObject.Find("Event5");
+		m_Event5.gameObject.SetActive(false);
 	}
 	
 	// Update is called once per frame
@@ -194,8 +215,23 @@ public class Game2StateMgr : MonoBehaviour {
         }
         else if (m_createButton.WaitFlg && !m_waitFlg )
         {
-            // ToDo：ここに盛り上がりイベントを書く
-            StartCoroutine( LivelyIvent() );
+			// ToDo：ここに盛り上がりイベントを書く。
+			if(m_scoreMgr.Score >= 5)
+				m_Event1.gameObject.SetActive(true);
+		
+			if(m_scoreMgr.Score >= 10)
+				m_Event2.gameObject.SetActive(true);
+
+			if(m_scoreMgr.Score >= 15)
+				m_Event3.gameObject.SetActive(true);
+
+			if(m_scoreMgr.Score >= 20)
+				m_Event4.gameObject.SetActive(true);
+
+			if(m_scoreMgr.Score >= 30)
+				m_Event5.gameObject.SetActive(true);
+            
+			StartCoroutine( LivelyIvent() );
             m_waitFlg = true;
         }
 
@@ -203,11 +239,13 @@ public class Game2StateMgr : MonoBehaviour {
 
     IEnumerator LivelyIvent()
     {
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(3.0f);	//	3秒末
 
         GameObject.Find("DebugLog").GetComponent<UILabel>().text = "盛り上がりイベント発生中！！";
-        yield return new WaitForSeconds(5.0f);
+        
+		//	ToDo：参加者あつまる.
 
+		yield return new WaitForSeconds(5.0f);
         GameObject.Find("DebugLog").GetComponent<UILabel>().text = "";
         m_createButton.WaitFlg = false;
         m_waitFlg = false;

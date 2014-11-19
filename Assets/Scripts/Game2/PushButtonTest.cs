@@ -171,7 +171,8 @@ public class PushButtonTest : MonoBehaviour {
 	{
 		float distance;
 
-		distance = Vector3.Distance (this.transform.position , m_buttonPosition) * Setting.playDistance;
+		distance = Vector3.Distance (this.transform.position * Setting.playDistance, m_buttonPosition * Setting.playDistance);
+		//Debug.Log(distance);
 
         if (distance <= Setting.perfectRange)
         {
