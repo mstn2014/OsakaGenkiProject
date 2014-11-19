@@ -21,7 +21,7 @@ public class FadeMgr : SingletonMonoBehaviourFast<FadeMgr>
             return;
         }
 
-        DontDestroyOnLoad(this.gameObject);
+        DontDestroyOnLoad(this);
 
 		//ここで黒テクスチャ作る
 		this.blackTexture = new Texture2D(1,1);
