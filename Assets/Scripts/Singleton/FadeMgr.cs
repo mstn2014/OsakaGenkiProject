@@ -11,6 +11,7 @@ public class FadeMgr : SingletonMonoBehaviourFast<FadeMgr>
     private bool isFading = false;
 
 	int finish_flg=0;
+    const float interval = 0.3f;
 
     public void Awake()
     {
@@ -79,9 +80,9 @@ public class FadeMgr : SingletonMonoBehaviourFast<FadeMgr>
     /// </summary>
     /// <param name='scene'>シーン名</param>
     /// <param name='interval'>暗転にかかる時間(秒)</param>
-    public void LoadLevel(string scene, float interval)
+    public void LoadLevel(string scene)
     {
-        StartCoroutine(TransScene(scene, interval));
+        StartCoroutine(TransScene(scene));
     }
 
 	/// <summary>
@@ -100,7 +101,7 @@ public class FadeMgr : SingletonMonoBehaviourFast<FadeMgr>
     /// </summary>
     /// <param name='scene'>シーン名</param>
     /// <param name='interval'>暗転にかかる時間(秒)</param>
-    private IEnumerator TransScene(string scene, float interval)
+    private IEnumerator TransScene(string scene)
     {
         //だんだん暗く
         this.isFading = true;

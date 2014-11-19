@@ -23,7 +23,7 @@ public class Question : MonoBehaviour {
 	private EffectMgr m_effect;			// エフェクト
 
 	// Game1共通設定
-	private Game1_Setting GAME1;
+	private Game1Setting GAME1;
 	
 	// get プロパティ.
 	public bool IsCreate{			// 生成フラグ
@@ -42,7 +42,7 @@ public class Question : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		// Game1共通設定
-		GAME1 = Resources.Load<Game1_Setting>("Setting/Game1_Setting");
+		GAME1 = Resources.Load<Game1Setting>("Setting/Game1_Setting");
 
 		// TextWindowとQuestPanelの発見と生成.
 		m_panel = GameObject.Find("Panel");

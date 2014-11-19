@@ -15,7 +15,7 @@ public class CountDown : MonoBehaviour {
 	private Question	m_quest;
 
 	// Game1共通設定
-	private Game1_Setting GAME1;
+	private Game1Setting GAME1;
 
 	// get プロパティ.
 	public bool IsPaused{
@@ -31,7 +31,7 @@ public class CountDown : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		// Game1共通設定
-		GAME1 = Resources.Load<Game1_Setting>("Setting/Game1_Setting");
+		GAME1 = Resources.Load<Game1Setting>("Setting/Game1_Setting");
 
 		// ラウンドごとの時間格納.
 		m_timelimit = new float[GAME1.MaxQuestNum - (GAME1.MinQuestNum-1)];

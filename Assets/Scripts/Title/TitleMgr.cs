@@ -54,6 +54,6 @@ public class TitleMgr : MonoBehaviour {
         iTweenEvent.GetEvent(m_camera, "MoveOut").Play();
         m_player.MoveToFront();
         yield return new WaitForSeconds(5.0f);
-        m_fade.LoadLevel("bigIvent1", 0.5f);
+        m_fade.LoadLevel("bigIvent1");
     }
 }
