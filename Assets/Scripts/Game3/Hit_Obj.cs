@@ -7,6 +7,9 @@ using System.Collections;
 //======================================================
 public class Hit_Obj : MonoBehaviour {
 
+	// セッティングファイル
+	public Game3Setting Seting;
+
 	//入力
 	InputMgr input_bt;
 	GameObject go;
@@ -93,57 +96,57 @@ public class Hit_Obj : MonoBehaviour {
 		//Debug.Log(other.gameObject.renderer.material.name);
 		if (input_bt.RedButtonTrigger) { 
 			if (HitNum == 1) {
-				charspeed_mgr.CountUp ();		// 難易度設定カウントアップ
-				score.Count_Up (1);				// スコアカウントアップ
-				gamemain.ObjInList (other.gameObject);// リストに格納
-				gamemain.CharMoveOrder ();// 新しいターゲットの選定					
+				charspeed_mgr.CountUp ();					// 難易度設定カウントアップ
+				score.Count_Up (1 * Seting.PointPercent);	// スコアカウントアップ
+				gamemain.ObjInList (other.gameObject);		// リストに格納
+				gamemain.CharMoveOrder ();					// 新しいターゲットの選定					
 			} else {						
 				if (gamemain_sub.ObjFlagC () == 2 && hit_sub.GetNum () != 1) {
 					gamemain.SayonaraObj ();
+					charspeed_mgr.SpeedDown ();			
 				}
-				charspeed_mgr.SpeedDown ();							
 			}
 		}
 		
 		if (input_bt.GreenButtonTrigger) { 
 			if (HitNum == 2) {										
-				charspeed_mgr.CountUp ();		// 難易度設定カウントアップ
-				score.Count_Up (1);				// スコアカウントアップ
-				gamemain.ObjInList (other.gameObject);// リストに格納
-				gamemain.CharMoveOrder ();// 新しいターゲットの選定					
+				charspeed_mgr.CountUp ();					// 難易度設定カウントアップ
+				score.Count_Up (1 * Seting.PointPercent);	// スコアカウントアップ
+				gamemain.ObjInList (other.gameObject);		// リストに格納
+				gamemain.CharMoveOrder ();					// 新しいターゲットの選定					
 			} else {								
 				if (gamemain_sub.ObjFlagC () == 2 && hit_sub.GetNum () != 2) {
 					gamemain.SayonaraObj ();
-				}
-				charspeed_mgr.SpeedDown ();								
+					charspeed_mgr.SpeedDown ();	
+				}							
 			}
 		}
 		
 		if (input_bt.BlueButtonTrigger) { 
 			if (HitNum == 3) {
-				charspeed_mgr.CountUp ();		// 難易度設定カウントアップ
-				score.Count_Up (1);				// スコアカウントアップ
-				gamemain.ObjInList (other.gameObject);// リストに格納
-				gamemain.CharMoveOrder ();// 新しいターゲットの選定								
+				charspeed_mgr.CountUp ();					// 難易度設定カウントアップ
+				score.Count_Up (1 * Seting.PointPercent);	// スコアカウントアップ
+				gamemain.ObjInList (other.gameObject);		// リストに格納
+				gamemain.CharMoveOrder ();					// 新しいターゲットの選定								
 			} else {								
 				if (gamemain_sub.ObjFlagC () == 2 && hit_sub.GetNum () != 3) {
 					gamemain.SayonaraObj ();
-				}
-				charspeed_mgr.SpeedDown ();								
+					charspeed_mgr.SpeedDown ();
+				}								
 			}
 		}
 		
 		if (input_bt.YellowButtonTrigger) { 
 			if (HitNum == 4) {
-				charspeed_mgr.CountUp ();		// 難易度設定カウントアップ
-				score.Count_Up (1);				// スコアカウントアップ
-				gamemain.ObjInList (other.gameObject);// リストに格納
-				gamemain.CharMoveOrder ();// 新しいターゲットの選定								
+				charspeed_mgr.CountUp ();					// 難易度設定カウントアップ
+				score.Count_Up (1 * Seting.PointPercent);	// スコアカウントアップ
+				gamemain.ObjInList (other.gameObject);		// リストに格納
+				gamemain.CharMoveOrder ();					// 新しいターゲットの選定								
 			} else {
 				if (gamemain_sub.ObjFlagC () == 2 && hit_sub.GetNum () != 4) {
 					gamemain.SayonaraObj ();
-				}
-				charspeed_mgr.SpeedDown ();								
+					charspeed_mgr.SpeedDown ();
+				}							
 			}
 		}
 	}

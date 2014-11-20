@@ -12,6 +12,7 @@ public class Game3_Mg : MonoBehaviour {
 	GameObject[] m_obj = new GameObject[4];
 	Vector3[] pos = new Vector3[4];
 	Vector3[] sce = new Vector3[4];
+	bool      m_start = true;
 	
 	string[] material = { "red", "green", "blue", "yerrow" };
 	
@@ -36,13 +37,14 @@ public class Game3_Mg : MonoBehaviour {
 			pos[i] = m_obj[i].transform.localPosition;
 			sce[i] = m_obj[i].transform.localScale;
 		}
-		// 最初のターゲットを選択
-		CharMoveOrder ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if (m_start) {
+			CharMoveOrder ();
+			m_start = false;
+		}
 	}
 
 	//======================================================
@@ -61,7 +63,7 @@ public class Game3_Mg : MonoBehaviour {
 		obj = m_obj [ren];
 		m_obj [ren] = null;
 		NewModelMake ();
-		m_Char_sp = obj.GetComponent<Char_Move> ();
+		m_Char_sp = obj.GetComponent<Char_Move>();
 		m_Char_sp.SetFig = 1;
 	}
 
