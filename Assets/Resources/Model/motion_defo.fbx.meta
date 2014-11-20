@@ -192,6 +192,12 @@ ModelImporter:
     4300016: polySurface37
     4300018: foot1
     4300020: foot2
+    6400000: eye
+    6400002: hear1
+    6400004: kuti
+    6400006: mayu
+    6400008: polySurface35
+    6400010: polySurface37
     7400000: Take 001
     7400002: anim_stand001
     7400004: anim_stand002
@@ -226,7 +232,7 @@ ModelImporter:
       takeName: 
       firstFrame: 1
       lastFrame: 60
-      wrapMode: 0
+      wrapMode: 2
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
@@ -252,7 +258,7 @@ ModelImporter:
       takeName: 
       firstFrame: 90
       lastFrame: 150
-      wrapMode: 0
+      wrapMode: 2
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
@@ -278,7 +284,7 @@ ModelImporter:
       takeName: 
       firstFrame: 190
       lastFrame: 220
-      wrapMode: 0
+      wrapMode: 2
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
@@ -304,7 +310,7 @@ ModelImporter:
       takeName: 
       firstFrame: 250
       lastFrame: 300
-      wrapMode: 0
+      wrapMode: 2
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
@@ -330,7 +336,7 @@ ModelImporter:
       takeName: 
       firstFrame: 330
       lastFrame: 360
-      wrapMode: 0
+      wrapMode: 2
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
@@ -356,7 +362,7 @@ ModelImporter:
       takeName: 
       firstFrame: 390
       lastFrame: 420
-      wrapMode: 0
+      wrapMode: 2
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0

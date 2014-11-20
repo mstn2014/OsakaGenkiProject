@@ -41,7 +41,7 @@ public class Hit_Obj : MonoBehaviour {
 		// 当たっていないときにボタンを押すと飛ぶ
 		if (input_bt.AnyButtonTrigger) {
 			if (gamemain.ObjFlagC () == 0 && gamemain_sub.ObjFlagC () == 0 && 
-			    GameObject.Find ("Sayonara_Line").transform.position.x < this.transform.position.x) {
+			    GameObject.Find ("Sayonara_Line").transform.position.x > this.transform.position.x) {
 				gamemain.SayonaraObj();
 				//charspeed_mgr.SpeedDown();
 			}

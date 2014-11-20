@@ -34,6 +34,8 @@ public class SoundMgr : SingletonMonoBehaviourFast<SoundMgr>
     // time
     float time;
 
+    public bool mute = false;
+
     AudioSource audioSourceBGM;
 
     AudioSource[] audioSourceSE = new AudioSource[10];
@@ -58,9 +60,13 @@ public class SoundMgr : SingletonMonoBehaviourFast<SoundMgr>
         for (int i = 0; i < 10; i++)
         {
             audioSourceSE[i] = this.gameObject.AddComponent<AudioSource>();
+            audioSourceSE[i].mute = mute;
         }
 
         audioSourceBGM.loop = true;
+
+        // ミュートにするかどうか
+        audioSourceBGM.mute = mute;
     }
 
     public void PlayTitleBGM()

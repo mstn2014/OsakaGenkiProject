@@ -8,5 +8,5 @@ public class Game3Setting : ScriptableObject {
 	public Vector3	L_R_Position;		// スポットライトポジション
 	public Vector3	RetPosition;		// 帰るときのポジション
 	
-	public string pash = "Message/game3";		// メッセージ用パス
+	public string messagePath = "Message/game3";		// メッセージ用パス
 }
