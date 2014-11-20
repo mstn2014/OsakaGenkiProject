@@ -8,9 +8,11 @@ using System.Collections;
 //======================================================
 public class Char_SpeedMgr : MonoBehaviour {
 
-	// セッティングファイルに移行する変数多数あり
+	// セッティングファイル
+	public Game3Setting	Seting;
+
 	float Speed_velo = 0;
-	float Dans_Speed = 0;
+	float Dance_Speed = 0;
 	int	  Count = 0;
 	
 	// Use this for initialization
@@ -32,13 +34,13 @@ public class Char_SpeedMgr : MonoBehaviour {
 	//======================================================
 	public void CountUp(){
 		Count++;
-		if (Count == 5) {
-			if(Speed_velo < 0.6f)	Speed_velo += 0.1f;
-			if(Dans_Speed < 1.0f)	Dans_Speed += 0.1f;
+		if (Count == Seting.CountNum) {
+			if(Speed_velo < Seting.MaxMoveSpeed)	Speed_velo += 0.1f;
+			if(Dance_Speed < Seting.MaxDanceSpeed)	Dance_Speed += 0.1f;
 			Count = 0;
 		}
 		Debug.Log("速度" + Speed_velo);
-		Debug.Log("ダンス速度" + Dans_Speed);
+		Debug.Log("ダンス速度" + Dance_Speed);
 	}
 	
 	//======================================================
@@ -50,7 +52,7 @@ public class Char_SpeedMgr : MonoBehaviour {
 	//======================================================
 	public void SpeedDown(){
 		if (Speed_velo > 0.0f)		Speed_velo -= 0.1f;
-		if (Dans_Speed > 0.0f)		Dans_Speed -= 0.1f;
+		if (Dance_Speed > 0.0f)		Dance_Speed -= 0.1f;
 	}
 	
 	//======================================================
@@ -71,7 +73,7 @@ public class Char_SpeedMgr : MonoBehaviour {
 	// @param:なし
 	// @return:float    ダンススピード
 	//======================================================
-	public float GetDansSpeed(){
-		return Dans_Speed;
+	public float GetDanceSpeed(){
+		return Dance_Speed;
 	}
 }
