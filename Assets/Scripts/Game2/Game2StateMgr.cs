@@ -36,6 +36,9 @@ public class Game2StateMgr : MonoBehaviour {
 
     public Game2Setting m_sceneSetting;    // シーンの設定ファイル
 
+	CreateGuest m_guest;	//	参加者増加用
+	private GameObject m_guestbuf; //	CreateGuestクラス代入用.
+
     // コルーチン制御用のwaitフラグ
     bool m_waitFlg = false;                         
 
@@ -79,6 +82,10 @@ public class Game2StateMgr : MonoBehaviour {
 
 		m_Event5 = GameObject.Find("Event5");
 		m_Event5.gameObject.SetActive(false);
+
+		//	参加者増加用.
+		//m_guestbuf = GameObject.Find ("CreateGuest");
+		//m_guest = m_guestbuf.GetComponent<LabelMgr>();
 	}
 	
 	// Update is called once per frame
@@ -231,6 +238,7 @@ public class Game2StateMgr : MonoBehaviour {
         
 		if(m_scoreMgr.Score >= 5)
 			m_Event1.gameObject.SetActive(true);
+			//m_guest.
 		
 		if(m_scoreMgr.Score >= 10)
 			m_Event2.gameObject.SetActive(true);
