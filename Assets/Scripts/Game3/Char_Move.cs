@@ -13,14 +13,16 @@ public class Char_Move : MonoBehaviour {
 	// コンポーネント用
 	Game3_Mg 		gamemain;
 	Char_SpeedMgr	charspeed_mgr;
+
+	Vector3	L_L_Position;		// スポットライトポジション
 	
 	// カウント
-	float TimeCount = 0;	// カウント用
-	float TimeLimit = 3;	// ダンス時間
-	float nowTime = 0;		// 現在の時間
-	float Detline;			// 死亡ライン
-	float D_time = 1.0f;	// 移動時間
-	
+	float TimeCount = 0;		// カウント用
+	float nowTime = 0;			// 現在の時間
+	float Detline;				// 死亡ライン
+	float m_DanceLimit = 0;		// ダンスリミット
+	float m_SpotMoveTime = 0;	// 移動リミット
+
 	// フラグ
 	bool GoFlag = false;		// ライト方向に行くかどうか
 	bool SerectFlag = false;	// スポットライトに選ばれたかどうか
@@ -30,7 +32,7 @@ public class Char_Move : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		// 座標を代入
-		Seting.L_L_Position = GameObject.Find ("Light_L").transform.position;
+		L_L_Position = GameObject.Find ("Light_L").transform.position;
 		// コンポーネントをゲット
 		gamemain = GameObject.Find ("Parade").GetComponent<Game3_Mg> ();
 		charspeed_mgr = GameObject.Find ("Speed_Manager").GetComponent<Char_SpeedMgr> ();
@@ -38,8 +40,8 @@ public class Char_Move : MonoBehaviour {
 		Detline = GameObject.Find ("Delete_Line").transform.position.x;
 		
 		// ダンススピード調整
-		TimeLimit = TimeLimit - charspeed_mgr.GetDansSpeed ();
-		D_time = D_time - charspeed_mgr.GetSpeed ();
+		m_DanceLimit = Seting.DanceLimit - charspeed_mgr.GetDanceSpeed ();
+		m_SpotMoveTime = Seting.SpotMoveTime - charspeed_mgr.GetSpeed ();
 	}
 	
 	// Update is called once per frame
@@ -47,11 +49,11 @@ public class Char_Move : MonoBehaviour {
 		
 		if (GoFlag) {
 			// スポットライトの位置まで移動したときの処理
-			if (this.transform.position.z >= Seting.L_L_Position.z - 2 && this.transform.position.z <= Seting.L_L_Position.z + 2) {
+			if (this.transform.position.z >= L_L_Position.z - 2 && this.transform.position.z <= L_L_Position.z + 2) {
 				// 時間計測
 				TimeCount += Time.deltaTime;
-				if (TimeCount > TimeLimit) {
-					iTween.MoveTo (this.gameObject, GameObject.Find ("Delete_Position").transform.position, 4.0f);
+				if (TimeCount > m_DanceLimit) {
+					iTween.MoveTo (this.gameObject, GameObject.Find ("Delete_Position").transform.position, Seting.DeleteMoveTime);
 					this.gameObject.rigidbody.detectCollisions = false;		// あたり判定を無効化
 				}
 			}
@@ -80,7 +82,7 @@ public class Char_Move : MonoBehaviour {
 			if(value == 1){
 				GoFlag = true;
 				SerectFlag = true;
-				iTween.MoveTo(this.gameObject, iTween.Hash( "position", GameObject.Find("Light_L").transform.position, "time",D_time ,"easetype",iTween.EaseType.linear) );
+				iTween.MoveTo(this.gameObject, iTween.Hash( "position", GameObject.Find("Light_L").transform.position, "time",m_SpotMoveTime ,"easetype",iTween.EaseType.linear) );
 			}
 			
 			if(value == 2){

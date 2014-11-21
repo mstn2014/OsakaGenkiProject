@@ -12,21 +12,20 @@ public class ObjMgr : MonoBehaviour {
 	private Game1_Setting GAME1;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		// Game1共通設定.
 		GAME1 = Resources.Load<Game1_Setting>("Setting/Game1_Setting");
 
 		// リソースの読み込み.
 		m_objParent = Resources.Load("Shingaki/testResource/prefab/Objparent") as GameObject;
-		m_player = Resources.Load ("Shingaki/testResource/prefab/Player") as GameObject;
+		m_player = Resources.Load ("Prefab/Game1/game1_motion_defo") as GameObject;
 		m_gallery = Resources.Load ("Shingaki/testResource/prefab/Gallery") as GameObject;
 		m_ground = Resources.Load ("Shingaki/testResource/prefab/Ground") as GameObject;
 
 
 		m_objParent = CreatePrefab.InstantiateGameObject (m_objParent, Vector3.zero, Quaternion.identity,
 		                                                 Vector3.one);
-		m_player = CreatePrefab.InstantiateGameObject (m_player, new Vector3(0,GAME1.Obj_Y,0),
-		                                               Quaternion.identity, Vector3.one);
+		m_player = CreatePrefab.InstantiateGameObject(m_player, new Vector3(0,GAME1.Obj_Y,0),m_player.transform.localRotation,m_player.transform.localScale);
 		m_ground = Instantiate (m_ground) as GameObject;
 		m_ground.transform.parent = m_objParent.transform;
 

@@ -13,3 +13,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputMgrPath: Singleton/InputMgr
   fadeMgrPath: Singleton/FadeMgr
+  soundMgrPath: Singleton/SoundMgr
+  fps: 60

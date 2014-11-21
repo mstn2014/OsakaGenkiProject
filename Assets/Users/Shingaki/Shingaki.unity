@@ -619,8 +619,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 931216299}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.32256316e-05, z: 0}
-  m_LocalScale: {x: 28, y: 28.0000019, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 32, y: 32, z: 1}
   m_Children: []
   m_Father: {fileID: 2057536739}
   m_RootOrder: 1
@@ -638,7 +638,7 @@ MonoBehaviour:
   mColor: {r: 0, g: 0, b: 0, a: 1}
   mPivot: 4
   mDepth: 2
-  mFont: {fileID: 11400000, guid: 112320cc841f6a74baaf7fba78b78138, type: 2}
+  mFont: {fileID: 11400000, guid: 2c339c12742cc9e44a6637dd7fab5bd3, type: 2}
   mText: START
   mMaxLineWidth: 0
   mMaxLineHeight: 0
@@ -793,7 +793,7 @@ MonoBehaviour:
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
   mDepth: 0
-  mFont: {fileID: 11400000, guid: 112320cc841f6a74baaf7fba78b78138, type: 2}
+  mFont: {fileID: 0}
   mText: countdown
   mMaxLineWidth: 0
   mMaxLineHeight: 0

@@ -7,4 +7,7 @@ public class TitleSetting : ScriptableObject
     public float scale = 2.0f;
     public float rotateTime = 2.0f;
     public float disappearSpeed = 0.75f;
+
+    [Header("シーン遷移までの時間")]
+    public float nextSceneTime;
 }

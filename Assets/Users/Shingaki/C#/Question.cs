@@ -141,7 +141,8 @@ public class Question : MonoBehaviour {
 
 			int work = m_effect.IsComboNum;	// コンボ数表示.
 			m_effect.IsComboNum = ++work;
-			m_effect.DispCombo();		
+            m_effect.DispCombo();
+            
 			
 			// コンプリートなら.
 			if (m_nowAns == GAME1.MaxQuestNum) {

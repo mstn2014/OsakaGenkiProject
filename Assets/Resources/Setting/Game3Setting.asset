@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Name: Game3Setting
   m_EditorClassIdentifier: 
   Speed: .100000001
-  L_L_Position: {x: -45, y: 0, z: 1.5}
-  L_R_Position: {x: -45, y: 0, z: -1.5}
-  RetPosition: {x: 0, y: 0, z: 0}
+  DanceLimit: 3
+  SpotMoveTime: 1
+  DeleteMoveTime: 4
+  CountNum: 5
+  MaxMoveSpeed: .600000024
+  MaxDanceSpeed: 1
+  PointPercent: 1
   pash: Message/game3

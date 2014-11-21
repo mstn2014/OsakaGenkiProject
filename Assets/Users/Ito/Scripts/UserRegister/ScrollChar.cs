@@ -77,7 +77,7 @@ public class ScrollChar : MonoBehaviour {
             if (m_triggerTime >= m_userSetting.returnTime && str.Length > 0)
             {
                 m_saveData.userName = str;
-                m_fadeMgr.LoadLevel("UserRegisterSample", 0.5f);
+                m_fadeMgr.LoadLevel("game1");
             }
         }
 

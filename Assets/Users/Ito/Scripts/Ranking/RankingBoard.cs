@@ -44,6 +44,7 @@ public class RankingBoard : MonoBehaviour {
         for (int i = 0; i < m_rankSetting.dispRank; i++)
         {
             if (i > (m_rankSetting.dispRank - 1)) break;
+            if (i > (m_server.Data.Count - 1)) break;
 
             m_rankText[i].text = m_server.Data[i].rank.ToString();
             m_nameText[i].text = m_server.Data[i].name.ToString();
@@ -54,6 +55,7 @@ public class RankingBoard : MonoBehaviour {
         {
             for (int i = 5; i < m_rank.Count; i++)
             {
+                if (i > (m_server.Data.Count - 1)) break;
                 m_rankText[i].text = m_server.Data[i].rank.ToString();
                 m_nameText[i].text = m_server.Data[i].name.ToString();
                 m_scoreText[i].text = m_server.Data[i].score.ToString() + "pt";
@@ -69,6 +71,7 @@ public class RankingBoard : MonoBehaviour {
             m_scoreText[5].text = "：";
             for (int i = 6; i < m_rank.Count; i++)
             {
+                if (i > (m_server.Data.Count - 1)) break;
                 m_rankText[i].text = m_server.Data[m_saveData.userRank - (8 - i)].rank.ToString();
                 m_nameText[i].text = m_server.Data[m_saveData.userRank - (8 - i)].name.ToString();
                 m_scoreText[i].text = m_server.Data[m_saveData.userRank - (8 - i)].score.ToString() + "pt";
@@ -88,6 +91,7 @@ public class RankingBoard : MonoBehaviour {
             m_scoreText[5].text = "：";
             for (int i = 6; i < m_rank.Count; i++)
             {
+                if (i > (m_server.Data.Count - 1)) break;
                 m_rankText[i].text = m_server.Data[m_saveData.userRank - (9 - i)].rank.ToString();
                 m_nameText[i].text = m_server.Data[m_saveData.userRank - (9 - i)].name.ToString();
                 m_scoreText[i].text = m_server.Data[m_saveData.userRank - (9 - i)].score.ToString() + "pt";
@@ -106,6 +110,5 @@ public class RankingBoard : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	    
 	}
 }
