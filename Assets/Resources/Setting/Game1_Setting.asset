@@ -29,7 +29,9 @@ MonoBehaviour:
   Gallery_Interval: 3
   Gallery_Roll: 1
   Obj_Y: .5
-  Gallery_NG_Range: 1.29999995
+  Gallery_NG_Range: 1.20000005
+  Ground_PositionX: -40
+  Player_WolkTime: 10
   comboText_ScaleXY: 100
   combo_FadeTime: 2
   combo_MoveY: 100

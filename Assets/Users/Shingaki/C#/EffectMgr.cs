@@ -9,6 +9,8 @@ public class EffectMgr : MonoBehaviour {
 	private GameObject	m_comboText;		// combo表示.
 	private GameObject	m_oldCombo;			// 古いコンボ.
 	private int			m_comboNum;			// コンボ数.
+	private GameObject	m_result;			// リザルト.
+	private bool		m_effectPause;		// エフェクトポーズ
 	private GameObject	m_panel;			// NGUIの親.
 	
 	// Game1共通設定.
@@ -19,6 +21,9 @@ public class EffectMgr : MonoBehaviour {
 		get{return m_comboNum;}
 		set{m_comboNum = value;}
 	}
+	public bool IsPause{
+		get{return m_effectPause;}
+	}
 
 	// Use this for initialization
 	void Start () {
@@ -28,9 +33,12 @@ public class EffectMgr : MonoBehaviour {
 		// リソースの読み込み.
 		m_comboText = Resources.Load("Shingaki/testResource/prefab/ComboText") as GameObject;
 		m_circle = Resources.Load("Shingaki/testResource/prefab/circle") as GameObject;
+		m_result = Resources.Load("Shingaki/testResource/prefab/ResultText") as GameObject;
 		m_panel = GameObject.Find ("Panel");
 
 		m_comboNum = 0;
+		m_effectPause = false;
+
 	}
 	
 	// Update is called once per frame
@@ -73,9 +81,42 @@ public class EffectMgr : MonoBehaviour {
 		m_oldcircle = null;
 	}
 
-	// 「パーフェクト」「タイムアップ」「失敗」の文字表示.
-	private void DispResult(){
+	//======================================================
+	// @brief:結果文字の表示.
+	//------------------------------------------------------
+	// @author:T.Shingaki
+	// @param:none
+	// @return:none
+	//======================================================
+	public IEnumerator DispResult(int type){
+		m_effectPause = true;
+		GameObject result;
+		result = CreatePrefab.InstantiateGameObject (m_result, Vector3.zero, Quaternion.identity,
+		                                            new Vector3 (GAME1.result_ScaleXY, GAME1.result_ScaleXY, 0), m_panel);
+		UILabel workLabel = result.GetComponent ("UILabel") as UILabel;
 
+		switch (type) {
+		case 0:
+			workLabel.text = ("パーフェクト");
+		break;
+		case 1:
+			workLabel.text = ("失敗＞＜");
+			break;
+		case 2:
+			workLabel.text = ("時間切れ＞＜");
+		break;
+		}
+
+		// テキストの透過.
+		TweenAlpha resultAlpha = result.GetComponent<TweenAlpha> ();
+		resultAlpha.from = 1f;
+		resultAlpha.to = 0f;
+		resultAlpha.duration = GAME1.result_FadeTime;
+		resultAlpha.Play (true);
+
+		yield return new WaitForSeconds(GAME1.result_FadeTime);
+
+		m_effectPause = false;
 	}
 
 	//======================================================

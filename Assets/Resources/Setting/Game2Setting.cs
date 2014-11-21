@@ -66,4 +66,53 @@ public class Game2Setting : ScriptableObject
         public float value;
     }
     public CRank[] rank;
+
+	[Header("盛り上がりイベントに必要なスコア")]
+	public int Event1Score = 5;	    //	盛り上がりイベント１に必要なスコア
+	public int Event2Score = 20;	//	盛り上がりイベント２に必要なスコア
+	public int Event3Score = 40;	//	盛り上がりイベント３に必要なスコア
+	public int Event4Score = 60;	//	盛り上がりイベント４に必要なスコア
+	public int Event5Score = 80;	//	盛り上がりイベント５に必要なスコア
+
+	[Header("盛り上がりイベントの参加者人数")]
+	public int Event1Guest = 3;	    //	盛り上がりイベント１に増える参加人数
+	public int Event2Guest = 5;		//	盛り上がりイベント２に増える参加人数
+	public int Event3Guest = 10;	//	盛り上がりイベント３に増える参加人数
+	public int Event4Guest = 10;	//	盛り上がりイベント４に増える参加人数
+	public int Event5Guest = 20;	//	盛り上がりイベント５に増える参加人数
+
+	[Header("参加者待機位置")]
+	public Vector3[] GuestPosition = new Vector3[]{
+		new Vector3 (-2.0f, -0.5f, 4.3f),
+		new Vector3 (-2.0f, -0.5f, 3.8f),
+		new Vector3 (-2.0f, -0.5f, 3.3f),
+		new Vector3 (-1.0f, -0.5f, 2.2f),
+		new Vector3 (-0.5f, -0.5f, 2.2f),
+		new Vector3 (0.0f, -0.5f, 2.2f),
+		new Vector3 (0.5f, -0.5f, 2.2f),
+		new Vector3 (2.0f, -0.5f, 4.3f),
+		new Vector3 (2.0f, -0.5f, 3.8f),
+		new Vector3 (2.0f, -0.5f, 3.3f),
+		new Vector3 (-1.8f, -0.5f, 2.8f),
+		new Vector3 (-1.4f, -0.5f, 2.5f),
+		new Vector3 (1.0f, -0.5f, 2.2f),
+		new Vector3 (1.5f, -0.5f, 2.5f),
+		new Vector3 (1.8f, -0.5f, 2.8f),
+		new Vector3 (-2.5f, -0.5f, 4.3f),
+		new Vector3 (-2.5f, -0.5f, 3.8f),
+		new Vector3 (-2.5f, -0.5f, 3.3f),
+		new Vector3 (-1.0f, -0.5f, 1.7f),
+		new Vector3 (-0.5f, -0.5f, 1.7f),
+		new Vector3 (0.0f, -0.5f, 1.7f),
+		new Vector3 (0.5f, -0.5f, 1.7f),
+		new Vector3 (1.0f, -0.5f, 1.7f),
+		new Vector3 (2.5f, -0.5f, 4.3f),
+		new Vector3 (2.5f, -0.5f, 3.8f),
+		new Vector3 (2.5f, -0.5f, 3.3f),
+		new Vector3 (-2.4f, -0.5f, 2.7f),
+		new Vector3 (-2.0f, -0.5f, 2.1f),
+		new Vector3 (-1.5f, -0.5f, 1.8f),
+		new Vector3 (1.5f, -0.5f, 2.1f)
+
+	};
 }

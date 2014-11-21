@@ -28,13 +28,16 @@ public class Game2StateMgr : MonoBehaviour {
     public GameObject m_frame;              // フレームとリングのオブジェクト
     public GameObject m_extra;              // そのたのゲーム関連オブジェクト
 	public GameObject m_buf;
-	public GameObject m_Event1;				//	盛りあがりイベント1
-	public GameObject m_Event2;				//	盛りあがりイベント2
-	public GameObject m_Event3;				//	盛りあがりイベント3
-	public GameObject m_Event4;				//	盛りあがりイベント4
-	public GameObject m_Event5;				//	盛りあがりイベント5
+	private GameObject m_Event1;			//	盛りあがりイベント1
+	private GameObject m_Event2;			//	盛りあがりイベント2
+	private GameObject m_Event3;			//	盛りあがりイベント3
+	private GameObject m_Event4;			//	盛りあがりイベント4
+	private GameObject m_Event5;			//	盛りあがりイベント5
 
     public Game2Setting m_sceneSetting;    // シーンの設定ファイル
+
+	CreateGuest m_guest;	//	参加者増加用
+	private GameObject m_guestbuf; //	CreateGuestクラス代入用.
 
     // コルーチン制御用のwaitフラグ
     bool m_waitFlg = false;                         
@@ -79,6 +82,10 @@ public class Game2StateMgr : MonoBehaviour {
 
 		m_Event5 = GameObject.Find("Event5");
 		m_Event5.gameObject.SetActive(false);
+
+		//	参加者増加用.
+		m_guestbuf = GameObject.Find ("CreateGuest");
+		m_guest = m_guestbuf.GetComponent<CreateGuest>();
 	}
 	
 	// Update is called once per frame
@@ -216,21 +223,6 @@ public class Game2StateMgr : MonoBehaviour {
         else if (m_createButton.WaitFlg && !m_waitFlg )
         {
 			// ToDo：ここに盛り上がりイベントを書く。
-			if(m_scoreMgr.Score >= 5)
-				m_Event1.gameObject.SetActive(true);
-		
-			if(m_scoreMgr.Score >= 10)
-				m_Event2.gameObject.SetActive(true);
-
-			if(m_scoreMgr.Score >= 15)
-				m_Event3.gameObject.SetActive(true);
-
-			if(m_scoreMgr.Score >= 20)
-				m_Event4.gameObject.SetActive(true);
-
-			if(m_scoreMgr.Score >= 30)
-				m_Event5.gameObject.SetActive(true);
-            
 			StartCoroutine( LivelyIvent() );
             m_waitFlg = true;
         }
@@ -239,16 +231,43 @@ public class Game2StateMgr : MonoBehaviour {
 
     IEnumerator LivelyIvent()
     {
-        yield return new WaitForSeconds(3.0f);	//	3秒末
+		m_frame.SetActive(false);	//	フレーム非表示
+        yield return new WaitForSeconds(1.5f);	//	3秒末
 
         GameObject.Find("DebugLog").GetComponent<UILabel>().text = "盛り上がりイベント発生中！！";
-        
+
+		if(m_scoreMgr.Score >= m_sceneSetting.Event1Score){
+			m_Event1.gameObject.SetActive(true);
+			m_guest.IncreaseGuest(m_sceneSetting.Event1Guest);	//	引数の数だけ参加増加.
+		}
+
+		if(m_scoreMgr.Score >= m_sceneSetting.Event2Score){
+			m_Event2.gameObject.SetActive(true);
+			m_guest.IncreaseGuest(m_sceneSetting.Event2Guest);	//	引数の数だけ参加増加.
+		}
+		
+		if(m_scoreMgr.Score >= m_sceneSetting.Event3Score){
+			m_Event3.gameObject.SetActive(true);
+			m_guest.IncreaseGuest(m_sceneSetting.Event3Guest);	//	引数の数だけ参加増加.
+		}
+		
+		if(m_scoreMgr.Score >= m_sceneSetting.Event4Score){
+			m_Event4.gameObject.SetActive(true);
+			m_guest.IncreaseGuest(m_sceneSetting.Event4Guest);	//	引数の数だけ参加増加.
+		}
+		
+		if(m_scoreMgr.Score >= m_sceneSetting.Event5Score){
+			m_Event5.gameObject.SetActive(true);
+			m_guest.IncreaseGuest(m_sceneSetting.Event5Guest);	//	引数の数だけ参加増加.
+		}
+
 		//	ToDo：参加者あつまる.
 
 		yield return new WaitForSeconds(5.0f);
         GameObject.Find("DebugLog").GetComponent<UILabel>().text = "";
         m_createButton.WaitFlg = false;
         m_waitFlg = false;
+		m_frame.SetActive(true); // フレーム表示
     }
 
     IEnumerator RankIvent()
