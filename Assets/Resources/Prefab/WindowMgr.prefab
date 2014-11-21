@@ -147,8 +147,8 @@ MonoBehaviour:
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
   mDepth: 0
-  mAtlas: {fileID: 11400000, guid: dd4a3074152695c4094e348d49abcc3a, type: 2}
-  mSpriteName: MessageBack
+  mAtlas: {fileID: 11400000, guid: 9b7e9c5f829e76443999537404b5b34f, type: 2}
+  mSpriteName: sidouyaku_hukidashi
   mFillCenter: 1
   mType: 0
   mFillDirection: 4

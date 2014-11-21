@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a156c58ec6f079944a07c5e9f9f73ea3, type: 3}
+  m_Name: ResultSetting
+  m_EditorClassIdentifier: 
+  game1MaxPoint: 216
+  game2MaxPoint: 387
+  game3MaxPoint: 120
+  game1Rank:
+  - key: SSS
+    value: 1
+  - key: SS
+    value: .949999988
+  - key: S
+    value: .899999976
+  - key: AAA
+    value: .850000024
+  - key: AA
+    value: .699999988
+  - key: A
+    value: .5
+  - key: B
+    value: .400000006
+  - key: C
+    value: .300000012
+  - key: D
+    value: .150000006
+  - key: E
+    value: 0
+  game2Rank:
+  - key: SSS
+    value: 1
+  - key: SS
+    value: .949999988
+  - key: S
+    value: .899999976
+  - key: AAA
+    value: .850000024
+  - key: AA
+    value: .699999988
+  - key: A
+    value: .5
+  - key: B
+    value: .400000006
+  - key: C
+    value: .300000012
+  - key: D
+    value: .150000006
+  - key: E
+    value: 0
+  game3Rank:
+  - key: SSS
+    value: 1
+  - key: SS
+    value: .949999988
+  - key: S
+    value: .899999976
+  - key: AAA
+    value: .850000024
+  - key: AA
+    value: .699999988
+  - key: A
+    value: .5
+  - key: B
+    value: .400000006
+  - key: C
+    value: .300000012
+  - key: D
+    value: .150000006
+  - key: E
+    value: 0

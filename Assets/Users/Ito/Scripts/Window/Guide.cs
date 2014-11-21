@@ -50,7 +50,7 @@ public class Guide : MonoBehaviour
             m_windowMgr.CloseWindow();
             m_guideMgr.EndGuide();
             m_messageIndex = 0;
-            IsUse = false;
+            StartCoroutine(CheckUseFlg());
         }
     }
 
@@ -88,7 +88,23 @@ public class Guide : MonoBehaviour
     {
         m_windowMgr.CloseWindow();
         m_guideMgr.EndGuide();
-        IsUse = false;
+        StartCoroutine(CheckUseFlg());
         m_messageIndex = 0;
+    }
+
+    //======================================================
+    // @brief:クローズするまでIsUseフラグを立てるのを待つ
+    //------------------------------------------------------
+    // @author:K.Ito
+    // @param:none
+    // @return:none
+    //=====================================================
+    IEnumerator CheckUseFlg()
+    {
+        while(!m_windowMgr.IsFinished)
+        {
+            yield return null;
+        }
+        IsUse = false;
     }
 }

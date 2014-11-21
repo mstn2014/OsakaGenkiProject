@@ -11,6 +11,7 @@ public class FadeMgr : SingletonMonoBehaviourFast<FadeMgr>
     private bool isFading = false;
 
 	int finish_flg=0;
+    const float interval = 0.3f;
 
     public void Awake()
     {
@@ -20,7 +21,7 @@ public class FadeMgr : SingletonMonoBehaviourFast<FadeMgr>
             return;
         }
 
-        DontDestroyOnLoad(this.gameObject);
+        DontDestroyOnLoad(this);
 
 		//ここで黒テクスチャ作る
 		this.blackTexture = new Texture2D(1,1);
@@ -79,9 +80,9 @@ public class FadeMgr : SingletonMonoBehaviourFast<FadeMgr>
     /// </summary>
     /// <param name='scene'>シーン名</param>
     /// <param name='interval'>暗転にかかる時間(秒)</param>
-    public void LoadLevel(string scene, float interval)
+    public void LoadLevel(string scene)
     {
-        StartCoroutine(TransScene(scene, interval));
+        StartCoroutine(TransScene(scene));
     }
 
 	/// <summary>
@@ -100,7 +101,7 @@ public class FadeMgr : SingletonMonoBehaviourFast<FadeMgr>
     /// </summary>
     /// <param name='scene'>シーン名</param>
     /// <param name='interval'>暗転にかかる時間(秒)</param>
-    private IEnumerator TransScene(string scene, float interval)
+    private IEnumerator TransScene(string scene)
     {
         //だんだん暗く
         this.isFading = true;
@@ -110,7 +111,8 @@ public class FadeMgr : SingletonMonoBehaviourFast<FadeMgr>
             this.fadeAlpha = Mathf.Lerp(0f, 1f, time / interval);
             time += Time.deltaTime;
             yield return 0;
-        }    
+        }
+        time = 0;
 
         //シーン切替
         Application.LoadLevel(scene);
@@ -119,7 +121,7 @@ public class FadeMgr : SingletonMonoBehaviourFast<FadeMgr>
         yield return new WaitForSeconds(1.0f);
 
         //だんだん明るく
-        time = 0;
+        
         while (time <= interval)
         {
             this.fadeAlpha = Mathf.Lerp(1f, 0f, time / interval);

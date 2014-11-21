@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c75791ab78c993d46b27778954ee75c7, type: 3}
   m_Name: Game2Setting
   m_EditorClassIdentifier: 
-  messageTextPath: Message/game1
+  messageTextPath: Message/game2
   JapanButtounType:
   - blue
   - red
@@ -40,10 +40,10 @@ MonoBehaviour:
   SpainPattern: 010000000000000001000000010000000100000000000000010000000100000001000000000000000100000001000000000000000100000000000000010000000000000001000000000000000000000000000000000000000000000000000000
   createButtonTime: .5
   difficulty: .800000012
-  safeRange: .5
-  goodRange: .400000006
-  perfectRange: .300000012
-  playDistance: 10
+  safeRange: 0
+  goodRange: 24
+  perfectRange: 23.5
+  playDistance: 100
   dispTime: .300000012
   perfectPoint: 3
   goodPoint: 2

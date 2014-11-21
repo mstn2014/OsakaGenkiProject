@@ -28,7 +28,7 @@ public class CreateButton : MonoBehaviour {
 
     Game2Setting Setting;                   // 設定ファイル
     //set getアクセサ
-    public bool WaitFlg{set;get;}                  // 盛り上がりイベントを待つフラグ
+    public bool WaitFlg{set;get;}           // 盛り上がりイベントを待つフラグ
     public bool IsFinished { set; get; }    // すべてのボタンを生成したらたてる
 
 	// Use this for initialization
@@ -107,8 +107,8 @@ public class CreateButton : MonoBehaviour {
             // パターンが最後までいったとき
             if (m_patternIndex == m_pattern[m_contryIndex].Length )
             {
-                // 試行回数が3回なら次
-                if (m_playCount >= 2)
+                // 試行回数が2回なら次
+                if (m_playCount >= 1)
                 {
                     // とりあえず次の国のパターンを表示
                     m_playCount = 0;

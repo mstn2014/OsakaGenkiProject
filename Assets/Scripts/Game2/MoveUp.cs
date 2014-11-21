@@ -46,6 +46,7 @@ public class MoveUp : MonoBehaviour
 	{
 		m_moveFlg = true;
 		transform.parent = m_bufGameObj.transform;	//	回転から外す.
+		//	コライダー消す.
 	}
 
 

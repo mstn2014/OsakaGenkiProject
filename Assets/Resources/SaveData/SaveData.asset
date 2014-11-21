@@ -11,6 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d403812dc18715478684f0b97a419ab, type: 3}
   m_Name: SaveData
   m_EditorClassIdentifier: 
-  userName: "\u304F\u3046"
-  userScore: 1000
-  userRank: 23
+  userName: "\u304F\u3045"
+  totalScore: 600
+  game1Score: 100
+  game2Score: 200
+  game3Score: 300
+  userRank: 3
+  gameState: 1

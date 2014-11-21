@@ -8,6 +8,7 @@ public abstract class SingletonMonoBehaviourFast<T> : MonoBehaviour where T : Si
 	{
 		"FadeMgr",
         "InputMgr",
+        "SoundMgr",
 	};
 	
 	protected static T instance;

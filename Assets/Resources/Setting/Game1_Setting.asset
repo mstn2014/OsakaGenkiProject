@@ -8,7 +8,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b08f1e45b16a6f448570e04e3343ebd, type: 3}
+  m_Script: {fileID: 11500000, guid: be15130cba013414daa299940cff0de7, type: 3}
   m_Name: Game1_Setting
   m_EditorClassIdentifier: 
   Round_TimeLimit:
@@ -23,18 +23,16 @@ MonoBehaviour:
   MinQuestNum: 3
   MaxQuestNum: 10
   QuestInterval: 50
-  WeightValue: .100000001
-  Gallery_Width: 20
-  Gallery_Height: 10
-  Gallery_Interval: 2.29999995
-  Gallery_Roll: .800000012
+  WeightValue: 100
+  Gallery_Width: 5
+  Gallery_Height: 5
+  Gallery_Interval: 3
+  Gallery_Roll: 1
   Obj_Y: .5
   Gallery_NG_Range: 1.20000005
   Ground_PositionX: -40
   Player_WolkTime: 10
-  comboText_ScaleXY: 75
-  combo_FadeTime: 1
-  combo_MoveY: 50
-  circle_ScaleTime: 2
-  result_ScaleXY: 200
-  result_FadeTime: 2
+  comboText_ScaleXY: 100
+  combo_FadeTime: 2
+  combo_MoveY: 100
+  circle_ScaleTime: 1

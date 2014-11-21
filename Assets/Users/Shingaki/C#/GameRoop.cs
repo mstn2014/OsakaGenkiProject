@@ -10,6 +10,7 @@ public class GameRoop : MonoBehaviour {
 	private Question	m_quest;		// 問題生成.
 	private EffectMgr	m_effect;		// エフェクト.
 	private ProductionMgr	m_product;	// 演出
+    private Game1PlayerController m_player; // プレイヤー
 
 	InputMgr m_btnState;                // 入力インスタンス.
 	FadeMgr m_fadeMgr;                  // フェード.
@@ -33,6 +34,7 @@ public class GameRoop : MonoBehaviour {
 		m_quest = GetComponent<Question>();
 		m_effect = GetComponent<EffectMgr> ();
 		m_product = GetComponent<ProductionMgr> ();
+        m_player = GameObject.Find("game1_motion_defo(Clone)").GetComponent<Game1PlayerController>();
 
 
 		// 共通設定の呼び出し.
@@ -65,12 +67,16 @@ public class GameRoop : MonoBehaviour {
 					Debug.Log("ゲームプレイ");
 					// 入力(正誤判定).
 					if(m_btnState.YellowButtonTrigger){
+                        // プレイヤーのモーション
+                        m_player.DoPass();
 						if(!m_quest.CheckAns(1)){
 							StartCoroutine(m_product.ResultRound(1));
 							m_state = GameState.product;
 						}
 					}
 					if(m_btnState.GreenButtonTrigger){
+                        // プレイヤーのモーション
+                        m_player.DoPose();
 						if(!m_quest.CheckAns(2)){
 							StartCoroutine(m_product.ResultRound(1));
 							m_state = GameState.product;

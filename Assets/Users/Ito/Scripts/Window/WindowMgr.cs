@@ -15,7 +15,7 @@ public class WindowMgr : MonoBehaviour {
 
     public bool IsFinished
     {
-        get { return m_messageContller.IsFinished & m_talkWindowContller.IsBig; }
+        get { return m_messageContller.IsFinished & (m_talkWindowContller.IsBig || m_talkWindowContller.IsSmall); }
     }
 
     void Awake()
