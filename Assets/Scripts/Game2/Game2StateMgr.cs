@@ -216,21 +216,6 @@ public class Game2StateMgr : MonoBehaviour {
         else if (m_createButton.WaitFlg && !m_waitFlg )
         {
 			// ToDo：ここに盛り上がりイベントを書く。
-			if(m_scoreMgr.Score >= 5)
-				m_Event1.gameObject.SetActive(true);
-		
-			if(m_scoreMgr.Score >= 10)
-				m_Event2.gameObject.SetActive(true);
-
-			if(m_scoreMgr.Score >= 15)
-				m_Event3.gameObject.SetActive(true);
-
-			if(m_scoreMgr.Score >= 20)
-				m_Event4.gameObject.SetActive(true);
-
-			if(m_scoreMgr.Score >= 30)
-				m_Event5.gameObject.SetActive(true);
-            
 			StartCoroutine( LivelyIvent() );
             m_waitFlg = true;
         }
@@ -243,6 +228,21 @@ public class Game2StateMgr : MonoBehaviour {
 
         GameObject.Find("DebugLog").GetComponent<UILabel>().text = "盛り上がりイベント発生中！！";
         
+		if(m_scoreMgr.Score >= 5)
+			m_Event1.gameObject.SetActive(true);
+		
+		if(m_scoreMgr.Score >= 10)
+			m_Event2.gameObject.SetActive(true);
+		
+		if(m_scoreMgr.Score >= 15)
+			m_Event3.gameObject.SetActive(true);
+		
+		if(m_scoreMgr.Score >= 20)
+			m_Event4.gameObject.SetActive(true);
+		
+		if(m_scoreMgr.Score >= 30)
+			m_Event5.gameObject.SetActive(true);
+
 		//	ToDo：参加者あつまる.
 
 		yield return new WaitForSeconds(5.0f);
