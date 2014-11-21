@@ -9,6 +9,8 @@ public class CreateGuest : MonoBehaviour {
 	private float m_setPositionX;	//	生成する位置X	
 	private float m_setPositionZ;	//	生成する位置Z
 
+	public Game2Setting m_sceneSetting;    // シーンの設定ファイル
+
 	// Use this for initialization
 	void Start () {
 		m_guest = Resources.Load<GameObject>("Prefab/Game2/guest");  //	プレハブ参加者読み込み.
@@ -21,7 +23,7 @@ public class CreateGuest : MonoBehaviour {
 	}
 
 	//======================================================
-	// @brief:引数の数だけ参加者を増加する
+	// @brief:引数の数だけ参加者を増加する、ただし表示限界人数以上は生成しない
 	//------------------------------------------------------
 	// @author:前田稚隼.
 	// @param:　int val 参加者の数.
@@ -29,19 +31,19 @@ public class CreateGuest : MonoBehaviour {
 	//======================================================
 	public void IncreaseGuest(int val)
 	{	
-		//	参加者召喚
-		for (int i=0; i<=val; i++) {
-			m_guest = Instantiate (m_guest, transform.position, transform.rotation) as GameObject;
-			m_guest.transform.parent = this.transform;
+		//	参加者生成
+		for (int i=0; i<val; i++) 
+		{
+			if (m_createGuestVal != m_sceneSetting.GuestPosition.Length )
+			{
+				m_guest = Instantiate (m_guest, transform.position, transform.rotation) as GameObject;
+				m_guest.transform.parent = this.transform;
 
-			//	ランダムな位置に配置
-			m_setPositionX = Random.Range(-5, 6);
-			m_setPositionZ = Random.Range(-2, 9);
-			m_guest.transform.position = new Vector3(m_setPositionX, 0.0f, m_setPositionZ);
-			iTween.MoveTo(gameObject,iTween.Hash("path",iTweenPath.GetPath("MovePath"),"time",3,"easetype",iTween.EaseType.easeOutSine));
+				m_guest.transform.position = m_sceneSetting.GuestPosition[m_createGuestVal];
 
-			m_guest.name = "guest"+m_createGuestVal;
-			m_createGuestVal++;
+				m_guest.name = "guest"+m_createGuestVal;
+				m_createGuestVal++;
+			}
 		}
 	}
 }
