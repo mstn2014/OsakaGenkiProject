@@ -28,11 +28,11 @@ public class Game2StateMgr : MonoBehaviour {
     public GameObject m_frame;              // フレームとリングのオブジェクト
     public GameObject m_extra;              // そのたのゲーム関連オブジェクト
 	public GameObject m_buf;
-	public GameObject m_Event1;				//	盛りあがりイベント1
-	public GameObject m_Event2;				//	盛りあがりイベント2
-	public GameObject m_Event3;				//	盛りあがりイベント3
-	public GameObject m_Event4;				//	盛りあがりイベント4
-	public GameObject m_Event5;				//	盛りあがりイベント5
+	private GameObject m_Event1;			//	盛りあがりイベント1
+	private GameObject m_Event2;			//	盛りあがりイベント2
+	private GameObject m_Event3;			//	盛りあがりイベント3
+	private GameObject m_Event4;			//	盛りあがりイベント4
+	private GameObject m_Event5;			//	盛りあがりイベント5
 
     public Game2Setting m_sceneSetting;    // シーンの設定ファイル
 
@@ -224,7 +224,8 @@ public class Game2StateMgr : MonoBehaviour {
 
     IEnumerator LivelyIvent()
     {
-        yield return new WaitForSeconds(3.0f);	//	3秒末
+		m_frame.SetActive(false);	//	フレーム非表示
+        yield return new WaitForSeconds(1.5f);	//	3秒末
 
         GameObject.Find("DebugLog").GetComponent<UILabel>().text = "盛り上がりイベント発生中！！";
         
@@ -249,6 +250,7 @@ public class Game2StateMgr : MonoBehaviour {
         GameObject.Find("DebugLog").GetComponent<UILabel>().text = "";
         m_createButton.WaitFlg = false;
         m_waitFlg = false;
+		m_frame.SetActive(true); // フレーム表示
     }
 
     IEnumerator RankIvent()
