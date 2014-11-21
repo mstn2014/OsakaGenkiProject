@@ -17,7 +17,6 @@ public class Question : MonoBehaviour {
 	private bool m_clear;				// ステージクリア確認.
 	private bool m_complete;			// ゲームクリア確認.
 	private GameObject m_panel;			// パネル(一番上の親).
-	private GameObject m_textWindow;	// テキストウィンドウ(座標参照).
 	private GameObject m_QuestPanel;	// 生成されるボタンの親.
 	private GameObject m_Quest;			// 生成されるボタン.
 	private EffectMgr m_effect;			// エフェクト.
@@ -49,11 +48,9 @@ public class Question : MonoBehaviour {
 
 		// TextWindowとQuestPanelの発見と生成.
 		m_panel = GameObject.Find("Panel");
-		m_textWindow = GameObject.Find("TextWindow");
-		Vector3 position = m_textWindow.transform.localPosition;
 		m_QuestPanel = Resources.Load("Shingaki/testResource/prefab/QuestPanel") as GameObject;
 		m_Quest = Resources.Load("Shingaki/testResource/prefab/Quest") as GameObject;
-		m_QuestPanel = CreatePrefab.InstantiateGameObject (m_QuestPanel, position, Quaternion.identity,
+		m_QuestPanel = CreatePrefab.InstantiateGameObject (m_QuestPanel, Vector3.zero, Quaternion.identity,
 		                                                   Vector3.one, m_panel);
 		m_effect = GameObject.Find ("GameMain").GetComponent<EffectMgr> ();
 
@@ -77,7 +74,6 @@ public class Question : MonoBehaviour {
 	//======================================================
 	public IEnumerator CreateQuestion(){
 		float interval;
-		// ボタンの数だけ配列生成.
 		for (int i=0; i<m_nowQuestNum; i++) {
 			/* ///// 生成したボタンを次の問題に保持するときのみ有効 /////
 			// もし生成済みの場合表示のみ.
@@ -143,13 +139,14 @@ public class Question : MonoBehaviour {
 			m_effect.IsComboNum = ++work;
 			m_effect.DispCombo();		
 			
-			// コンプリートなら.
+			// ゲーム終了なら.
 			if (m_nowAns == GAME1.MaxQuestNum) {
 				m_complete = true;
 			}
 			// ステージクリアなら次のゲームへ.
 			if (m_nowAns == m_nowQuestNum) {
 				HideButton();
+				m_clear = true;
 				/* ///// 生成したボタンを次の問題に保持するときのみ有効 /////
 				m_QuestPanel.SetActive (true);
 				m_clear = true;w
@@ -158,14 +155,14 @@ public class Question : MonoBehaviour {
 				m_create = false;
 				*//////////////////////////////////////////////
 				
-				// ///// 毎回ランダムの場合.  /////
+				/* ///// 毎回ランダムの場合.  /////
 				int workQuest = m_nowQuestNum;
 				int workRound = m_nowRound;
 				InitQuest ();
 				m_clear = true;
 				m_nowQuestNum	= workQuest + 1;
 				m_nowRound		= workRound + 1;
-				//////////////////////////////////////////////
+				*//////////////////////////////////////////////
 			}
 			return true;
 		} else {
@@ -217,5 +214,14 @@ public class Question : MonoBehaviour {
 		m_nowAns = 0;
 		m_nowQuestNum = GAME1.MinQuestNum;
 		m_createWeight = 0.5f;
+	}
+
+	// 次のラウンドの準備
+	public void ReadyNextRound(){
+		int workQuest = m_nowQuestNum;
+		int workRound = m_nowRound;
+		InitQuest ();
+		m_nowQuestNum	= workQuest + 1;
+		m_nowRound		= workRound + 1;
 	}
 }

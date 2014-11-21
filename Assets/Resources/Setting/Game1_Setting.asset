@@ -24,13 +24,17 @@ MonoBehaviour:
   MaxQuestNum: 10
   QuestInterval: 50
   WeightValue: .100000001
-  Gallery_Width: 10
-  Gallery_Height: 5
-  Gallery_Interval: 2.5
+  Gallery_Width: 20
+  Gallery_Height: 10
+  Gallery_Interval: 2.29999995
   Gallery_Roll: .800000012
   Obj_Y: .5
-  Gallery_NG_Range: 1.29999995
+  Gallery_NG_Range: 1.20000005
+  Ground_PositionX: -40
+  Player_WolkTime: 10
   comboText_ScaleXY: 75
   combo_FadeTime: 1
   combo_MoveY: 50
   circle_ScaleTime: 2
+  result_ScaleXY: 200
+  result_FadeTime: 2

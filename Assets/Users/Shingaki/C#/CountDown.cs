@@ -7,8 +7,6 @@ public class CountDown : MonoBehaviour {
 	private bool	m_paused;
 	
 	private Question	m_quest;
-	//private TimeFrame	m_timeFrame;
-	private UILabel		m_text;
 
 	// Game1共通設定.
 	private Game1_Setting GAME1;
@@ -30,19 +28,16 @@ public class CountDown : MonoBehaviour {
 		GAME1 = Resources.Load<Game1_Setting>("Setting/Game1_Setting");
 
 		m_quest = GetComponent<Question>();
-		m_text = GameObject.Find ("Timer").gameObject.GetComponent ("UILabel") as UILabel;
 
 		m_paused = true;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		// 時間表示(デバッグ用).
-		m_text.text = m_timer.ToString("f1");
 		if (m_paused)	return;
 		m_timer -= Time.deltaTime;
 		if (m_timer <= 0.0f) {
-			ResetTimer();
+			ResetTimer();	// ToDo たぶんここでメモリリークする
 
 			// 何かの処理.
 		}
