@@ -1,0 +1,6 @@
+1-60 loop stand001
+90-150 loop stand002
+190-220 loop run
+250-300 loop walk
+330-360 loop pass
+390-420 loop pose
