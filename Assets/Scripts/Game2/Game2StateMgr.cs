@@ -84,8 +84,8 @@ public class Game2StateMgr : MonoBehaviour {
 		m_Event5.gameObject.SetActive(false);
 
 		//	参加者増加用.
-		//m_guestbuf = GameObject.Find ("CreateGuest");
-		//m_guest = m_guestbuf.GetComponent<LabelMgr>();
+		m_guestbuf = GameObject.Find ("CreateGuest");
+		m_guest = m_guestbuf.GetComponent<CreateGuest>();
 	}
 	
 	// Update is called once per frame
@@ -236,21 +236,30 @@ public class Game2StateMgr : MonoBehaviour {
 
         GameObject.Find("DebugLog").GetComponent<UILabel>().text = "盛り上がりイベント発生中！！";
         
-		if(m_scoreMgr.Score >= 5)
+		if(m_scoreMgr.Score >= m_sceneSetting.Event1Score){
 			m_Event1.gameObject.SetActive(true);
-			//m_guest.
-		
-		if(m_scoreMgr.Score >= 10)
+			m_guest.IncreaseGuest(m_sceneSetting.Event1Guest);	//	引数の数だけ参加増加.
+		}
+
+		if(m_scoreMgr.Score >= m_sceneSetting.Event2Score){
 			m_Event2.gameObject.SetActive(true);
+			m_guest.IncreaseGuest(m_sceneSetting.Event2Guest);	//	引数の数だけ参加増加.
+		}
 		
-		if(m_scoreMgr.Score >= 15)
+		if(m_scoreMgr.Score >= m_sceneSetting.Event3Score){
 			m_Event3.gameObject.SetActive(true);
+			m_guest.IncreaseGuest(m_sceneSetting.Event3Guest);	//	引数の数だけ参加増加.
+		}
 		
-		if(m_scoreMgr.Score >= 20)
+		if(m_scoreMgr.Score >= m_sceneSetting.Event4Score){
 			m_Event4.gameObject.SetActive(true);
+			m_guest.IncreaseGuest(m_sceneSetting.Event4Guest);	//	引数の数だけ参加増加.
+		}
 		
-		if(m_scoreMgr.Score >= 30)
+		if(m_scoreMgr.Score >= m_sceneSetting.Event5Score){
 			m_Event5.gameObject.SetActive(true);
+			m_guest.IncreaseGuest(m_sceneSetting.Event5Guest);	//	引数の数だけ参加増加.
+		}
 
 		//	ToDo：参加者あつまる.
 
