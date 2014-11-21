@@ -3,12 +3,13 @@ using System.Collections;
 
 public class GameRoop : MonoBehaviour {
 
-	enum GameState{stop, ready, play, end};
+	enum GameState{stop, ready, play, product, end};
 	private bool m_start;				// スタート確認.
 	private GameState m_state;			// ゲームの状態.
 	private CountDown	m_timer;		
 	private Question	m_quest;		// 問題生成.
 	private EffectMgr	m_effect;		// エフェクト.
+	private ProductionMgr	m_product;	// 演出
     private Game1PlayerController m_player; // プレイヤー
 
 	InputMgr m_btnState;                // 入力インスタンス.
@@ -32,6 +33,7 @@ public class GameRoop : MonoBehaviour {
 		m_timer = GetComponent<CountDown>();
 		m_quest = GetComponent<Question>();
 		m_effect = GetComponent<EffectMgr> ();
+		m_product = GetComponent<ProductionMgr> ();
         m_player = GameObject.Find("game1_motion_defo(Clone)").GetComponent<Game1PlayerController>();
 
 
@@ -68,27 +70,42 @@ public class GameRoop : MonoBehaviour {
                         // プレイヤーのモーション
                         m_player.DoPass();
 						if(!m_quest.CheckAns(1)){
-							m_state = GameState.end;
+							StartCoroutine(m_product.ResultRound(1));
+							m_state = GameState.product;
 						}
 					}
 					if(m_btnState.GreenButtonTrigger){
                         // プレイヤーのモーション
                         m_player.DoPose();
 						if(!m_quest.CheckAns(2)){
-							m_state = GameState.end;
+							StartCoroutine(m_product.ResultRound(1));
+							m_state = GameState.product;
 						}
 					}
 					// クリアチェック.
-					if(m_quest.IsComplete || m_timer.IsPaused){
-						// コンプリートならゲーム終了.
-						m_state = GameState.end;
-					}else if(m_quest.IsClear){
-						// ラウンドクリアなら次のゲームへ.
-						m_state = GameState.ready;
+					if(m_quest.IsClear){
+						StartCoroutine(m_product.ResultRound(0));
+						m_state = GameState.product;
 					}
-					
+
+					if(m_timer.IsPaused){			// 時間切れ
+						StartCoroutine(m_product.ResultRound(2));
+						m_state = GameState.product;
+					}					
 					break;
-				case GameState.end:
+				case GameState.product:
+					m_timer.ResetTimer();		// タイマー初期化.
+					m_quest.ReadyNextRound();
+					while(!m_product.IsEnd){
+						yield return null;
+					}
+					if(!m_quest.IsComplete){
+						m_state = GameState.ready;
+					}else{
+						m_state = GameState.end;	// ゲーム終了小イベントへ
+					}
+					break;
+				case GameState.end:	// ToDo ここの処理は特に重要ではありません
 					Debug.Log("終了");
 					// 各クラスの初期化.
 					m_quest.InitQuest();
@@ -106,9 +123,7 @@ public class GameRoop : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-
-	}
+	void Update () {}
 
 	public void StartGame(){
 		if (m_state == GameState.stop) {

@@ -20,10 +20,14 @@ public class Game1_Setting : ScriptableObject {
 	public float	Gallery_Roll;		// ギャラリーの揺れ幅
 	public float	Obj_Y;				// オブジェの高さ.
 	public float	Gallery_NG_Range;	// (プレイヤーから見て)ギャラリーが生成されてはいけない範囲.
+	public float	Ground_PositionX;	// 地面の座標
+	public float	Player_WolkTime;	// プレイヤーの移動スピード
 
 	[Header("Effect関連")]
 	public float comboText_ScaleXY;	// ラベルのScale.
 	public float combo_FadeTime;	// フェードアウトする時間.
 	public float combo_MoveY;		// 移動距離.
 	public float circle_ScaleTime;	// サークルの拡大時間.
+	public float result_ScaleXY;	// リザルトScale.
+	public float result_FadeTime;	// フェードアウトする時間
 }

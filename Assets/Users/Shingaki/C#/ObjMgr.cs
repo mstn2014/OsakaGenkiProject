@@ -7,9 +7,14 @@ public class ObjMgr : MonoBehaviour {
 	private GameObject 	m_player;		// 生成するプレイヤー(Inspectorより設定).
 	private GameObject 	m_gallery;		// 生成するギャラリー(Inspectorより設定).
 	private GameObject 	m_ground;		// 生成する背景(Inspectorより設定).
+	private bool		m_objPause;		// オブジェクトのポーズ
 	
 	// Game1共通設定.
 	private Game1_Setting GAME1;
+
+	public bool IsPause{
+		get{return m_objPause;}
+	}
 
 	// Use this for initialization
 	void Awake () {
@@ -27,7 +32,12 @@ public class ObjMgr : MonoBehaviour {
 		                                                 Vector3.one);
 		m_player = CreatePrefab.InstantiateGameObject(m_player, new Vector3(0,GAME1.Obj_Y,0),m_player.transform.localRotation,m_player.transform.localScale);
 		m_ground = Instantiate (m_ground) as GameObject;
+		m_ground.AddComponent<Ground>();
 		m_ground.transform.parent = m_objParent.transform;
+		m_ground = Instantiate (m_ground) as GameObject;
+		m_ground.AddComponent<Ground>();
+		m_ground.transform.parent = m_objParent.transform;
+		m_ground.transform.localPosition = new Vector3 (GAME1.Ground_PositionX, 0, 0);
 
 		CreateGallery();
 	}
@@ -35,8 +45,13 @@ public class ObjMgr : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {}
 	
-	// ギャラリー生成 範囲範囲で生成する人数を決めておく(重なりは難しいようなら固定).
-	// ver2
+	//======================================================
+	// @brief:ギャラリー生成.
+	//------------------------------------------------------
+	// @author:T.Shingaki
+	// @param:none
+	// @return:none
+	//======================================================
 	private void CreateGallery(){
 		Vector3 workPos;
 		GameObject workObj;
@@ -55,11 +70,23 @@ public class ObjMgr : MonoBehaviour {
 				workPos.z += Random.Range(-GAME1.Gallery_Roll,GAME1.Gallery_Roll);
 
 				checkPos = (workPos.x*workPos.x) + (workPos.z*workPos.z);
-				if(checkPos>ngCircle ){
+				if(checkPos>ngCircle){
 					workObj = CreatePrefab.InstantiateGameObject(m_gallery,workPos,Quaternion.identity,
 				                                          	   Vector3.one,m_objParent);
+					// ToDo キャラクターのアニメーションやテクスチャやスクリプトの設定
+
+					workObj.AddComponent<Gallery>();
 				}
 			}
 		}
+	}
+
+	// ラウンド終了時のオブジェクトの移動
+	public IEnumerator MoveObj(){
+		// ラベルの移動.
+		m_objPause = true;
+		iTween.MoveAdd (m_objParent, iTween.Hash ("x", -GAME1.Ground_PositionX, "time", GAME1.Player_WolkTime));
+		yield return new WaitForSeconds(GAME1.Player_WolkTime);
+		m_objPause = false;
 	}
 }
