@@ -23,11 +23,13 @@ public class Game2StateMgr : MonoBehaviour {
     CreateButton m_createButton;            // ボタンを生成するスクリプト(盛り上がりイベントのスクリプトを
     List<string> m_messageText;             // メッセージデータ
     int m_messageIndex;                     // メッセージのインデックス
+    int m_iventIndex;
 
     // コンポーネント関連
     public GameObject m_frame;              // フレームとリングのオブジェクト
     public GameObject m_extra;              // そのたのゲーム関連オブジェクト
-	public GameObject m_buf;
+    public Game2ModelMotion m_player;      // プレイヤーのモーション
+    public GameObject m_guestMotion;             // ゲストのモーション
 	private GameObject m_Event1;			//	盛りあがりイベント1
 	private GameObject m_Event2;			//	盛りあがりイベント2
 	private GameObject m_Event3;			//	盛りあがりイベント3
@@ -86,6 +88,8 @@ public class Game2StateMgr : MonoBehaviour {
 		//	参加者増加用.
 		m_guestbuf = GameObject.Find ("CreateGuest");
 		m_guest = m_guestbuf.GetComponent<CreateGuest>();
+
+        m_iventIndex = 0;
 	}
 	
 	// Update is called once per frame
@@ -200,6 +204,7 @@ public class Game2StateMgr : MonoBehaviour {
         {
             m_extra.SetActive(true);
             m_state = Game2State.GAME;
+            m_player.ChangeMotion((Game2ModelMotion.DanceType)(m_createButton.CountryIndex+1));
         }
     }
 
@@ -218,12 +223,22 @@ public class Game2StateMgr : MonoBehaviour {
             // ゲーム終了時の処理を書く
             StartCoroutine(RankIvent());
             m_waitFlg = true;
+            m_player.ChangeMotion(Game2ModelMotion.DanceType.POSE);
+            foreach (Game2ModelMotion mc in m_guestMotion.GetComponentsInChildren<Game2ModelMotion>())
+            {
+                mc.ChangeMotion(Game2ModelMotion.DanceType.POSE);
+            }
             m_state = Game2State.END;
         }
         else if (m_createButton.WaitFlg && !m_waitFlg )
         {
 			// ToDo：ここに盛り上がりイベントを書く。
 			StartCoroutine( LivelyIvent() );
+            m_player.ChangeMotion(Game2ModelMotion.DanceType.POSE);
+            foreach (Game2ModelMotion mc in m_guestMotion.GetComponentsInChildren<Game2ModelMotion>())
+            {
+                mc.ChangeMotion(Game2ModelMotion.DanceType.POSE);
+            }
             m_waitFlg = true;
         }
 
@@ -236,29 +251,34 @@ public class Game2StateMgr : MonoBehaviour {
 
         GameObject.Find("DebugLog").GetComponent<UILabel>().text = "盛り上がりイベント発生中！！";
 
-		if(m_scoreMgr.Score >= m_sceneSetting.Event1Score){
+		if(m_scoreMgr.Score >= m_sceneSetting.Event1Score && m_iventIndex == 0){
 			m_Event1.gameObject.SetActive(true);
 			m_guest.IncreaseGuest(m_sceneSetting.Event1Guest);	//	引数の数だけ参加増加.
+            m_iventIndex++;
 		}
 
-		if(m_scoreMgr.Score >= m_sceneSetting.Event2Score){
+		if(m_scoreMgr.Score >= m_sceneSetting.Event2Score && m_iventIndex == 1){
 			m_Event2.gameObject.SetActive(true);
 			m_guest.IncreaseGuest(m_sceneSetting.Event2Guest);	//	引数の数だけ参加増加.
+            m_iventIndex++;
 		}
 		
-		if(m_scoreMgr.Score >= m_sceneSetting.Event3Score){
+		if(m_scoreMgr.Score >= m_sceneSetting.Event3Score && m_iventIndex == 2){
 			m_Event3.gameObject.SetActive(true);
 			m_guest.IncreaseGuest(m_sceneSetting.Event3Guest);	//	引数の数だけ参加増加.
+            m_iventIndex++;
 		}
 		
-		if(m_scoreMgr.Score >= m_sceneSetting.Event4Score){
+		if(m_scoreMgr.Score >= m_sceneSetting.Event4Score && m_iventIndex == 3){
 			m_Event4.gameObject.SetActive(true);
 			m_guest.IncreaseGuest(m_sceneSetting.Event4Guest);	//	引数の数だけ参加増加.
+            m_iventIndex++;
 		}
 		
-		if(m_scoreMgr.Score >= m_sceneSetting.Event5Score){
+		if(m_scoreMgr.Score >= m_sceneSetting.Event5Score  && m_iventIndex == 4){
 			m_Event5.gameObject.SetActive(true);
 			m_guest.IncreaseGuest(m_sceneSetting.Event5Guest);	//	引数の数だけ参加増加.
+            m_iventIndex++;
 		}
 
 		//	ToDo：参加者あつまる.
@@ -267,6 +287,11 @@ public class Game2StateMgr : MonoBehaviour {
         GameObject.Find("DebugLog").GetComponent<UILabel>().text = "";
         m_createButton.WaitFlg = false;
         m_waitFlg = false;
+        m_player.ChangeMotion((Game2ModelMotion.DanceType)(m_createButton.CountryIndex+1));
+        foreach (Game2ModelMotion mc in m_guestMotion.GetComponentsInChildren<Game2ModelMotion>())
+        {
+            mc.ChangeMotion((Game2ModelMotion.DanceType)(m_createButton.CountryIndex + 1));
+        }
 		m_frame.SetActive(true); // フレーム表示
     }
 

@@ -69,6 +69,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_upSpeed: {x: 0, y: .0500000007, z: 0}
+  m_hitNumber: 0
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -84,7 +85,7 @@ MonoBehaviour:
   mPivot: 4
   mDepth: 3
   mAtlas: {fileID: 11400000, guid: bdabc320f265c79428ff2cc8fd5e10d2, type: 2}
-  mSpriteName: green
+  mSpriteName: game2_green
   mFillCenter: 1
   mType: 0
   mFillDirection: 4

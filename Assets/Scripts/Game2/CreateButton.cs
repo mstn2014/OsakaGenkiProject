@@ -26,10 +26,12 @@ public class CreateButton : MonoBehaviour {
     private Vector3 m_createPosition;   	// ボタンを生成する位置.
     const int countryNum = 5;
 
+
     Game2Setting Setting;                   // 設定ファイル
     //set getアクセサ
     public bool WaitFlg{set;get;}           // 盛り上がりイベントを待つフラグ
     public bool IsFinished { set; get; }    // すべてのボタンを生成したらたてる
+    public int CountryIndex { get { return m_contryIndex; } }
 
 	// Use this for initialization
 	void Start () {

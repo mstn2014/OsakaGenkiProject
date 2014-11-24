@@ -45,13 +45,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 0
-      y: 1132
+      y: 298
       width: 916
       height: 916
     inner:
       serializedVersion: 2
       x: 0
-      y: 1132
+      y: 298
       width: 916
       height: 916
     rotated: 0
@@ -62,14 +62,14 @@ MonoBehaviour:
   - name: button_green
     outer:
       serializedVersion: 2
-      x: 917
-      y: 1132
+      x: 929
+      y: 2156
       width: 916
       height: 916
     inner:
       serializedVersion: 2
-      x: 917
-      y: 1132
+      x: 929
+      y: 2156
       width: 916
       height: 916
     rotated: 0
@@ -80,14 +80,14 @@ MonoBehaviour:
   - name: button_yellow
     outer:
       serializedVersion: 2
-      x: 0
-      y: 215
+      x: 929
+      y: 1239
       width: 916
       height: 916
     inner:
       serializedVersion: 2
-      x: 0
-      y: 215
+      x: 929
+      y: 1239
       width: 916
       height: 916
     rotated: 0
@@ -98,14 +98,14 @@ MonoBehaviour:
   - name: button_red
     outer:
       serializedVersion: 2
-      x: 917
-      y: 215
+      x: 929
+      y: 322
       width: 916
       height: 916
     inner:
       serializedVersion: 2
-      x: 917
-      y: 215
+      x: 929
+      y: 322
       width: 916
       height: 916
     rotated: 0
@@ -113,6 +113,114 @@ MonoBehaviour:
     paddingRight: .0578602627
     paddingTop: .0469432324
     paddingBottom: .0709607005
+  - name: game2_white
+    outer:
+      serializedVersion: 2
+      x: 1024
+      y: 3168
+      width: 928
+      height: 928
+    inner:
+      serializedVersion: 2
+      x: 1024
+      y: 3168
+      width: 928
+      height: 928
+    rotated: 0
+    paddingLeft: .0528017245
+    paddingRight: .050646551
+    paddingTop: .050646551
+    paddingBottom: .0528017245
+  - name: game2_blue
+    outer:
+      serializedVersion: 2
+      x: 1953
+      y: 3168
+      width: 928
+      height: 928
+    inner:
+      serializedVersion: 2
+      x: 1953
+      y: 3168
+      width: 928
+      height: 928
+    rotated: 0
+    paddingLeft: .0528017245
+    paddingRight: .050646551
+    paddingTop: .050646551
+    paddingBottom: .0528017245
+  - name: game2_circle
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 3073
+      width: 1023
+      height: 1023
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 3073
+      width: 1023
+      height: 1023
+    rotated: 0
+    paddingLeft: .000977517106
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: .000977517106
+  - name: game2_green
+    outer:
+      serializedVersion: 2
+      x: 2882
+      y: 3168
+      width: 928
+      height: 928
+    inner:
+      serializedVersion: 2
+      x: 2882
+      y: 3168
+      width: 928
+      height: 928
+    rotated: 0
+    paddingLeft: .0528017245
+    paddingRight: .050646551
+    paddingTop: .050646551
+    paddingBottom: .0528017245
+  - name: game2_red
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 2144
+      width: 928
+      height: 928
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 2144
+      width: 928
+      height: 928
+    rotated: 0
+    paddingLeft: .0528017245
+    paddingRight: .050646551
+    paddingTop: .050646551
+    paddingBottom: .0528017245
+  - name: game2_yellow
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 1215
+      width: 928
+      height: 928
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 1215
+      width: 928
+      height: 928
+    rotated: 0
+    paddingLeft: .0528017245
+    paddingRight: .050646551
+    paddingTop: .050646551
+    paddingBottom: .0528017245
   mCoordinates: 0
   mPixelSize: 1
   mReplacement: {fileID: 0}
