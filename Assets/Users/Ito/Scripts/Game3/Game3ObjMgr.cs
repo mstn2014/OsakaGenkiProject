@@ -36,7 +36,7 @@ public class Game3ObjMgr : MonoBehaviour {
             m_createPos[i] = this.gameObject.transform.FindChild("pos" + (i+1).ToString()).transform.position;
         }
         // モブのロード
-        m_mobResource = Resources.Load<GameObject>("Prefab/game3_mob_m2");
+        m_mobResource = Resources.Load<GameObject>("Prefab/Game3/Game3Mob");
 
         m_balancer = GetComponentInParent<Game3Balancer>();
         m_createTime = m_balancer.CreateTime;

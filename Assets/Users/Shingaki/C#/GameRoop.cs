@@ -3,14 +3,18 @@ using System.Collections;
 
 public class GameRoop : MonoBehaviour {
 
-	enum GameState{stop, ready, play, product, end};
+	enum GameState{guide,stop, ready, play, product, end};
 	private bool m_start;				// スタート確認.
 	private GameState m_state;			// ゲームの状態.
 	private CountDown	m_timer;		
 	private Question	m_quest;		// 問題生成.
 	private EffectMgr	m_effect;		// エフェクト.
 	private ProductionMgr	m_product;	// 演出
-    private Game1PlayerController m_player; // プレイヤー
+    public Game1PlayerController m_player; // プレイヤー
+    public Guide m_guide;               // ガイドマネージャ
+    public StartCountDown m_countDown;  // カウントダウン
+    [Header("ゲーム開始時にオンにするオブジェクト一覧")]
+    public GameObject m_timeFrame;      // 制限時間表示オブジェクト
 
 	InputMgr m_btnState;                // 入力インスタンス.
 	FadeMgr m_fadeMgr;                  // フェード.
@@ -29,18 +33,20 @@ public class GameRoop : MonoBehaviour {
 		SAVE = Resources.Load<SaveData>("SaveData/SaveData");
 
 		m_start = false;
-		m_state = GameState.stop;
+		m_state = GameState.guide;
 		m_timer = GetComponent<CountDown>();
 		m_quest = GetComponent<Question>();
 		m_effect = GetComponent<EffectMgr> ();
 		m_product = GetComponent<ProductionMgr> ();
-        m_player = GameObject.Find("game1_motion_defo(Clone)").GetComponent<Game1PlayerController>();
 
 
 		// 共通設定の呼び出し.
 		GlobalSetting gs = Resources.Load<GlobalSetting>("Setting/GlobalSetting");
 		m_btnState = gs.InputMgr;
 		m_fadeMgr = gs.FadeMgr;
+
+        m_guide.Begin("Message/game1");
+        m_start = true;
 
 		// プレイヤー,ギャラリー,背景の設置.
 		// ToDo クラス呼び出し(そのクラスに移動なども任せる).
@@ -50,8 +56,22 @@ public class GameRoop : MonoBehaviour {
 			// スタート.
 			if (m_start) {
 				switch(m_state){
+                case GameState.guide:
+                        while (m_guide.IsUse)
+                        {
+                            yield return null;
+                        }
+                        m_countDown.Begin();
+                        m_state = GameState.ready;
+                    break;
 				case GameState.ready:
 					Debug.Log("ゲーム準備");
+                    while (!m_countDown.IsFinished)
+                    {
+                        yield return null;
+                    }
+                    m_timeFrame.SetActive(true);
+                    m_player.gameObject.SetActive(true);
 					///// ラウンドへの初期化 /////
 					m_timer.ResetTimer();		// タイマー初期化.
 					m_effect.InitEffect();		// エフェクト関連初期化.
@@ -62,6 +82,7 @@ public class GameRoop : MonoBehaviour {
 
 					m_timer.StartTimer();
 					m_state = GameState.play;
+                    
 					break;
 				case GameState.play:
 					Debug.Log("ゲームプレイ");
@@ -84,8 +105,8 @@ public class GameRoop : MonoBehaviour {
 					}
 					// クリアチェック.
 					if(m_quest.IsClear){
-						StartCoroutine(m_product.ResultRound(0));
 						m_state = GameState.product;
+						StartCoroutine(m_product.ResultRound(0));
 					}
 
 					if(m_timer.IsPaused){			// 時間切れ
@@ -96,11 +117,13 @@ public class GameRoop : MonoBehaviour {
 				case GameState.product:
 					m_timer.ResetTimer();		// タイマー初期化.
 					m_quest.ReadyNextRound();
+                    m_player.DoRun();
 					while(!m_product.IsEnd){
 						yield return null;
 					}
 					if(!m_quest.IsComplete){
 						m_state = GameState.ready;
+                        m_player.DoStand();
 					}else{
 						m_state = GameState.end;	// ゲーム終了小イベントへ
 					}

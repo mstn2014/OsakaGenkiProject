@@ -7,6 +7,8 @@ public class ResultMgr : MonoBehaviour {
     SaveData m_save;            // 一時セーブデータ
     UISprite m_rankSprite;      // ランクを表示するスプライト
     UILabel m_pointLabel;       // 得点を表示するラベル
+    InputMgr m_inputMgr;        // インプット
+    FadeMgr m_fadeMgr;          // フェード
     
     // ローカル変数
     SaveData.eState m_state;    // どのシーンから飛んできたか。どのシーンの結果を返すか判断するフラグ。
@@ -42,11 +44,31 @@ public class ResultMgr : MonoBehaviour {
         }
         m_rankSprite.spriteName = CalcRank();
         m_pointLabel.text = m_score.ToString() + "pt";
+
+        // 共通設定の呼び出し
+        GlobalSetting gs = Resources.Load<GlobalSetting>("Setting/GlobalSetting");
+        m_inputMgr = gs.InputMgr;
+        m_fadeMgr = gs.FadeMgr;
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+        if (m_inputMgr.RedButtonTrigger)
+        {
+            switch (m_save.gameState)
+            {
+                case SaveData.eState.GAME1:
+                    m_fadeMgr.LoadLevel("game2");
+                    break;
+                case SaveData.eState.GAME2:
+                    m_fadeMgr.LoadLevel("game3sample");
+                    break;
+                case SaveData.eState.GAME3:
+                    m_fadeMgr.LoadLevel("bigIvent2");
+                    break;
+            }
+        }
 	}
 
     string CalcRank()

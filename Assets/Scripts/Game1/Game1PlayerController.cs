@@ -30,4 +30,16 @@ public class Game1PlayerController : MonoBehaviour
     {
         animator.SetTrigger("IsPass");
     }
+
+    public void DoRun()
+    {
+        this.transform.rotation = Quaternion.LookRotation(Vector3.left);
+        animator.SetBool("IsRun", true);
+    }
+
+    public void DoStand()
+    {
+        this.transform.rotation = Quaternion.LookRotation(Vector3.back);
+        animator.SetBool("IsRun", false);
+    }
 }

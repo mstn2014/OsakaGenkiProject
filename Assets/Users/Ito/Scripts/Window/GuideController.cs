@@ -17,7 +17,7 @@ public class GuideController : MonoBehaviour {
     bool m_isMove;              // 動いている最中か
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 	    m_tweenPostion = this.GetComponent<TweenPosition>();
         // イベントレシーバーにこのオブジェクトを登録
         m_tweenPostion.eventReceiver = this.gameObject;

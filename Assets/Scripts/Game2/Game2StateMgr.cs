@@ -30,6 +30,7 @@ public class Game2StateMgr : MonoBehaviour {
     public GameObject m_extra;              // そのたのゲーム関連オブジェクト
     public Game2ModelMotion m_player;      // プレイヤーのモーション
     public GameObject m_guestMotion;             // ゲストのモーション
+    public SaveData m_saveData;             // セーブデータ
 	private GameObject m_Event1;			//	盛りあがりイベント1
 	private GameObject m_Event2;			//	盛りあがりイベント2
 	private GameObject m_Event3;			//	盛りあがりイベント3
@@ -249,7 +250,7 @@ public class Game2StateMgr : MonoBehaviour {
 		m_frame.SetActive(false);	//	フレーム非表示
         yield return new WaitForSeconds(1.5f);	//	3秒末
 
-        GameObject.Find("DebugLog").GetComponent<UILabel>().text = "盛り上がりイベント発生中！！";
+        // GameObject.Find("DebugLog").GetComponent<UILabel>().text = "盛り上がりイベント発生中！！";
 
 		if(m_scoreMgr.Score >= m_sceneSetting.Event1Score && m_iventIndex == 0){
 			m_Event1.gameObject.SetActive(true);
@@ -284,7 +285,7 @@ public class Game2StateMgr : MonoBehaviour {
 		//	ToDo：参加者あつまる.
 
 		yield return new WaitForSeconds(5.0f);
-        GameObject.Find("DebugLog").GetComponent<UILabel>().text = "";
+        // GameObject.Find("DebugLog").GetComponent<UILabel>().text = "";
         m_createButton.WaitFlg = false;
         m_waitFlg = false;
         m_player.ChangeMotion((Game2ModelMotion.DanceType)(m_createButton.CountryIndex+1));
@@ -298,7 +299,10 @@ public class Game2StateMgr : MonoBehaviour {
     IEnumerator RankIvent()
     {
         yield return new WaitForSeconds(3.0f);
-        GameObject.Find("DebugLog").GetComponent<UILabel>().text = "Rank:" + CalcRank() + "    Score:" + m_scoreMgr.Score.ToString(); 
+        m_saveData.game2Score = m_scoreMgr.Score;
+        m_saveData.gameState = SaveData.eState.GAME2;
+        m_fadeMgr.LoadLevel("result");
+        // GameObject.Find("DebugLog").GetComponent<UILabel>().text = "Rank:" + CalcRank() + "    Score:" + m_scoreMgr.Score.ToString(); 
         m_waitFlg = false;
     }
 

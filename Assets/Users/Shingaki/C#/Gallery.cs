@@ -16,12 +16,13 @@ public class Gallery : MonoBehaviour {
 	void Update () {
 		Vector3 viwePos = Camera.main.WorldToViewportPoint (transform.position);
 		if (viwePos.x > 1.3f) {
-			Vector3 workPos;
+			/*Vector3 workPos;
 
 			workPos.x = transform.localPosition.x-(GAME1.Gallery_Width * GAME1.Gallery_Interval);
 			workPos.y = GAME1.Obj_Y;
 			workPos.z = transform.localPosition.z;
-			transform.localPosition = workPos;	
+			transform.localPosition = workPos;*/
+            Destroy(this.gameObject);
 		}
 	}
 }

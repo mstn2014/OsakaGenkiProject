@@ -28,6 +28,7 @@ public class Game1_Setting : ScriptableObject {
 	public float combo_FadeTime;	// フェードアウトする時間.
 	public float combo_MoveY;		// 移動距離.
 	public float circle_ScaleTime;	// サークルの拡大時間.
+    public float circle_Scale;      // サークルの拡大倍率
 	public float result_ScaleXY;	// リザルトScale.
 	public float result_FadeTime;	// フェードアウトする時間
 }

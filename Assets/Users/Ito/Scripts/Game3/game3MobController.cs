@@ -31,6 +31,7 @@ public class game3MobController : MonoBehaviour {
     game3MobController m_otherController;   // 逆サイドのスクリプト
     Game3Balancer m_balancer;
     Game3LightMgr m_lightMgr;           // ライト色変更用
+    ScoreMgr m_scoreMgr;                // スコア
 
     // 共通設定関連
     InputMgr m_input;                   // 入力をとる
@@ -64,6 +65,7 @@ public class game3MobController : MonoBehaviour {
         this.gameObject.tag = charType[Random.Range(0, 4)];
 
         m_balancer = GetComponentInParent<Game3Balancer>();
+        m_scoreMgr = GameObject.Find("ScoreMgr").GetComponent<ScoreMgr>();
 
         // モブ制御のためのオブジェクトを取得
         m_paradePos = GameObject.Find("PositionList").GetComponent<Game3PositionList>();
@@ -277,6 +279,7 @@ public class game3MobController : MonoBehaviour {
             // 押したボタンがタグと一致すればパレードにモブを参加させる
             if (pushButton.Contains(this.gameObject.tag))
             {
+                m_scoreMgr.AddScore(1.0f);
                 m_state = State.Parade;
                 m_speed = 0.0f;
                 m_animator.SetFloat("speed", m_speed);
@@ -300,7 +303,7 @@ public class game3MobController : MonoBehaviour {
     //======================================================
     void OnCompleteTweenPath()
     {
-        LookTarget(GameObject.Find("motion_defo").transform);
+        LookTarget(GameObject.Find("Game3Player").transform);
         m_objMgr.CreateNewMob(this.gameObject);
     }
 }

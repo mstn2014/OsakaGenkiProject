@@ -12,6 +12,7 @@ public class EffectMgr : MonoBehaviour {
 	private GameObject	m_result;			// リザルト.
 	private bool		m_effectPause;		// エフェクトポーズ
 	private GameObject	m_panel;			// NGUIの親.
+    public Game1MobMgr m_mobMgr;            // モブの管理（エフェクトも）
 	
 	// Game1共通設定.
 	private Game1_Setting GAME1;
@@ -58,12 +59,15 @@ public class EffectMgr : MonoBehaviour {
 		} else {
 			scale = Vector3.zero;
 		}
+        float scaleNum = scalenum * GAME1.circle_Scale;
 		// サークル作成	拡縮はこの前に作られたやつ参照.
 		GameObject circle = CreatePrefab.InstantiateGameObject (m_circle, Vector3.zero, Quaternion.identity,
 		                                                       scale, m_circleParent);
-		circle.renderer.material.color = new Color(1f,0.1f*scalenum, 0f, 1f);
+		circle.renderer.material.color = new Color(1f,0.1f*scaleNum, 0f, 1f);
 
-		iTween.ScaleTo (circle, iTween.Hash ("x", scalenum, "y", scalenum, "time", GAME1.circle_ScaleTime));
+		iTween.ScaleTo (circle, iTween.Hash ("x", scaleNum, "y", scaleNum, "time", GAME1.circle_ScaleTime));
+
+        m_mobMgr.LookPlayer(scaleNum);
 
 		m_oldcircle = circle;
 	}
