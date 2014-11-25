@@ -235,7 +235,7 @@ public class Game2StateMgr : MonoBehaviour {
         yield return new WaitForSeconds(1.5f);	//	3秒末
 
         GameObject.Find("DebugLog").GetComponent<UILabel>().text = "盛り上がりイベント発生中！！";
-        
+
 		if(m_scoreMgr.Score >= m_sceneSetting.Event1Score){
 			m_Event1.gameObject.SetActive(true);
 			m_guest.IncreaseGuest(m_sceneSetting.Event1Guest);	//	引数の数だけ参加増加.
