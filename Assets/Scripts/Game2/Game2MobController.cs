@@ -6,13 +6,13 @@ public class Game2MobController : MonoBehaviour {
     int m_no;                   // ゲストNo.
     Transform m_Player;         // プレイヤーの位置
     Game2ModelMotion m_motion;  // モーションの管理クラス
-    CreateButton m_buttonMgr;   // ボタンのマネージャー
+    Game2CreateButton m_buttonMgr;   // ボタンのマネージャー
 
 	// Use this for initialization
 	void Awake () {
         m_Player = GameObject.Find("Game2Player").transform;
         m_motion = this.GetComponent<Game2ModelMotion>();
-        m_buttonMgr = GameObject.Find("ButtonMgr").GetComponent<CreateButton>();
+        m_buttonMgr = GameObject.Find("ButtonMgr").GetComponent<Game2CreateButton>();
 	}
 	
 	// Update is called once per frame

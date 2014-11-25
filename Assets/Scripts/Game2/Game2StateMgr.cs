@@ -16,11 +16,10 @@ public class Game2StateMgr : MonoBehaviour {
     // 各種マネージャの呼び出し
     InputMgr m_btnState;                    // 入力インスタンス
     FadeMgr m_fadeMgr;                      // フェード
-    WindowMgr m_windowMgr;                  // ウィンドウマネージャー
-    GuideMgr m_guideMgr;                    // ガイド役のマネージャー
+    SoundMgr m_soundMgr;                       // サウンド
     ScoreMgr m_scoreMgr;                    // スコアマネージャ
     StartCountDown m_countDown;             // カウントダウン用のクラス
-    CreateButton m_createButton;            // ボタンを生成するスクリプト(盛り上がりイベントのスクリプトを
+    Game2CreateButton m_createButton;            // ボタンを生成するスクリプト(盛り上がりイベントのスクリプトを
     List<string> m_messageText;             // メッセージデータ
     int m_messageIndex;                     // メッセージのインデックス
     int m_iventIndex;
@@ -29,8 +28,10 @@ public class Game2StateMgr : MonoBehaviour {
     public GameObject m_frame;              // フレームとリングのオブジェクト
     public GameObject m_extra;              // そのたのゲーム関連オブジェクト
     public Game2ModelMotion m_player;      // プレイヤーのモーション
+    public Guide m_guide;                   // ガイド
     public GameObject m_guestMotion;             // ゲストのモーション
     public SaveData m_saveData;             // セーブデータ
+    public GameObject m_camera;             // カメラ
 	private GameObject m_Event1;			//	盛りあがりイベント1
 	private GameObject m_Event2;			//	盛りあがりイベント2
 	private GameObject m_Event3;			//	盛りあがりイベント3
@@ -39,7 +40,7 @@ public class Game2StateMgr : MonoBehaviour {
 
     public Game2Setting m_sceneSetting;    // シーンの設定ファイル
 
-	CreateGuest m_guest;	//	参加者増加用
+	Game2CreateGuest m_guest;	//	参加者増加用
 	private GameObject m_guestbuf; //	CreateGuestクラス代入用.
 
     // コルーチン制御用のwaitフラグ
@@ -51,16 +52,14 @@ public class Game2StateMgr : MonoBehaviour {
         GlobalSetting gs = Resources.Load<GlobalSetting>("Setting/GlobalSetting");
         m_btnState = gs.InputMgr;
         m_fadeMgr = gs.FadeMgr;
+        m_soundMgr = gs.SoundMgr;
         // ボタン生成を呼び出す
-        m_createButton = m_extra.transform.FindChild("ButtonMgr").GetComponent<CreateButton>();
+        m_createButton = m_extra.transform.FindChild("ButtonMgr").GetComponent<Game2CreateButton>();
         // ステートの設定
         m_state = Game2State.WAIT;
         // スコアマネージャの呼び出し
         m_scoreMgr = m_frame.transform.FindChild("ScoreMgr").GetComponent<ScoreMgr>();
         // ウィンドウクラスの呼び出し
-        m_windowMgr = GameObject.Find("WindowMgr").GetComponent<WindowMgr>();
-        // ガイドを呼び出す
-        m_guideMgr = GameObject.Find("GuideMgr").GetComponent<GuideMgr>();
         // カウントダウンを呼び出す
         m_countDown = GameObject.Find("Count").GetComponent<StartCountDown>();
         // テキストを読み込んでおく
@@ -68,7 +67,6 @@ public class Game2StateMgr : MonoBehaviour {
         m_messageText = new List<string>();
         m_messageText = textParser.LoadText(m_sceneSetting.messageTextPath);
         m_messageIndex = 0;
-        m_windowMgr.Text = m_messageText[m_messageIndex];
 
 		//　イベント関連読み込み
 		m_Event1 = GameObject.Find("Event1");
@@ -88,9 +86,11 @@ public class Game2StateMgr : MonoBehaviour {
 
 		//	参加者増加用.
 		m_guestbuf = GameObject.Find ("CreateGuest");
-		m_guest = m_guestbuf.GetComponent<CreateGuest>();
+		m_guest = m_guestbuf.GetComponent<Game2CreateGuest>();
 
         m_iventIndex = 0;
+
+        iTweenEvent.GetEvent(m_camera, "MoveToNear").Play();
 	}
 	
 	// Update is called once per frame
@@ -128,8 +128,6 @@ public class Game2StateMgr : MonoBehaviour {
     void Wait()
     {
         StartCoroutine(WaitTime());
-        m_waitFlg = true;
-        m_state = Game2State.GUIDE;
     }
 
     IEnumerator WaitTime()
@@ -137,9 +135,8 @@ public class Game2StateMgr : MonoBehaviour {
         // 3秒待つ
         yield return new WaitForSeconds(3.0f);
 
-        m_guideMgr.CallGuide();
-        m_windowMgr.OpenWindow();
-        m_waitFlg = false;
+        m_guide.Begin("Message/game2");
+        m_state = Game2State.GUIDE;
     }
 
     //======================================================
@@ -150,19 +147,8 @@ public class Game2StateMgr : MonoBehaviour {
     // @return:none
     //======================================================
     void Guide()
-    {
-        if (m_waitFlg) return;
-
-        // メッセージ送り
-        if (m_btnState.AnyButtonTrigger && m_windowMgr.IsFinished && (m_messageText.Count > (m_messageIndex+1) ) )
-        {
-            m_windowMgr.Text = m_messageText[++m_messageIndex];
-        }
-        //　メッセージが最後まで行った時の処理 
-        else if(m_btnState.AnyButtonTrigger && m_windowMgr.IsFinished && (m_messageText.Count == (m_messageIndex+1)) )
-        {
-            m_windowMgr.CloseWindow();
-            m_guideMgr.EndGuide();
+    {   
+        if( !m_guide.IsUse ){
             m_state = Game2State.COUNTDOWN;
         }
     }
@@ -206,6 +192,7 @@ public class Game2StateMgr : MonoBehaviour {
             m_extra.SetActive(true);
             m_state = Game2State.GAME;
             m_player.ChangeMotion((Game2ModelMotion.DanceType)(m_createButton.CountryIndex+1));
+            m_soundMgr.PlayDanceBGM(m_createButton.CountryIndex);
         }
     }
 
@@ -235,6 +222,7 @@ public class Game2StateMgr : MonoBehaviour {
         {
 			// ToDo：ここに盛り上がりイベントを書く。
 			StartCoroutine( LivelyIvent() );
+            iTweenEvent.GetEvent(m_camera, "MoveToFar").Play();
             m_player.ChangeMotion(Game2ModelMotion.DanceType.POSE);
             foreach (Game2ModelMotion mc in m_guestMotion.GetComponentsInChildren<Game2ModelMotion>())
             {
@@ -289,6 +277,8 @@ public class Game2StateMgr : MonoBehaviour {
         m_createButton.WaitFlg = false;
         m_waitFlg = false;
         m_player.ChangeMotion((Game2ModelMotion.DanceType)(m_createButton.CountryIndex+1));
+        m_soundMgr.PlayDanceBGM(m_createButton.CountryIndex);
+        iTweenEvent.GetEvent(m_camera, "MoveToNear").Play();
         foreach (Game2ModelMotion mc in m_guestMotion.GetComponentsInChildren<Game2ModelMotion>())
         {
             mc.ChangeMotion((Game2ModelMotion.DanceType)(m_createButton.CountryIndex + 1));
