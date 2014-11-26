@@ -37,7 +37,7 @@ public class Osaka_Sp : MonoBehaviour {
 				m_Tw_pos.to = obj.transform.localPosition;
 				m_Tw_rt.to = obj.transform.localEulerAngles;
 				Debug.Log(obj.transform.localEulerAngles);
-				TweenPosition.Begin(this.gameObject,0.5f,m_Tw_pos.to);
+				TweenPosition.Begin(this.gameObject,1.0f,m_Tw_pos.to);
 			}
 		}
 
@@ -48,7 +48,7 @@ public class Osaka_Sp : MonoBehaviour {
 				Ang_count--;
 				m_Tw_rt.from = m_Tw_rt.to;
 				m_Tw_rt.to = obj_a.transform.localEulerAngles;
-				TweenRotation.Begin(this.gameObject,0.5f,Quaternion.AngleAxis(m_Tw_rt.to.z,Vector3.forward));
+				TweenRotation.Begin(this.gameObject,1.0f,Quaternion.AngleAxis(m_Tw_rt.to.z,Vector3.forward));
 			}
 		}
 	}
