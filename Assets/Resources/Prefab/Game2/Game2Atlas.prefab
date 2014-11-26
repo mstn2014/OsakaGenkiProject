@@ -41,269 +41,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 9cb301fe9d97ae54a88d334edc87cebc, type: 2}
   sprites:
-  - name: 0
-    outer:
-      serializedVersion: 2
-      x: 933
-      y: 685
-      width: 77
-      height: 92
-    inner:
-      serializedVersion: 2
-      x: 933
-      y: 685
-      width: 77
-      height: 92
-    rotated: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: 4
-    outer:
-      serializedVersion: 2
-      x: 823
-      y: 583
-      width: 77
-      height: 90
-    inner:
-      serializedVersion: 2
-      x: 823
-      y: 583
-      width: 77
-      height: 90
-    rotated: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: .0111111114
-    paddingBottom: .0111111114
-  - name: blue
-    outer:
-      serializedVersion: 2
-      x: 846
-      y: 798
-      width: 109
-      height: 103
-    inner:
-      serializedVersion: 2
-      x: 846
-      y: 798
-      width: 109
-      height: 103
-    rotated: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: .0291262139
-    paddingBottom: .0291262139
-  - name: 1
-    outer:
-      serializedVersion: 2
-      x: 956
-      y: 810
-      width: 42
-      height: 91
-    inner:
-      serializedVersion: 2
-      x: 956
-      y: 810
-      width: 42
-      height: 91
-    rotated: 0
-    paddingLeft: .40476191
-    paddingRight: .428571433
-    paddingTop: 0
-    paddingBottom: .0109890113
-  - name: 8
-    outer:
-      serializedVersion: 2
-      x: 787
-      y: 477
-      width: 72
-      height: 92
-    inner:
-      serializedVersion: 2
-      x: 787
-      y: 477
-      width: 72
-      height: 92
-    rotated: 0
-    paddingLeft: .027777778
-    paddingRight: .0416666679
-    paddingTop: 0
-    paddingBottom: 0
-  - name: green
-    outer:
-      serializedVersion: 2
-      x: 713
-      y: 674
-      width: 109
-      height: 103
-    inner:
-      serializedVersion: 2
-      x: 713
-      y: 674
-      width: 109
-      height: 103
-    rotated: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: .0388349518
-    paddingBottom: .0194174759
-  - name: frame
-    outer:
-      serializedVersion: 2
-      x: 0
-      y: 312
-      width: 712
-      height: 712
-    inner:
-      serializedVersion: 2
-      x: 0
-      y: 312
-      width: 712
-      height: 712
-    rotated: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: 5
-    outer:
-      serializedVersion: 2
-      x: 901
-      y: 581
-      width: 73
-      height: 92
-    inner:
-      serializedVersion: 2
-      x: 901
-      y: 581
-      width: 73
-      height: 92
-    rotated: 0
-    paddingLeft: .0273972601
-    paddingRight: .0273972601
-    paddingTop: 0
-    paddingBottom: 0
-  - name: 3
-    outer:
-      serializedVersion: 2
-      x: 860
-      y: 477
-      width: 72
-      height: 92
-    inner:
-      serializedVersion: 2
-      x: 860
-      y: 477
-      width: 72
-      height: 92
-    rotated: 0
-    paddingLeft: .027777778
-    paddingRight: .0416666679
-    paddingTop: 0
-    paddingBottom: 0
   - name: bat
     outer:
       serializedVersion: 2
-      x: 0
-      y: 55
+      x: 1720
+      y: 534
       width: 316
       height: 138
     inner:
       serializedVersion: 2
-      x: 0
-      y: 55
+      x: 1720
+      y: 534
       width: 316
       height: 138
     rotated: 0
     paddingLeft: 0
     paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: 2
-    outer:
-      serializedVersion: 2
-      x: 933
-      y: 477
-      width: 72
-      height: 92
-    inner:
-      serializedVersion: 2
-      x: 933
-      y: 477
-      width: 72
-      height: 92
-    rotated: 0
-    paddingLeft: .027777778
-    paddingRight: .0416666679
-    paddingTop: 0
-    paddingBottom: 0
-  - name: 7
-    outer:
-      serializedVersion: 2
-      x: 787
-      y: 386
-      width: 68
-      height: 90
-    inner:
-      serializedVersion: 2
-      x: 787
-      y: 386
-      width: 68
-      height: 90
-    rotated: 0
-    paddingLeft: .0588235296
-    paddingRight: .0735294148
-    paddingTop: .0111111114
-    paddingBottom: .0111111114
-  - name: 9
-    outer:
-      serializedVersion: 2
-      x: 713
-      y: 477
-      width: 73
-      height: 92
-    inner:
-      serializedVersion: 2
-      x: 713
-      y: 477
-      width: 73
-      height: 92
-    rotated: 0
-    paddingLeft: .0273972601
-    paddingRight: .0273972601
-    paddingTop: 0
-    paddingBottom: 0
-  - name: 6
-    outer:
-      serializedVersion: 2
-      x: 713
-      y: 384
-      width: 73
-      height: 92
-    inner:
-      serializedVersion: 2
-      x: 713
-      y: 384
-      width: 73
-      height: 92
-    rotated: 0
-    paddingLeft: .0273972601
-    paddingRight: .0273972601
     paddingTop: 0
     paddingBottom: 0
   - name: good
     outer:
       serializedVersion: 2
-      x: 713
-      y: 902
+      x: 1489
+      y: 319
       width: 305
       height: 122
     inner:
       serializedVersion: 2
-      x: 713
-      y: 902
+      x: 1489
+      y: 319
       width: 305
       height: 122
     rotated: 0
@@ -311,53 +77,17 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: ring
-    outer:
-      serializedVersion: 2
-      x: 713
-      y: 778
-      width: 132
-      height: 123
-    inner:
-      serializedVersion: 2
-      x: 713
-      y: 778
-      width: 132
-      height: 123
-    rotated: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: .032520324
-    paddingBottom: .040650405
-  - name: red
-    outer:
-      serializedVersion: 2
-      x: 823
-      y: 674
-      width: 109
-      height: 103
-    inner:
-      serializedVersion: 2
-      x: 823
-      y: 674
-      width: 109
-      height: 103
-    rotated: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: .0388349518
-    paddingBottom: .0194174759
   - name: safe
     outer:
       serializedVersion: 2
-      x: 639
-      y: 209
+      x: 1663
+      y: 922
       width: 339
       height: 102
     inner:
       serializedVersion: 2
-      x: 639
-      y: 209
+      x: 1663
+      y: 922
       width: 339
       height: 102
     rotated: 0
@@ -365,35 +95,17 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: yellow
-    outer:
-      serializedVersion: 2
-      x: 713
-      y: 570
-      width: 109
-      height: 103
-    inner:
-      serializedVersion: 2
-      x: 713
-      y: 570
-      width: 109
-      height: 103
-    rotated: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: .0291262139
-    paddingBottom: .0291262139
   - name: perfect
     outer:
       serializedVersion: 2
-      x: 0
-      y: 194
+      x: 1024
+      y: 907
       width: 638
       height: 117
     inner:
       serializedVersion: 2
-      x: 0
-      y: 194
+      x: 1024
+      y: 907
       width: 638
       height: 117
     rotated: 0
@@ -401,6 +113,186 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: game2_yellow
+    outer:
+      serializedVersion: 2
+      x: 1024
+      y: 673
+      width: 233
+      height: 233
+    inner:
+      serializedVersion: 2
+      x: 1024
+      y: 673
+      width: 233
+      height: 233
+    rotated: 0
+    paddingLeft: .0515021458
+    paddingRight: .0472103022
+    paddingTop: .0472103022
+    paddingBottom: .0515021458
+  - name: game2_circle
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 1
+      width: 1023
+      height: 1023
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 1
+      width: 1023
+      height: 1023
+    rotated: 0
+    paddingLeft: .000977517106
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: .000977517106
+  - name: button_yellow
+    outer:
+      serializedVersion: 2
+      x: 1726
+      y: 676
+      width: 230
+      height: 230
+    inner:
+      serializedVersion: 2
+      x: 1726
+      y: 676
+      width: 230
+      height: 230
+    rotated: 0
+    paddingLeft: .0565217398
+    paddingRight: .0565217398
+    paddingTop: .0434782617
+    paddingBottom: .0695652142
+  - name: game2_white
+    outer:
+      serializedVersion: 2
+      x: 1024
+      y: 439
+      width: 233
+      height: 233
+    inner:
+      serializedVersion: 2
+      x: 1024
+      y: 439
+      width: 233
+      height: 233
+    rotated: 0
+    paddingLeft: .0515021458
+    paddingRight: .0472103022
+    paddingTop: .0472103022
+    paddingBottom: .0515021458
+  - name: button_red
+    outer:
+      serializedVersion: 2
+      x: 1258
+      y: 442
+      width: 230
+      height: 230
+    inner:
+      serializedVersion: 2
+      x: 1258
+      y: 442
+      width: 230
+      height: 230
+    rotated: 0
+    paddingLeft: .0565217398
+    paddingRight: .0565217398
+    paddingTop: .0434782617
+    paddingBottom: .0695652142
+  - name: game2_red
+    outer:
+      serializedVersion: 2
+      x: 1024
+      y: 205
+      width: 233
+      height: 233
+    inner:
+      serializedVersion: 2
+      x: 1024
+      y: 205
+      width: 233
+      height: 233
+    rotated: 0
+    paddingLeft: .0515021458
+    paddingRight: .0472103022
+    paddingTop: .0472103022
+    paddingBottom: .0515021458
+  - name: button_blue
+    outer:
+      serializedVersion: 2
+      x: 1258
+      y: 211
+      width: 230
+      height: 230
+    inner:
+      serializedVersion: 2
+      x: 1258
+      y: 211
+      width: 230
+      height: 230
+    rotated: 0
+    paddingLeft: .0565217398
+    paddingRight: .0565217398
+    paddingTop: .0434782617
+    paddingBottom: .0695652142
+  - name: game2_green
+    outer:
+      serializedVersion: 2
+      x: 1258
+      y: 673
+      width: 233
+      height: 233
+    inner:
+      serializedVersion: 2
+      x: 1258
+      y: 673
+      width: 233
+      height: 233
+    rotated: 0
+    paddingLeft: .0515021458
+    paddingRight: .0472103022
+    paddingTop: .0472103022
+    paddingBottom: .0515021458
+  - name: button_green
+    outer:
+      serializedVersion: 2
+      x: 1489
+      y: 442
+      width: 230
+      height: 230
+    inner:
+      serializedVersion: 2
+      x: 1489
+      y: 442
+      width: 230
+      height: 230
+    rotated: 0
+    paddingLeft: .0565217398
+    paddingRight: .0565217398
+    paddingTop: .0434782617
+    paddingBottom: .0695652142
+  - name: game2_blue
+    outer:
+      serializedVersion: 2
+      x: 1492
+      y: 673
+      width: 233
+      height: 233
+    inner:
+      serializedVersion: 2
+      x: 1492
+      y: 673
+      width: 233
+      height: 233
+    rotated: 0
+    paddingLeft: .0515021458
+    paddingRight: .0472103022
+    paddingTop: .0472103022
+    paddingBottom: .0515021458
   mCoordinates: 0
   mPixelSize: 1
   mReplacement: {fileID: 0}

@@ -6,7 +6,7 @@ public class GuideMgr : MonoBehaviour {
     GuideController m_guideController;  // ガイドコントローラ
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
         m_guideController = this.GetComponentInChildren<GuideController>();
 	}
 	

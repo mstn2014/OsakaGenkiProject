@@ -3,13 +3,18 @@ using System.Collections;
 
 public class ObjMgr : MonoBehaviour {
 
-	private GameObject 	m_objParent;	// GameObjectの一番上(Inspectorより設定).
-	private GameObject 	m_player;		// 生成するプレイヤー(Inspectorより設定).
+	public GameObject 	m_objParent;	// GameObjectの一番上(Inspectorより設定).
+    public  GameObject 	m_player;		// 生成するプレイヤー(Inspectorより設定).
 	private GameObject 	m_gallery;		// 生成するギャラリー(Inspectorより設定).
 	private GameObject 	m_ground;		// 生成する背景(Inspectorより設定).
+	private bool		m_objPause;		// オブジェクトのポーズ
 	
 	// Game1共通設定.
 	private Game1_Setting GAME1;
+
+	public bool IsPause{
+		get{return m_objPause;}
+	}
 
 	// Use this for initialization
 	void Awake () {
@@ -17,27 +22,24 @@ public class ObjMgr : MonoBehaviour {
 		GAME1 = Resources.Load<Game1_Setting>("Setting/Game1_Setting");
 
 		// リソースの読み込み.
-		m_objParent = Resources.Load("Shingaki/testResource/prefab/Objparent") as GameObject;
-		m_player = Resources.Load ("Prefab/Game1/game1_motion_defo") as GameObject;
-		m_gallery = Resources.Load ("Shingaki/testResource/prefab/Gallery") as GameObject;
+		m_gallery = Resources.Load ("Prefab/Game1/Game1Mob") as GameObject;
 		m_ground = Resources.Load ("Shingaki/testResource/prefab/Ground") as GameObject;
+		CreateGallery(0.0f);
+		CreateGallery(GAME1.Ground_PositionX);
 
-
-		m_objParent = CreatePrefab.InstantiateGameObject (m_objParent, Vector3.zero, Quaternion.identity,
-		                                                 Vector3.one);
-		m_player = CreatePrefab.InstantiateGameObject(m_player, new Vector3(0,GAME1.Obj_Y,0),m_player.transform.localRotation,m_player.transform.localScale);
-		m_ground = Instantiate (m_ground) as GameObject;
-		m_ground.transform.parent = m_objParent.transform;
-
-		CreateGallery();
 	}
 	
 	// Update is called once per frame
 	void Update () {}
 	
-	// ギャラリー生成 範囲範囲で生成する人数を決めておく(重なりは難しいようなら固定).
-	// ver2
-	private void CreateGallery(){
+	//======================================================
+	// @brief:ギャラリー生成.
+	//------------------------------------------------------
+	// @author:T.Shingaki
+	// @param:none
+	// @return:none
+	//======================================================
+	private void CreateGallery(float xOffset){
 		Vector3 workPos;
 		GameObject workObj;
 		float checkPos;
@@ -49,17 +51,41 @@ public class ObjMgr : MonoBehaviour {
 		for (i=0; i<GAME1.Gallery_Width; i++) {
 
 			for(j=0; j<GAME1.Gallery_Height; j++){
-				workPos.x = i*GAME1.Gallery_Interval-(GAME1.Gallery_Width/2*GAME1.Gallery_Interval);
+				workPos.x = i*GAME1.Gallery_Interval-(GAME1.Gallery_Width/2*GAME1.Gallery_Interval) + xOffset - m_objParent.transform.position.x;
 				workPos.z = j*GAME1.Gallery_Interval-(GAME1.Gallery_Height/2*GAME1.Gallery_Interval);
 				workPos.x += Random.Range(-GAME1.Gallery_Roll,GAME1.Gallery_Roll);
 				workPos.z += Random.Range(-GAME1.Gallery_Roll,GAME1.Gallery_Roll);
 
-				checkPos = (workPos.x*workPos.x) + (workPos.z*workPos.z);
-				if(checkPos>ngCircle ){
-					workObj = CreatePrefab.InstantiateGameObject(m_gallery,workPos,Quaternion.identity,
-				                                          	   Vector3.one,m_objParent);
+                checkPos = ((workPos.x - xOffset + m_objParent.transform.position.x)*(workPos.x - xOffset + m_objParent.transform.position.x)) + (workPos.z * workPos.z);
+				if(checkPos>ngCircle){
+					workObj = CreatePrefab.InstantiateGameObject(m_gallery,workPos,m_gallery.transform.localRotation,
+				                                          	   m_gallery.transform.localScale,m_objParent);
+					// ToDo キャラクターのアニメーションやテクスチャやスクリプトの設定
+
+					workObj.AddComponent<Gallery>();
 				}
 			}
 		}
+        // 地面の生成
+        m_ground = Instantiate(Resources.Load<GameObject>("Shingaki/testResource/prefab/Ground"),new Vector3(xOffset,0.0f,0.0f),Quaternion.identity) as GameObject;
+        m_ground.AddComponent<Ground>();
+        m_ground.transform.parent = m_objParent.transform;
+	}
+
+	// ラウンド終了時のオブジェクトの移動
+	public IEnumerator MoveObj(){
+		// ラベルの移動.
+		m_objPause = true;
+        Hashtable parameters = new Hashtable(){
+                                     {"x",m_objParent.transform.position.x-GAME1.Ground_PositionX},
+                                     {"easeType",iTween.EaseType.linear},
+                                     {"time",GAME1.Player_WolkTime},
+                                     {"oncomplete","CreateGallery"},
+                                     {"oncompletetarget",this.gameObject},
+                                     {"oncompleteparams",GAME1.Ground_PositionX},
+                                 };
+		iTween.MoveTo(m_objParent, parameters);
+		yield return new WaitForSeconds(GAME1.Player_WolkTime);
+		m_objPause = false;
 	}
 }

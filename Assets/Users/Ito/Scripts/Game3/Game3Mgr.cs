@@ -10,11 +10,14 @@ public class Game3Mgr : MonoBehaviour
 
     public Game3Setting Setting;    // セッティング
     InputMgr m_Input;				// 入力
+    FadeMgr m_fade;                 // 遷移
     public Guide m_Guide;					// ゲームガイド
     StartCountDown m_Count;			// カウント
     public GameObject m_MainFlg;	// ゲームメイン有効化
     GameObject m_Main2DFlg;		// ゲームメイン有効化(2D)
     bool m_isNextState;             // 次のシーンに遷移することを許す
+    public ScoreMgr m_scoreMgr;     // スコアマネージャ
+    public SaveData m_saveData;     // セーブデータ
 
     // ステート
     enum Game3State
@@ -29,6 +32,7 @@ public class Game3Mgr : MonoBehaviour
         // 共通設定の呼び出し
         GlobalSetting gs = Resources.Load<GlobalSetting>("Setting/GlobalSetting");
         m_Input = gs.InputMgr;
+        m_fade = gs.FadeMgr;
 
         // ガイド呼び出し
         //m_Guide = GameObject.Find ("Guide").GetComponent<Guide>(); 
@@ -100,5 +104,20 @@ public class Game3Mgr : MonoBehaviour
             m_Main2DFlg.SetActive(true);	// ゲームを有効化(2D)
             m_state = Game3State.GAME;		// ステート更新
         }
+    }
+
+
+    //======================================================
+    // @brief:時間切れで呼び出される
+    //------------------------------------------------------
+    // @author:K.Ito
+    // @param:なし
+    // @return:なし
+    //======================================================
+    void TimeOver()
+    {
+        m_saveData.game3Score = m_scoreMgr.Score;
+        m_saveData.gameState = SaveData.eState.GAME3;
+        m_fade.LoadLevel("result");
     }
 }

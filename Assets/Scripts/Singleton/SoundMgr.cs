@@ -19,6 +19,9 @@ public class SoundMgr : SingletonMonoBehaviourFast<SoundMgr>
     AudioClip bgm_ranking;          // ランキング登録シーン
     AudioClip bgm_ending;           // エンディングシーン
 
+    // Game2の曲
+    AudioClip[] bgm_dance = new AudioClip[5];          // ゲーム２の音楽
+
     // SE
     AudioClip se_return;			// 決定音
     AudioClip se_cancel;			// キャンセル音
@@ -51,6 +54,13 @@ public class SoundMgr : SingletonMonoBehaviourFast<SoundMgr>
 
         bgm_title = Resources.Load<AudioClip>(bgmPath+"title");
 
+        
+        bgm_dance[0] = Resources.Load<AudioClip>(bgmPath + "bonodori");
+        bgm_dance[1] = Resources.Load<AudioClip>(bgmPath + "hula");
+        bgm_dance[2] = Resources.Load<AudioClip>(bgmPath + "belly");
+        bgm_dance[3] = Resources.Load<AudioClip>(bgmPath + "samba");
+        bgm_dance[4] = Resources.Load<AudioClip>(bgmPath + "flamenco");
+
         se_return = Resources.Load<AudioClip>(sePath+"return");
         se_cancel = Resources.Load<AudioClip>(sePath+"cancel");
 
@@ -72,6 +82,12 @@ public class SoundMgr : SingletonMonoBehaviourFast<SoundMgr>
     public void PlayTitleBGM()
     {
         audioSourceBGM.clip = bgm_title;
+        audioSourceBGM.Play();
+    }
+
+    public void PlayDanceBGM(int no)
+    {
+        audioSourceBGM.clip = bgm_dance[no];
         audioSourceBGM.Play();
     }
 

@@ -1,0 +1,21 @@
+1-60 loop mob_stand001
+90-150 loop mob_stand002
+190-220 loop mob_run
+250-300 loop mob_walk
+330-360 loop mob_pass
+390-420 loop mob_pose
+440-450 mob_stand_bonodori
+450-700 loop mob_bonodori
+700-720 mob_bonodori_stand
+760-770 mob_stand_hula
+770-1140 loop mob_hula
+1140-1150 mob_hula_stand
+1200-1210 mob_stand_belly
+1210-1590 loop mob_belly
+1590-1610 mob_belly_stand
+1630-1640 mob_stand_samba
+1640-1900 loop mob_samba
+1900-1910 mob_samba_stand
+2010-2020 mob_stand_fla
+2020-2380 loop mob_fla
+2380-2390 mob_fla_stand

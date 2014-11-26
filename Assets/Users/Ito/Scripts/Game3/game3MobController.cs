@@ -1,58 +1,104 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 public class game3MobController : MonoBehaviour {
 
-    Animator m_animator;                    // アニメーションクリップ
-    float m_speed = 2.0f;             // キャラクターの移動スピード
+    // アニメーション関連
+    Animator m_animator;                // アニメーションクリップ
+    float m_speed = 2.0f;               // キャラクターの移動スピード
 
-    float m_nowTime = 0.0f;
-    float m_stayTime = 2.0f;
+    // 時間管理関連
+    float m_nowTime = 0.0f;             // ステート管理用の時間変数
+    float m_stayTime = 2.0f;            // ライトにとどまる時間(設定ファイルに書き出し予定)
 
+    // キャラステート関連
     enum State { Forward, Light, Bye, Parade,Dance };
-    State m_state;                      // キャラクラステート
+    State m_state;                      // キャラクタステート
+    string[] charType = { "Yellow", "Blue", "Red", "Green" };
 
-    Transform m_sayonaraPoint;
-    Transform m_deletePoint;
-    Transform m_light;
-
-    string m_lightName = string.Empty;
-
+    // モブ制御オブジェクト
+    Transform m_sayonaraPoint;          // キャラクタがさるときに向かうポイント
+    Transform m_deletePoint;            // キャラクタを消すライン
+    Transform m_light;                  // ライトのオブジェクト
+    string m_lightName = string.Empty;  // ライトの名前
     Game3ObjMgr m_objMgr;               // オブジェマネージャーを取得
     Game3PositionList m_paradePos;      // パレードのポジション
-
     iTweenPath m_tweenPath;             // パレードの後ろに着くときのパス 
+    public bool IsOK { set; get; }             // 押したボタンが正解ならフラグを立てる
+    bool m_isPush = false;
+    game3MobController m_otherController;   // 逆サイドのスクリプト
+    Game3Balancer m_balancer;
+    Game3LightMgr m_lightMgr;           // ライト色変更用
+    ScoreMgr m_scoreMgr;                // スコア
 
-    InputMgr m_input;
+    // 共通設定関連
+    InputMgr m_input;                   // 入力をとる
 
     // アクセサ
-    public bool IsSelected{set;get;}               // ライトに向かう時にtrueになる
+    public bool IsSelected{set;get;}    // ライトに向かう時にtrueになる
 
-	// Use this for initialization
+    void SetOKFlg()
+    {
+        IsOK = true;
+    }
+
+    public game3MobController OtherMobController
+    {
+        set { m_otherController = value; }
+    }
+
+    //======================================================
+    // @brief:スタート（各種初期化設定)
+    //------------------------------------------------------
+    // @author:K.Ito
+    // @param:none
+    // @return:none
+    //======================================================
 	void Start () {
+        // 共通設定の呼び出し
         GlobalSetting gs = Resources.Load<GlobalSetting>("Setting/GlobalSetting");
-        m_paradePos = GameObject.Find("PositionList").GetComponent<Game3PositionList>();
         m_input = gs.InputMgr;
+
+        // タグをランダムでつける
+        this.gameObject.tag = charType[Random.Range(0, 4)];
+
+        m_balancer = GetComponentInParent<Game3Balancer>();
+        m_scoreMgr = GameObject.Find("ScoreMgr").GetComponent<ScoreMgr>();
+
+        // モブ制御のためのオブジェクトを取得
+        m_paradePos = GameObject.Find("PositionList").GetComponent<Game3PositionList>();
         m_animator = GetComponent<Animator>();
         m_sayonaraPoint = GameObject.Find("SayonaraPoint").transform;
         m_deletePoint = GameObject.Find("Delete_Position_Box").transform;
         m_objMgr = transform.parent.GetComponent<Game3ObjMgr>();
         m_state = State.Forward;
-        m_tweenPath = GameObject.Find("Path1").GetComponent<iTweenPath>(); 
+        m_tweenPath = GameObject.Find("Path1").GetComponent<iTweenPath>();
         IsSelected = false;
+
+        m_otherController = this;
 	}
-	
-	// Update is called once per frame
+
+    //======================================================
+    // @brief:アップデート
+    // ステートで挙動を分けている
+    //------------------------------------------------------
+    // @author:K.Ito
+    // @param:none
+    // @return:none
+    //======================================================e
 	void Update () {
         switch(m_state){
             case State.Forward:
                 MoveForward();
                 break;
             case State.Light:
-                if (m_nowTime >= m_stayTime)
+                CheckHitLight(1.0f);
+                if (m_nowTime >= m_balancer.DanceTime)
                 {
                     MoveToTarget(m_sayonaraPoint, 2.0f);
+                    m_balancer.Miss();
                     m_state = State.Bye;
                 }
                 break;
@@ -64,6 +110,24 @@ public class game3MobController : MonoBehaviour {
                 break;
         }
 	}
+
+    void LateUpdate()
+    {
+        switch (m_state)
+        {
+            case State.Forward:
+                break;
+            case State.Light:
+                if (m_isPush && !m_otherController.IsOK )
+                {
+                    m_nowTime = m_balancer.DanceTime;
+                }
+                IsOK = false;
+                break;
+            case State.Parade:
+                break;
+        }
+    }
 
     //======================================================
     // @brief:キャラクターの向いている方向に進む
@@ -129,6 +193,33 @@ public class game3MobController : MonoBehaviour {
         m_animator.SetFloat("speed", m_speed);
     }
 
+    //======================================================
+    // @brief:ライトに向かう
+    //------------------------------------------------------
+    // @author:K.Ito
+    // @param:target:targetの方向を向く
+    // @return:none
+    //======================================================
+    public void MoveToLight(Transform target)
+    {
+        if (m_state == State.Light) return;
+
+        IsSelected = true;
+        m_state = State.Light;
+        MoveToTarget(target, m_balancer.Speed);
+        m_lightName = target.name;
+        m_light = target;
+        m_objMgr.SelectedMob = this;
+        m_lightMgr = GameObject.Find(m_lightName + "_Obj").GetComponent<Game3LightMgr>();
+    }
+
+    //======================================================
+    // @brief:iTweenの移動が終わると呼び出される関数
+    //------------------------------------------------------
+    // @author:K.Ito
+    // @param:target:targetの方向を向く
+    // @return:none
+    //======================================================
     void MoveFinished()
     {
         switch (m_state)
@@ -145,45 +236,74 @@ public class game3MobController : MonoBehaviour {
                 break;
         }
 
-    }
+    }   
 
     //======================================================
-    // @brief:ライトに向かう
+    // @brief:ライトオブジェクトとの当たり判定処理
     //------------------------------------------------------
     // @author:K.Ito
-    // @param:target:targetの方向を向く
+    // @param:th:この距離以下になるとボタンの判定をとる
     // @return:none
     //======================================================
-    public void MoveToLight(Transform target)
+    public bool CheckHitLight(float th)
     {
-        if (m_state == State.Light) return;
-
-        IsSelected = true;
-        m_state = State.Light;
-        MoveToTarget(target, 2.0f);
-        m_lightName = target.name;
-        m_light = target;
-    }
-
-    void OnTriggerStay(Collider col)
-    {
-        if (col.transform.name == m_lightName)
+        float distance = Vector3.Distance(this.transform.position, m_light.transform.position);
+        m_isPush = false;
+        if (distance <= th)
         {
             m_nowTime += Time.deltaTime;
-            
+            // ここにボタンの成否処理を書く
+            List<string> pushButton = new List<string>();
+
+            // とりあえず同時押しに対応しておく
             if (m_input.YellowButtonTrigger)
             {
+                pushButton.Add(charType[0]);
+            }
+            if (m_input.BlueButtonTrigger)
+            {
+                pushButton.Add(charType[1]);
+            }
+            if (m_input.RedButtonTrigger)
+            {
+                pushButton.Add(charType[2]);
+            }
+            if (m_input.GreenButtonTrigger)
+            {
+                pushButton.Add(charType[3]);
+            }
+
+            // ボタンを押したらフラグを立てる
+            if (pushButton.Count >= 1) m_isPush = true;
+
+            // 押したボタンがタグと一致すればパレードにモブを参加させる
+            if (pushButton.Contains(this.gameObject.tag))
+            {
+                m_scoreMgr.AddScore(1.0f);
                 m_state = State.Parade;
                 m_speed = 0.0f;
-                // アニメーターにスピードをセット
                 m_animator.SetFloat("speed", m_speed);
+                IsOK = true;
+                m_otherController.IsOK = true;
+                m_balancer.Success();
+                return true;
             }
+
+            m_lightMgr.ChangeColor(this.tag);
         }
+        return false;
     }
 
+    //======================================================
+    // @brief:パレードに向かうiTweenPathの処理が終わると呼び出される関数
+    //------------------------------------------------------
+    // @author:K.Ito
+    // @param:th:この距離以下になるとボタンの判定をとる
+    // @return:none
+    //======================================================
     void OnCompleteTweenPath()
     {
-        LookTarget(GameObject.Find("Parade").transform);
+        LookTarget(GameObject.Find("Game3Player").transform);
         m_objMgr.CreateNewMob(this.gameObject);
     }
 }

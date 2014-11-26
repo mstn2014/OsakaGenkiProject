@@ -16,25 +16,32 @@ public class Game2StateMgr : MonoBehaviour {
     // 各種マネージャの呼び出し
     InputMgr m_btnState;                    // 入力インスタンス
     FadeMgr m_fadeMgr;                      // フェード
-    WindowMgr m_windowMgr;                  // ウィンドウマネージャー
-    GuideMgr m_guideMgr;                    // ガイド役のマネージャー
+    SoundMgr m_soundMgr;                       // サウンド
     ScoreMgr m_scoreMgr;                    // スコアマネージャ
     StartCountDown m_countDown;             // カウントダウン用のクラス
-    CreateButton m_createButton;            // ボタンを生成するスクリプト(盛り上がりイベントのスクリプトを
+    Game2CreateButton m_createButton;            // ボタンを生成するスクリプト(盛り上がりイベントのスクリプトを
     List<string> m_messageText;             // メッセージデータ
     int m_messageIndex;                     // メッセージのインデックス
+    int m_iventIndex;
 
     // コンポーネント関連
     public GameObject m_frame;              // フレームとリングのオブジェクト
     public GameObject m_extra;              // そのたのゲーム関連オブジェクト
-	public GameObject m_buf;
-	public GameObject m_Event1;				//	盛りあがりイベント1
-	public GameObject m_Event2;				//	盛りあがりイベント2
-	public GameObject m_Event3;				//	盛りあがりイベント3
-	public GameObject m_Event4;				//	盛りあがりイベント4
-	public GameObject m_Event5;				//	盛りあがりイベント5
+    public Game2ModelMotion m_player;      // プレイヤーのモーション
+    public Guide m_guide;                   // ガイド
+    public GameObject m_guestMotion;             // ゲストのモーション
+    public SaveData m_saveData;             // セーブデータ
+    public GameObject m_camera;             // カメラ
+	private GameObject m_Event1;			//	盛りあがりイベント1
+	private GameObject m_Event2;			//	盛りあがりイベント2
+	private GameObject m_Event3;			//	盛りあがりイベント3
+	private GameObject m_Event4;			//	盛りあがりイベント4
+	private GameObject m_Event5;			//	盛りあがりイベント5
 
     public Game2Setting m_sceneSetting;    // シーンの設定ファイル
+
+	Game2CreateGuest m_guest;	//	参加者増加用
+	private GameObject m_guestbuf; //	CreateGuestクラス代入用.
 
     // コルーチン制御用のwaitフラグ
     bool m_waitFlg = false;                         
@@ -45,16 +52,14 @@ public class Game2StateMgr : MonoBehaviour {
         GlobalSetting gs = Resources.Load<GlobalSetting>("Setting/GlobalSetting");
         m_btnState = gs.InputMgr;
         m_fadeMgr = gs.FadeMgr;
+        m_soundMgr = gs.SoundMgr;
         // ボタン生成を呼び出す
-        m_createButton = m_extra.transform.FindChild("ButtonMgr").GetComponent<CreateButton>();
+        m_createButton = m_extra.transform.FindChild("ButtonMgr").GetComponent<Game2CreateButton>();
         // ステートの設定
         m_state = Game2State.WAIT;
         // スコアマネージャの呼び出し
         m_scoreMgr = m_frame.transform.FindChild("ScoreMgr").GetComponent<ScoreMgr>();
         // ウィンドウクラスの呼び出し
-        m_windowMgr = GameObject.Find("WindowMgr").GetComponent<WindowMgr>();
-        // ガイドを呼び出す
-        m_guideMgr = GameObject.Find("GuideMgr").GetComponent<GuideMgr>();
         // カウントダウンを呼び出す
         m_countDown = GameObject.Find("Count").GetComponent<StartCountDown>();
         // テキストを読み込んでおく
@@ -62,7 +67,6 @@ public class Game2StateMgr : MonoBehaviour {
         m_messageText = new List<string>();
         m_messageText = textParser.LoadText(m_sceneSetting.messageTextPath);
         m_messageIndex = 0;
-        m_windowMgr.Text = m_messageText[m_messageIndex];
 
 		//　イベント関連読み込み
 		m_Event1 = GameObject.Find("Event1");
@@ -79,6 +83,14 @@ public class Game2StateMgr : MonoBehaviour {
 
 		m_Event5 = GameObject.Find("Event5");
 		m_Event5.gameObject.SetActive(false);
+
+		//	参加者増加用.
+		m_guestbuf = GameObject.Find ("CreateGuest");
+		m_guest = m_guestbuf.GetComponent<Game2CreateGuest>();
+
+        m_iventIndex = 0;
+
+        iTweenEvent.GetEvent(m_camera, "MoveToNear").Play();
 	}
 	
 	// Update is called once per frame
@@ -116,8 +128,6 @@ public class Game2StateMgr : MonoBehaviour {
     void Wait()
     {
         StartCoroutine(WaitTime());
-        m_waitFlg = true;
-        m_state = Game2State.GUIDE;
     }
 
     IEnumerator WaitTime()
@@ -125,9 +135,8 @@ public class Game2StateMgr : MonoBehaviour {
         // 3秒待つ
         yield return new WaitForSeconds(3.0f);
 
-        m_guideMgr.CallGuide();
-        m_windowMgr.OpenWindow();
-        m_waitFlg = false;
+        m_guide.Begin("Message/game2");
+        m_state = Game2State.GUIDE;
     }
 
     //======================================================
@@ -138,19 +147,8 @@ public class Game2StateMgr : MonoBehaviour {
     // @return:none
     //======================================================
     void Guide()
-    {
-        if (m_waitFlg) return;
-
-        // メッセージ送り
-        if (m_btnState.AnyButtonTrigger && m_windowMgr.IsFinished && (m_messageText.Count > (m_messageIndex+1) ) )
-        {
-            m_windowMgr.Text = m_messageText[++m_messageIndex];
-        }
-        //　メッセージが最後まで行った時の処理 
-        else if(m_btnState.AnyButtonTrigger && m_windowMgr.IsFinished && (m_messageText.Count == (m_messageIndex+1)) )
-        {
-            m_windowMgr.CloseWindow();
-            m_guideMgr.EndGuide();
+    {   
+        if( !m_guide.IsUse ){
             m_state = Game2State.COUNTDOWN;
         }
     }
@@ -193,6 +191,8 @@ public class Game2StateMgr : MonoBehaviour {
         {
             m_extra.SetActive(true);
             m_state = Game2State.GAME;
+            m_player.ChangeMotion((Game2ModelMotion.DanceType)(m_createButton.CountryIndex+1));
+            m_soundMgr.PlayDanceBGM(m_createButton.CountryIndex);
         }
     }
 
@@ -211,27 +211,23 @@ public class Game2StateMgr : MonoBehaviour {
             // ゲーム終了時の処理を書く
             StartCoroutine(RankIvent());
             m_waitFlg = true;
+            m_player.ChangeMotion(Game2ModelMotion.DanceType.POSE);
+            foreach (Game2ModelMotion mc in m_guestMotion.GetComponentsInChildren<Game2ModelMotion>())
+            {
+                mc.ChangeMotion(Game2ModelMotion.DanceType.POSE);
+            }
             m_state = Game2State.END;
         }
         else if (m_createButton.WaitFlg && !m_waitFlg )
         {
 			// ToDo：ここに盛り上がりイベントを書く。
-			if(m_scoreMgr.Score >= 5)
-				m_Event1.gameObject.SetActive(true);
-		
-			if(m_scoreMgr.Score >= 10)
-				m_Event2.gameObject.SetActive(true);
-
-			if(m_scoreMgr.Score >= 15)
-				m_Event3.gameObject.SetActive(true);
-
-			if(m_scoreMgr.Score >= 20)
-				m_Event4.gameObject.SetActive(true);
-
-			if(m_scoreMgr.Score >= 30)
-				m_Event5.gameObject.SetActive(true);
-            
 			StartCoroutine( LivelyIvent() );
+            iTweenEvent.GetEvent(m_camera, "MoveToFar").Play();
+            m_player.ChangeMotion(Game2ModelMotion.DanceType.POSE);
+            foreach (Game2ModelMotion mc in m_guestMotion.GetComponentsInChildren<Game2ModelMotion>())
+            {
+                mc.ChangeMotion(Game2ModelMotion.DanceType.POSE);
+            }
             m_waitFlg = true;
         }
 
@@ -239,22 +235,64 @@ public class Game2StateMgr : MonoBehaviour {
 
     IEnumerator LivelyIvent()
     {
-        yield return new WaitForSeconds(3.0f);	//	3秒末
+		m_frame.SetActive(false);	//	フレーム非表示
+        yield return new WaitForSeconds(1.5f);	//	3秒末
 
-        GameObject.Find("DebugLog").GetComponent<UILabel>().text = "盛り上がりイベント発生中！！";
-        
+        // GameObject.Find("DebugLog").GetComponent<UILabel>().text = "盛り上がりイベント発生中！！";
+
+		if(m_scoreMgr.Score >= m_sceneSetting.Event1Score && m_iventIndex == 0){
+			m_Event1.gameObject.SetActive(true);
+			m_guest.IncreaseGuest(m_sceneSetting.Event1Guest);	//	引数の数だけ参加増加.
+            m_iventIndex++;
+		}
+
+		if(m_scoreMgr.Score >= m_sceneSetting.Event2Score && m_iventIndex == 1){
+			m_Event2.gameObject.SetActive(true);
+			m_guest.IncreaseGuest(m_sceneSetting.Event2Guest);	//	引数の数だけ参加増加.
+            m_iventIndex++;
+		}
+		
+		if(m_scoreMgr.Score >= m_sceneSetting.Event3Score && m_iventIndex == 2){
+			m_Event3.gameObject.SetActive(true);
+			m_guest.IncreaseGuest(m_sceneSetting.Event3Guest);	//	引数の数だけ参加増加.
+            m_iventIndex++;
+		}
+		
+		if(m_scoreMgr.Score >= m_sceneSetting.Event4Score && m_iventIndex == 3){
+			m_Event4.gameObject.SetActive(true);
+			m_guest.IncreaseGuest(m_sceneSetting.Event4Guest);	//	引数の数だけ参加増加.
+            m_iventIndex++;
+		}
+		
+		if(m_scoreMgr.Score >= m_sceneSetting.Event5Score  && m_iventIndex == 4){
+			m_Event5.gameObject.SetActive(true);
+			m_guest.IncreaseGuest(m_sceneSetting.Event5Guest);	//	引数の数だけ参加増加.
+            m_iventIndex++;
+		}
+
 		//	ToDo：参加者あつまる.
 
 		yield return new WaitForSeconds(5.0f);
-        GameObject.Find("DebugLog").GetComponent<UILabel>().text = "";
+        // GameObject.Find("DebugLog").GetComponent<UILabel>().text = "";
         m_createButton.WaitFlg = false;
         m_waitFlg = false;
+        m_player.ChangeMotion((Game2ModelMotion.DanceType)(m_createButton.CountryIndex+1));
+        m_soundMgr.PlayDanceBGM(m_createButton.CountryIndex);
+        iTweenEvent.GetEvent(m_camera, "MoveToNear").Play();
+        foreach (Game2ModelMotion mc in m_guestMotion.GetComponentsInChildren<Game2ModelMotion>())
+        {
+            mc.ChangeMotion((Game2ModelMotion.DanceType)(m_createButton.CountryIndex + 1));
+        }
+		m_frame.SetActive(true); // フレーム表示
     }
 
     IEnumerator RankIvent()
     {
         yield return new WaitForSeconds(3.0f);
-        GameObject.Find("DebugLog").GetComponent<UILabel>().text = "Rank:" + CalcRank() + "    Score:" + m_scoreMgr.Score.ToString(); 
+        m_saveData.game2Score = m_scoreMgr.Score;
+        m_saveData.gameState = SaveData.eState.GAME2;
+        m_fadeMgr.LoadLevel("result");
+        // GameObject.Find("DebugLog").GetComponent<UILabel>().text = "Rank:" + CalcRank() + "    Score:" + m_scoreMgr.Score.ToString(); 
         m_waitFlg = false;
     }
 

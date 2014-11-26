@@ -14,7 +14,7 @@ public class Guide : MonoBehaviour
     public bool IsUse { set; get; }         // ガイドを呼び出していればtrue,いなければfalse
 
     // Use this for initialization
-    void Start()
+    void Awake()
     {
         // 共通設定の呼び出し
         GlobalSetting gs = Resources.Load<GlobalSetting>("Setting/GlobalSetting");

@@ -7,16 +7,27 @@ public class Game3ObjMgr : MonoBehaviour {
     const int mobNum = 4;
 
     float m_nowTime = 0.0f;
-    float m_createTime = 5.0f;      // ライトに向かうモブを抽選する間隔
+    float m_createTime = 3.0f;      // ライトに向かうモブを抽選する間隔
     // モブのリソース
     GameObject m_mobResource;
     // モブのオブジェクト
     GameObject[] m_mob = new GameObject[mobNum];
     game3MobController[] m_mobController = new game3MobController[mobNum];     // モブのコントローラー
+    game3MobController m_selectedMob;           // ライトに入っているモブ
+    Game3Balancer m_balancer;
     // ライトのtransform
     Transform m_light;
     // 生成する位置
     Vector3[] m_createPos = new Vector3[mobNum];
+
+    public Game3ObjMgr  m_otherMgr;       // 逆サイドのオブジェクトマネージャー
+
+    public game3MobController SelectedMob
+    {
+        set{ m_selectedMob = value; }
+        get { return m_selectedMob; }
+    }
+
 	// Use this for initialization
 	void Start () {
         // 位置情報の取得
@@ -25,7 +36,10 @@ public class Game3ObjMgr : MonoBehaviour {
             m_createPos[i] = this.gameObject.transform.FindChild("pos" + (i+1).ToString()).transform.position;
         }
         // モブのロード
-        m_mobResource = Resources.Load<GameObject>("Prefab/game3_motion_mob");
+        m_mobResource = Resources.Load<GameObject>("Prefab/Game3/Game3Mob");
+
+        m_balancer = GetComponentInParent<Game3Balancer>();
+        m_createTime = m_balancer.CreateTime;
 
         m_light = GameObject.Find("Light" + this.name).transform;
 
@@ -42,12 +56,17 @@ public class Game3ObjMgr : MonoBehaviour {
         if (m_nowTime >= m_createTime)
         {
             m_nowTime = 0.0f;
-            game3MobController[] ret = m_mobController.Where(delegate(game3MobController mc) { return !mc.IsSelected; }).ToArray();
+            game3MobController[] ret = m_mobController.Where(mc => !mc.IsSelected).ToArray();
             if (ret.Length == 0) return;
 
             int selectedNum = Random.Range(0, ret.Length);
             ret[selectedNum].MoveToLight(m_light);
-            
+            if (m_otherMgr.SelectedMob != null)
+            {
+                m_otherMgr.SelectedMob.OtherMobController = ret[selectedNum];
+            }
+            SelectedMob = ret[selectedNum];
+            m_createTime = m_balancer.CreateTime;
         }
 	}
 
