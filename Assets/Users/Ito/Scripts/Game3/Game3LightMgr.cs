@@ -32,6 +32,7 @@ public class Game3LightMgr : MonoBehaviour {
             case "Yellow": ChangeColor(eColor.YELLOW); break;
             case "Blue": ChangeColor(eColor.BLUE); break;
             case "Green": ChangeColor(eColor.GREEN); break;
+            case "White": ChangeColor(eColor.WHITE); break;
         }
     }
 

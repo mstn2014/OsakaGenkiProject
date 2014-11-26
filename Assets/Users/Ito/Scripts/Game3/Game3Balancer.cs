@@ -28,10 +28,10 @@ public class Game3Balancer : MonoBehaviour {
 	    m_waitLength = 2.0f;
         m_changeDiffCount = 3;
         m_successCon = 0;
-        m_waitTime = 1.0f;
+        m_waitTime = 5.0f;
 
-        Speed = 1.0f;
-        DanceTime = 1.0f;
+        Speed = 2.0f;
+        DanceTime = 3.0f;
         Difficulty = 0.1f;
 	}
 	
@@ -73,8 +73,8 @@ public class Game3Balancer : MonoBehaviour {
 
     void ClampValue()
     {
-        m_waitTime = Mathf.Clamp(m_waitTime, 0.0f, 1.0f);
-        Speed = Mathf.Clamp(Speed, 0.5f, 1.0f);
-        DanceTime = Mathf.Clamp(DanceTime, 0.1f, 1.0f);
+        m_waitTime = Mathf.Clamp(m_waitTime, 0.0f, 5.0f);
+        Speed = Mathf.Clamp(Speed, 0.5f, 2.0f);
+        DanceTime = Mathf.Clamp(DanceTime, 0.1f, 3.0f);
     }
 }
