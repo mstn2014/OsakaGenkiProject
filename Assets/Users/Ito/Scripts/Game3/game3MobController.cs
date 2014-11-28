@@ -33,6 +33,7 @@ public class game3MobController : MonoBehaviour {
     Game3LightMgr m_lightMgr;           // ライト色変更用
     ScoreMgr m_scoreMgr;                // スコア
 
+    public Transform m_player;          // プレイヤー
     // 共通設定関連
     InputMgr m_input;                   // 入力をとる
 
@@ -56,7 +57,7 @@ public class game3MobController : MonoBehaviour {
     // @param:none
     // @return:none
     //======================================================
-	void Start () {
+	void Start() {
         // 共通設定の呼び出し
         GlobalSetting gs = Resources.Load<GlobalSetting>("Setting/GlobalSetting");
         m_input = gs.InputMgr;
@@ -78,6 +79,8 @@ public class game3MobController : MonoBehaviour {
         IsSelected = false;
 
         m_otherController = this;
+
+        transform.parent = GameObject.Find("MoveObj").transform;
 	}
 
     //======================================================
@@ -87,17 +90,24 @@ public class game3MobController : MonoBehaviour {
     // @author:K.Ito
     // @param:none
     // @return:none
-    //======================================================e
+    //======================================================
 	void Update () {
         switch(m_state){
             case State.Forward:
-                MoveForward();
+                // MoveForward();
+                LookTarget(m_player);
+                if (m_deletePoint.position.x >= this.transform.position.x)
+                {
+                    m_objMgr.CreateNewMob(this.gameObject);
+                    Destroy(this.gameObject);
+                }
                 break;
             case State.Light:
                 CheckHitLight(1.0f);
                 if (m_nowTime >= m_balancer.DanceTime)
                 {
                     MoveToTarget(m_sayonaraPoint, 2.0f);
+                    m_lightMgr.ChangeColor("White");
                     m_balancer.Miss();
                     m_state = State.Bye;
                 }
@@ -286,6 +296,7 @@ public class game3MobController : MonoBehaviour {
                 IsOK = true;
                 m_otherController.IsOK = true;
                 m_balancer.Success();
+                m_lightMgr.ChangeColor("White");
                 return true;
             }
 

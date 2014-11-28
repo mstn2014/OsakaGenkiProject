@@ -21,6 +21,7 @@ public class Game3ObjMgr : MonoBehaviour {
     Vector3[] m_createPos = new Vector3[mobNum];
 
     public Game3ObjMgr  m_otherMgr;       // 逆サイドのオブジェクトマネージャー
+    public GameObject m_moveObj;           // 移動するオブジェクト
 
     public game3MobController SelectedMob
     {
@@ -60,6 +61,7 @@ public class Game3ObjMgr : MonoBehaviour {
             if (ret.Length == 0) return;
 
             int selectedNum = Random.Range(0, ret.Length);
+            ret[selectedNum].transform.parent = transform;
             ret[selectedNum].MoveToLight(m_light);
             if (m_otherMgr.SelectedMob != null)
             {

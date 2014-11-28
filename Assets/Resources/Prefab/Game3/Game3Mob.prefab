@@ -2053,6 +2053,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2757a8c2b7f844f4ca13e457f536d666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_player: {fileID: 400012, guid: 9c0477be9dd136c4f9bf9d0baa4e9fe5, type: 2}
 --- !u!136 &13600000
 CapsuleCollider:
   m_ObjectHideFlags: 1
