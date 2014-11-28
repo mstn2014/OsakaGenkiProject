@@ -44,8 +44,7 @@ public class Game1GameRoop : MonoBehaviour {
 		GlobalSetting gs = Resources.Load<GlobalSetting>("Setting/GlobalSetting");
 		m_btnState = gs.InputMgr;
 		m_fadeMgr = gs.FadeMgr;
-
-        m_guide.Begin("Message/game1");
+ 
         m_start = true;
 
 		// プレイヤー,ギャラリー,背景の設置.
@@ -57,6 +56,7 @@ public class Game1GameRoop : MonoBehaviour {
 			if (m_start) {
 				switch(m_state){
                 case GameState.guide:
+                        m_guide.Begin("Message/game1");
                         while (m_guide.IsUse)
                         {
                             yield return null;
