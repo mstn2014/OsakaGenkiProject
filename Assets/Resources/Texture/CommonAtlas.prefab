@@ -95,6 +95,78 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: common_ui2
+    outer:
+      serializedVersion: 2
+      x: 2295
+      y: 3714
+      width: 182
+      height: 194
+    inner:
+      serializedVersion: 2
+      x: 2295
+      y: 3714
+      width: 182
+      height: 194
+    rotated: 0
+    paddingLeft: .252747267
+    paddingRight: .15384616
+    paddingTop: .190721646
+    paddingBottom: .128865972
+  - name: common_ui1
+    outer:
+      serializedVersion: 2
+      x: 2661
+      y: 3714
+      width: 87
+      height: 194
+    inner:
+      serializedVersion: 2
+      x: 2661
+      y: 3714
+      width: 87
+      height: 194
+    rotated: 0
+    paddingLeft: .954023004
+    paddingRight: .988505721
+    paddingTop: .190721646
+    paddingBottom: .128865972
+  - name: common_ui4
+    outer:
+      serializedVersion: 2
+      x: 2295
+      y: 3909
+      width: 743
+      height: 187
+    inner:
+      serializedVersion: 2
+      x: 2295
+      y: 3909
+      width: 743
+      height: 187
+    rotated: 0
+    paddingLeft: .0497981161
+    paddingRight: .0269179009
+    paddingTop: .245989308
+    paddingBottom: .122994654
+  - name: common_ui3
+    outer:
+      serializedVersion: 2
+      x: 2478
+      y: 3714
+      width: 182
+      height: 194
+    inner:
+      serializedVersion: 2
+      x: 2478
+      y: 3714
+      width: 182
+      height: 194
+    rotated: 0
+    paddingLeft: .252747267
+    paddingRight: .15384616
+    paddingTop: .190721646
+    paddingBottom: .128865972
   mCoordinates: 0
   mPixelSize: 1
   mReplacement: {fileID: 0}

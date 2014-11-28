@@ -38,4 +38,4 @@ MonoBehaviour:
   circle_ScaleTime: 1
   circle_Scale: 2
   result_ScaleXY: 0
-  result_FadeTime: 0
+  result_FadeTime: 2

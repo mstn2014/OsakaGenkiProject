@@ -41,10 +41,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_time: .699999988
-  three: 3
-  two: 2
-  one: 1
-  start: go
+  three: common_ui3
+  two: common_ui2
+  one: common_ui1
+  start: common_ui4
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -59,8 +59,8 @@ MonoBehaviour:
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
   mDepth: 1
-  mAtlas: {fileID: 11400000, guid: dd4a3074152695c4094e348d49abcc3a, type: 2}
-  mSpriteName: 3
+  mAtlas: {fileID: 11400000, guid: 7731deda6bfc16643b4bbdd93d9e9193, type: 2}
+  mSpriteName: common_ui4
   mFillCenter: 1
   mType: 0
   mFillDirection: 4
