@@ -15,6 +15,7 @@ public class ScrollChar : MonoBehaviour {
     int index = 1;                  // 現在の選ばれている文字
     InputMgr m_btnState;            // ボタン
     FadeMgr m_fadeMgr;              // シーン遷移
+	SoundMgr m_sound;          		// サウンド
     CharState[] m_charState = new CharState[dispCharNum];   // 各文字を制御するスクリプト
     GameObject[] m_keyborad = new GameObject[dispCharNum];  // 各文字のプレハブ
 
@@ -34,6 +35,7 @@ public class ScrollChar : MonoBehaviour {
         GlobalSetting gs = Resources.Load<GlobalSetting>("Setting/GlobalSetting");
         m_btnState = gs.InputMgr;
         m_fadeMgr = gs.FadeMgr;
+		m_sound = gs.SoundMgr;
         
         // 設定ファイルから初期文字位置を取り出す
         index = m_userSetting.initChar;
@@ -52,6 +54,7 @@ public class ScrollChar : MonoBehaviour {
         {
             foreach (CharState cs in m_charState)
             {
+				m_sound.PlaySeMoveCursor();
                 cs.MoveLeft();
             }  
         }
@@ -61,6 +64,7 @@ public class ScrollChar : MonoBehaviour {
         {
             foreach (CharState cs in m_charState)
             {
+				m_sound.PlaySeMoveCursor();
                 cs.MoveRight();
             }
         }
@@ -68,6 +72,7 @@ public class ScrollChar : MonoBehaviour {
         // Redボタンで決定の有効をとる
         if (m_btnState.RedButtonTrigger)
         {
+			m_sound.PlaySeReturn();
             m_triggerTime = 0;
         }
         else if (m_btnState.RedButtonPress)

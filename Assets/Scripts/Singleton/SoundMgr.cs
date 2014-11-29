@@ -13,6 +13,7 @@ public class SoundMgr : SingletonMonoBehaviourFast<SoundMgr>
     AudioClip bgm_title;            // タイトル
     AudioClip bgm_smallIvent;       // 小イベント
     AudioClip bgm_bigIvent;         // 大イベント
+	AudioClip bgm_nameInput;		// 名前入力時
     AudioClip bgm_game1;            // ゲーム１
     AudioClip bgm_game2;            // ゲーム２
     AudioClip bgm_game3;            // ゲーム３
@@ -53,6 +54,8 @@ public class SoundMgr : SingletonMonoBehaviourFast<SoundMgr>
         DontDestroyOnLoad(this);
 
         bgm_title = Resources.Load<AudioClip>(bgmPath+"title");
+		bgm_bigIvent = Resources.Load<AudioClip>(bgmPath+"イベントBGM_1_魔王魂");
+		bgm_nameInput = Resources.Load<AudioClip>(bgmPath+"name_inputBGM");
 
         
         bgm_dance[0] = Resources.Load<AudioClip>(bgmPath + "bonodori");
@@ -63,6 +66,7 @@ public class SoundMgr : SingletonMonoBehaviourFast<SoundMgr>
 
         se_return = Resources.Load<AudioClip>(sePath+"return");
         se_cancel = Resources.Load<AudioClip>(sePath+"cancel");
+		se_moveCursor = Resources.Load<AudioClip>(sePath+"選択SE_1_魔王魂");
 
         //audioSourceBGM = GetComponent<AudioSource> ();
         audioSourceBGM = this.gameObject.AddComponent<AudioSource>();
@@ -84,6 +88,18 @@ public class SoundMgr : SingletonMonoBehaviourFast<SoundMgr>
         audioSourceBGM.clip = bgm_title;
         audioSourceBGM.Play();
     }
+
+	public void PlayBigIvent()
+	{
+		audioSourceBGM.clip = bgm_bigIvent;
+		audioSourceBGM.Play();
+	}
+
+	public void PlayNameInput()
+	{
+		audioSourceBGM.clip = bgm_nameInput;
+		audioSourceBGM.Play();
+	}
 
     public void PlayDanceBGM(int no)
     {
@@ -107,4 +123,9 @@ public class SoundMgr : SingletonMonoBehaviourFast<SoundMgr>
     {
         audioSourceSE[1].PlayOneShot(se_cancel);
     }
+
+	public void PlaySeMoveCursor()
+	{
+		audioSourceSE[3].PlayOneShot(se_moveCursor);
+	}
 }
