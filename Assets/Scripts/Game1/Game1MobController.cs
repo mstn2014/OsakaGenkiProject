@@ -4,6 +4,7 @@ using System.Collections;
 public class Game1MobController : MonoBehaviour {
 
     Animator m_animator;        // モブのアニメーター
+    public GameObject m_excl;          // !マークのエフェクト
     public Transform m_player;  // プレイヤーの
 
 	// Use this for initialization
@@ -30,16 +31,18 @@ public class Game1MobController : MonoBehaviour {
 
         // iTweenで徐々に向くやつ
         float angle = Vector3.Angle(transform.forward,workVec);
-        if (angle > 180)
-        {
-            angle = 180 - angle;
-        }
         Hashtable parameters = new Hashtable(){
             {"y",angle},
             {"time",0.5f},
+            {"islocal",false},
             {"easetype",iTween.EaseType.linear}
         };
-        iTween.RotateTo(this.gameObject, parameters);
+        //iTween.RotateTo(this.gameObject, parameters);
+        workVec.y = 0.0f;
+        transform.rotation = Quaternion.LookRotation(workVec);
+
+        // !マークエフェクト
+        m_excl.SetActive(true);
     }
 
     public void LookPlayer()
