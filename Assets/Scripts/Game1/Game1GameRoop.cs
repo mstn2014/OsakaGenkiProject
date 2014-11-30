@@ -18,6 +18,7 @@ public class Game1GameRoop : MonoBehaviour {
 
 	InputMgr m_btnState;                // 入力インスタンス.
 	FadeMgr m_fadeMgr;                  // フェード.
+	SoundMgr m_sound;          			// サウンド
 
 	// Game1共通設定.
 	private Game1_Setting GAME1;
@@ -44,6 +45,8 @@ public class Game1GameRoop : MonoBehaviour {
 		GlobalSetting gs = Resources.Load<GlobalSetting>("Setting/GlobalSetting");
 		m_btnState = gs.InputMgr;
 		m_fadeMgr = gs.FadeMgr;
+		m_sound = gs.SoundMgr;
+		m_sound.PlayGame_1();
  
         m_start = true;
 
@@ -91,6 +94,7 @@ public class Game1GameRoop : MonoBehaviour {
                         // プレイヤーのモーション
                         m_player.DoPass();
 						if(!m_quest.CheckAns(1)){
+							m_sound.PlaySeMiss();
 							StartCoroutine(m_product.ResultRound(1));
 							m_state = GameState.product;
 						}
@@ -99,6 +103,7 @@ public class Game1GameRoop : MonoBehaviour {
                         // プレイヤーのモーション
                         m_player.DoPose();
 						if(!m_quest.CheckAns(2)){
+							m_sound.PlaySeMiss();
 							StartCoroutine(m_product.ResultRound(1));
 							m_state = GameState.product;
 						}

@@ -20,6 +20,7 @@ public class Game1Question : MonoBehaviour {
 	private GameObject m_QuestPanel;	// 生成されるボタンの親.
 	private GameObject m_Quest;			// 生成されるボタン.
 	private Game1EffectMgr m_effect;			// エフェクト.
+	SoundMgr m_sound;          			// サウンド
 
 	// Game1共通設定.
 	private Game1_Setting GAME1;
@@ -53,6 +54,8 @@ public class Game1Question : MonoBehaviour {
 		m_QuestPanel = CreatePrefab.InstantiateGameObject (m_QuestPanel, Vector3.zero, Quaternion.identity,
 		                                                   Vector3.one, m_panel);
         m_effect = GameObject.Find("GameMain").GetComponent<Game1EffectMgr>();
+		GlobalSetting gs = Resources.Load<GlobalSetting>("Setting/GlobalSetting");
+		m_sound = gs.SoundMgr;
 
 		// 表示されるボタンの数だけ配列生成.
 		m_box = new QuesBox[GAME1.MaxQuestNum];
@@ -99,12 +102,14 @@ public class Game1Question : MonoBehaviour {
 				text.text = ("password");
 				m_box[i].ans = 1;
 				m_createWeight -= GAME1.WeightValue;
+				m_sound.PlaySeQuestion();
 			}else{
 				// 緑生成.
 				sprite.spriteName = "Smooth";
 				text.text = ("pause");
 				m_box[i].ans = 2;
 				m_createWeight += GAME1.WeightValue;
+				m_sound.PlaySeQuestion();
 			}
 			
 			// 生成後時間をおく.
@@ -129,6 +134,7 @@ public class Game1Question : MonoBehaviour {
 		// 正解なら.
 		if (ans == m_box [m_nowAns].ans) {
 			Debug.Log ("正解");
+			m_sound.PlaySeCuccess();
 			DispButton (m_nowAns);
 			m_nowAns++;
 

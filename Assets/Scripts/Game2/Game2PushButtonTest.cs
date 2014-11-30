@@ -15,6 +15,7 @@ public class Game2PushButtonTest : MonoBehaviour {
 	//	共通設定.
 	FadeMgr m_fadeMgr;              // フェード.
 	InputMgr m_btnState; 			// 入力インスタンス.
+	SoundMgr m_sound;          		// サウンド
 
     // Game2設定.
     Game2Setting Setting;          // ゲーム設定ファイル
@@ -49,6 +50,7 @@ public class Game2PushButtonTest : MonoBehaviour {
 		// 共通設定の呼び出し.
 		GlobalSetting gs = Resources.Load<GlobalSetting>("Setting/GlobalSetting");
 		m_btnState = gs.InputMgr;
+		m_sound = gs.SoundMgr;
 
         // 設定ファイルの読み込み
         Setting = Resources.Load<Game2Setting>("Setting/Game2Setting");
@@ -93,6 +95,7 @@ public class Game2PushButtonTest : MonoBehaviour {
 							m_dispClass.Call("miss");
 							m_moveUpClass.DestroyButton();
 							m_missCount++;
+							m_sound.PlaySeMiss();
 						}
 						break;
 
@@ -108,6 +111,7 @@ public class Game2PushButtonTest : MonoBehaviour {
 							m_dispClass.Call("miss");
 							m_moveUpClass.DestroyButton();
 							m_missCount++;	
+							m_sound.PlaySeMiss();
 						}
 						break;
 
@@ -123,6 +127,7 @@ public class Game2PushButtonTest : MonoBehaviour {
 							m_dispClass.Call("miss");
 							m_moveUpClass.DestroyButton();
 							m_missCount++;
+							m_sound.PlaySeMiss();
 						}
 						break;
 
@@ -138,6 +143,7 @@ public class Game2PushButtonTest : MonoBehaviour {
 							m_dispClass.Call("miss");
 							m_moveUpClass.DestroyButton();
 							m_missCount++;
+							m_sound.PlaySeMiss();
 						}
 						break;
 				}
@@ -178,16 +184,19 @@ public class Game2PushButtonTest : MonoBehaviour {
         {
             m_dispClass.Call("perfect");
             m_score.AddScore(Setting.perfectPoint);
+			m_sound.PlaySeCuccess();
         }
         else if (distance <= Setting.goodRange)
         {
             m_dispClass.Call("good");
             m_score.AddScore(Setting.goodPoint);
+			m_sound.PlaySeReturn();
         }
         else
         {
             m_dispClass.Call("safe");
-            m_score.AddScore(Setting.safePoint);
+			m_score.AddScore(Setting.safePoint);
+			m_sound.PlaySeQuestion();
         }
 	}
 }

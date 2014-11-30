@@ -11,6 +11,7 @@ public class Game3Mgr : MonoBehaviour
     public Game3Setting Setting;    // セッティング
     InputMgr m_Input;				// 入力
     FadeMgr m_fade;                 // 遷移
+	SoundMgr m_sound;          		// サウンド
     public Guide m_Guide;					// ゲームガイド
     StartCountDown m_Count;			// カウント
     public GameObject m_MainFlg;	// ゲームメイン有効化
@@ -33,6 +34,8 @@ public class Game3Mgr : MonoBehaviour
         GlobalSetting gs = Resources.Load<GlobalSetting>("Setting/GlobalSetting");
         m_Input = gs.InputMgr;
         m_fade = gs.FadeMgr;
+		m_sound = gs.SoundMgr;
+		m_sound.PlayGame_3();
 
         // ガイド呼び出し
         //m_Guide = GameObject.Find ("Guide").GetComponent<Guide>(); 

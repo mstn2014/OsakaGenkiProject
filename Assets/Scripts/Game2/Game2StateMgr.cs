@@ -53,6 +53,7 @@ public class Game2StateMgr : MonoBehaviour {
         m_btnState = gs.InputMgr;
         m_fadeMgr = gs.FadeMgr;
         m_soundMgr = gs.SoundMgr;
+		m_soundMgr.PlayGame_2();
         // ボタン生成を呼び出す
         m_createButton = m_extra.transform.FindChild("ButtonMgr").GetComponent<Game2CreateButton>();
         // ステートの設定

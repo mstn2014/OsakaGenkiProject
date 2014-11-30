@@ -32,6 +32,7 @@ public class Game3MobController : MonoBehaviour {
     Game3Balancer m_balancer;
     Game3LightMgr m_lightMgr;           // ライト色変更用
     ScoreMgr m_scoreMgr;                // スコア
+	SoundMgr m_sound;          			// サウンド
 
     public Transform m_player;          // プレイヤー
     // 共通設定関連
@@ -61,6 +62,7 @@ public class Game3MobController : MonoBehaviour {
         // 共通設定の呼び出し
         GlobalSetting gs = Resources.Load<GlobalSetting>("Setting/GlobalSetting");
         m_input = gs.InputMgr;
+		m_sound = gs.SoundMgr;
 
         // タグをランダムでつける
         this.gameObject.tag = charType[Random.Range(0, 4)];
@@ -297,6 +299,7 @@ public class Game3MobController : MonoBehaviour {
                 m_otherController.IsOK = true;
                 m_balancer.Success();
                 m_lightMgr.ChangeColor("White");
+				m_sound.PlaySeCuccess();
                 return true;
             }
 
