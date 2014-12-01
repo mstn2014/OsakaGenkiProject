@@ -1,0 +1,292 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &100000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400000}
+  - 114: {fileID: 11400000}
+  m_Layer: 0
+  m_Name: Game1Atlas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &400000
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d0c51bb0b6e93049af5e88f93826e3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: f1a7e3100513c484a98e61e524fd8e80, type: 2}
+  sprites:
+  - name: game1_ui2
+    outer:
+      serializedVersion: 2
+      x: 513
+      y: 313
+      width: 229
+      height: 229
+    inner:
+      serializedVersion: 2
+      x: 513
+      y: 313
+      width: 229
+      height: 229
+    rotated: 0
+    paddingLeft: .0611353703
+    paddingRight: .0567685589
+    paddingTop: .0480349362
+    paddingBottom: .0698689967
+  - name: game1_ui7_3
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 775
+      width: 1827
+      height: 107
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 775
+      width: 1827
+      height: 107
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: game1_ui4
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 221
+      width: 296
+      height: 296
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 221
+      width: 296
+      height: 296
+    rotated: 0
+    paddingLeft: .00675675692
+    paddingRight: .00675675692
+    paddingTop: .00675675692
+    paddingBottom: .00675675692
+  - name: game1_ui7_4
+    outer:
+      serializedVersion: 2
+      x: 3908
+      y: 1053
+      width: 117
+      height: 995
+    inner:
+      serializedVersion: 2
+      x: 3908
+      y: 1053
+      width: 117
+      height: 995
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: game1_ui5
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 518
+      width: 512
+      height: 256
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 518
+      width: 512
+      height: 256
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: game1_ui8
+    outer:
+      serializedVersion: 2
+      x: 1894
+      y: 1001
+      width: 1891
+      height: 1047
+    inner:
+      serializedVersion: 2
+      x: 1894
+      y: 1001
+      width: 1891
+      height: 1047
+    rotated: 0
+    paddingLeft: .00846113171
+    paddingRight: .00687466934
+    paddingTop: .0162368678
+    paddingBottom: .0152817573
+  - name: game1_ui6
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 999
+      width: 1893
+      height: 1049
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 999
+      width: 1893
+      height: 1049
+    rotated: 0
+    paddingLeft: .00792392995
+    paddingRight: .00633914443
+    paddingTop: .0152526218
+    paddingBottom: .0142993331
+  - name: game1_ui7_2
+    outer:
+      serializedVersion: 2
+      x: 3786
+      y: 1051
+      width: 121
+      height: 997
+    inner:
+      serializedVersion: 2
+      x: 3786
+      y: 1051
+      width: 121
+      height: 997
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: game1_ui7_1
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 883
+      width: 1833
+      height: 115
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 883
+      width: 1833
+      height: 115
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: game1_ui
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 14
+      width: 240
+      height: 206
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 14
+      width: 240
+      height: 206
+    rotated: 0
+    paddingLeft: .0291666668
+    paddingRight: .0375000015
+    paddingTop: .169902906
+    paddingBottom: .0728155375
+  - name: game1_ui3
+    outer:
+      serializedVersion: 2
+      x: 513
+      y: 83
+      width: 229
+      height: 229
+    inner:
+      serializedVersion: 2
+      x: 513
+      y: 83
+      width: 229
+      height: 229
+    rotated: 0
+    paddingLeft: .0611353703
+    paddingRight: .0567685589
+    paddingTop: .0480349362
+    paddingBottom: .0698689967
+  - name: game1_ui7_1_2
+    outer:
+      serializedVersion: 2
+      x: 513
+      y: 659
+      width: 917
+      height: 115
+    inner:
+      serializedVersion: 2
+      x: 513
+      y: 659
+      width: 917
+      height: 115
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: game1_ui7_1_1
+    outer:
+      serializedVersion: 2
+      x: 513
+      y: 543
+      width: 916
+      height: 115
+    inner:
+      serializedVersion: 2
+      x: 513
+      y: 543
+      width: 916
+      height: 115
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  mCoordinates: 0
+  mPixelSize: 1
+  mReplacement: {fileID: 0}
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 100000}
+  m_IsPrefabParent: 1
+  m_IsExploded: 1
