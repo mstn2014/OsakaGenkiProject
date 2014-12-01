@@ -5,6 +5,7 @@ public class bigIvent1Mgr : MonoBehaviour {
     // マネージャー関連
     InputMgr m_btnState;        // 入力インスタンス
     FadeMgr m_scene;            // シーン遷移マネージ
+	SoundMgr m_sound;           // サウンド
 
     // コンポーネント関連
     Guide m_guide;
@@ -21,6 +22,8 @@ public class bigIvent1Mgr : MonoBehaviour {
         GlobalSetting gs = Resources.Load<GlobalSetting>("Setting/GlobalSetting");
         m_btnState = gs.InputMgr;
         m_scene = gs.FadeMgr;
+		m_sound = gs.SoundMgr;
+		m_sound.PlayBigIvent();
 
         m_isStart = false;
 

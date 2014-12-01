@@ -9,6 +9,7 @@ public class ResultMgr : MonoBehaviour {
     UILabel m_pointLabel;       // 得点を表示するラベル
     InputMgr m_inputMgr;        // インプット
     FadeMgr m_fadeMgr;          // フェード
+	SoundMgr m_sound;          	// サウンド
     
     // ローカル変数
     SaveData.eState m_state;    // どのシーンから飛んできたか。どのシーンの結果を返すか判断するフラグ。
@@ -49,7 +50,8 @@ public class ResultMgr : MonoBehaviour {
         GlobalSetting gs = Resources.Load<GlobalSetting>("Setting/GlobalSetting");
         m_inputMgr = gs.InputMgr;
         m_fadeMgr = gs.FadeMgr;
-
+		m_sound = gs.SoundMgr;
+		m_sound.PlayResult();
 	}
 	
 	// Update is called once per frame

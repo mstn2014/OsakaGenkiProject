@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class Guide : MonoBehaviour
 {
     InputMgr m_btnState;                    // 入力インスタンス
+	SoundMgr m_sound;          				// サウンド
     WindowMgr m_windowMgr;                  // ウィンドウマネージャー
     GuideMgr m_guideMgr;                    // ガイド役のマネージャー
     List<string> m_messageText;             // メッセージデータ
@@ -33,6 +34,11 @@ public class Guide : MonoBehaviour
         IsUse = false;
     }
 
+	void Start () {
+		GlobalSetting gs = Resources.Load<GlobalSetting>("Setting/GlobalSetting");
+		m_sound = gs.SoundMgr;
+	}
+
     // Update is called once per frame
     void Update()
     {
@@ -43,6 +49,7 @@ public class Guide : MonoBehaviour
         if (m_btnState.RedButtonTrigger && m_windowMgr.IsFinished && (m_messageText.Count > (m_messageIndex + 1)))
         {
             m_windowMgr.Text = m_messageText[++m_messageIndex];
+			m_sound.PlaySeReturn();
         }
         //　メッセージが最後まで行った時の処理 
         else if (m_btnState.RedButtonTrigger && m_windowMgr.IsFinished && (m_messageText.Count == (m_messageIndex + 1)))

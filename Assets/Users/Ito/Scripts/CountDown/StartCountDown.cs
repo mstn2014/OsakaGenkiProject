@@ -16,6 +16,7 @@ public class StartCountDown : MonoBehaviour {
 
     bool m_isFinished = false;                 // カウントが終わったらtrue
     UISprite m_sprite;
+	SoundMgr m_sound;          				   // サウンド
 
     [Header("カウントダウンの表示時間")]
     public float m_time = 0.7f;
@@ -35,6 +36,12 @@ public class StartCountDown : MonoBehaviour {
 	void Awake () {
         m_sprite = GetComponent<UISprite>();
         Reset();
+	}
+
+	void Start () {
+		// 入力クラスの取得
+		GlobalSetting gs = Resources.Load<GlobalSetting>("Setting/GlobalSetting");
+		m_sound = gs.SoundMgr;
 	}
 	
 	// Update is called once per frame
@@ -57,23 +64,27 @@ public class StartCountDown : MonoBehaviour {
     IEnumerator CountDown()
     {
         m_sprite.enabled = true;
+		m_sound.PlaySeCountDown();
         // m_time秒待つ
         yield return new WaitForSeconds(m_time);
 
         // ここで次のテクスチャに切り替える
         ChangeSprite(two);
+		m_sound.PlaySeCountDown();
 
         // m_time秒待つ
         yield return new WaitForSeconds(m_time);
 
         // ここで次のテクスチャに切り替える
         ChangeSprite(one);
+		m_sound.PlaySeCountDown();
 
         // m_time秒待つ
         yield return new WaitForSeconds(m_time);
 
         // ここで次のテクスチャに切り替える
         ChangeSprite(start);
+		m_sound.PlaySeStart();
 
         // m_time秒待つ
         yield return new WaitForSeconds(m_time);

@@ -13,11 +13,13 @@ public class SoundMgr : SingletonMonoBehaviourFast<SoundMgr>
     AudioClip bgm_title;            // タイトル
     AudioClip bgm_smallIvent;       // 小イベント
     AudioClip bgm_bigIvent;         // 大イベント
+	AudioClip bgm_nameInput;		// 名前入力時
     AudioClip bgm_game1;            // ゲーム１
     AudioClip bgm_game2;            // ゲーム２
     AudioClip bgm_game3;            // ゲーム３
     AudioClip bgm_ranking;          // ランキング登録シーン
     AudioClip bgm_ending;           // エンディングシーン
+	AudioClip bgm_result;           // リザルト
 
     // Game2の曲
     AudioClip[] bgm_dance = new AudioClip[5];          // ゲーム２の音楽
@@ -32,7 +34,11 @@ public class SoundMgr : SingletonMonoBehaviourFast<SoundMgr>
     AudioClip se_moveCharctor;	    // キャラクター移動音
     AudioClip se_displayWindow;	    // メッセージウィンドウ表示音
     AudioClip se_cheer;             // 歓声
-    AudioClip se_handclap;          // 拍手			
+    AudioClip se_handclap;          // 拍手
+	AudioClip se_Cuccess;			// 成功音
+	AudioClip se_Start;				// スタート音
+	AudioClip se_Miss;				// 失敗音
+	AudioClip se_Question;			// 問題出題音
 
     // time
     float time;
@@ -41,7 +47,7 @@ public class SoundMgr : SingletonMonoBehaviourFast<SoundMgr>
 
     AudioSource audioSourceBGM;
 
-    AudioSource[] audioSourceSE = new AudioSource[10];
+    AudioSource[] audioSourceSE = new AudioSource[14];
 
     public void Awake()
     {
@@ -53,6 +59,12 @@ public class SoundMgr : SingletonMonoBehaviourFast<SoundMgr>
         DontDestroyOnLoad(this);
 
         bgm_title = Resources.Load<AudioClip>(bgmPath+"title");
+		bgm_bigIvent = Resources.Load<AudioClip>(bgmPath+"BigIvent1BGM");
+		bgm_nameInput = Resources.Load<AudioClip>(bgmPath+"name_inputBGM");
+		bgm_game1 = Resources.Load<AudioClip>(bgmPath+"Game_1BGM");
+		bgm_game2 = Resources.Load<AudioClip>(bgmPath+"Game_2BGM");
+		bgm_game3 = Resources.Load<AudioClip>(bgmPath+"Game_3BGM");
+		bgm_result = Resources.Load<AudioClip>(bgmPath+"result");
 
         
         bgm_dance[0] = Resources.Load<AudioClip>(bgmPath + "bonodori");
@@ -63,11 +75,17 @@ public class SoundMgr : SingletonMonoBehaviourFast<SoundMgr>
 
         se_return = Resources.Load<AudioClip>(sePath+"return");
         se_cancel = Resources.Load<AudioClip>(sePath+"cancel");
+		se_moveCursor = Resources.Load<AudioClip>(sePath+"serect");
+		se_Miss = Resources.Load<AudioClip>(sePath+"miss");
+		se_countDown = Resources.Load<AudioClip>(sePath+"count");
+		se_Start = Resources.Load<AudioClip>(sePath+"start");
+		se_Cuccess = Resources.Load<AudioClip>(sePath+"cuccess");
+		se_Question = Resources.Load<AudioClip>(sePath+"question");
 
         //audioSourceBGM = GetComponent<AudioSource> ();
         audioSourceBGM = this.gameObject.AddComponent<AudioSource>();
 
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 14; i++)
         {
             audioSourceSE[i] = this.gameObject.AddComponent<AudioSource>();
             audioSourceSE[i].mute = mute;
@@ -78,12 +96,48 @@ public class SoundMgr : SingletonMonoBehaviourFast<SoundMgr>
         // ミュートにするかどうか
         audioSourceBGM.mute = mute;
     }
-
+	// タイトル
     public void PlayTitleBGM()
     {
         audioSourceBGM.clip = bgm_title;
         audioSourceBGM.Play();
     }
+	// 大イベント１
+	public void PlayBigIvent()
+	{
+		audioSourceBGM.clip = bgm_bigIvent;
+		audioSourceBGM.Play();
+	}
+	// 名前入力
+	public void PlayNameInput()
+	{
+		audioSourceBGM.clip = bgm_nameInput;
+		audioSourceBGM.Play();
+	}
+	// ゲーム1
+	public void PlayGame_1()
+	{
+		audioSourceBGM.clip = bgm_game1;
+		audioSourceBGM.Play();
+	}	
+	// ゲーム2
+	public void PlayGame_2()
+	{
+		audioSourceBGM.clip = bgm_game2;
+		audioSourceBGM.Play();
+	}	
+	// ゲーム3
+	public void PlayGame_3()
+	{
+		audioSourceBGM.clip = bgm_game3;
+		audioSourceBGM.Play();
+	}
+	// リザルト
+	public void PlayResult()
+	{
+		audioSourceBGM.clip = bgm_result;
+		audioSourceBGM.Play();
+	}
 
     public void PlayDanceBGM(int no)
     {
@@ -107,4 +161,35 @@ public class SoundMgr : SingletonMonoBehaviourFast<SoundMgr>
     {
         audioSourceSE[1].PlayOneShot(se_cancel);
     }
+
+	public void PlaySeMoveCursor()
+	{
+		audioSourceSE[3].PlayOneShot(se_moveCursor);
+	}
+
+	public void PlaySeCountDown()
+	{
+		audioSourceSE[5].PlayOneShot(se_countDown);
+	}
+
+	public void PlaySeCuccess()
+	{
+		audioSourceSE[10].PlayOneShot(se_Cuccess);
+	}
+
+	public void PlaySeStart()
+	{
+		audioSourceSE[11].PlayOneShot(se_Start);
+	}
+
+	public void PlaySeMiss()
+	{
+		audioSourceSE[12].PlayOneShot(se_Miss);
+	}
+
+	public void PlaySeQuestion()
+	{
+		audioSourceSE[13].PlayOneShot(se_Question);
+	}
+
 }
