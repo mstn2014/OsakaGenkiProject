@@ -17,7 +17,9 @@ public class Game2LabelMgr : MonoBehaviour
 	private GameObject m_safeLabel;			//	"Safe!!"と書かれたラベル.
 	private GameObject m_goodLabel;			//	"Good!!"と書かれたラベル.
 	private GameObject m_perfectLabel;		//	"perfect!!"と書かれたラベル.
-    private GameObject m_dispLabel;         // 成功を表示するオブジェクト.
+    private GameObject[] m_dispLabel;         // 成功を表示するオブジェクト.
+    private int m_index;
+    public Transform m_parent;              // 親オブジェクト
 
 
     // 設定ファイル
@@ -30,10 +32,12 @@ public class Game2LabelMgr : MonoBehaviour
         // 設定ファイルの読み込み
         Setting = Resources.Load<Game2Setting>("Setting/Game2Setting");
         // ラベルオブジェクトの読み込み
-		m_missLabel = Resources.Load<GameObject>("Prefab/Game2/LabelMiss");
-		m_safeLabel = Resources.Load<GameObject>("Prefab/Game2/LabelSafe");
-		m_goodLabel = Resources.Load<GameObject>("Prefab/Game2/LabelGood");
-		m_perfectLabel = Resources.Load<GameObject>("Prefab/Game2/LabelPerfect");
+		m_missLabel = Resources.Load<GameObject>("Effect/Prefab/Eff_bad");
+        m_safeLabel = Resources.Load<GameObject>("Effect/Prefab/Eff_Safe");
+        m_goodLabel = Resources.Load<GameObject>("Effect/Prefab/Eff_good");
+        m_perfectLabel = Resources.Load<GameObject>("Effect/Prefab/Eff_perfect");
+        m_index = 0;
+        m_dispLabel = new GameObject[3];
 	}
 	
 	// Update is called once per frame
@@ -63,24 +67,32 @@ public class Game2LabelMgr : MonoBehaviour
 	//======================================================
 	public void Call(string labelName)
 	{
+        if (m_dispLabel[m_index] != null)
+        {
+            Destroy(m_dispLabel[m_index]);
+        }
+
 		switch(labelName)
 		{
 			case "safe":
-				m_dispLabel = Instantiate(m_safeLabel,transform.position,transform.rotation) as GameObject;
+				m_dispLabel[m_index] = Instantiate(m_safeLabel,Vector3.zero,Quaternion.identity) as GameObject;
 				break;
 			
 			case "miss":
-				m_dispLabel = Instantiate(m_missLabel,transform.position,transform.rotation) as GameObject; 
+                m_dispLabel[m_index] = Instantiate(m_missLabel, Vector3.zero, Quaternion.identity) as GameObject; 
 				break;
 
 			case "good":
-				m_dispLabel = Instantiate(m_goodLabel,transform.position,transform.rotation) as GameObject; 
+                m_dispLabel[m_index] = Instantiate(m_goodLabel, Vector3.zero, Quaternion.identity) as GameObject; 
 				break;
 
 			case "perfect":
-				m_dispLabel = Instantiate(m_perfectLabel,transform.position,transform.rotation) as GameObject; 
+                m_dispLabel[m_index] = Instantiate(m_perfectLabel, Vector3.zero, Quaternion.identity) as GameObject; 
 				break;
 		}
-		m_dispLabel.transform.parent = this.transform;
+        m_dispLabel[m_index].transform.parent = m_parent;
+        m_dispLabel[m_index].transform.localPosition = new Vector3(0,0,10 - 0.0001f*m_index);
+        m_index++;
+        if (m_index >= 3) m_index = 0;
 	}
 }
