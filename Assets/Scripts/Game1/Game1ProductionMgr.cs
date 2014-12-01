@@ -6,6 +6,7 @@ public class Game1ProductionMgr : MonoBehaviour {
 	private Game1EffectMgr	m_effect;	// エフェクト
 	private Game1ObjMgr		m_objmgr;	// オブジェ
     public Game1PlayerController m_player;  // プレイヤー
+	SoundMgr m_sound;          		// サウンド
 
 
 	public bool IsEnd{
@@ -17,6 +18,9 @@ public class Game1ProductionMgr : MonoBehaviour {
         m_effect = GetComponent<Game1EffectMgr>();
         m_objmgr = GetComponent<Game1ObjMgr>();
 		m_end = true;
+
+		GlobalSetting gs = Resources.Load<GlobalSetting>("Setting/GlobalSetting");
+		m_sound = gs.SoundMgr;
 	}
 	
 	// Update is called once per frame
@@ -37,6 +41,7 @@ public class Game1ProductionMgr : MonoBehaviour {
         {
             case 0:
                 m_player.DoPose();
+				m_sound.PlaySeHandclap();
                 break;
             case 1:
             case 2:
@@ -58,11 +63,11 @@ public class Game1ProductionMgr : MonoBehaviour {
 		// サークル削除
 		m_effect.InitCircle ();
 		// 次の場所へ行く
+		m_sound.PlaySeRan();
 		StartCoroutine(m_objmgr.MoveObj());
 		while (m_objmgr.IsPause) {
 			yield return null;		
 		}
-
 		m_end = true;
 	}
 }

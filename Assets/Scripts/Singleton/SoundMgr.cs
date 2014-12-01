@@ -39,6 +39,7 @@ public class SoundMgr : SingletonMonoBehaviourFast<SoundMgr>
 	AudioClip se_Start;				// スタート音
 	AudioClip se_Miss;				// 失敗音
 	AudioClip se_Question;			// 問題出題音
+	AudioClip se_Ran;				// 走り音
 
     // time
     float time;
@@ -47,7 +48,7 @@ public class SoundMgr : SingletonMonoBehaviourFast<SoundMgr>
 
     AudioSource audioSourceBGM;
 
-    AudioSource[] audioSourceSE = new AudioSource[14];
+    AudioSource[] audioSourceSE = new AudioSource[15];
 
     public void Awake()
     {
@@ -81,11 +82,13 @@ public class SoundMgr : SingletonMonoBehaviourFast<SoundMgr>
 		se_Start = Resources.Load<AudioClip>(sePath+"start");
 		se_Cuccess = Resources.Load<AudioClip>(sePath+"cuccess");
 		se_Question = Resources.Load<AudioClip>(sePath+"question");
+		se_handclap = Resources.Load<AudioClip>(sePath+"kansei");
+		se_Ran = Resources.Load<AudioClip>(sePath+"ran");
 
         //audioSourceBGM = GetComponent<AudioSource> ();
         audioSourceBGM = this.gameObject.AddComponent<AudioSource>();
 
-        for (int i = 0; i < 14; i++)
+        for (int i = 0; i < 15; i++)
         {
             audioSourceSE[i] = this.gameObject.AddComponent<AudioSource>();
             audioSourceSE[i].mute = mute;
@@ -172,6 +175,11 @@ public class SoundMgr : SingletonMonoBehaviourFast<SoundMgr>
 		audioSourceSE[5].PlayOneShot(se_countDown);
 	}
 
+	public void PlaySeHandclap()
+	{
+		audioSourceSE[9].PlayOneShot(se_handclap);
+	}
+
 	public void PlaySeCuccess()
 	{
 		audioSourceSE[10].PlayOneShot(se_Cuccess);
@@ -190,6 +198,11 @@ public class SoundMgr : SingletonMonoBehaviourFast<SoundMgr>
 	public void PlaySeQuestion()
 	{
 		audioSourceSE[13].PlayOneShot(se_Question);
+	}
+
+	public void PlaySeRan()
+	{
+		audioSourceSE[14].PlayOneShot(se_Ran);
 	}
 
 }
