@@ -32,7 +32,7 @@ public class Game3Balancer : MonoBehaviour {
 
         Speed = 2.0f;
         DanceTime = 3.0f;
-        Difficulty = 0.1f;
+        Difficulty = 0.5f;
 	}
 	
 	// Update is called once per frame

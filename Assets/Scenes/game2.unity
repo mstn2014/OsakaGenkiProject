@@ -211,6 +211,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1097382853}
   - {fileID: 1966449725}
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -446,7 +447,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 35087599}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: kata_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -474,7 +475,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 43446831}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: kata_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -541,6 +542,14 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 19900000, guid: 908c0510a4f8df64bb2f631e741f703c, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900000, guid: 908c0510a4f8df64bb2f631e741f703c, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 908c0510a4f8df64bb2f631e741f703c, type: 2}
   m_RootGameObject: {fileID: 573055366}
@@ -554,7 +563,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 48512816}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: tekubi_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -600,7 +609,7 @@ Transform:
   m_PrefabInternal: {fileID: 1067539777}
   m_GameObject: {fileID: 51448755}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.366068602, y: -6.18857384, z: 4.38909435}
+  m_LocalPosition: {x: -.366068602, y: -7.06316948, z: 4.5028348}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2117882155}
@@ -1676,8 +1685,8 @@ ParticleSystemRenderer:
   m_PrefabInternal: {fileID: 660609557}
   m_GameObject: {fileID: 58481134}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
@@ -1821,7 +1830,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 75073295}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: kusuri3_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1905,7 +1914,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 92712636}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: polySurface16
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3224,7 +3233,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 119179699}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: hito2_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3280,7 +3289,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 131021332}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3310,7 +3319,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 133565530}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: naka4_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3432,7 +3441,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 142431437}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: oya4_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3510,6 +3519,14 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 06c7350258e403c4097480d9bd4fc6a1, type: 2}
+    - target: {fileID: 2300000, guid: 9d255314fd48d494b85ed73484d636b8, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 9d255314fd48d494b85ed73484d636b8, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9d255314fd48d494b85ed73484d636b8, type: 2}
   m_RootGameObject: {fileID: 1044907234}
@@ -3630,6 +3647,14 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 9672f045bc112a54796a93c271e7940e, type: 2}
+    - target: {fileID: 2300000, guid: 9d255314fd48d494b85ed73484d636b8, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 9d255314fd48d494b85ed73484d636b8, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9d255314fd48d494b85ed73484d636b8, type: 2}
   m_RootGameObject: {fileID: 1263058407}
@@ -3643,7 +3668,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 171250239}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: hiji_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3671,7 +3696,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 182920094}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: hito1_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4967,7 +4992,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 199752141}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: hito1_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6327,7 +6352,7 @@ GameObject:
   - 4: {fileID: 212233076}
   - 33: {fileID: 212233078}
   - 23: {fileID: 212233077}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6383,7 +6408,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 212985791}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: tukene_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6756,7 +6781,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 231955565}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: hiza_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6784,7 +6809,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 245032806}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: hito3_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6871,8 +6896,8 @@ ParticleSystemRenderer:
   m_PrefabInternal: {fileID: 660609557}
   m_GameObject: {fileID: 255904505}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
@@ -10627,7 +10652,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 337061686}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: asikubi_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10702,8 +10727,8 @@ Renderer:
   m_PrefabInternal: {fileID: 1250093213}
   m_GameObject: {fileID: 339756281}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
@@ -10743,7 +10768,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 340853987}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: kusuri2_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10771,7 +10796,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 346398352}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: kusuri4_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10876,6 +10901,14 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b7c0adedb00167546901e529b61cbba1, type: 2}
+    - target: {fileID: 2300000, guid: 9d255314fd48d494b85ed73484d636b8, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 9d255314fd48d494b85ed73484d636b8, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9d255314fd48d494b85ed73484d636b8, type: 2}
   m_RootGameObject: {fileID: 756437311}
@@ -10891,7 +10924,7 @@ GameObject:
   - 4: {fileID: 368211254}
   - 33: {fileID: 368211256}
   - 23: {fileID: 368211255}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: kuti
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12124,7 +12157,7 @@ GameObject:
   - 4: {fileID: 399231874}
   - 33: {fileID: 399231876}
   - 23: {fileID: 399231875}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: polySurface35
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12211,7 +12244,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 416661326}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: hito4_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12513,7 +12546,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 447282112}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: kusuri4_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12540,7 +12573,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 469554068}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: oya1_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12624,7 +12657,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 485137989}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: hito2_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12652,7 +12685,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 490030792}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sakotu_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12680,7 +12713,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 492034907}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: kubi2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12736,7 +12769,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 496401722}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: oya3_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12765,7 +12798,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 505216219}
   - 137: {fileID: 505216220}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: foot2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13891,8 +13924,8 @@ ParticleSystemRenderer:
   m_PrefabInternal: {fileID: 660609557}
   m_GameObject: {fileID: 507598004}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
@@ -13924,7 +13957,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 519031437}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ko2_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13952,7 +13985,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 525717840}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: asi_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14008,8 +14041,8 @@ Renderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 526834996}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
@@ -15257,8 +15290,8 @@ Renderer:
   m_PrefabInternal: {fileID: 1823898682}
   m_GameObject: {fileID: 565021906}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
@@ -16415,8 +16448,8 @@ ParticleSystemRenderer:
   m_PrefabInternal: {fileID: 46977802}
   m_GameObject: {fileID: 573055366}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
@@ -17501,7 +17534,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 575742435}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: polySurface54
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17577,8 +17610,8 @@ Renderer:
   m_PrefabInternal: {fileID: 1146610558}
   m_GameObject: {fileID: 578259152}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
@@ -17861,7 +17894,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 607938235}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: tukene_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17889,7 +17922,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 608185849}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: hiji_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19456,8 +19489,8 @@ Renderer:
   m_PrefabInternal: {fileID: 1213043900}
   m_GameObject: {fileID: 660236797}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
@@ -19540,6 +19573,50 @@ Prefab:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 19900000, guid: 965fb7907d44e4dcfa08b3c33b196065, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900000, guid: 965fb7907d44e4dcfa08b3c33b196065, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900004, guid: 965fb7907d44e4dcfa08b3c33b196065, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900004, guid: 965fb7907d44e4dcfa08b3c33b196065, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900002, guid: 965fb7907d44e4dcfa08b3c33b196065, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900002, guid: 965fb7907d44e4dcfa08b3c33b196065, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900010, guid: 965fb7907d44e4dcfa08b3c33b196065, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900010, guid: 965fb7907d44e4dcfa08b3c33b196065, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900006, guid: 965fb7907d44e4dcfa08b3c33b196065, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900006, guid: 965fb7907d44e4dcfa08b3c33b196065, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 965fb7907d44e4dcfa08b3c33b196065, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 965fb7907d44e4dcfa08b3c33b196065, type: 2}
   m_RootGameObject: {fileID: 1458818145}
@@ -19553,7 +19630,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 662759640}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: hito3_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19583,7 +19660,7 @@ GameObject:
   - 4: {fileID: 675889437}
   - 33: {fileID: 675889439}
   - 23: {fileID: 675889438}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: mayu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19725,8 +19802,8 @@ ParticleSystemRenderer:
   m_PrefabInternal: {fileID: 660609557}
   m_GameObject: {fileID: 681964509}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
@@ -20815,7 +20892,7 @@ Transform:
   m_PrefabInternal: {fileID: 1976962389}
   m_GameObject: {fileID: 684569385}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.06425407e-09, y: -7.63474941, z: 5.0666213}
+  m_LocalPosition: {x: .954922915, y: -7.88907242, z: 4.4631896}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 565965330}
@@ -20885,7 +20962,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 696994065}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: polySurface12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20970,7 +21047,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 722141886}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: naka4_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21082,7 +21159,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 723463783}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ko2_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21110,7 +21187,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 724355848}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: tekubi_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21198,7 +21275,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 736000059}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: naka3_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21329,8 +21406,8 @@ Renderer:
   m_PrefabInternal: {fileID: 1937984180}
   m_GameObject: {fileID: 752214405}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
@@ -21473,8 +21550,8 @@ Renderer:
   m_PrefabInternal: {fileID: 366369576}
   m_GameObject: {fileID: 756437311}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
@@ -21621,6 +21698,14 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 2241fc796e586ea429f308d4d5fd9478, type: 2}
+    - target: {fileID: 2300000, guid: 9d255314fd48d494b85ed73484d636b8, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 9d255314fd48d494b85ed73484d636b8, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9d255314fd48d494b85ed73484d636b8, type: 2}
   m_RootGameObject: {fileID: 963987211}
@@ -21802,7 +21887,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 785564320}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: tumasaki_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24176,11 +24261,11 @@ MonoBehaviour:
     e00: 540
     e01: 0
     e02: 0
-    e03: -277.953918
+    e03: -276.748535
     e10: 0
     e11: 540
     e12: 0
-    e13: -720.775452
+    e13: -721.980835
     e20: 0
     e21: 0
     e22: 540
@@ -25480,8 +25565,8 @@ ParticleSystemRenderer:
   m_PrefabInternal: {fileID: 1810852986}
   m_GameObject: {fileID: 842274053}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
@@ -27838,7 +27923,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 860586855}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: naka2_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28146,8 +28231,8 @@ Renderer:
   m_PrefabInternal: {fileID: 1860241151}
   m_GameObject: {fileID: 937194386}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
@@ -28358,8 +28443,8 @@ Renderer:
   m_PrefabInternal: {fileID: 766399741}
   m_GameObject: {fileID: 963987211}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
@@ -28399,7 +28484,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 965567179}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ko3_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28427,7 +28512,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 976040579}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: hiza_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28513,7 +28598,7 @@ GameObject:
   - 4: {fileID: 983967017}
   - 33: {fileID: 983967019}
   - 23: {fileID: 983967018}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: hear1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28569,7 +28654,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 987863496}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: hito4_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28799,7 +28884,7 @@ Transform:
   m_PrefabInternal: {fileID: 2021395631}
   m_GameObject: {fileID: 993518638}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.960112274, y: -6.32171965, z: 4.72038412}
+  m_LocalPosition: {x: -1.71579981, y: -7.03964472, z: 4.48361921}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 999192222}
@@ -30197,8 +30282,8 @@ Renderer:
   m_PrefabInternal: {fileID: 157468953}
   m_GameObject: {fileID: 1044907234}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
@@ -30265,7 +30350,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1062265801}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: kusuri3_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30410,11 +30495,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400014, guid: 889aa4cba6a8847ccbf3d6a74b6d5dee, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -6.18857384
+      value: -7.06316948
       objectReference: {fileID: 0}
     - target: {fileID: 400014, guid: 889aa4cba6a8847ccbf3d6a74b6d5dee, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 4.38909435
+      value: 4.5028348
       objectReference: {fileID: 0}
     - target: {fileID: 400014, guid: 889aa4cba6a8847ccbf3d6a74b6d5dee, type: 2}
       propertyPath: m_LocalRotation.x
@@ -30444,6 +30529,10 @@ Prefab:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 100014, guid: 889aa4cba6a8847ccbf3d6a74b6d5dee, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 889aa4cba6a8847ccbf3d6a74b6d5dee, type: 2}
   m_RootGameObject: {fileID: 51448755}
@@ -30457,7 +30546,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1070969292}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: naka1_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30522,6 +30611,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: e2d035a998cb7412586a8174002ec39e, type: 2}
       propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e2d035a998cb7412586a8174002ec39e, type: 2}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -30593,7 +30686,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1072581298}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: oya2_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30793,7 +30886,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1092009045}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: oya1_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30813,6 +30906,69 @@ Transform:
   - {fileID: 1072581298}
   m_Father: {fileID: 724355848}
   m_RootOrder: 4
+--- !u!1 &1097382851
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1097382853}
+  - 108: {fileID: 1097382852}
+  m_Layer: 0
+  m_Name: Playerlight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!108 &1097382852
+Light:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1097382851}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Type: 1
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 1
+  m_Range: 10
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 2
+    m_Resolution: -1
+    m_Strength: .200000003
+    m_Bias: .5
+    m_Softness: 4
+    m_SoftnessFade: 1
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_ActuallyLightmapped: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 256
+  m_Lightmapping: 1
+  m_ShadowSamples: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+  m_IndirectIntensity: 1
+  m_AreaSize: {x: 1, y: 1}
+--- !u!4 &1097382853
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1097382851}
+  m_LocalRotation: {x: .408217937, y: -.234569728, z: .109381661, w: .875426114}
+  m_LocalPosition: {x: 0, y: 1.31105399, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 11227432}
+  m_RootOrder: 0
 --- !u!1001 &1104463388
 Prefab:
   m_ObjectHideFlags: 0
@@ -30872,6 +31028,14 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: d5b1aa05570c0e74f9c59c8fa7b03ee5, type: 2}
+    - target: {fileID: 2300000, guid: 9d255314fd48d494b85ed73484d636b8, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 9d255314fd48d494b85ed73484d636b8, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9d255314fd48d494b85ed73484d636b8, type: 2}
   m_RootGameObject: {fileID: 1784457944}
@@ -31091,7 +31255,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1136360567}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: kusuri1_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32285,6 +32449,14 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: aa669f8d78b1f5441990dd2baf5cd75f, type: 2}
+    - target: {fileID: 2300000, guid: 9d255314fd48d494b85ed73484d636b8, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 9d255314fd48d494b85ed73484d636b8, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9d255314fd48d494b85ed73484d636b8, type: 2}
   m_RootGameObject: {fileID: 578259152}
@@ -32298,7 +32470,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1147901826}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: naka1_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32382,7 +32554,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1163418993}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: oya2_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32492,6 +32664,338 @@ Prefab:
     - target: {fileID: 2300000, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
       propertyPath: m_CastShadows
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100044, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100046, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100154, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100080, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100136, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100030, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100146, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100108, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100126, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100022, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100026, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100024, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100012, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100160, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100042, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100034, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100074, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100084, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100086, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100140, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100036, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100082, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100112, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100028, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100150, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100068, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100122, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100016, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100054, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100144, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100158, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100020, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100032, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100088, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100132, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100106, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100052, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100156, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100102, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100162, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100100, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100058, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100040, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100018, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100038, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100078, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100094, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100118, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100114, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100070, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100096, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100116, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100124, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100138, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100014, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100090, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100062, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100128, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100076, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100092, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100048, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100164, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100066, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100148, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100120, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100142, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100134, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100110, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100098, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100060, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100064, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100130, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100050, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100056, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100072, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100010, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100152, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100104, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
@@ -32645,7 +33149,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1209156916}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: oya4_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32723,6 +33227,14 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: ac1b233a4505a634388067996f1aaa99, type: 2}
+    - target: {fileID: 2300000, guid: 9d255314fd48d494b85ed73484d636b8, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 9d255314fd48d494b85ed73484d636b8, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9d255314fd48d494b85ed73484d636b8, type: 2}
   m_RootGameObject: {fileID: 660236797}
@@ -35024,7 +35536,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1231520442}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: polySurface32
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35081,8 +35593,8 @@ Renderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1232121807}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
@@ -36313,6 +36825,14 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: f9265c97ddeab7246a3afabbe43375a7, type: 2}
+    - target: {fileID: 2300000, guid: 9d255314fd48d494b85ed73484d636b8, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 9d255314fd48d494b85ed73484d636b8, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9d255314fd48d494b85ed73484d636b8, type: 2}
   m_RootGameObject: {fileID: 339756281}
@@ -36429,8 +36949,8 @@ Renderer:
   m_PrefabInternal: {fileID: 168183163}
   m_GameObject: {fileID: 1263058407}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
@@ -37783,7 +38303,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1314307800}
   - 137: {fileID: 1314307801}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: foot1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39099,7 +39619,7 @@ GameObject:
   - 4: {fileID: 1420883711}
   - 95: {fileID: 1420883712}
   - 114: {fileID: 1420883713}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Game2Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39157,7 +39677,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1422820052}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: asikubi_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39297,7 +39817,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1447844324}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ko4_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39405,7 +39925,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1458818146
 Transform:
   m_ObjectHideFlags: 0
@@ -40813,7 +41333,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1491314204}
   - 137: {fileID: 1491314205}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pantsu1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41036,7 +41556,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1511405625}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: kusuri2_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41096,8 +41616,8 @@ ParticleSystemRenderer:
   m_PrefabInternal: {fileID: 660609557}
   m_GameObject: {fileID: 1514404842}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
@@ -42167,7 +42687,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1514649668}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.21865082e-05, y: 0, z: 0}
+  m_LocalPosition: {x: -1.20535254, y: 1.20538473, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 814941189}
@@ -42298,7 +42818,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1534906925}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: mune
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42390,7 +42910,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1562774196
 Transform:
   m_ObjectHideFlags: 0
@@ -42468,7 +42988,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1576780147}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ko1_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43796,7 +44316,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1624371377}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: tumasaki_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43868,7 +44388,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1644896361}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: kubi1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44045,7 +44565,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1661867518}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: atama
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45229,7 +45749,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1684290096}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sakotu_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45572,7 +46092,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1732668645}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: oya3_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45858,7 +46378,7 @@ GameObject:
   - 4: {fileID: 1755854692}
   - 33: {fileID: 1755854694}
   - 23: {fileID: 1755854693}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: polySurface37
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47047,8 +47567,8 @@ Renderer:
   m_PrefabInternal: {fileID: 1104463388}
   m_GameObject: {fileID: 1784457944}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
@@ -49453,6 +49973,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 19900000, guid: 61180c5bea217b14286d21184abdbf60, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900000, guid: 61180c5bea217b14286d21184abdbf60, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 61180c5bea217b14286d21184abdbf60, type: 2}
   m_RootGameObject: {fileID: 842274053}
@@ -49573,6 +50101,14 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 826f7960feec37740accf8d738a352cf, type: 2}
+    - target: {fileID: 2300000, guid: 9d255314fd48d494b85ed73484d636b8, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 9d255314fd48d494b85ed73484d636b8, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9d255314fd48d494b85ed73484d636b8, type: 2}
   m_RootGameObject: {fileID: 565021906}
@@ -49698,7 +50234,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1845443363}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: polySurface14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49833,6 +50369,14 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a055341cf2d528147bbb4608db27aff3, type: 2}
+    - target: {fileID: 2300000, guid: 9d255314fd48d494b85ed73484d636b8, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 9d255314fd48d494b85ed73484d636b8, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9d255314fd48d494b85ed73484d636b8, type: 2}
   m_RootGameObject: {fileID: 937194386}
@@ -51046,8 +51590,8 @@ ParticleSystemRenderer:
   m_PrefabInternal: {fileID: 1898287458}
   m_GameObject: {fileID: 1866935456}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
@@ -52340,6 +52884,14 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 19900000, guid: eab10a13cadf6e14f8b253401aa7e3d8, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900000, guid: eab10a13cadf6e14f8b253401aa7e3d8, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: eab10a13cadf6e14f8b253401aa7e3d8, type: 2}
   m_RootGameObject: {fileID: 1866935456}
@@ -52609,7 +53161,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1928079459}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: onaka
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53831,6 +54383,14 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 9d255314fd48d494b85ed73484d636b8, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 9d255314fd48d494b85ed73484d636b8, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9d255314fd48d494b85ed73484d636b8, type: 2}
   m_RootGameObject: {fileID: 752214405}
@@ -54959,7 +55519,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1957169858}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: naka2_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54987,7 +55547,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1959706331}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ko4_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55093,7 +55653,7 @@ Light:
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_Strength: .200000003
     m_Bias: .125
@@ -55106,7 +55666,7 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294966783
+    m_Bits: 4294966527
   m_Lightmapping: 1
   m_ShadowSamples: 1
   m_ShadowRadius: 0
@@ -55124,7 +55684,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 11227432}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!1001 &1976962389
 Prefab:
   m_ObjectHideFlags: 0
@@ -55134,15 +55694,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400014, guid: 54a4677e526744bb59a2d1559ac2d147, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 7.06425407e-09
+      value: .954922915
       objectReference: {fileID: 0}
     - target: {fileID: 400014, guid: 54a4677e526744bb59a2d1559ac2d147, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -7.63474941
+      value: -7.88907242
       objectReference: {fileID: 0}
     - target: {fileID: 400014, guid: 54a4677e526744bb59a2d1559ac2d147, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 5.0666213
+      value: 4.4631896
       objectReference: {fileID: 0}
     - target: {fileID: 400014, guid: 54a4677e526744bb59a2d1559ac2d147, type: 2}
       propertyPath: m_LocalRotation.x
@@ -55171,6 +55731,10 @@ Prefab:
     - target: {fileID: 400012, guid: 54a4677e526744bb59a2d1559ac2d147, type: 2}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100014, guid: 54a4677e526744bb59a2d1559ac2d147, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 54a4677e526744bb59a2d1559ac2d147, type: 2}
@@ -55241,7 +55805,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 2001748658}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: kosi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55376,7 +55940,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 2010423305}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: polySurface11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55406,15 +55970,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400012, guid: e11e8fd9a0e204e9298dad40467a2589, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -.960112274
+      value: -1.71579981
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: e11e8fd9a0e204e9298dad40467a2589, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -6.32171965
+      value: -7.03964472
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: e11e8fd9a0e204e9298dad40467a2589, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 4.72038412
+      value: 4.48361921
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: e11e8fd9a0e204e9298dad40467a2589, type: 2}
       propertyPath: m_LocalRotation.x
@@ -55443,6 +56007,10 @@ Prefab:
     - target: {fileID: 400010, guid: e11e8fd9a0e204e9298dad40467a2589, type: 2}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100012, guid: e11e8fd9a0e204e9298dad40467a2589, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e11e8fd9a0e204e9298dad40467a2589, type: 2}
@@ -55644,7 +56212,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 2045272013}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ko1_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55747,7 +56315,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 2064476362}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ko3_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56008,7 +56576,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 2094027968}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: kusuri1_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56093,7 +56661,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 2109230310}
   - 137: {fileID: 2109230311}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: defocos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57360,7 +57928,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 2121670648}
   - 137: {fileID: 2121670649}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: syatu1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57431,7 +57999,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 2133531256}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: asi_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57514,7 +58082,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 2136742915}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: naka3_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}

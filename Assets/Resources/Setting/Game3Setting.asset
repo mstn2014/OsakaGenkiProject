@@ -19,4 +19,4 @@ MonoBehaviour:
   MaxMoveSpeed: .600000024
   MaxDanceSpeed: 1
   PointPercent: 1
-  pash: Message/game3
+  messagePath: Message/small_event_3_0
