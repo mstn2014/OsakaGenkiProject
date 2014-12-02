@@ -59,7 +59,7 @@ public class Game1GameRoop : MonoBehaviour {
 			if (m_start) {
 				switch(m_state){
                 case GameState.guide:
-                        m_guide.Begin("Message/game1");
+                        m_guide.Begin("Message/small_event_1_0");
                         while (m_guide.IsUse)
                         {
                             yield return null;
@@ -121,8 +121,8 @@ public class Game1GameRoop : MonoBehaviour {
 					break;
 				case GameState.product:
 					m_timer.ResetTimer();		// タイマー初期化.
-					m_quest.ReadyNextRound(); 
-                    
+					m_quest.ReadyNextRound();
+                    m_timeFrame.SetActive(false);
 					while(!m_product.IsEnd){
 						yield return null;
 					}

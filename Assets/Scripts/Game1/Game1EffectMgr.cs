@@ -33,9 +33,9 @@ public class Game1EffectMgr : MonoBehaviour {
 		GAME1 = Resources.Load<Game1_Setting>("Setting/Game1_Setting");
 
 		// リソースの読み込み.
-		m_comboText = Resources.Load("Shingaki/testResource/prefab/ComboText") as GameObject;
-		m_circle = Resources.Load("Shingaki/testResource/prefab/circle") as GameObject;
-		m_result = Resources.Load("Shingaki/testResource/prefab/ResultText") as GameObject;
+		m_comboText = Resources.Load("Prefab/Game1/ComboText") as GameObject;
+        m_circle = Resources.Load("Prefab/Game1/circle") as GameObject;
+        m_result = Resources.Load("Prefab/Game1/ResultText") as GameObject;
 		m_panel = GameObject.Find ("Panel");
 
 		m_comboNum = 0;
@@ -99,19 +99,22 @@ public class Game1EffectMgr : MonoBehaviour {
 		GameObject result;
 		result = CreatePrefab.InstantiateGameObject (m_result, Vector3.zero, Quaternion.identity,
 		                                            new Vector3 (GAME1.result_ScaleXY, GAME1.result_ScaleXY, 0), m_panel);
-		UILabel workLabel = result.GetComponent ("UILabel") as UILabel;
+		UISprite workLabel = result.GetComponent<UISprite>();
 
 		switch (type) {
 		case 0:
-			workLabel.text = ("パーフェクト");
+			workLabel.spriteName = ("game1_perfect");
 		break;
 		case 1:
-			workLabel.text = ("失敗＞＜");
+			workLabel.spriteName = ("game1_miss");
 			break;
 		case 2:
-			workLabel.text = ("時間切れ＞＜");
+			workLabel.spriteName = ("game1_timeup");
 		break;
 		}
+
+        workLabel.MakePixelPerfect();
+        workLabel.transform.localScale *= 2.0f;
 
 		// テキストの透過.
 		TweenAlpha resultAlpha = result.GetComponent<TweenAlpha> ();

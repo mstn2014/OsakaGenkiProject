@@ -23,7 +23,7 @@ public class Game1ObjMgr : MonoBehaviour {
 
 		// リソースの読み込み.
 		m_gallery = Resources.Load ("Prefab/Game1/Game1Mob") as GameObject;
-		m_ground = Resources.Load ("Shingaki/testResource/prefab/Ground") as GameObject;
+        m_ground = Resources.Load("Prefab/Game1/Ground") as GameObject;
 		CreateGallery(0.0f);
 		CreateGallery(GAME1.Ground_PositionX);
 

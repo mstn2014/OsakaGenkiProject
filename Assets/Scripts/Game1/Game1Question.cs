@@ -49,8 +49,8 @@ public class Game1Question : MonoBehaviour {
 
 		// TextWindowとQuestPanelの発見と生成.
 		m_panel = GameObject.Find("Panel");
-		m_QuestPanel = Resources.Load("Shingaki/testResource/prefab/QuestPanel") as GameObject;
-		m_Quest = Resources.Load("Shingaki/testResource/prefab/Quest") as GameObject;
+        m_QuestPanel = Resources.Load("Prefab/Game1/QuestPanel") as GameObject;
+        m_Quest = Resources.Load("Prefab/Game1/Quest") as GameObject;
 		m_QuestPanel = CreatePrefab.InstantiateGameObject (m_QuestPanel, Vector3.zero, Quaternion.identity,
 		                                                   Vector3.one, m_panel);
         m_effect = GameObject.Find("GameMain").GetComponent<Game1EffectMgr>();
@@ -88,25 +88,25 @@ public class Game1Question : MonoBehaviour {
 			interval = i*(-GAME1.QuestInterval)+(GAME1.QuestInterval/2)*(m_nowQuestNum-1);
 			m_box[i].button = Instantiate(m_Quest) as GameObject;
 			m_box[i].button.transform.parent = m_QuestPanel.transform;
-			m_box[i].button.transform.localPosition = new Vector3(0,interval,0);
+			m_box[i].button.transform.localPosition = new Vector3(300,0,0);
 			GameObject button = m_box[i].button.transform.FindChild("Button").gameObject;
-			GameObject label = m_box[i].button.transform.FindChild("Label").gameObject;
+			//GameObject label = m_box[i].button.transform.FindChild("Label").gameObject;
 			UISprite sprite = button.GetComponent<UISprite>() as UISprite;
-			UILabel text = label.GetComponent<UILabel>() as UILabel;
+			//UILabel text = label.GetComponent<UILabel>() as UILabel;
 
 			if (Random.value < m_createWeight) {
 				// 黄生成.
 				// ToDo Spriteの名前は.
 				// スクリプトとラベルの設定.
-				sprite.spriteName = "Bright";
-				text.text = ("password");
+				sprite.spriteName = "game1_ui2";
+				//text.text = ("ダン・ゴー");
 				m_box[i].ans = 1;
 				m_createWeight -= GAME1.WeightValue;
 				m_sound.PlaySeQuestion();
 			}else{
 				// 緑生成.
-				sprite.spriteName = "Smooth";
-				text.text = ("pause");
+				sprite.spriteName = "game1_ui3";
+				//text.text = ("ジェスチャー");
 				m_box[i].ans = 2;
 				m_createWeight += GAME1.WeightValue;
 				m_sound.PlaySeQuestion();
@@ -114,11 +114,13 @@ public class Game1Question : MonoBehaviour {
 			
 			// 生成後時間をおく.
 			yield return new WaitForSeconds(1f);
+            HideButton(i);
+            yield return new WaitForSeconds(0.3f); 
 		}
 		yield return new WaitForSeconds(1f);
-		for(int i=0; i<m_nowQuestNum; i++){
+		/*for(int i=0; i<m_nowQuestNum; i++){
 			HideButton(i);
-		}
+		}*/
 		m_create = true;
 		m_clear = false;
 	}
@@ -135,7 +137,7 @@ public class Game1Question : MonoBehaviour {
 		if (ans == m_box [m_nowAns].ans) {
 			Debug.Log ("正解");
 			m_sound.PlaySeCuccess();
-			DispButton (m_nowAns);
+			//DispButton (m_nowAns);
 			m_nowAns++;
 
 			///// エフェクト /////

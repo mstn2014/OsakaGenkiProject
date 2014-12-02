@@ -33,7 +33,7 @@ public class bigIvent1Mgr : MonoBehaviour {
     IEnumerator BeginScene()
     {
         yield return new WaitForSeconds(3.0f);
-        m_guide.Begin("Message/bigIvent1");
+        m_guide.Begin("Message/big_event_1");
         m_isStart = true;
     }
 	

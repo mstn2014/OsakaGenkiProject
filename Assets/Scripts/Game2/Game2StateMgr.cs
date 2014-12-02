@@ -66,7 +66,7 @@ public class Game2StateMgr : MonoBehaviour {
         // テキストを読み込んでおく
         ParseMessageText textParser = new ParseMessageText();
         m_messageText = new List<string>();
-        m_messageText = textParser.LoadText(m_sceneSetting.messageTextPath);
+        //m_messageText = textParser.LoadText(m_sceneSetting.messageTextPath);
         m_messageIndex = 0;
 
 		//　イベント関連読み込み
@@ -136,7 +136,7 @@ public class Game2StateMgr : MonoBehaviour {
         // 3秒待つ
         yield return new WaitForSeconds(3.0f);
 
-        m_guide.Begin("Message/game2");
+        m_guide.Begin("Message/small_event_2_0");
         m_state = Game2State.GUIDE;
     }
 
@@ -294,6 +294,7 @@ public class Game2StateMgr : MonoBehaviour {
         yield return new WaitForSeconds(3.0f);
         m_saveData.game2Score = m_scoreMgr.Score;
         m_saveData.gameState = SaveData.eState.GAME2;
+        UnityEditor.EditorUtility.SetDirty(m_saveData);
         m_fadeMgr.LoadLevel("result");
         // GameObject.Find("DebugLog").GetComponent<UILabel>().text = "Rank:" + CalcRank() + "    Score:" + m_scoreMgr.Score.ToString(); 
         m_waitFlg = false;
