@@ -9,6 +9,9 @@ public class Game3Balancer : MonoBehaviour {
     float m_waitTime;                        // 抽選までの時間
     int m_changeDiffCount;                  // 難易度を変える成功回数
     int m_successCon;                       // 連続で成功した回数をカウント
+    
+    // public
+    public ParticleSystem m_particle;       // スピードアップのエフェクト
 
     // public 
     public float CreateTime
@@ -32,7 +35,7 @@ public class Game3Balancer : MonoBehaviour {
 
         Speed = 2.0f;
         DanceTime = 3.0f;
-        Difficulty = 0.5f;
+        Difficulty = 0.1f;
 	}
 	
 	// Update is called once per frame
@@ -46,6 +49,7 @@ public class Game3Balancer : MonoBehaviour {
         {
             UpDifficulty();
             m_successCon = 0;
+            m_particle.Play();
         }
     }
 

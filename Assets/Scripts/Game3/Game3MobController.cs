@@ -111,6 +111,8 @@ public class Game3MobController : MonoBehaviour {
                     MoveToTarget(m_sayonaraPoint, 2.0f);
                     m_lightMgr.ChangeColor("White");
                     m_balancer.Miss();
+                    m_animator.SetTrigger("IsStand");
+                    m_animator.SetFloat("speed", m_speed);
                     m_state = State.Bye;
                 }
                 break;
@@ -240,6 +242,7 @@ public class Game3MobController : MonoBehaviour {
                 m_speed = 0.0f;
                 // アニメーターにスピードをセット
                 m_animator.SetFloat("speed", m_speed);
+                m_animator.SetTrigger("IsPose");
                 LookTarget(GameObject.Find("Parade").transform);
                 break;
             case State.Bye:
@@ -300,6 +303,14 @@ public class Game3MobController : MonoBehaviour {
                 m_balancer.Success();
                 m_lightMgr.ChangeColor("White");
 				m_sound.PlaySeCuccess();
+                Hashtable param = new Hashtable(){
+                    {"y",1},
+                    {"time",0.01f},
+                    {"looptype",iTween.LoopType.loop},
+                    {"easetype",iTween.EaseType.linear},
+                    {"name",this.gameObject.name},
+                };
+                iTween.RotateBy(this.gameObject, param);
                 return true;
             }
 
@@ -317,7 +328,9 @@ public class Game3MobController : MonoBehaviour {
     //======================================================
     void OnCompleteTweenPath()
     {
+        m_animator.SetInteger("DanceType",Random.Range(0,5));
         LookTarget(GameObject.Find("Game3Player").transform);
         m_objMgr.CreateNewMob(this.gameObject);
+        iTween.StopByName(this.gameObject.name);
     }
 }
