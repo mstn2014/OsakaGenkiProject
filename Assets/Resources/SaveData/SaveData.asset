@@ -14,7 +14,7 @@ MonoBehaviour:
   userName: "\u304F\u3045"
   totalScore: 600
   game1Score: 100
-  game2Score: 221
+  game2Score: 201
   game3Score: 300
   userRank: 3
   gameState: 1

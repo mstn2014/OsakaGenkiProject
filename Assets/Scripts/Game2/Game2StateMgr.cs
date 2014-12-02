@@ -168,6 +168,7 @@ public class Game2StateMgr : MonoBehaviour {
         StartCoroutine(Count());
         m_frame.SetActive(true);
         m_waitFlg = true;
+		m_soundMgr.FadeStopBGM(0.5f);
         m_state = Game2State.GAMEREADY;
     }
 
@@ -192,6 +193,8 @@ public class Game2StateMgr : MonoBehaviour {
     {
         if (m_countDown.IsFinished)
         {
+			m_soundMgr.StopBGM();
+			m_soundMgr.FadePlayBGM(0.5f);
             m_extra.SetActive(true);
             m_state = Game2State.GAME;
             m_player.ChangeMotion((Game2ModelMotion.DanceType)(m_createButton.CountryIndex+1));

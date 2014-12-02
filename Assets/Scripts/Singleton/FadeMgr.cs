@@ -43,6 +43,7 @@ public class FadeMgr : SingletonMonoBehaviourFast<FadeMgr>
 		//だんだん暗く
 		this.isFading = true;
 		float time = 0;
+		m_sound.FadeStopBGM(0.5f);
 		while (time <= interval)
 		{
 			this.fadeAlpha = Mathf.Lerp(0f, 1f, time / interval);
@@ -113,6 +114,7 @@ public class FadeMgr : SingletonMonoBehaviourFast<FadeMgr>
         //だんだん暗く
         this.isFading = true;
 		float time = 0;
+		m_sound.FadeStopBGM(0.5f);
         while (time <= interval)
         {
             this.fadeAlpha = Mathf.Lerp(0f, 1f, time / interval);
@@ -126,6 +128,7 @@ public class FadeMgr : SingletonMonoBehaviourFast<FadeMgr>
 
         // 暗転してから一秒待つ
         yield return new WaitForSeconds(1.0f);
+		m_sound.FadePlayBGM(0.5f);
 
         //だんだん明るく
         
@@ -150,6 +153,7 @@ public class FadeMgr : SingletonMonoBehaviourFast<FadeMgr>
 		this.fadeAlpha = 1.0f;
 		// waitTime秒」待ってから開始
 		yield return new WaitForSeconds( waitTime );
+		m_sound.FadePlayBGM(0.5f);
 
 		//だんだん明るく
 		float time = 0;
@@ -161,6 +165,7 @@ public class FadeMgr : SingletonMonoBehaviourFast<FadeMgr>
 		}
 		
 		yield return new WaitForSeconds( displayTime );
+		m_sound.FadeStopBGM(0.5f);
 
 		if( !isEnd ){
 			//だんだん暗く

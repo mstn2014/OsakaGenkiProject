@@ -44888,11 +44888,11 @@ MonoBehaviour:
     e00: 540
     e01: 0
     e02: 0
-    e03: 1.20535719
+    e03: 1.125
     e10: 0
     e11: 540
     e12: 0
-    e13: -1.20535719
+    e13: -1.125
     e20: 0
     e21: 0
     e22: 540
@@ -51169,7 +51169,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1435284997}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.20535719, y: 1.20535719, z: 0}
+  m_LocalPosition: {x: -1.125, y: 1.125, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1219313353}
