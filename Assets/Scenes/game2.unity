@@ -1676,8 +1676,8 @@ ParticleSystemRenderer:
   m_PrefabInternal: {fileID: 660609557}
   m_GameObject: {fileID: 58481134}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
@@ -3191,8 +3191,8 @@ ParticleSystemRenderer:
   m_PrefabInternal: {fileID: 1071734834}
   m_GameObject: {fileID: 117676521}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
@@ -4757,8 +4757,8 @@ ParticleSystemRenderer:
   m_PrefabInternal: {fileID: 1976962389}
   m_GameObject: {fileID: 183962254}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
@@ -6109,8 +6109,8 @@ ParticleSystemRenderer:
   m_PrefabInternal: {fileID: 1976962389}
   m_GameObject: {fileID: 201900639}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
@@ -6871,8 +6871,8 @@ ParticleSystemRenderer:
   m_PrefabInternal: {fileID: 660609557}
   m_GameObject: {fileID: 255904505}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
@@ -9433,8 +9433,8 @@ ParticleSystemRenderer:
   m_PrefabInternal: {fileID: 2021395631}
   m_GameObject: {fileID: 310468773}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
@@ -9495,8 +9495,8 @@ ParticleSystemRenderer:
   m_PrefabInternal: {fileID: 2021395631}
   m_GameObject: {fileID: 312344813}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
@@ -12089,8 +12089,8 @@ ParticleSystemRenderer:
   m_PrefabInternal: {fileID: 1067539777}
   m_GameObject: {fileID: 386685377}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
@@ -13891,8 +13891,8 @@ ParticleSystemRenderer:
   m_PrefabInternal: {fileID: 660609557}
   m_GameObject: {fileID: 507598004}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
@@ -15177,8 +15177,8 @@ ParticleSystemRenderer:
   m_PrefabInternal: {fileID: 1976962389}
   m_GameObject: {fileID: 550909772}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
@@ -15330,8 +15330,8 @@ ParticleSystemRenderer:
   m_PrefabInternal: {fileID: 1976962389}
   m_GameObject: {fileID: 565965329}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
@@ -18277,8 +18277,8 @@ ParticleSystemRenderer:
   m_PrefabInternal: {fileID: 1071734834}
   m_GameObject: {fileID: 652207776}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
@@ -19540,6 +19540,66 @@ Prefab:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 19900000, guid: 965fb7907d44e4dcfa08b3c33b196065, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900000, guid: 965fb7907d44e4dcfa08b3c33b196065, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900004, guid: 965fb7907d44e4dcfa08b3c33b196065, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900004, guid: 965fb7907d44e4dcfa08b3c33b196065, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900010, guid: 965fb7907d44e4dcfa08b3c33b196065, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900010, guid: 965fb7907d44e4dcfa08b3c33b196065, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900010, guid: 965fb7907d44e4dcfa08b3c33b196065, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900002, guid: 965fb7907d44e4dcfa08b3c33b196065, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900002, guid: 965fb7907d44e4dcfa08b3c33b196065, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900006, guid: 965fb7907d44e4dcfa08b3c33b196065, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900006, guid: 965fb7907d44e4dcfa08b3c33b196065, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900008, guid: 965fb7907d44e4dcfa08b3c33b196065, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900008, guid: 965fb7907d44e4dcfa08b3c33b196065, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900012, guid: 965fb7907d44e4dcfa08b3c33b196065, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900012, guid: 965fb7907d44e4dcfa08b3c33b196065, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 965fb7907d44e4dcfa08b3c33b196065, type: 2}
   m_RootGameObject: {fileID: 1458818145}
@@ -19725,8 +19785,8 @@ ParticleSystemRenderer:
   m_PrefabInternal: {fileID: 660609557}
   m_GameObject: {fileID: 681964509}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
@@ -21859,8 +21919,8 @@ ParticleSystemRenderer:
   m_PrefabInternal: {fileID: 1976962389}
   m_GameObject: {fileID: 793714715}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
@@ -24043,8 +24103,8 @@ ParticleSystemRenderer:
   m_PrefabInternal: {fileID: 1976962389}
   m_GameObject: {fileID: 794765523}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
@@ -24176,11 +24236,11 @@ MonoBehaviour:
     e00: 540
     e01: 0
     e02: 0
-    e03: -277.953918
+    e03: -277.953888
     e10: 0
     e11: 540
     e12: 0
-    e13: -720.775452
+    e13: -723.67865
     e20: 0
     e21: 0
     e22: 540
@@ -25418,8 +25478,8 @@ ParticleSystemRenderer:
   m_PrefabInternal: {fileID: 2021395631}
   m_GameObject: {fileID: 827357917}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
@@ -26586,8 +26646,8 @@ ParticleSystemRenderer:
   m_PrefabInternal: {fileID: 660609557}
   m_GameObject: {fileID: 844006542}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
@@ -28901,8 +28961,8 @@ ParticleSystemRenderer:
   m_PrefabInternal: {fileID: 2021395631}
   m_GameObject: {fileID: 999192221}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
@@ -30444,6 +30504,54 @@ Prefab:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 19900012, guid: 889aa4cba6a8847ccbf3d6a74b6d5dee, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900012, guid: 889aa4cba6a8847ccbf3d6a74b6d5dee, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900010, guid: 889aa4cba6a8847ccbf3d6a74b6d5dee, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900010, guid: 889aa4cba6a8847ccbf3d6a74b6d5dee, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900014, guid: 889aa4cba6a8847ccbf3d6a74b6d5dee, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900014, guid: 889aa4cba6a8847ccbf3d6a74b6d5dee, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900008, guid: 889aa4cba6a8847ccbf3d6a74b6d5dee, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900008, guid: 889aa4cba6a8847ccbf3d6a74b6d5dee, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900006, guid: 889aa4cba6a8847ccbf3d6a74b6d5dee, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900006, guid: 889aa4cba6a8847ccbf3d6a74b6d5dee, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900004, guid: 889aa4cba6a8847ccbf3d6a74b6d5dee, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900004, guid: 889aa4cba6a8847ccbf3d6a74b6d5dee, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 889aa4cba6a8847ccbf3d6a74b6d5dee, type: 2}
   m_RootGameObject: {fileID: 51448755}
@@ -30522,6 +30630,62 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: e2d035a998cb7412586a8174002ec39e, type: 2}
       propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900000, guid: e2d035a998cb7412586a8174002ec39e, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900000, guid: e2d035a998cb7412586a8174002ec39e, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900004, guid: e2d035a998cb7412586a8174002ec39e, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900004, guid: e2d035a998cb7412586a8174002ec39e, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900002, guid: e2d035a998cb7412586a8174002ec39e, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900002, guid: e2d035a998cb7412586a8174002ec39e, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900010, guid: e2d035a998cb7412586a8174002ec39e, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900010, guid: e2d035a998cb7412586a8174002ec39e, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900006, guid: e2d035a998cb7412586a8174002ec39e, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900006, guid: e2d035a998cb7412586a8174002ec39e, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900008, guid: e2d035a998cb7412586a8174002ec39e, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900008, guid: e2d035a998cb7412586a8174002ec39e, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900012, guid: e2d035a998cb7412586a8174002ec39e, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900012, guid: e2d035a998cb7412586a8174002ec39e, type: 2}
+      propertyPath: m_ReceiveShadows
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -31148,8 +31312,8 @@ ParticleSystemRenderer:
   m_PrefabInternal: {fileID: 1976962389}
   m_GameObject: {fileID: 1143213985}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
@@ -33788,8 +33952,8 @@ ParticleSystemRenderer:
   m_PrefabInternal: {fileID: 2021395631}
   m_GameObject: {fileID: 1217326623}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
@@ -34991,8 +35155,8 @@ ParticleSystemRenderer:
   m_PrefabInternal: {fileID: 1071734834}
   m_GameObject: {fileID: 1225602126}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
@@ -36229,8 +36393,8 @@ ParticleSystemRenderer:
   m_PrefabInternal: {fileID: 1067539777}
   m_GameObject: {fileID: 1246964376}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
@@ -37529,8 +37693,8 @@ ParticleSystemRenderer:
   m_PrefabInternal: {fileID: 2021395631}
   m_GameObject: {fileID: 1273216978}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
@@ -39064,8 +39228,8 @@ ParticleSystemRenderer:
   m_PrefabInternal: {fileID: 1071734834}
   m_GameObject: {fileID: 1359228650}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
@@ -39513,8 +39677,8 @@ ParticleSystemRenderer:
   m_PrefabInternal: {fileID: 1071734834}
   m_GameObject: {fileID: 1474759502}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
@@ -41096,8 +41260,8 @@ ParticleSystemRenderer:
   m_PrefabInternal: {fileID: 660609557}
   m_GameObject: {fileID: 1514404842}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
@@ -42167,7 +42331,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1514649668}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.21865082e-05, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 2.90322304, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 814941189}
@@ -43763,8 +43927,8 @@ ParticleSystemRenderer:
   m_PrefabInternal: {fileID: 1067539777}
   m_GameObject: {fileID: 1599876780}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
@@ -44138,8 +44302,8 @@ ParticleSystemRenderer:
   m_PrefabInternal: {fileID: 1067539777}
   m_GameObject: {fileID: 1672679792}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
@@ -45944,8 +46108,8 @@ ParticleSystemRenderer:
   m_PrefabInternal: {fileID: 2021395631}
   m_GameObject: {fileID: 1776528264}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
@@ -48170,8 +48334,8 @@ ParticleSystemRenderer:
   m_PrefabInternal: {fileID: 1067539777}
   m_GameObject: {fileID: 1787173497}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
@@ -48235,8 +48399,8 @@ ParticleSystemRenderer:
   m_PrefabInternal: {fileID: 1071734834}
   m_GameObject: {fileID: 1788704155}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
@@ -49931,8 +50095,8 @@ ParticleSystemRenderer:
   m_PrefabInternal: {fileID: 1071734834}
   m_GameObject: {fileID: 1865932449}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
@@ -53699,8 +53863,8 @@ ParticleSystemRenderer:
   m_PrefabInternal: {fileID: 660609557}
   m_GameObject: {fileID: 1931375849}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
@@ -53873,8 +54037,8 @@ ParticleSystemRenderer:
   m_PrefabInternal: {fileID: 2021395631}
   m_GameObject: {fileID: 1956797115}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
@@ -55172,6 +55336,62 @@ Prefab:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 19900012, guid: 54a4677e526744bb59a2d1559ac2d147, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900012, guid: 54a4677e526744bb59a2d1559ac2d147, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900010, guid: 54a4677e526744bb59a2d1559ac2d147, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900010, guid: 54a4677e526744bb59a2d1559ac2d147, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900008, guid: 54a4677e526744bb59a2d1559ac2d147, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900008, guid: 54a4677e526744bb59a2d1559ac2d147, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900006, guid: 54a4677e526744bb59a2d1559ac2d147, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900006, guid: 54a4677e526744bb59a2d1559ac2d147, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900004, guid: 54a4677e526744bb59a2d1559ac2d147, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900004, guid: 54a4677e526744bb59a2d1559ac2d147, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900002, guid: 54a4677e526744bb59a2d1559ac2d147, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900002, guid: 54a4677e526744bb59a2d1559ac2d147, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900000, guid: 54a4677e526744bb59a2d1559ac2d147, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900000, guid: 54a4677e526744bb59a2d1559ac2d147, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 54a4677e526744bb59a2d1559ac2d147, type: 2}
   m_RootGameObject: {fileID: 684569385}
@@ -55442,6 +55662,70 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400010, guid: e11e8fd9a0e204e9298dad40467a2589, type: 2}
       propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900010, guid: e11e8fd9a0e204e9298dad40467a2589, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900010, guid: e11e8fd9a0e204e9298dad40467a2589, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900008, guid: e11e8fd9a0e204e9298dad40467a2589, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900008, guid: e11e8fd9a0e204e9298dad40467a2589, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900006, guid: e11e8fd9a0e204e9298dad40467a2589, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900006, guid: e11e8fd9a0e204e9298dad40467a2589, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900014, guid: e11e8fd9a0e204e9298dad40467a2589, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900014, guid: e11e8fd9a0e204e9298dad40467a2589, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900012, guid: e11e8fd9a0e204e9298dad40467a2589, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900012, guid: e11e8fd9a0e204e9298dad40467a2589, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900004, guid: e11e8fd9a0e204e9298dad40467a2589, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900004, guid: e11e8fd9a0e204e9298dad40467a2589, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900002, guid: e11e8fd9a0e204e9298dad40467a2589, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900002, guid: e11e8fd9a0e204e9298dad40467a2589, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900000, guid: e11e8fd9a0e204e9298dad40467a2589, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900000, guid: e11e8fd9a0e204e9298dad40467a2589, type: 2}
+      propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -56247,8 +56531,8 @@ ParticleSystemRenderer:
   m_PrefabInternal: {fileID: 1067539777}
   m_GameObject: {fileID: 2117882154}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:

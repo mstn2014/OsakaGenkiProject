@@ -151,6 +151,7 @@ public class Game2StateMgr : MonoBehaviour {
     {   
         if( !m_guide.IsUse ){
             m_state = Game2State.COUNTDOWN;
+			m_soundMgr.FadeStopBGM(0.3f);
         }
     }
 
@@ -173,7 +174,8 @@ public class Game2StateMgr : MonoBehaviour {
     IEnumerator Count()
     {
         yield return new WaitForSeconds(2.0f);
-
+		m_soundMgr.StopBGM();
+		m_soundMgr.FadePlayBGM(0.1f);
         m_countDown.Begin();
         m_waitFlg = false;
     }

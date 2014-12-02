@@ -40,6 +40,7 @@ public class SoundMgr : SingletonMonoBehaviourFast<SoundMgr>
 	AudioClip se_Miss;				// 失敗音
 	AudioClip se_Question;			// 問題出題音
 	AudioClip se_Ran;				// 走り音
+	AudioClip se_Hanabi;			// 花火音
 
     // time
     float time;
@@ -48,7 +49,7 @@ public class SoundMgr : SingletonMonoBehaviourFast<SoundMgr>
 
     AudioSource audioSourceBGM;
 
-    AudioSource[] audioSourceSE = new AudioSource[15];
+    AudioSource[] audioSourceSE = new AudioSource[16];
 
     public void Awake()
     {
@@ -84,11 +85,12 @@ public class SoundMgr : SingletonMonoBehaviourFast<SoundMgr>
 		se_Question = Resources.Load<AudioClip>(sePath+"question");
 		se_handclap = Resources.Load<AudioClip>(sePath+"kansei");
 		se_Ran = Resources.Load<AudioClip>(sePath+"ran");
+		se_Hanabi = Resources.Load<AudioClip>(sePath+"hanabi");
 
         //audioSourceBGM = GetComponent<AudioSource> ();
         audioSourceBGM = this.gameObject.AddComponent<AudioSource>();
 
-        for (int i = 0; i < 15; i++)
+        for (int i = 0; i < 16; i++)
         {
             audioSourceSE[i] = this.gameObject.AddComponent<AudioSource>();
             audioSourceSE[i].mute = mute;
@@ -154,6 +156,21 @@ public class SoundMgr : SingletonMonoBehaviourFast<SoundMgr>
         this.audioSourceBGM.clip = null;
     }
 
+	public void FadeStopBGM(float time)
+	{
+		iTween.ValueTo(this.gameObject,iTween.Hash("from", 1, "to", 0, "time", time,"onupdate", "Volume_change"));
+	}
+
+	public void FadePlayBGM(float time)
+	{
+		iTween.ValueTo(this.gameObject,iTween.Hash("from", 0, "to", 1, "time", time,"onupdate", "Volume_change"));
+	}
+
+	void Volume_change(float value)
+	{
+		this.audioSourceBGM.volume = value;
+	}
+
     // ここからSE
     public void PlaySeReturn()
     {
@@ -205,4 +222,8 @@ public class SoundMgr : SingletonMonoBehaviourFast<SoundMgr>
 		audioSourceSE[14].PlayOneShot(se_Ran);
 	}
 
+	public void PlaySeHanabi()
+	{
+		audioSourceSE[15].PlayOneShot(se_Hanabi);
+	}
 }

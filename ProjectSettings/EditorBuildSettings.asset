@@ -25,3 +25,5 @@ EditorBuildSettings:
     path: Assets/Scenes/bigIvent2.unity
   - enabled: 1
     path: Assets/Scenes/ending.unity
+  - enabled: 1
+    path: Assets/Users/Kawamoto/Name_TestScene.unity

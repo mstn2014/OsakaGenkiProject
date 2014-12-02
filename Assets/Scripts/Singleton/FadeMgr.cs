@@ -12,6 +12,7 @@ public class FadeMgr : SingletonMonoBehaviourFast<FadeMgr>
 
 	int finish_flg=0;
     const float interval = 0.3f;
+	SoundMgr m_sound;          		// サウンド
 
     public void Awake()
     {
@@ -30,6 +31,12 @@ public class FadeMgr : SingletonMonoBehaviourFast<FadeMgr>
 		this.blackTexture.Apply();
 
     }
+
+	void Start () {
+		// 入力クラスの取得
+		GlobalSetting gs = Resources.Load<GlobalSetting>("Setting/GlobalSetting");
+		m_sound = gs.SoundMgr;
+	}
 
 	// ゲーム終了用
 	private IEnumerator Finish(float interval){
@@ -105,7 +112,7 @@ public class FadeMgr : SingletonMonoBehaviourFast<FadeMgr>
     {
         //だんだん暗く
         this.isFading = true;
-        float time = 0;
+		float time = 0;
         while (time <= interval)
         {
             this.fadeAlpha = Mathf.Lerp(0f, 1f, time / interval);
@@ -141,7 +148,6 @@ public class FadeMgr : SingletonMonoBehaviourFast<FadeMgr>
 	{
 		this.isFading = true;
 		this.fadeAlpha = 1.0f;
-
 		// waitTime秒」待ってから開始
 		yield return new WaitForSeconds( waitTime );
 

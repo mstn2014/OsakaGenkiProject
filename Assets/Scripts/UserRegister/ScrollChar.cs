@@ -107,6 +107,7 @@ public class ScrollChar : MonoBehaviour {
         // Blueボタンで文字削除
         if (m_btnState.BlueButtonTrigger)
         {
+			m_sound.PlaySeCansel();
             string str = m_inputName.GetComponentInChildren<UILabel>().text;
             if (str.Length > 0)
             {

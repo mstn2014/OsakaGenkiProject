@@ -41,7 +41,8 @@ public class bigIvent1Mgr : MonoBehaviour {
 	void Update () {
         if (m_isStart && !m_guide.IsUse)
         {
-            m_scene.LoadLevel("userRegister");
+            //m_scene.LoadLevel("userRegister");
+			m_scene.LoadLevel("Name_TestScene");
         }
 	}
 }
