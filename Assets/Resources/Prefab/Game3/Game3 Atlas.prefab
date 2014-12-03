@@ -44,32 +44,32 @@ MonoBehaviour:
   - name: game3_ui
     outer:
       serializedVersion: 2
-      x: 0
-      y: 342
-      width: 219
-      height: 219
+      x: 434
+      y: 256
+      width: 256
+      height: 256
     inner:
       serializedVersion: 2
-      x: 0
-      y: 342
-      width: 219
-      height: 219
+      x: 434
+      y: 256
+      width: 256
+      height: 256
     rotated: 0
-    paddingLeft: .0913242027
-    paddingRight: .0776255727
-    paddingTop: .0821917802
-    paddingBottom: .0867579877
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: game3_map
     outer:
       serializedVersion: 2
       x: 0
-      y: 562
+      y: 50
       width: 433
       height: 462
     inner:
       serializedVersion: 2
       x: 0
-      y: 562
+      y: 50
       width: 433
       height: 462
     rotated: 0
@@ -77,6 +77,42 @@ MonoBehaviour:
     paddingRight: .117782913
     paddingTop: .0281385276
     paddingBottom: .0800865814
+  - name: game3_ui4
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 28
+      width: 265
+      height: 21
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 28
+      width: 265
+      height: 21
+    rotated: 0
+    paddingLeft: .00754716992
+    paddingRight: .0113207549
+    paddingTop: 0
+    paddingBottom: 0
+  - name: game3_ui3
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 17
+      width: 247
+      height: 10
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 17
+      width: 247
+      height: 10
+    rotated: 0
+    paddingLeft: .0161943324
+    paddingRight: .0202429146
+    paddingTop: .5
+    paddingBottom: .600000024
   mCoordinates: 0
   mPixelSize: 1
   mReplacement: {fileID: 0}

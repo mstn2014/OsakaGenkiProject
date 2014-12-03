@@ -1,11 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class bigIvent1Mgr : MonoBehaviour {
+public class bigIventMgr : MonoBehaviour {
     // マネージャー関連
     InputMgr m_btnState;        // 入力インスタンス
     FadeMgr m_scene;            // シーン遷移マネージ
 	SoundMgr m_sound;           // サウンド
+
+    // インスペクターで設定する
+    [Header("ガイドのファイルを指定")]
+    public string m_guideFile;         // ガイドのファイルを指定
+
+    [Header("次のシーンを指定")]
+    public string m_nextScene;         // 次のシーンを指定
 
     // コンポーネント関連
     Guide m_guide;
@@ -33,7 +40,7 @@ public class bigIvent1Mgr : MonoBehaviour {
     IEnumerator BeginScene()
     {
         yield return new WaitForSeconds(3.0f);
-        m_guide.Begin("Message/big_event_1");
+        m_guide.Begin("Message/"+m_guideFile);
         m_isStart = true;
     }
 	
@@ -41,7 +48,8 @@ public class bigIvent1Mgr : MonoBehaviour {
 	void Update () {
         if (m_isStart && !m_guide.IsUse)
         {
-            m_scene.LoadLevel("userRegister");
+            m_scene.LoadLevel(m_nextScene);
+            m_isStart = false;
         }
 	}
 }

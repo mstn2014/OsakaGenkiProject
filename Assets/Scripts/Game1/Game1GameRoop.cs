@@ -13,6 +13,8 @@ public class Game1GameRoop : MonoBehaviour {
     public Game1PlayerController m_player; // プレイヤー
     public Guide m_guide;               // ガイドマネージャ
     public StartCountDown m_countDown;  // カウントダウン
+    public SaveData m_saveData;         // セーブデータ
+    private ScoreMgr m_scoreMgr;         //　スコア
     [Header("ゲーム開始時にオンにするオブジェクト一覧")]
     public GameObject m_timeFrame;      // 制限時間表示オブジェクト
 
@@ -39,6 +41,7 @@ public class Game1GameRoop : MonoBehaviour {
 		m_quest = GetComponent<Game1Question>();
 		m_effect = GetComponent<Game1EffectMgr> ();
 		m_product = GetComponent<Game1ProductionMgr> ();
+        m_scoreMgr = GetComponent<ScoreMgr>();
 
 
 		// 共通設定の呼び出し.
@@ -59,6 +62,8 @@ public class Game1GameRoop : MonoBehaviour {
 			if (m_start) {
 				switch(m_state){
                 case GameState.guide:
+                        yield return new WaitForSeconds(2.0f);
+
                         m_guide.Begin("Message/small_event_1_0");
                         while (m_guide.IsUse)
                         {
@@ -95,8 +100,16 @@ public class Game1GameRoop : MonoBehaviour {
                         m_player.DoPass();
 						if(!m_quest.CheckAns(1)){
 							m_sound.PlaySeMiss();
-							StartCoroutine(m_product.ResultRound(1));
-							m_state = GameState.product;
+                            if (m_quest.IsComplete)
+                            {
+                                m_state = GameState.stop;
+                                break;
+                            }
+                            else
+                            {
+                                StartCoroutine(m_product.ResultRound(1));
+                                m_state = GameState.product;
+                            }
 						}
 					}
 					if(m_btnState.GreenButtonTrigger){
@@ -104,34 +117,58 @@ public class Game1GameRoop : MonoBehaviour {
                         m_player.DoPose();
 						if(!m_quest.CheckAns(2)){
 							m_sound.PlaySeMiss();
-							StartCoroutine(m_product.ResultRound(1));
-							m_state = GameState.product;
+                            if (m_quest.IsComplete)
+                            {
+                                m_state = GameState.stop;
+                                break;
+                            }
+                            else
+                            {
+                                StartCoroutine(m_product.ResultRound(1));
+                                m_state = GameState.product;
+                            }
 						}
 					}
 					// クリアチェック.
 					if(m_quest.IsClear){
-						m_state = GameState.product;
-						StartCoroutine(m_product.ResultRound(0));
+                        if (m_quest.IsComplete)
+                        {
+                            m_state = GameState.stop;
+                            break;
+                        }
+                        else
+                        {
+                            m_state = GameState.product;
+                            StartCoroutine(m_product.ResultRound(0));
+                        }
 					}
 
 					if(m_timer.IsPaused){			// 時間切れ
-						StartCoroutine(m_product.ResultRound(2));
-						m_state = GameState.product;
+                        if (m_quest.IsComplete)
+                        {
+                            m_state = GameState.stop;
+                            break;
+                        }
+                        else
+                        {
+                            StartCoroutine(m_product.ResultRound(2));
+                            m_state = GameState.product;
+                        }
 					}					
 					break;
-				case GameState.product:
+                case GameState.product: 
+                    m_timeFrame.SetActive(false); 
+                    
 					m_timer.ResetTimer();		// タイマー初期化.
 					m_quest.ReadyNextRound();
-                    m_timeFrame.SetActive(false);
+                    
 					while(!m_product.IsEnd){
 						yield return null;
 					}
-					if(!m_quest.IsComplete){
-						m_state = GameState.ready;
-                        m_player.DoStand();
-					}else{
-						m_state = GameState.end;	// ゲーム終了小イベントへ
-					}
+
+                    m_state = GameState.ready;
+                    m_player.DoStand();
+					
 					break;
 				case GameState.end:	// ToDo ここの処理は特に重要ではありません
 					Debug.Log("終了");
@@ -142,10 +179,28 @@ public class Game1GameRoop : MonoBehaviour {
 					m_state = GameState.stop;
 					
 					break;
+                case GameState.stop:
+                    m_timeFrame.SetActive(false);
+                    yield return new WaitForSeconds(3.0f);
+
+                    m_effect.InitCircle();
+
+                    m_guide.Begin("Message/small_event_1_1");
+                    while (m_guide.IsUse)
+                    {
+                        yield return null;
+                    }
+
+                    m_saveData.game1Score = m_scoreMgr.Score;
+                    m_saveData.gameState = SaveData.eState.GAME1;
+                    UnityEditor.EditorUtility.SetDirty(m_saveData);
+                    m_fadeMgr.LoadLevel("result");
+
+                    break;
 				}
 			}
 			Debug.Log("ループ");
-			yield return null;		
+			yield return null;
 		}
 
 	}

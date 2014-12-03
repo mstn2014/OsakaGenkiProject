@@ -29,7 +29,7 @@ public class Game3_Flowing : MonoBehaviour {
 
 		// ガイド呼び出し
 		m_Guide = go.GetComponent<Guide>();
-		m_Guide.Begin(Seting.messagePath);
+		m_Guide.Begin(Seting.FirstMessagePath);
 
 		// カウント呼び出し
 		m_Count = GameObject.Find ("Count").GetComponent<StartCountDown>();

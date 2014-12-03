@@ -83,7 +83,6 @@ public class Game1EffectMgr : MonoBehaviour {
 		m_circleParent = new GameObject("CirclParent");
 		m_circleParent.transform.localRotation = Quaternion.Euler (new Vector3 (90, 0, 0));
 		m_circleParent.transform.localPosition = new Vector3 (0,0.1f,0);
-        m_camera.Move(0);
 		m_oldcircle = null;
 	}
 
@@ -164,7 +163,7 @@ public class Game1EffectMgr : MonoBehaviour {
 	//======================================================
 	public void InitEffect(){
 		InitCircle();	// サークル初期化.
-
+        m_camera.Move(0);
 	}
 
 

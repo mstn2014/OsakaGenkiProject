@@ -13,7 +13,7 @@ public class SaveData : ScriptableObject
     [Header("ユーザーランク")]
     public int userRank = 0;
     
-    public enum eState{GAME1,GAME2,GAME3};
+    public enum eState{GAME1,GAME2,GAME3,ALL};
     [Header("ゲームステート")]
     public eState gameState;
 }

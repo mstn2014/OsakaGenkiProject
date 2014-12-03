@@ -646,7 +646,7 @@ State:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: bonodori
-  m_Speed: 1
+  m_Speed: 2
   m_CycleOffset: 0
   m_Motions:
   - {fileID: 7400068, guid: 06e60657ba0c75e45b719e29ccad223d, type: 3}
@@ -764,10 +764,6 @@ StateMachine:
       first: {fileID: 0}
       second: []
     data:
-      first: {fileID: 110226281}
-      second:
-      - {fileID: 110193007}
-    data:
       first: {fileID: 110200000}
       second:
       - {fileID: 110170798}
@@ -780,6 +776,10 @@ StateMachine:
       first: {fileID: 110227895}
       second:
       - {fileID: 110147882}
+    data:
+      first: {fileID: 110226281}
+      second:
+      - {fileID: 110193007}
     data:
       first: {fileID: 110286617}
       second:

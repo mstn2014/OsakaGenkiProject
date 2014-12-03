@@ -34,7 +34,7 @@ public class TitleMgr : MonoBehaviour {
 
         // ゲームオブジェクトのアタッチ
         m_logo = GameObject.Find("Logo").GetComponent<TitleLogo>();
-        m_player = GameObject.Find("motion_defo").GetComponent<TitlePlayerController>();
+        m_player = GameObject.Find("TitlePlayer").GetComponent<TitlePlayerController>();
 
         m_camera = GameObject.Find("Main Camera");
 

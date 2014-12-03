@@ -13,8 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   userName: "\u304F\u3045"
   totalScore: 600
-  game1Score: 100
-  game2Score: 221
-  game3Score: 300
+  game1Score: 165
+  game2Score: 145
+  game3Score: 32
   userRank: 3
-  gameState: 1
+  gameState: 3

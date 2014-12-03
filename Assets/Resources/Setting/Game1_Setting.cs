@@ -12,6 +12,7 @@ public class Game1_Setting : ScriptableObject {
 	public int		MaxQuestNum;
 	public float	QuestInterval;
 	public float	WeightValue;
+    public int      MaxRoundNum;
 
 	[Header("Objetc関連")]
 	public int		Gallery_Width;		// ギャラリーが生成される列数

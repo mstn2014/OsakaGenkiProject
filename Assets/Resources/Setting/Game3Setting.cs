@@ -15,5 +15,6 @@ public class Game3Setting : ScriptableObject {
 	public int 	  	PointPercent = 1;		// 得点のパーセンテージ
 
 	[Header("ファイルパス関係")]
-	public string 	messagePath = "Message/game3";	// メッセージ用パス
+	public string 	FirstMessagePath = "Message/small_event_3_0";	// メッセージ用パス
+	public string 	LastMessagePath = "Message/small_event_3_1";	// メッセージ用パス
 }

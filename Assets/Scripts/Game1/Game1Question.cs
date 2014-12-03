@@ -20,6 +20,7 @@ public class Game1Question : MonoBehaviour {
 	private GameObject m_QuestPanel;	// 生成されるボタンの親.
 	private GameObject m_Quest;			// 生成されるボタン.
 	private Game1EffectMgr m_effect;			// エフェクト.
+    private ScoreMgr m_scoreMgr;        // スコア
 	SoundMgr m_sound;          			// サウンド
 
 	// Game1共通設定.
@@ -33,7 +34,14 @@ public class Game1Question : MonoBehaviour {
 		get{return m_clear;}
 	}
 	public bool IsComplete{			// ゲーム終了フラグ(全問正解).
-		get{return m_complete;}
+		get{
+            // ゲーム終了なら.
+            if (m_nowRound == GAME1.MaxRoundNum )
+            {
+                m_complete = true;
+            }
+            return m_complete;
+        }
 	}
 	public int IsNowAns{			// 何ボタン目答えている?.
 		get{return m_nowAns;}
@@ -56,6 +64,8 @@ public class Game1Question : MonoBehaviour {
         m_effect = GameObject.Find("GameMain").GetComponent<Game1EffectMgr>();
 		GlobalSetting gs = Resources.Load<GlobalSetting>("Setting/GlobalSetting");
 		m_sound = gs.SoundMgr;
+        m_nowRound = 0;
+        m_scoreMgr = GetComponent<ScoreMgr>();
 
 		// 表示されるボタンの数だけ配列生成.
 		m_box = new QuesBox[GAME1.MaxQuestNum];
@@ -133,7 +143,8 @@ public class Game1Question : MonoBehaviour {
 	// @return: bool:	true:正解	false:不正解.
 	//======================================================
 	public bool CheckAns(int ans){
-		// 正解なら.
+		// 正解なら 
+
 		if (ans == m_box [m_nowAns].ans) {
 			Debug.Log ("正解");
 			m_sound.PlaySeCuccess();
@@ -142,16 +153,14 @@ public class Game1Question : MonoBehaviour {
 
 			///// エフェクト /////
 			m_effect.SpreadCircle(m_nowAns);
+            m_scoreMgr.AddScore(m_nowAns);
 
 			int work = m_effect.IsComboNum;	// コンボ数表示.
 			m_effect.IsComboNum = ++work;
             m_effect.DispCombo();
             
 			
-			// ゲーム終了なら.
-			if (m_nowAns == GAME1.MaxQuestNum) {
-				m_complete = true;
-			}
+			
 			// ステージクリアなら次のゲームへ.
 			if (m_nowAns == m_nowQuestNum) {
 				HideButton();

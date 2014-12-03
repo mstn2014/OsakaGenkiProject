@@ -293,6 +293,18 @@ public class Game2StateMgr : MonoBehaviour {
         m_saveData.game2Score = m_scoreMgr.Score;
         m_saveData.gameState = SaveData.eState.GAME2;
         UnityEditor.EditorUtility.SetDirty(m_saveData);
+
+        // ガイドを呼び出す
+        
+        m_guide.Begin("Message/small_event_2_1");
+        m_frame.SetActive(false);
+        m_extra.SetActive(false);
+
+        while (m_guide.IsUse)
+        {
+            yield return null;
+        }
+
         m_fadeMgr.LoadLevel("result");
         // GameObject.Find("DebugLog").GetComponent<UILabel>().text = "Rank:" + CalcRank() + "    Score:" + m_scoreMgr.Score.ToString(); 
         m_waitFlg = false;

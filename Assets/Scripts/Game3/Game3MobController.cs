@@ -34,6 +34,8 @@ public class Game3MobController : MonoBehaviour {
     ScoreMgr m_scoreMgr;                // スコア
 	SoundMgr m_sound;          			// サウンド
 
+    UISprite m_waitSprite;              // 残り時間を表示するためのスプライト
+
     public Transform m_player;          // プレイヤー
     // 共通設定関連
     InputMgr m_input;                   // 入力をとる
@@ -78,6 +80,7 @@ public class Game3MobController : MonoBehaviour {
         m_objMgr = transform.parent.GetComponent<Game3ObjMgr>();
         m_state = State.Forward;
         m_tweenPath = GameObject.Find("Path1").GetComponent<iTweenPath>();
+        m_waitSprite = GameObject.Find("RightWaitBar/WaitTime").GetComponent<UISprite>();
         IsSelected = false;
 
         m_otherController = this;
@@ -110,6 +113,7 @@ public class Game3MobController : MonoBehaviour {
                 {
                     MoveToTarget(m_sayonaraPoint, 2.0f);
                     m_lightMgr.ChangeColor("White");
+                    GameObject.Find(m_lightName.Replace("Light", "") + "WaitBar/WaitTime").GetComponent<UISprite>().fillAmount = 1.0f; 
                     m_balancer.Miss();
                     m_animator.SetTrigger("IsStand");
                     m_animator.SetFloat("speed", m_speed);
@@ -267,6 +271,8 @@ public class Game3MobController : MonoBehaviour {
         if (distance <= th)
         {
             m_nowTime += Time.deltaTime;
+            GameObject.Find(m_lightName.Replace("Light","") + "WaitBar/WaitTime").GetComponent<UISprite>().fillAmount = 1.0f - m_nowTime / m_balancer.DanceTime; 
+            //m_waitSprite.fillAmount = 1.0f - m_nowTime / m_balancer.DanceTime;
             // ここにボタンの成否処理を書く
             List<string> pushButton = new List<string>();
 
@@ -294,6 +300,7 @@ public class Game3MobController : MonoBehaviour {
             // 押したボタンがタグと一致すればパレードにモブを参加させる
             if (pushButton.Contains(this.gameObject.tag))
             {
+                GameObject.Find(m_lightName.Replace("Light", "") + "WaitBar/WaitTime").GetComponent<UISprite>().fillAmount = 1.0f;
                 m_scoreMgr.AddScore(1.0f);
                 m_state = State.Parade;
                 m_speed = 0.0f;
@@ -305,7 +312,7 @@ public class Game3MobController : MonoBehaviour {
 				m_sound.PlaySeCuccess();
                 Hashtable param = new Hashtable(){
                     {"y",1},
-                    {"time",0.01f},
+                    {"time",0.1f},
                     {"looptype",iTween.LoopType.loop},
                     {"easetype",iTween.EaseType.linear},
                     {"name",this.gameObject.name},

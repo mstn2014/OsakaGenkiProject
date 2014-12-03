@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: ResultSetting
   m_EditorClassIdentifier: 
   game1MaxPoint: 216
-  game2MaxPoint: 387
+  game2MaxPoint: 258
   game3MaxPoint: 120
   game1Rank:
   - key: SSS
@@ -76,4 +76,25 @@ MonoBehaviour:
   - key: D
     value: .150000006
   - key: E
+    value: 0
+  allRank:
+  - key: SSS
+    value: 1
+  - key: SS
+    value: .949999988
+  - key: 
+    value: 0
+  - key: 
+    value: 0
+  - key: 
+    value: 0
+  - key: 
+    value: 0
+  - key: 
+    value: 0
+  - key: 
+    value: 0
+  - key: 
+    value: 0
+  - key: 
     value: 0

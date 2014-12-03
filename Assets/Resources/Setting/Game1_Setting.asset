@@ -23,7 +23,8 @@ MonoBehaviour:
   MinQuestNum: 3
   MaxQuestNum: 10
   QuestInterval: 50
-  WeightValue: 100
+  WeightValue: .100000001
+  MaxRoundNum: 8
   Gallery_Width: 5
   Gallery_Height: 5
   Gallery_Interval: 3

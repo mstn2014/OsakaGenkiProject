@@ -19,11 +19,12 @@ public class Game3Mgr : MonoBehaviour
     bool m_isNextState;             // 次のシーンに遷移することを許す
     public ScoreMgr m_scoreMgr;     // スコアマネージャ
     public SaveData m_saveData;     // セーブデータ
+    public GameObject m_timeUp;     // タイムアップスプライトs
 
     // ステート
     enum Game3State
     {
-        GUIDE, COUNTDOWN, GAME, END
+        GUIDE, COUNTDOWN, GAME,END
     };
     Game3State m_state;
 
@@ -57,7 +58,7 @@ public class Game3Mgr : MonoBehaviour
     {
         yield return new WaitForSeconds(3.0f);
 
-        m_Guide.Begin(Setting.messagePath);
+        m_Guide.Begin(Setting.FirstMessagePath);
         m_isNextState = true;
     }
 
@@ -103,8 +104,9 @@ public class Game3Mgr : MonoBehaviour
     {
         if (m_Count.IsFinished)
         {
-            m_MainFlg.SetActive(true);	// ゲームを有効化
             m_Main2DFlg.SetActive(true);	// ゲームを有効化(2D)
+            m_MainFlg.SetActive(true);	// ゲームを有効化
+            
             m_state = Game3State.GAME;		// ステート更新
         }
     }
@@ -117,10 +119,27 @@ public class Game3Mgr : MonoBehaviour
     // @param:なし
     // @return:なし
     //======================================================
-    void TimeOver()
+    IEnumerator TimeOver()
     {
         m_saveData.game3Score = m_scoreMgr.Score;
         m_saveData.gameState = SaveData.eState.GAME3;
+        UnityEditor.EditorUtility.SetDirty(m_saveData);
+
+        m_MainFlg.SetActive(false);	// ゲームを有効化
+        m_Main2DFlg.SetActive(false);	// ゲームを有効化(2D)
+        m_timeUp.SetActive(true);       // タイムアップを表示
+
+        yield return new WaitForSeconds(3.0f);
+
+        m_timeUp.SetActive(false);
+
+        m_Guide.Begin(Setting.LastMessagePath);
+
+        while (m_Guide.IsUse)
+        {
+            yield return null;
+        }
+
         m_fade.LoadLevel("result");
     }
 }

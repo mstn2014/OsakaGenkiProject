@@ -58,8 +58,9 @@ public class Game1ObjMgr : MonoBehaviour {
 
                 checkPos = ((workPos.x - xOffset + m_objParent.transform.position.x)*(workPos.x - xOffset + m_objParent.transform.position.x)) + (workPos.z * workPos.z);
 				if(checkPos>ngCircle){
-					workObj = CreatePrefab.InstantiateGameObject(m_gallery,workPos,m_gallery.transform.localRotation,
+					workObj = CreatePrefab.InstantiateGameObject(m_gallery,workPos,Quaternion.Euler(0,Random.Range(0.0f,360.0f),0),
 				                                          	   m_gallery.transform.localScale,m_objParent);
+
 					// ToDo キャラクターのアニメーションやテクスチャやスクリプトの設定
 
 					workObj.AddComponent<Game1Gallery>();
