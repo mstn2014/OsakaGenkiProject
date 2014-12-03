@@ -151,6 +151,7 @@ public class Game2StateMgr : MonoBehaviour {
     {   
         if( !m_guide.IsUse ){
             m_state = Game2State.COUNTDOWN;
+			m_soundMgr.FadeStopBGM(0.3f);
         }
     }
 
@@ -167,13 +168,15 @@ public class Game2StateMgr : MonoBehaviour {
         StartCoroutine(Count());
         m_frame.SetActive(true);
         m_waitFlg = true;
+		m_soundMgr.FadeStopBGM(0.5f);
         m_state = Game2State.GAMEREADY;
     }
 
     IEnumerator Count()
     {
         yield return new WaitForSeconds(2.0f);
-
+		m_soundMgr.StopBGM();
+		m_soundMgr.FadePlayBGM(0.1f);
         m_countDown.Begin();
         m_waitFlg = false;
     }
@@ -190,6 +193,8 @@ public class Game2StateMgr : MonoBehaviour {
     {
         if (m_countDown.IsFinished)
         {
+			m_soundMgr.StopBGM();
+			m_soundMgr.FadePlayBGM(0.5f);
             m_extra.SetActive(true);
             m_state = Game2State.GAME;
             m_player.ChangeMotion((Game2ModelMotion.DanceType)(m_createButton.CountryIndex+1));

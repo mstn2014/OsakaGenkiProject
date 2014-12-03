@@ -98,13 +98,13 @@ MonoBehaviour:
   - name: common_ui2
     outer:
       serializedVersion: 2
-      x: 2853
+      x: 3814
       y: 3714
       width: 182
       height: 194
     inner:
       serializedVersion: 2
-      x: 2853
+      x: 3814
       y: 3714
       width: 182
       height: 194
@@ -116,13 +116,13 @@ MonoBehaviour:
   - name: common_ui1
     outer:
       serializedVersion: 2
-      x: 3219
+      x: 3997
       y: 3714
       width: 87
       height: 194
     inner:
       serializedVersion: 2
-      x: 3219
+      x: 3997
       y: 3714
       width: 87
       height: 194
@@ -134,13 +134,13 @@ MonoBehaviour:
   - name: common_ui4
     outer:
       serializedVersion: 2
-      x: 2295
+      x: 3256
       y: 3909
       width: 743
       height: 187
     inner:
       serializedVersion: 2
-      x: 2295
+      x: 3256
       y: 3909
       width: 743
       height: 187
@@ -152,14 +152,14 @@ MonoBehaviour:
   - name: common_ui3
     outer:
       serializedVersion: 2
-      x: 3036
-      y: 3714
+      x: 2295
+      y: 3271
       width: 182
       height: 194
     inner:
       serializedVersion: 2
-      x: 3036
-      y: 3714
+      x: 2295
+      y: 3271
       width: 182
       height: 194
     rotated: 0
@@ -170,14 +170,14 @@ MonoBehaviour:
   - name: game1_perfect
     outer:
       serializedVersion: 2
-      x: 3039
-      y: 3917
+      x: 2295
+      y: 3466
       width: 493
       height: 89
     inner:
       serializedVersion: 2
-      x: 3039
-      y: 3917
+      x: 2295
+      y: 3466
       width: 493
       height: 89
     rotated: 0
@@ -188,13 +188,13 @@ MonoBehaviour:
   - name: common_ui5
     outer:
       serializedVersion: 2
-      x: 2295
+      x: 3256
       y: 3714
       width: 557
       height: 194
     inner:
       serializedVersion: 2
-      x: 2295
+      x: 3256
       y: 3714
       width: 557
       height: 194
@@ -206,14 +206,14 @@ MonoBehaviour:
   - name: game1_miss
     outer:
       serializedVersion: 2
-      x: 3539
-      y: 4009
+      x: 3814
+      y: 3626
       width: 209
       height: 87
     inner:
       serializedVersion: 2
-      x: 3539
-      y: 4009
+      x: 3814
+      y: 3626
       width: 209
       height: 87
     rotated: 0
@@ -224,14 +224,14 @@ MonoBehaviour:
   - name: game1_timeup
     outer:
       serializedVersion: 2
-      x: 3039
-      y: 4007
+      x: 3256
+      y: 3624
       width: 499
       height: 89
     inner:
       serializedVersion: 2
-      x: 3039
-      y: 4007
+      x: 3256
+      y: 3624
       width: 499
       height: 89
     rotated: 0
@@ -239,6 +239,42 @@ MonoBehaviour:
     paddingRight: .0160320643
     paddingTop: .280898869
     paddingBottom: .157303378
+  - name: bg_base
+    outer:
+      serializedVersion: 2
+      x: 2295
+      y: 3556
+      width: 960
+      height: 540
+    inner:
+      serializedVersion: 2
+      x: 2295
+      y: 3556
+      width: 960
+      height: 540
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bg_pattern
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 273
+      width: 1920
+      height: 520
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 273
+      width: 1920
+      height: 520
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: .0153846154
+    paddingBottom: .0230769236
   mCoordinates: 0
   mPixelSize: 1
   mReplacement: {fileID: 0}
