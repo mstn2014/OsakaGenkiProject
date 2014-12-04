@@ -78,7 +78,7 @@ public class Game1GameRoop : MonoBehaviour {
                     {
                         yield return null;
                     }
-                    m_timeFrame.SetActive(true);
+                    
                     m_player.gameObject.SetActive(true);
 					///// ラウンドへの初期化 /////
 					m_timer.ResetTimer();		// タイマー初期化.
@@ -88,7 +88,9 @@ public class Game1GameRoop : MonoBehaviour {
 						yield return null;
 					}
 
+                    m_timeFrame.SetActive(true);
 					m_timer.StartTimer();
+                    
 					m_state = GameState.play;
                     
 					break;

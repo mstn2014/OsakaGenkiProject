@@ -23,7 +23,7 @@ public class Game1ObjMgr : MonoBehaviour {
 
 		// リソースの読み込み.
 		m_gallery = Resources.Load ("Prefab/Game1/Game1Mob") as GameObject;
-        m_ground = Resources.Load("Prefab/Game1/Ground") as GameObject;
+        // m_ground = Resources.Load("Prefab/Game1/Ground") as GameObject;
 		CreateGallery(0.0f);
 		CreateGallery(GAME1.Ground_PositionX);
 
@@ -68,9 +68,10 @@ public class Game1ObjMgr : MonoBehaviour {
 			}
 		}
         // 地面の生成
-        m_ground = Instantiate(Resources.Load<GameObject>("Prefab/Game1/Ground"),new Vector3(xOffset,0.0f,0.0f),Quaternion.identity) as GameObject;
+        /*m_ground = Instantiate(Resources.Load<GameObject>("Prefab/Game1/Ground"),new Vector3(xOffset,0.0f,0.0f),Quaternion.identity) as GameObject;
         m_ground.AddComponent<Game1Ground>();
         m_ground.transform.parent = m_objParent.transform;
+        */
 	}
 
 	// ラウンド終了時のオブジェクトの移動

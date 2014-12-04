@@ -22,6 +22,7 @@ public class Game1Question : MonoBehaviour {
 	private Game1EffectMgr m_effect;			// エフェクト.
     private ScoreMgr m_scoreMgr;        // スコア
 	SoundMgr m_sound;          			// サウンド
+    public GameObject m_QestionGuide;   // 問題の時に現れるガイドさん
 
 	// Game1共通設定.
 	private Game1_Setting GAME1;
@@ -87,6 +88,7 @@ public class Game1Question : MonoBehaviour {
 	//======================================================
 	public IEnumerator CreateQuestion(){
 		float interval;
+        m_QestionGuide.SetActive(true);
 		for (int i=0; i<m_nowQuestNum; i++) {
 			/* ///// 生成したボタンを次の問題に保持するときのみ有効 /////
 			// もし生成済みの場合表示のみ.
@@ -98,7 +100,8 @@ public class Game1Question : MonoBehaviour {
 			interval = i*(-GAME1.QuestInterval)+(GAME1.QuestInterval/2)*(m_nowQuestNum-1);
 			m_box[i].button = Instantiate(m_Quest) as GameObject;
 			m_box[i].button.transform.parent = m_QuestPanel.transform;
-			m_box[i].button.transform.localPosition = new Vector3(300,0,0);
+			m_box[i].button.transform.localPosition = new Vector3(440,0,0);
+			m_box[i].button.transform.localScale = Vector3.one;
 			GameObject button = m_box[i].button.transform.FindChild("Button").gameObject;
 			//GameObject label = m_box[i].button.transform.FindChild("Label").gameObject;
 			UISprite sprite = button.GetComponent<UISprite>() as UISprite;
@@ -133,6 +136,7 @@ public class Game1Question : MonoBehaviour {
 		}*/
 		m_create = true;
 		m_clear = false;
+        m_QestionGuide.SetActive(false);
 	}
 	
 	//======================================================

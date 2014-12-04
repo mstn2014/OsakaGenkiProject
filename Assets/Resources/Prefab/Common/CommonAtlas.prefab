@@ -98,14 +98,14 @@ MonoBehaviour:
   - name: common_ui2
     outer:
       serializedVersion: 2
-      x: 3814
-      y: 3714
+      x: 3744
+      y: 3902
       width: 182
       height: 194
     inner:
       serializedVersion: 2
-      x: 3814
-      y: 3714
+      x: 3744
+      y: 3902
       width: 182
       height: 194
     rotated: 0
@@ -116,14 +116,14 @@ MonoBehaviour:
   - name: common_ui1
     outer:
       serializedVersion: 2
-      x: 3997
-      y: 3714
+      x: 3927
+      y: 3902
       width: 87
       height: 194
     inner:
       serializedVersion: 2
-      x: 3997
-      y: 3714
+      x: 3927
+      y: 3902
       width: 87
       height: 194
     rotated: 0
@@ -134,14 +134,14 @@ MonoBehaviour:
   - name: common_ui4
     outer:
       serializedVersion: 2
-      x: 3256
-      y: 3909
+      x: 2295
+      y: 2549
       width: 743
       height: 187
     inner:
       serializedVersion: 2
-      x: 3256
-      y: 3909
+      x: 2295
+      y: 2549
       width: 743
       height: 187
     rotated: 0
@@ -152,14 +152,14 @@ MonoBehaviour:
   - name: common_ui3
     outer:
       serializedVersion: 2
-      x: 2295
-      y: 3271
+      x: 3744
+      y: 3707
       width: 182
       height: 194
     inner:
       serializedVersion: 2
-      x: 2295
-      y: 3271
+      x: 3744
+      y: 3707
       width: 182
       height: 194
     rotated: 0
@@ -170,14 +170,14 @@ MonoBehaviour:
   - name: game1_perfect
     outer:
       serializedVersion: 2
-      x: 2295
-      y: 3466
+      x: 3110
+      y: 2574
       width: 493
       height: 89
     inner:
       serializedVersion: 2
-      x: 2295
-      y: 3466
+      x: 3110
+      y: 2574
       width: 493
       height: 89
     rotated: 0
@@ -188,14 +188,14 @@ MonoBehaviour:
   - name: common_ui5
     outer:
       serializedVersion: 2
-      x: 3256
-      y: 3714
+      x: 2295
+      y: 2354
       width: 557
       height: 194
     inner:
       serializedVersion: 2
-      x: 3256
-      y: 3714
+      x: 2295
+      y: 2354
       width: 557
       height: 194
     rotated: 0
@@ -206,14 +206,14 @@ MonoBehaviour:
   - name: game1_miss
     outer:
       serializedVersion: 2
-      x: 3814
-      y: 3626
+      x: 3744
+      y: 3619
       width: 209
       height: 87
     inner:
       serializedVersion: 2
-      x: 3814
-      y: 3626
+      x: 3744
+      y: 3619
       width: 209
       height: 87
     rotated: 0
@@ -224,14 +224,14 @@ MonoBehaviour:
   - name: game1_timeup
     outer:
       serializedVersion: 2
-      x: 3256
-      y: 3624
+      x: 3110
+      y: 2664
       width: 499
       height: 89
     inner:
       serializedVersion: 2
-      x: 3256
-      y: 3624
+      x: 3110
+      y: 2664
       width: 499
       height: 89
     rotated: 0
@@ -242,14 +242,14 @@ MonoBehaviour:
   - name: bg_base
     outer:
       serializedVersion: 2
-      x: 2295
-      y: 3556
+      x: 3110
+      y: 2876
       width: 960
       height: 540
     inner:
       serializedVersion: 2
-      x: 2295
-      y: 3556
+      x: 3110
+      y: 2876
       width: 960
       height: 540
     rotated: 0
@@ -275,6 +275,96 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: .0153846154
     paddingBottom: .0230769236
+  - name: bg_text_box2
+    outer:
+      serializedVersion: 2
+      x: 2295
+      y: 2737
+      width: 814
+      height: 679
+    inner:
+      serializedVersion: 2
+      x: 2295
+      y: 2737
+      width: 814
+      height: 679
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bg_text_box
+    outer:
+      serializedVersion: 2
+      x: 2295
+      y: 3417
+      width: 1448
+      height: 679
+    inner:
+      serializedVersion: 2
+      x: 2295
+      y: 3417
+      width: 1448
+      height: 679
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bg_ranking
+    outer:
+      serializedVersion: 2
+      x: 2295
+      y: 2232
+      width: 612
+      height: 121
+    inner:
+      serializedVersion: 2
+      x: 2295
+      y: 2232
+      width: 612
+      height: 121
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bg_dancepoint
+    outer:
+      serializedVersion: 2
+      x: 3110
+      y: 2754
+      width: 850
+      height: 121
+    inner:
+      serializedVersion: 2
+      x: 3110
+      y: 2754
+      width: 850
+      height: 121
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bg_result
+    outer:
+      serializedVersion: 2
+      x: 2295
+      y: 2110
+      width: 479
+      height: 121
+    inner:
+      serializedVersion: 2
+      x: 2295
+      y: 2110
+      width: 479
+      height: 121
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   mCoordinates: 0
   mPixelSize: 1
   mReplacement: {fileID: 0}

@@ -17,12 +17,18 @@ public class ResultMgr : MonoBehaviour {
     ResultSetting.CRank[] m_rank;   // ランクが定義された定数
     ResultSetting m_setting; // 設定ファイル
     bool m_isCompleteEffect;    // 演出が終わったらtrue
+    int m_effectMax;            // 演出を行う回数
+    int m_effectCnt;            // 演出を行った回数
     Dictionary<UILabel,float> m_pointLabel = new Dictionary<UILabel,float>();   // ポイントを表示するラベル
+    List<UISprite> m_effectList = new List<UISprite>(); // エフェクトを追加するオブジェクトのリスト
     float m_cnt;                // ポイントのカウントアップ変数
+    int m_depth;                // スプライトのデプス
 
     // public
     public GameObject m_one;    // 一つだけのゲームの結果を表示するときに使う
     public GameObject m_all;    // 総合得点を表示する
+    public enum eType { OneTime, Sequence };
+    public eType m_dispType;
 
     void Awake()
     {
@@ -78,8 +84,12 @@ public class ResultMgr : MonoBehaviour {
             m_pointLabel.Add(GameObject.Find("All/Point").GetComponent<UILabel>(), m_score);
         }
 
+
         // ローカル変数の初期化
         m_isCompleteEffect = false;
+        m_depth = -5;
+        m_effectMax = m_pointLabel.Count;
+        m_effectCnt = 0;
 
         StartCoroutine(CountUp());
 	}
@@ -100,6 +110,9 @@ public class ResultMgr : MonoBehaviour {
                 case SaveData.eState.GAME3:
                     m_fadeMgr.LoadLevel("bigIvent2");
                     break;
+                case SaveData.eState.ALL:
+                    m_fadeMgr.LoadLevel("title");
+                    break;
             }
         }
 
@@ -118,24 +131,65 @@ public class ResultMgr : MonoBehaviour {
         {
             List<UILabel> removeLabel = new List<UILabel>();
             // スコアの更新
-            foreach (var point in m_pointLabel)
+            //------------------------------------------------
+            // 全部一気に更新するバージョン
+            //------------------------------------------------
+            if (m_dispType == eType.OneTime)
             {
-                // カウントアップ
-                if (m_cnt <= point.Value)
+                foreach (var point in m_pointLabel)
                 {
-                    point.Key.text = m_cnt.ToString() + "pt";
+                    point.Key.transform.parent.FindChild("Point").GetComponent<TweenScale>().enabled = true;
+                    // カウントアップ
+                    if (m_cnt <= point.Value)
+                    {
+                        point.Key.text = m_cnt.ToString();
+                    }
+                    // カウンターが過ぎたらリストから外す
+                    else if (m_cnt > point.Value)
+                    {
+                        removeLabel.Add(point.Key);
+                    }
                 }
-                // カウンターが過ぎたらリストから外す
-                else if (m_cnt > point.Value)
+            }
+            //-----------------------------------------------
+            // 全部一気に更新するバージョンここまで
+            //-----------------------------------------------
+
+            //-----------------------------------------------
+            // 上から順番に更新するバージョン
+            //-----------------------------------------------
+            else if (m_dispType == eType.Sequence)
+            {
+                foreach (var point in m_pointLabel)
                 {
-                    removeLabel.Add(point.Key);
+                    point.Key.transform.parent.FindChild("Point").GetComponent<TweenScale>().enabled = true;
+                    // カウントアップ
+                    if (m_cnt <= point.Value)
+                    {
+                        point.Key.text = m_cnt.ToString();
+                    }
+                    // カウンターが過ぎたらリストから外す
+                    else if (m_cnt > point.Value)
+                    {
+                        removeLabel.Add(point.Key);
+                        m_cnt = 0;
+                    }
+                    break;
                 }
             }
 
+            //-----------------------------------------------
+            // 上から順番に更新するバージョンここまで
+            //-----------------------------------------------
+
             foreach(var remove in removeLabel){
                 m_pointLabel.Remove(remove);
-                // ランクの演出開始
-                remove.transform.parent.FindChild("Rank").GetComponent<TweenScale>().enabled = true;
+                Transform temp = remove.transform.parent.FindChild("Rank"); 
+                temp.GetComponent<TweenScale>().enabled = true;
+                temp.GetComponent<TweenRotation>().enabled = true;
+                temp.GetComponent<UISprite>().depth = m_depth;
+                m_effectList.Add(temp.GetComponent<UISprite>());
+                m_depth++;
             }
 
             m_cnt++;
@@ -182,7 +236,24 @@ public class ResultMgr : MonoBehaviour {
 
     void CompleteEffect()
     {
-        m_isCompleteEffect = true;
+        // 演出がすべて終わったら次のシーンへの遷移を許す
+        if (++m_effectCnt == m_effectMax)
+        {
+            m_isCompleteEffect = true;
+        }
+        m_effectList[0].transform.FindChild("Eff_Star_1").gameObject.SetActive(true);
+        Transform tmpPoint = m_effectList[0].transform.parent.FindChild("Point");
+        tmpPoint.GetComponent<TweenScale>().enabled = false;
+        if (m_effectMax == 4)
+        {
+            iTween.ScaleTo(tmpPoint.gameObject, new Vector3(96.0f, 96.0f, 0.0f), 1.0f);
+        }
+        else
+        {
+            iTween.ScaleTo(tmpPoint.gameObject, new Vector3(128.0f, 128.0f, 0.0f), 1.0f);
+        }
+
+        m_effectList.RemoveAt(0);
     }
 
     void SetNoActive(GameObject go)

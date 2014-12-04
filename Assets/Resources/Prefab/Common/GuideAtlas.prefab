@@ -44,14 +44,14 @@ MonoBehaviour:
   - name: torayaki_hukidashi
     outer:
       serializedVersion: 2
-      x: 1267
-      y: 3836
+      x: 0
+      y: 610
       width: 421
       height: 260
     inner:
       serializedVersion: 2
-      x: 1267
-      y: 3836
+      x: 0
+      y: 610
       width: 421
       height: 260
     rotated: 0
@@ -90,6 +90,24 @@ MonoBehaviour:
       y: 871
       width: 907
       height: 852
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: common_bgframe
+    outer:
+      serializedVersion: 2
+      x: 1267
+      y: 3016
+      width: 1920
+      height: 1080
+    inner:
+      serializedVersion: 2
+      x: 1267
+      y: 3016
+      width: 1920
+      height: 1080
     rotated: 0
     paddingLeft: 0
     paddingRight: 0
