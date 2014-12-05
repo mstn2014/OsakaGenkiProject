@@ -17,6 +17,7 @@ public class Game1GameRoop : MonoBehaviour {
     private ScoreMgr m_scoreMgr;         //　スコア
     [Header("ゲーム開始時にオンにするオブジェクト一覧")]
     public GameObject m_timeFrame;      // 制限時間表示オブジェクト
+    public GameObject m_howTo;          // ハウトゥ
 
 	InputMgr m_btnState;                // 入力インスタンス.
 	FadeMgr m_fadeMgr;                  // フェード.
@@ -69,6 +70,19 @@ public class Game1GameRoop : MonoBehaviour {
                         {
                             yield return null;
                         }
+
+                        m_howTo.SetActive(true);
+                        m_howTo.GetComponent<TweenScale>().Play(true);
+
+                        while(!m_btnState.RedButtonTrigger)
+                        {
+                            yield return null;
+                        }
+
+                        m_howTo.GetComponent<TweenScale>().Play(false);
+
+                        yield return new WaitForSeconds(1.0f);
+
                         m_countDown.Begin();
                         m_state = GameState.ready;
                     break;
@@ -195,7 +209,6 @@ public class Game1GameRoop : MonoBehaviour {
 
                     m_saveData.game1Score = m_scoreMgr.Score;
                     m_saveData.gameState = SaveData.eState.GAME1;
-                    UnityEditor.EditorUtility.SetDirty(m_saveData);
                     m_fadeMgr.LoadLevel("result");
 
                     break;

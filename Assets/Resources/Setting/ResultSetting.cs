@@ -14,7 +14,5 @@ public class ResultSetting : ScriptableObject{
         public float value;
     }
 
-    public CRank[] game1Rank;
-    public CRank[] game2Rank;
-    public CRank[] game3Rank;
+    public CRank[] Rank;
 }

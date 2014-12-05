@@ -14,87 +14,24 @@ MonoBehaviour:
   game1MaxPoint: 216
   game2MaxPoint: 258
   game3MaxPoint: 120
-  game1Rank:
+  Rank:
   - key: SSS
-    value: 1
-  - key: SS
     value: .949999988
-  - key: S
+  - key: SS
     value: .899999976
-  - key: AAA
+  - key: S
     value: .850000024
-  - key: AA
+  - key: AAA
     value: .699999988
+  - key: AA
+    value: .600000024
   - key: A
     value: .5
   - key: B
-    value: .400000006
+    value: .349999994
   - key: C
-    value: .300000012
+    value: .25
   - key: D
     value: .150000006
   - key: E
-    value: 0
-  game2Rank:
-  - key: SSS
-    value: 1
-  - key: SS
-    value: .949999988
-  - key: S
-    value: .899999976
-  - key: AAA
-    value: .850000024
-  - key: AA
-    value: .699999988
-  - key: A
-    value: .5
-  - key: B
-    value: .400000006
-  - key: C
-    value: .300000012
-  - key: D
-    value: .150000006
-  - key: E
-    value: 0
-  game3Rank:
-  - key: SSS
-    value: 1
-  - key: SS
-    value: .949999988
-  - key: S
-    value: .899999976
-  - key: AAA
-    value: .850000024
-  - key: AA
-    value: .699999988
-  - key: A
-    value: .5
-  - key: B
-    value: .400000006
-  - key: C
-    value: .300000012
-  - key: D
-    value: .150000006
-  - key: E
-    value: 0
-  allRank:
-  - key: SSS
-    value: 1
-  - key: SS
-    value: .949999988
-  - key: 
-    value: 0
-  - key: 
-    value: 0
-  - key: 
-    value: 0
-  - key: 
-    value: 0
-  - key: 
-    value: 0
-  - key: 
-    value: 0
-  - key: 
-    value: 0
-  - key: 
     value: 0

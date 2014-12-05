@@ -297,7 +297,6 @@ public class Game2StateMgr : MonoBehaviour {
         yield return new WaitForSeconds(3.0f);
         m_saveData.game2Score = m_scoreMgr.Score;
         m_saveData.gameState = SaveData.eState.GAME2;
-        UnityEditor.EditorUtility.SetDirty(m_saveData);
 
         // ガイドを呼び出す
         

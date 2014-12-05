@@ -6,7 +6,6 @@ public class Game1MobController : MonoBehaviour {
     Animator m_animator;        // モブのアニメーター
     public GameObject m_excl;          // !マークのエフェクト
     public Transform m_player;  // プレイヤーの
-    public UISprite m_talk;
 
 	// Use this for initialization
     void Awake()
@@ -23,6 +22,11 @@ public class Game1MobController : MonoBehaviour {
 	void Update () {
 	
 	}
+
+    void WalkRandom()
+    {
+
+    }
 
     public void LookTarget(Transform target)
     {
@@ -47,7 +51,6 @@ public class Game1MobController : MonoBehaviour {
 
         // ダンゴースプライト
         //StartCoroutine(TalkEffect(3.0f));
-        m_talk.enabled = true;
         Hashtable parameters1 = new Hashtable(){
             {"onupdate","EffectUpdate"},
             {"oncomplete","EffectComplete"},
@@ -59,17 +62,6 @@ public class Game1MobController : MonoBehaviour {
         iTween.ValueTo(this.gameObject, parameters1);
 
         DoPose();
-    }
-
-    void EffectComplete()
-    {
-        if(m_talk != null)
-        Destroy(m_talk.gameObject);
-    }
-
-    void EffectUpdate(float value)
-    {
-        m_talk.alpha = value;
     }
 
     public void LookPlayer()
