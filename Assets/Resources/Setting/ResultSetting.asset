@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   game1MaxPoint: 216
   game2MaxPoint: 258
-  game3MaxPoint: 120
+  game3MaxPoint: 50
   Rank:
   - key: SSS
     value: .949999988

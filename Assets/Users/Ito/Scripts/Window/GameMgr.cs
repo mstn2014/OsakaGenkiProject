@@ -41,7 +41,7 @@ public class GameMgr : MonoBehaviour {
         // 4
         if (m_btnState.YellowButtonTrigger)
         {
-            m_guide.Begin("Message/game1");
+            m_guide.Begin("Message/game1","");
         }
         
 	}

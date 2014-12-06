@@ -26,8 +26,7 @@ public class ScrollChar : MonoBehaviour {
     [SerializeField]
     GameObject m_inputName;
     [Header("セーブデータ")]
-    [SerializeField]
-    SaveData m_saveData;
+    SaveMgr m_saveData;
 
 	
 	void Start () {
@@ -36,6 +35,7 @@ public class ScrollChar : MonoBehaviour {
         m_btnState = gs.InputMgr;
         m_fadeMgr = gs.FadeMgr;
 		m_sound = gs.SoundMgr;
+        m_saveData = gs.SaveMgr;
         
         // 設定ファイルから初期文字位置を取り出す
         index = m_userSetting.initChar;

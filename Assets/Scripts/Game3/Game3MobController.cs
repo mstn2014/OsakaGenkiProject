@@ -111,17 +111,20 @@ public class Game3MobController : MonoBehaviour {
                 }
                 break;
             case State.Light:
-                CheckHitLight(1.0f);
                 if (m_nowTime >= m_balancer.DanceTime)
                 {
-                    MoveToTarget(m_sayonaraPoint, 2.0f);
+                    //MoveToTarget(m_sayonaraPoint, 2.0f);
+                    Invoke("DestoryMyself", 2.0f);
+                    GetComponent<NavMeshAgent>().SetDestination(m_sayonaraPoint.transform.position);
                     m_lightMgr.ChangeColor("White");
                     GameObject.Find(m_lightName.Replace("Light", "") + "WaitBar/WaitTime").GetComponent<UISprite>().fillAmount = 1.0f; 
                     m_balancer.Miss();
                     m_animator.SetTrigger("IsStand");
                     m_animator.SetFloat("speed", m_speed);
                     m_state = State.Bye;
+                    break;
                 }
+                CheckHitLight(1.0f);
                 break;
             case State.Parade:
                 // iTweenによるパレード参加
@@ -154,7 +157,7 @@ public class Game3MobController : MonoBehaviour {
             case State.Forward:
                 break;
             case State.Light:
-                if (m_isPush && !m_otherController.IsOK )
+                if (m_isPush && !IsOK )
                 {
                     m_nowTime = m_balancer.DanceTime;
                 }
@@ -268,12 +271,18 @@ public class Game3MobController : MonoBehaviour {
                 LookTarget(GameObject.Find("Parade").transform);
                 break;
             case State.Bye:
-                m_objMgr.CreateNewMob(this.gameObject);
-                Destroy(this.gameObject);
+                //m_objMgr.CreateNewMob(this.gameObject);
+                //Destroy(this.gameObject);
                 break;
         }
 
-    }   
+    }
+
+    void DestoryMyself()
+    {
+        m_objMgr.CreateNewMob(this.gameObject);
+        Destroy(this.gameObject);
+    }
 
     //======================================================
     // @brief:ライトオブジェクトとの当たり判定処理
@@ -323,7 +332,6 @@ public class Game3MobController : MonoBehaviour {
                 m_state = State.Parade;
                 m_speed = 0.0f;
                 m_animator.SetFloat("speed", m_speed);
-                IsOK = true;
                 m_otherController.IsOK = true;
                 m_balancer.Success();
                 m_lightMgr.ChangeColor("White");
@@ -356,6 +364,5 @@ public class Game3MobController : MonoBehaviour {
         m_animator.SetInteger("DanceType",Random.Range(0,5));
         LookTarget(GameObject.Find("Game3Player").transform);
         m_objMgr.CreateNewMob(this.gameObject);
-        iTween.StopByName(this.gameObject.name);
     }
 }

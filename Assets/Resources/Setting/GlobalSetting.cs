@@ -7,6 +7,7 @@ public class GlobalSetting : ScriptableObject
     public string inputMgrPath;
     public string fadeMgrPath;
     public string soundMgrPath;
+    public string SaveMgrPath;
     [Header("FPS")]
     public int fps = 60;
 
@@ -45,7 +46,7 @@ public class GlobalSetting : ScriptableObject
         }
     }
 
-    // フェードクラスを取得
+    // サウンドクラスを取得
     public SoundMgr SoundMgr
     {
         get
@@ -58,6 +59,22 @@ public class GlobalSetting : ScriptableObject
             }
             soundMgr = go.GetComponent<SoundMgr>();
             return soundMgr;
+        }
+    }
+
+    // セーブクラスを取得
+    public SaveMgr SaveMgr
+    {
+        get
+        {
+            SaveMgr saveMgr;
+            GameObject go = GameObject.FindGameObjectWithTag("SaveMgr");
+            if (go == null)
+            {
+                go = GameObject.Instantiate(Resources.Load(SaveMgrPath)) as GameObject;
+            }
+            saveMgr = go.GetComponent<SaveMgr>();
+            return saveMgr;
         }
     }
 }

@@ -8,7 +8,7 @@ public class NaviPlayer : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         m_agent = GetComponent<NavMeshAgent>();
-        m_agent.SetDestination(m_target.position);
+        //m_agent.SetDestination(m_target.position);
 	}
 	
 	// Update is called once per frame

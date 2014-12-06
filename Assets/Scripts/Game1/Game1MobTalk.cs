@@ -4,16 +4,11 @@ using System.Collections;
 public class Game1MobTalk : MonoBehaviour {
 
     Camera m_camera;
-    Texture m_dango;    // ダンゴーテクスチャ
+    SpriteRenderer m_renderer;  // スプライトのレンダラー
 	// Use this for initialization
 	void Awake() {
-        
         m_camera = GameObject.Find("Main Camera").GetComponent<Camera>();
-        transform.LookAt( m_camera.transform.position - transform.position );
-        m_dango = Resources.Load<Texture>("Prefab/Game1/game1_ui");
-        /*Vector3 work = m_camera.WorldToViewportPoint(transform.position);
-        transform.localPosition = new Vector3(work.x * Screen.width, work.y * Screen.height, work.z);
-        transform.localRotation = Quaternion.identity;*/
+        m_renderer = GetComponent<SpriteRenderer>();
 	}
 
     void Start()
@@ -22,15 +17,8 @@ public class Game1MobTalk : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        //Vector3 work = m_camera.WorldToViewportPoint(m_target.position);
-        //transform.localPosition = new Vector3(work.x * 1920, work.y * 1080 + 100, work.z);
-        // transform.LookAt( -m_camera.transform.position + transform.parent.position );
-	}
+        Vector3 work = new Vector3(-m_camera.transform.position.x + transform.position.x, -m_camera.transform.position.y + transform.position.y, -m_camera.transform.position.z + transform.position.z);
 
-    void OnGUI()
-    {
-        Vector3 work = m_camera.WorldToViewportPoint(transform.parent.position);
-        work = new Vector3(work.x * Screen.width, work.y * Screen.height, work.z);
-        GUI.DrawTexture(new Rect(work.x,work.y,256 * work.z / 1000,256*work.z / 1000), m_dango);
-    }
+        transform.LookAt( work );
+	}
 }

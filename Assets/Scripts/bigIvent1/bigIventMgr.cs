@@ -10,12 +10,16 @@ public class bigIventMgr : MonoBehaviour {
     // インスペクターで設定する
     [Header("ガイドのファイルを指定")]
     public string m_guideFile;         // ガイドのファイルを指定
+    public string m_guideSound;        // ガイドの音声ファイル
 
     [Header("次のシーンを指定")]
     public string m_nextScene;         // 次のシーンを指定
 
+
+
     // コンポーネント関連
-    Guide m_guide;
+    [Header("コンポーネントを取得")]
+    public Guide m_guide;
 
     // 
     bool m_isStart;             // お姉さんの会話が始まったらtrue
@@ -23,7 +27,7 @@ public class bigIventMgr : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         // コンポーネントを取得
-        m_guide = GameObject.Find("Guide").GetComponent<Guide>();
+        //m_guide = GameObject.Find("Guide").GetComponent<Guide>();
 
         // 共通設定の呼び出し
         GlobalSetting gs = Resources.Load<GlobalSetting>("Setting/GlobalSetting");
@@ -40,7 +44,7 @@ public class bigIventMgr : MonoBehaviour {
     IEnumerator BeginScene()
     {
         yield return new WaitForSeconds(3.0f);
-        m_guide.Begin("Message/"+m_guideFile);
+        m_guide.Begin("Message/" + m_guideFile, m_guideSound);
         m_isStart = true;
     }
 	

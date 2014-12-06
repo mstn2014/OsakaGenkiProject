@@ -16,4 +16,4 @@ MonoBehaviour:
   game2Score: 176
   game3Score: 108
   userRank: 3
-  gameState: 1
+  gameState: 0

@@ -18,9 +18,10 @@ public class Game3Mgr : MonoBehaviour
     GameObject m_Main2DFlg;		// ゲームメイン有効化(2D)
     bool m_isNextState;             // 次のシーンに遷移することを許す
     public ScoreMgr m_scoreMgr;     // スコアマネージャ
-    public SaveData m_saveData;     // セーブデータ
+    SaveMgr m_saveData;     // セーブデータ
     public GameObject m_timeUp;     // タイムアップスプライト
     public Game3MoveObj m_moveObj;  // 移動オブジェクト
+    public GameObject m_howTo;      // ハウトゥ
 
     // ステート
     enum Game3State
@@ -37,6 +38,7 @@ public class Game3Mgr : MonoBehaviour
         m_Input = gs.InputMgr;
         m_fade = gs.FadeMgr;
 		m_sound = gs.SoundMgr;
+        m_saveData = gs.SaveMgr;
 		m_sound.PlayGame_3();
 
         // ガイド呼び出し
@@ -59,7 +61,28 @@ public class Game3Mgr : MonoBehaviour
     {
         yield return new WaitForSeconds(3.0f);
 
-        m_Guide.Begin(Setting.FirstMessagePath);
+        m_Guide.Begin(Setting.FirstMessagePath,"Sound/GUIDE/small_event_3_0/small_event_3_0_talk_");
+
+        while (m_Guide.IsUse)
+        {
+            yield return null;
+        }
+
+        TweenScale ts = m_howTo.GetComponent<TweenScale>();
+        ts.enabled = false;
+        ts.Play(true);
+
+        yield return new WaitForSeconds(ts.duration + 0.2f);
+
+        while (!m_Input.RedButtonTrigger)
+        {
+            yield return null;
+        }
+
+        ts.Play(false);
+
+        yield return new WaitForSeconds(1.0f);
+
         m_isNextState = true;
     }
 
@@ -87,7 +110,7 @@ public class Game3Mgr : MonoBehaviour
     //======================================================
     void Guide_State()
     {
-        if (!m_Guide.IsUse && m_isNextState)
+        if (m_isNextState)
         {
             m_state = Game3State.COUNTDOWN;		// ステート更新
             m_Count.Begin();					// カウントダウンをスタート
@@ -123,7 +146,7 @@ public class Game3Mgr : MonoBehaviour
     IEnumerator TimeOver()
     {
         m_saveData.game3Score = m_scoreMgr.Score;
-        m_saveData.gameState = SaveData.eState.GAME3;
+        m_saveData.gameState = SaveMgr.eState.GAME3;
 
         m_MainFlg.SetActive(false);	// ゲームを有効化
         m_Main2DFlg.SetActive(false);	// ゲームを有効化(2D)
@@ -134,7 +157,7 @@ public class Game3Mgr : MonoBehaviour
         m_timeUp.SetActive(false);
         m_moveObj.IsMove = false;
 
-        m_Guide.Begin(Setting.LastMessagePath);
+        m_Guide.Begin(Setting.LastMessagePath, "Sound/GUIDE/small_event_3_1/small_event_3_1_talk_");
 
         while (m_Guide.IsUse)
         {
