@@ -41,6 +41,11 @@ public class SoundMgr : SingletonMonoBehaviourFast<SoundMgr>
 	AudioClip se_Question;			// 問題出題音
 	AudioClip se_Ran;				// 走り音
 	AudioClip se_Hanabi;			// 花火音
+	AudioClip se_Safe;				// セーフ音
+	AudioClip se_Good;				// グッド音
+	AudioClip se_Perfect;			// パーフェクト音
+	AudioClip se_Speedup;			// スピードアップ音
+	AudioClip se_Spotcuccess;		// スポット成功音
 
     // time
     float time;
@@ -49,7 +54,7 @@ public class SoundMgr : SingletonMonoBehaviourFast<SoundMgr>
 
     AudioSource audioSourceBGM;
 
-    AudioSource[] audioSourceSE = new AudioSource[16];
+    AudioSource[] audioSourceSE = new AudioSource[21];
 
     public void Awake()
     {
@@ -86,12 +91,18 @@ public class SoundMgr : SingletonMonoBehaviourFast<SoundMgr>
 		se_handclap = Resources.Load<AudioClip>(sePath+"kansei");
 		se_Ran = Resources.Load<AudioClip>(sePath+"ran");
 		se_Hanabi = Resources.Load<AudioClip>(sePath+"hanabi");
+		se_Safe = Resources.Load<AudioClip>(sePath+"safe");
+		se_Good = Resources.Load<AudioClip>(sePath+"good");
+		se_Perfect = Resources.Load<AudioClip>(sePath+"perfect");
+		se_Speedup = Resources.Load<AudioClip>(sePath+"speedup");
+		se_Spotcuccess = Resources.Load<AudioClip>(sePath+"spotcuccess");
+
 
         //audioSourceBGM = GetComponent<AudioSource> ();
         audioSourceBGM = this.gameObject.AddComponent<AudioSource>();
         audioSourceBGM.priority = 0;
 
-        for (int i = 0; i < 16; i++)
+        for (int i = 0; i < 21; i++)
         {
             audioSourceSE[i] = this.gameObject.AddComponent<AudioSource>();
             audioSourceSE[i].mute = mute;
@@ -227,5 +238,30 @@ public class SoundMgr : SingletonMonoBehaviourFast<SoundMgr>
 	public void PlaySeHanabi()
 	{
 		audioSourceSE[15].PlayOneShot(se_Hanabi);
+	}
+
+	public void PlaySeSafe()
+	{
+		audioSourceSE[16].PlayOneShot(se_Safe);
+	}
+
+	public void PlaySeGood()
+	{
+		audioSourceSE[17].PlayOneShot(se_Good);
+	}
+
+	public void PlaySePerfect()
+	{
+		audioSourceSE[18].PlayOneShot(se_Perfect);
+	}
+
+	public void PlaySeSpeedup()
+	{
+		audioSourceSE[19].PlayOneShot(se_Speedup);
+	}
+
+	public void PlaySeSpotcuccess()
+	{
+		audioSourceSE[20].PlayOneShot(se_Spotcuccess);
 	}
 }
