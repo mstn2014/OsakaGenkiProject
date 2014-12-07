@@ -135,6 +135,7 @@ public class SoundMgr : SingletonMonoBehaviourFast<SoundMgr>
 	public void PlayGame_3()
 	{
 		audioSourceBGM.clip = bgm_game3;
+        audioSourceBGM.volume = 0.2f;
 		audioSourceBGM.Play();
 	}
 	// リザルト

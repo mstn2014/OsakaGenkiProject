@@ -6,7 +6,7 @@ public class Game1MobController : MonoBehaviour {
     Animator m_animator;        // モブのアニメーター
     public GameObject m_excl;          // !マークのエフェクト
     public Transform m_player;  // プレイヤーの
-    public UISprite m_talk;
+    public SpriteRenderer m_dango;  // ダンゴーを表示するレンダラー
 
 	// Use this for initialization
     void Awake()
@@ -23,6 +23,11 @@ public class Game1MobController : MonoBehaviour {
 	void Update () {
 	
 	}
+
+    void WalkRandom()
+    {
+
+    }
 
     public void LookTarget(Transform target)
     {
@@ -46,8 +51,7 @@ public class Game1MobController : MonoBehaviour {
         m_excl.SetActive(true);
 
         // ダンゴースプライト
-        //StartCoroutine(TalkEffect(3.0f));
-        m_talk.enabled = true;
+        TalkEffect(3.0f);
         Hashtable parameters1 = new Hashtable(){
             {"onupdate","EffectUpdate"},
             {"oncomplete","EffectComplete"},
@@ -61,15 +65,21 @@ public class Game1MobController : MonoBehaviour {
         DoPose();
     }
 
-    void EffectComplete()
+    void TalkEffect(float time)
     {
-        if(m_talk != null)
-        Destroy(m_talk.gameObject);
+        Hashtable parameters = new Hashtable(){
+            {"onupdate","UpdateAlpha"},
+            {"from",1},
+            {"to",0},
+            {"time",time},
+            {"easetype",iTween.EaseType.easeInCubic},
+        };
+        iTween.ValueTo(gameObject, parameters);
     }
 
-    void EffectUpdate(float value)
+    void UpdateAlpha(float value)
     {
-        m_talk.alpha = value;
+        m_dango.color = new Color(m_dango.color.r,m_dango.color.g,m_dango.color.b,value);
     }
 
     public void LookPlayer()

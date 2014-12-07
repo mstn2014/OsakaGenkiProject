@@ -5,13 +5,13 @@ using System.Collections.Generic;
 public class ResultMgr : MonoBehaviour {
 
     // コンポーネント関連
-    SaveData m_save;            // 一時セーブデータ
+    SaveMgr m_save;            // 一時セーブデータ
     InputMgr m_inputMgr;        // インプット
     FadeMgr m_fadeMgr;          // フェード
 	SoundMgr m_sound;          	// サウンド
     
     // ローカル変数
-    SaveData.eState m_state;    // どのシーンから飛んできたか。どのシーンの結果を返すか判断するフラグ。
+    SaveMgr.eState m_state;    // どのシーンから飛んできたか。どのシーンの結果を返すか判断するフラグ。
     float m_score;              // ゲームのスコア
     float m_maxPoint;           // そのゲームの最大スコア
     ResultSetting.CRank[] m_rank;   // ランクが定義された定数
@@ -38,8 +38,7 @@ public class ResultMgr : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        m_save = Resources.Load<SaveData>("SaveData/SaveData");
-        m_state = m_save.gameState;
+        
         m_setting = Resources.Load<ResultSetting>("Setting/ResultSetting");
 
         // 共通設定の呼び出し
@@ -47,10 +46,12 @@ public class ResultMgr : MonoBehaviour {
         m_inputMgr = gs.InputMgr;
         m_fadeMgr = gs.FadeMgr;
 		m_sound = gs.SoundMgr;
+        m_save = gs.SaveMgr;
+        m_state = m_save.gameState;
 		m_sound.PlayResult();
 
         // 一つバージョンか総合得点バージョンかどちらかのフラグを立てる
-        if (m_state == SaveData.eState.ALL)
+        if (m_state == SaveMgr.eState.ALL)
         {
             m_all.SetActive(true);
         }
@@ -63,25 +64,25 @@ public class ResultMgr : MonoBehaviour {
         if (m_one.activeInHierarchy)
         {
             GameObject.Find("Rank").GetComponent<UISprite>().spriteName = CalcRank(m_state);
-            m_pointLabel.Add(GameObject.Find("Point").GetComponent<UILabel>(),m_score);
+            m_pointLabel.Add(GameObject.Find("Point").GetComponent<UILabel>(),m_score / m_maxPoint *100 );
         }
         else
         {
             // ゲーム１
-            GameObject.Find("Game1/Rank").GetComponent<UISprite>().spriteName = CalcRank(SaveData.eState.GAME1);
-            m_pointLabel.Add(GameObject.Find("Game1/Point").GetComponent<UILabel>(), m_score); ;
+            GameObject.Find("Game1/Rank").GetComponent<UISprite>().spriteName = CalcRank(SaveMgr.eState.GAME1);
+            m_pointLabel.Add(GameObject.Find("Game1/Point").GetComponent<UILabel>(), m_score / m_setting.game1MaxPoint * 100); ;
 
             // ゲーム2
-            GameObject.Find("Game2/Rank").GetComponent<UISprite>().spriteName = CalcRank(SaveData.eState.GAME2);
-            m_pointLabel.Add(GameObject.Find("Game2/Point").GetComponent<UILabel>(), m_score);
+            GameObject.Find("Game2/Rank").GetComponent<UISprite>().spriteName = CalcRank(SaveMgr.eState.GAME2);
+            m_pointLabel.Add(GameObject.Find("Game2/Point").GetComponent<UILabel>(), m_score / m_setting.game2MaxPoint * 100);
             
             // ゲーム3
-            GameObject.Find("Game3/Rank").GetComponent<UISprite>().spriteName = CalcRank(SaveData.eState.GAME3);
-            m_pointLabel.Add(GameObject.Find("Game3/Point").GetComponent<UILabel>(), m_score);
+            GameObject.Find("Game3/Rank").GetComponent<UISprite>().spriteName = CalcRank(SaveMgr.eState.GAME3);
+            m_pointLabel.Add(GameObject.Find("Game3/Point").GetComponent<UILabel>(), m_score / m_setting.game3MaxPoint * 100);
             
             // 総合得点
-            GameObject.Find("All/Rank").GetComponent<UISprite>().spriteName = CalcRank(SaveData.eState.ALL);
-            m_pointLabel.Add(GameObject.Find("All/Point").GetComponent<UILabel>(), m_score);
+            GameObject.Find("All/Rank").GetComponent<UISprite>().spriteName = CalcRank(SaveMgr.eState.ALL);
+            m_pointLabel.Add(GameObject.Find("All/Point").GetComponent<UILabel>(), m_score / (m_setting.game1MaxPoint+m_setting.game2MaxPoint+m_setting.game3MaxPoint) * 100);
         }
 
 
@@ -101,17 +102,18 @@ public class ResultMgr : MonoBehaviour {
         {
             switch (m_save.gameState)
             {
-                case SaveData.eState.GAME1:
+                case SaveMgr.eState.GAME1:
                     m_fadeMgr.LoadLevel("game2");
                     break;
-                case SaveData.eState.GAME2:
+                case SaveMgr.eState.GAME2:
                     m_fadeMgr.LoadLevel("game3");
                     break;
-                case SaveData.eState.GAME3:
-                    m_fadeMgr.LoadLevel("bigIvent2");
+                case SaveMgr.eState.GAME3:
+                    m_fadeMgr.LoadLevel("result");
+                    m_save.gameState = SaveMgr.eState.ALL;
                     break;
-                case SaveData.eState.ALL:
-                    m_fadeMgr.LoadLevel("title");
+                case SaveMgr.eState.ALL:
+                    m_fadeMgr.LoadLevel("bigIvent2");
                     break;
             }
         }
@@ -147,6 +149,7 @@ public class ResultMgr : MonoBehaviour {
                     // カウンターが過ぎたらリストから外す
                     else if (m_cnt > point.Value)
                     {
+                        point.Key.text = point.Value.ToString();
                         removeLabel.Add(point.Key);
                     }
                 }
@@ -171,6 +174,7 @@ public class ResultMgr : MonoBehaviour {
                     // カウンターが過ぎたらリストから外す
                     else if (m_cnt > point.Value)
                     {
+                        point.Key.text = point.Value.ToString("0.0");
                         removeLabel.Add(point.Key);
                         m_cnt = 0;
                     }
@@ -197,31 +201,31 @@ public class ResultMgr : MonoBehaviour {
         }
     }
 
-    string CalcRank(SaveData.eState state)
+    string CalcRank(SaveMgr.eState state)
     {
         switch (state)
         {
-            case SaveData.eState.GAME1:
+            case SaveMgr.eState.GAME1:
                 m_score = m_save.game1Score;
                 m_maxPoint = m_setting.game1MaxPoint;
-                m_rank = m_setting.game1Rank;
+                m_rank = m_setting.Rank;
                 break;
-            case SaveData.eState.GAME2:
+            case SaveMgr.eState.GAME2:
                 m_score = m_save.game2Score;
                 m_maxPoint = m_setting.game2MaxPoint;
-                m_rank = m_setting.game2Rank;
+                m_rank = m_setting.Rank;
                 break;
-            case SaveData.eState.GAME3:
+            case SaveMgr.eState.GAME3:
                 m_score = m_save.game3Score;
                 m_maxPoint = m_setting.game3MaxPoint;
-                m_rank = m_setting.game3Rank;
+                m_rank = m_setting.Rank;
                 break;
-            case SaveData.eState.ALL:
+            case SaveMgr.eState.ALL:
                 m_score = m_save.game1Score + m_save.game2Score + m_save.game3Score;
                 m_maxPoint = m_setting.game1MaxPoint + m_setting.game2MaxPoint + m_setting.game3MaxPoint;
-                m_rank = m_setting.game3Rank;
+                m_rank = m_setting.Rank;
                 break;
-        } 
+        }
 
         float point = m_score / m_maxPoint;
         foreach (ResultSetting.CRank rank in m_rank)

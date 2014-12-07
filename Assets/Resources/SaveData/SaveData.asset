@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Name: SaveData
   m_EditorClassIdentifier: 
   userName: "\u304F\u3045"
-  game1Score: 101
-  game2Score: 151
-  game3Score: 35
+  game1Score: 196
+  game2Score: 176
+  game3Score: 108
   userRank: 3
-  gameState: 1
+  gameState: 0

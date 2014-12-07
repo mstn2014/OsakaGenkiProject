@@ -63,13 +63,16 @@ public class Game3ObjMgr : MonoBehaviour {
             int selectedNum = Random.Range(0, ret.Length);
             ret[selectedNum].transform.parent = transform;
             ret[selectedNum].MoveToLight(m_light);
-            if (m_otherMgr.SelectedMob != null)
+            /*if (m_otherMgr.SelectedMob != null)
             {
                 m_otherMgr.SelectedMob.OtherMobController = ret[selectedNum];
-            }
+            }*/
             SelectedMob = ret[selectedNum];
+            //SelectedMob.OtherMobController = m_otherMgr.SelectedMob;
+           
             m_createTime = m_balancer.CreateTime;
         }
+        SelectedMob.OtherMobController = m_otherMgr.SelectedMob;
 	}
 
     public void CreateNewMob(GameObject go)

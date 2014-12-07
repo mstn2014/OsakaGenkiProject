@@ -5,7 +5,6 @@ public class Game3Balancer : MonoBehaviour {
 
     // private
     float m_waitLength;                      // 抽選までの時間の乱数の間隔
-    float m_waitRandom;                      // 乱数を保持
     float m_waitTime;                        // 抽選までの時間
     int m_changeDiffCount;                  // 難易度を変える成功回数
     int m_successCon;                       // 連続で成功した回数をカウント
@@ -28,13 +27,13 @@ public class Game3Balancer : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	    m_waitLength = 2.0f;
+	    m_waitLength = 1.0f;
         m_changeDiffCount = 3;
         m_successCon = 0;
-        m_waitTime = 5.0f;
+        m_waitTime = 2.0f;
 
         Speed = 2.0f;
-        DanceTime = 3.0f;
+        DanceTime = 2.0f;
         Difficulty = 0.1f;
 	}
 	
@@ -77,8 +76,8 @@ public class Game3Balancer : MonoBehaviour {
 
     void ClampValue()
     {
-        m_waitTime = Mathf.Clamp(m_waitTime, 0.0f, 5.0f);
+        m_waitTime = Mathf.Clamp(m_waitTime, 3.0f, 5.0f);
         Speed = Mathf.Clamp(Speed, 0.5f, 2.0f);
-        DanceTime = Mathf.Clamp(DanceTime, 0.1f, 3.0f);
+        DanceTime = Mathf.Clamp(DanceTime, 0.5f, 2.0f);
     }
 }

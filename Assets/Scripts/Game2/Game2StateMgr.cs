@@ -30,7 +30,8 @@ public class Game2StateMgr : MonoBehaviour {
     public Game2ModelMotion m_player;      // プレイヤーのモーション
     public Guide m_guide;                   // ガイド
     public GameObject m_guestMotion;             // ゲストのモーション
-    public SaveData m_saveData;             // セーブデータ
+    public GameObject m_howTo;              // ハウトゥ
+    SaveMgr m_saveData;                      // セーブデータ
     public GameObject m_camera;             // カメラ
 	private GameObject m_Event1;			//	盛りあがりイベント1
 	private GameObject m_Event2;			//	盛りあがりイベント2
@@ -53,6 +54,7 @@ public class Game2StateMgr : MonoBehaviour {
         m_btnState = gs.InputMgr;
         m_fadeMgr = gs.FadeMgr;
         m_soundMgr = gs.SoundMgr;
+        m_saveData = gs.SaveMgr;
 		m_soundMgr.PlayGame_2();
         // ボタン生成を呼び出す
         m_createButton = m_extra.transform.FindChild("ButtonMgr").GetComponent<Game2CreateButton>();
@@ -136,7 +138,7 @@ public class Game2StateMgr : MonoBehaviour {
         // 3秒待つ
         yield return new WaitForSeconds(3.0f);
 
-        m_guide.Begin("Message/small_event_2_0");
+        m_guide.Begin("Message/small_event_2_0", "Sound/GUIDE/small_event_2_0/small_event_2_0_talk_");
         m_state = Game2State.GUIDE;
     }
 
@@ -148,11 +150,39 @@ public class Game2StateMgr : MonoBehaviour {
     // @return:none
     //======================================================
     void Guide()
-    {   
-        if( !m_guide.IsUse ){
-            m_state = Game2State.COUNTDOWN;
-			m_soundMgr.FadeStopBGM(0.3f);
+    {
+        if (!m_waitFlg)
+        {
+            StartCoroutine(GuideTime());
+            m_waitFlg = true;
         }
+    }
+
+    IEnumerator GuideTime()
+    {
+        while (m_guide.IsUse)
+        {
+            yield return null;
+        }
+
+        m_howTo.SetActive(true);
+        TweenScale ts = m_howTo.GetComponent<TweenScale>();
+        ts.Play(true);
+
+        yield return new WaitForSeconds(ts.duration + 0.2f);
+
+        while (!m_btnState.RedButtonTrigger)
+        {
+            yield return null;
+        }
+
+        ts.Play(false);
+
+        yield return new WaitForSeconds(1.0f);
+
+        m_state = Game2State.COUNTDOWN;
+        m_soundMgr.FadeStopBGM(0.3f);
+        m_waitFlg = false;
     }
 
     //======================================================
@@ -296,12 +326,11 @@ public class Game2StateMgr : MonoBehaviour {
     {
         yield return new WaitForSeconds(3.0f);
         m_saveData.game2Score = m_scoreMgr.Score;
-        m_saveData.gameState = SaveData.eState.GAME2;
-        UnityEditor.EditorUtility.SetDirty(m_saveData);
+        m_saveData.gameState = SaveMgr.eState.GAME2;
 
         // ガイドを呼び出す
-        
-        m_guide.Begin("Message/small_event_2_1");
+
+        m_guide.Begin("Message/small_event_2_1", "Sound/GUIDE/small_event_2_1/small_event_2_1_talk_");
         m_frame.SetActive(false);
         m_extra.SetActive(false);
 

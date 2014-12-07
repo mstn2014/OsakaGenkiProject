@@ -10,6 +10,7 @@ public class Guide : MonoBehaviour
     GuideMgr m_guideMgr;                    // ガイド役のマネージャー
     List<string> m_messageText;             // メッセージデータ
     int m_messageIndex;                     // メッセージのインデックス
+    string m_soundPath;
 
     // set getアクセサ
     public bool IsUse { set; get; }         // ガイドを呼び出していればtrue,いなければfalse
@@ -49,6 +50,13 @@ public class Guide : MonoBehaviour
         if (m_btnState.RedButtonTrigger && m_windowMgr.IsFinished && (m_messageText.Count > (m_messageIndex + 1)))
         {
             m_windowMgr.Text = m_messageText[++m_messageIndex];
+            string speakName = m_soundPath + m_messageIndex.ToString();
+            AudioClip audioClip = Resources.Load<AudioClip>(speakName);
+
+            // audioClipの再生
+            this.GetComponent<AudioSource>().clip = audioClip;
+            this.GetComponent<AudioSource>().loop = false;
+            this.GetComponent<AudioSource>().PlayOneShot(audioClip);
 			m_sound.PlaySeReturn();
         }
         //　メッセージが最後まで行った時の処理 
@@ -59,6 +67,11 @@ public class Guide : MonoBehaviour
             m_messageIndex = 0;
             StartCoroutine(CheckUseFlg());
         }
+
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            End();
+        }
     }
 
     //======================================================
@@ -66,9 +79,10 @@ public class Guide : MonoBehaviour
     //------------------------------------------------------
     // @author:K.Ito
     // @param:ガイドがしゃべる内容が書いてあるtxtファイルのパス
+    // @param:ガイドがしゃべる内容の音声ファイルのパス
     // @return:none
     //=====================================================
-    public void Begin(string textPath)
+    public void Begin(string textPath,string soundPath)
     {
         if (IsUse) return;
 
@@ -76,6 +90,15 @@ public class Guide : MonoBehaviour
         ParseMessageText textParser = new ParseMessageText();
         m_messageText = textParser.LoadText(textPath);
         m_windowMgr.Text = m_messageText[m_messageIndex];
+
+        m_soundPath = soundPath;
+        string speakName = m_soundPath + m_messageIndex.ToString();
+        AudioClip audioClip = Resources.Load<AudioClip>(speakName);
+
+        // audioClipの再生
+        this.GetComponent<AudioSource>().clip = audioClip;
+        this.GetComponent<AudioSource>().loop = false;
+        this.GetComponent<AudioSource>().PlayOneShot(audioClip);
 
         // ウィンドウとガイドを呼び出す
         m_windowMgr.OpenWindow();

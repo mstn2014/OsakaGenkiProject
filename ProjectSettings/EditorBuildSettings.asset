@@ -9,21 +9,21 @@ EditorBuildSettings:
     path: Assets/Scenes/title.unity
   - enabled: 1
     path: Assets/Scenes/bigIvent1.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/userRegister.unity
   - enabled: 1
     path: Assets/Scenes/game1.unity
   - enabled: 1
-    path: Assets/Scenes/game3.unity
-  - enabled: 1
     path: Assets/Scenes/game2.unity
   - enabled: 1
+    path: Assets/Scenes/game3.unity
+  - enabled: 0
     path: Assets/Scenes/ranking.unity
   - enabled: 1
     path: Assets/Scenes/result.unity
   - enabled: 1
     path: Assets/Scenes/bigIvent2.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/ending.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Users/Kawamoto/Name_TestScene.unity

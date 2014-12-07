@@ -44,14 +44,14 @@ MonoBehaviour:
   - name: game3_ui
     outer:
       serializedVersion: 2
-      x: 434
-      y: 256
+      x: 0
+      y: 264
       width: 256
       height: 256
     inner:
       serializedVersion: 2
-      x: 434
-      y: 256
+      x: 0
+      y: 264
       width: 256
       height: 256
     rotated: 0
@@ -63,13 +63,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 0
-      y: 50
+      y: 521
       width: 433
       height: 462
     inner:
       serializedVersion: 2
       x: 0
-      y: 50
+      y: 521
       width: 433
       height: 462
     rotated: 0
@@ -81,13 +81,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 0
-      y: 28
+      y: 242
       width: 265
       height: 21
     inner:
       serializedVersion: 2
       x: 0
-      y: 28
+      y: 242
       width: 265
       height: 21
     rotated: 0
@@ -99,13 +99,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 0
-      y: 17
+      y: 231
       width: 247
       height: 10
     inner:
       serializedVersion: 2
       x: 0
-      y: 17
+      y: 231
       width: 247
       height: 10
     rotated: 0
@@ -113,6 +113,24 @@ MonoBehaviour:
     paddingRight: .0202429146
     paddingTop: .5
     paddingBottom: .600000024
+  - name: howtoplay_game3
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 984
+      width: 1900
+      height: 1064
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 984
+      width: 1900
+      height: 1064
+    rotated: 0
+    paddingLeft: .00526315812
+    paddingRight: .00526315812
+    paddingTop: .00939849578
+    paddingBottom: .00563909765
   mCoordinates: 0
   mPixelSize: 1
   mReplacement: {fileID: 0}

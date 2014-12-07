@@ -13,10 +13,11 @@ public class Game1GameRoop : MonoBehaviour {
     public Game1PlayerController m_player; // プレイヤー
     public Guide m_guide;               // ガイドマネージャ
     public StartCountDown m_countDown;  // カウントダウン
-    public SaveData m_saveData;         // セーブデータ
+    SaveMgr m_saveData;         // セーブデータ
     private ScoreMgr m_scoreMgr;         //　スコア
     [Header("ゲーム開始時にオンにするオブジェクト一覧")]
     public GameObject m_timeFrame;      // 制限時間表示オブジェクト
+    public GameObject m_howTo;          // ハウトゥ
 
 	InputMgr m_btnState;                // 入力インスタンス.
 	FadeMgr m_fadeMgr;                  // フェード.
@@ -25,15 +26,10 @@ public class Game1GameRoop : MonoBehaviour {
 	// Game1共通設定.
 	private Game1_Setting GAME1;
 
-	// データセーブ用
-	private SaveData SAVE;
-
 	// Use this for initialization
 	IEnumerator Start () {
 		// Game1共通設定.
 		GAME1 = Resources.Load<Game1_Setting>("Setting/Game1_Setting");
-		// データセーブ用
-		SAVE = Resources.Load<SaveData>("SaveData/SaveData");
 
 		m_start = false;
 		m_state = GameState.guide;
@@ -49,6 +45,7 @@ public class Game1GameRoop : MonoBehaviour {
 		m_btnState = gs.InputMgr;
 		m_fadeMgr = gs.FadeMgr;
 		m_sound = gs.SoundMgr;
+        m_saveData = gs.SaveMgr;
 		m_sound.PlayGame_1();
  
         m_start = true;
@@ -64,11 +61,27 @@ public class Game1GameRoop : MonoBehaviour {
                 case GameState.guide:
                         yield return new WaitForSeconds(2.0f);
 
-                        m_guide.Begin("Message/small_event_1_0");
+                        m_guide.Begin("Message/small_event_1_0","Sound/GUIDE/small_event_1_0/small_event_1_0_talk_");
                         while (m_guide.IsUse)
                         {
                             yield return null;
                         }
+
+                        m_howTo.SetActive(true);
+                        TweenScale ts = m_howTo.GetComponent<TweenScale>();
+                        ts.Play(true);
+
+                        yield return new WaitForSeconds(ts.duration + 0.2f);
+
+                        while(!m_btnState.RedButtonTrigger)
+                        {
+                            yield return null;
+                        }
+
+                        m_howTo.GetComponent<TweenScale>().Play(false);
+
+                        yield return new WaitForSeconds(1.0f);
+
                         m_countDown.Begin();
                         m_state = GameState.ready;
                     break;
@@ -187,15 +200,14 @@ public class Game1GameRoop : MonoBehaviour {
 
                     m_effect.InitCircle();
 
-                    m_guide.Begin("Message/small_event_1_1");
+                    m_guide.Begin("Message/small_event_1_1", "Sound/GUIDE/small_event_1_1/small_event_1_1_talk_");
                     while (m_guide.IsUse)
                     {
                         yield return null;
                     }
 
                     m_saveData.game1Score = m_scoreMgr.Score;
-                    m_saveData.gameState = SaveData.eState.GAME1;
-                    UnityEditor.EditorUtility.SetDirty(m_saveData);
+                    m_saveData.gameState = SaveMgr.eState.GAME1;
                     m_fadeMgr.LoadLevel("result");
 
                     break;
