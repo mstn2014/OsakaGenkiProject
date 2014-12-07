@@ -75,11 +75,11 @@ MonoBehaviour:
   Event3Score: 60
   Event4Score: 80
   Event5Score: 100
-  Event1Guest: 5
-  Event2Guest: 7
-  Event3Guest: 8
-  Event4Guest: 10
-  Event5Guest: 20
+  Event1Guest: 10
+  Event2Guest: 10
+  Event3Guest: 20
+  Event4Guest: 20
+  Event5Guest: 50
   GuestPosition:
   - {x: -2, y: -.5, z: 4.30000019}
   - {x: -2, y: -.5, z: 3.79999995}

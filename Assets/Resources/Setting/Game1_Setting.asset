@@ -37,6 +37,6 @@ MonoBehaviour:
   combo_FadeTime: 2
   combo_MoveY: 100
   circle_ScaleTime: 1
-  circle_Scale: 2
+  circle_Scale: 1
   result_ScaleXY: 0
   result_FadeTime: 2

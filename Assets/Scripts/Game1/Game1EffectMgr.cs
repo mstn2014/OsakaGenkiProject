@@ -84,6 +84,7 @@ public class Game1EffectMgr : MonoBehaviour {
 		m_circleParent.transform.localRotation = Quaternion.Euler (new Vector3 (90, 0, 0));
 		m_circleParent.transform.localPosition = new Vector3 (0,0.1f,0);
 		m_oldcircle = null;
+        m_comboNum = 0;
 	}
 
 	//======================================================
@@ -97,19 +98,19 @@ public class Game1EffectMgr : MonoBehaviour {
 		m_effectPause = true;
 		GameObject result;
 		result = CreatePrefab.InstantiateGameObject (m_result, Vector3.zero, Quaternion.identity,
-		                                            new Vector3 (GAME1.result_ScaleXY, GAME1.result_ScaleXY, 0), m_panel);
+		                                            new Vector3 (GAME1.result_ScaleXY, GAME1.result_ScaleXY, -100), m_panel);
 		UISprite workLabel = result.GetComponent<UISprite>();
 
 		switch (type) {
 		case 0:
 			workLabel.spriteName = ("game1_perfect");
-		break;
+		    break;
 		case 1:
 			workLabel.spriteName = ("game1_miss");
 			break;
 		case 2:
 			workLabel.spriteName = ("game1_timeup");
-		break;
+		    break;
 		}
 
         workLabel.MakePixelPerfect();

@@ -22,6 +22,8 @@ public class Game3Mgr : MonoBehaviour
     public GameObject m_timeUp;     // タイムアップスプライト
     public Game3MoveObj m_moveObj;  // 移動オブジェクト
     public GameObject m_howTo;      // ハウトゥ
+    public ResultSetting m_resultSet;
+    public Game3Balancer m_balancer;
 
     // ステート
     enum Game3State
@@ -146,6 +148,7 @@ public class Game3Mgr : MonoBehaviour
     IEnumerator TimeOver()
     {
         m_saveData.game3Score = m_scoreMgr.Score;
+        m_saveData.game3Max = m_balancer.AppearNum;
         m_saveData.gameState = SaveMgr.eState.GAME3;
 
         m_MainFlg.SetActive(false);	// ゲームを有効化

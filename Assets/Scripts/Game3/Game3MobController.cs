@@ -120,6 +120,7 @@ public class Game3MobController : MonoBehaviour {
                     GameObject.Find(m_lightName.Replace("Light", "") + "WaitBar/WaitTime").GetComponent<UISprite>().fillAmount = 1.0f; 
                     m_balancer.Miss();
                     m_animator.SetTrigger("IsStand");
+                    m_speed = 10.0f;
                     m_animator.SetFloat("speed", m_speed);
                     m_state = State.Bye;
                     break;

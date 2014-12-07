@@ -48,6 +48,7 @@ public class TitleMgr : MonoBehaviour {
         {
             StartCoroutine(LogoEffect());
             m_logo.FadeOut();
+            m_sound.PlaySeReturn();
             m_isStart = true;
         }
 	}

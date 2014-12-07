@@ -89,6 +89,7 @@ public class SoundMgr : SingletonMonoBehaviourFast<SoundMgr>
 
         //audioSourceBGM = GetComponent<AudioSource> ();
         audioSourceBGM = this.gameObject.AddComponent<AudioSource>();
+        audioSourceBGM.priority = 0;
 
         for (int i = 0; i < 16; i++)
         {
@@ -135,7 +136,6 @@ public class SoundMgr : SingletonMonoBehaviourFast<SoundMgr>
 	public void PlayGame_3()
 	{
 		audioSourceBGM.clip = bgm_game3;
-        audioSourceBGM.volume = 0.2f;
 		audioSourceBGM.Play();
 	}
 	// リザルト
@@ -175,6 +175,7 @@ public class SoundMgr : SingletonMonoBehaviourFast<SoundMgr>
     // ここからSE
     public void PlaySeReturn()
     {
+        audioSourceSE[0].volume = 0.2f;
         audioSourceSE[0].PlayOneShot(se_return);
     }
 

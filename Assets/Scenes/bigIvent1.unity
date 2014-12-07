@@ -182,7 +182,7 @@ Prefab:
       objectReference: {fileID: 480626368}
     - target: {fileID: 11400000, guid: 131fd30c6d5b8d34c800ebc2d89b8054, type: 2}
       propertyPath: m_guideSound
-      value: Sound/GUIDE/big_event_2/big_event_2_talk_
+      value: Sound/GUIDE/big_event_1/big_event_1_talk_
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 131fd30c6d5b8d34c800ebc2d89b8054, type: 2}
@@ -230,15 +230,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: 84a0c9500afdbe34fb12929f1f5ef871, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -1.22171938
+      value: -1.2026726
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: 84a0c9500afdbe34fb12929f1f5ef871, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.2217195
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11400014, guid: 84a0c9500afdbe34fb12929f1f5ef871, type: 2}
       propertyPath: charsPerSecond
-      value: 10
+      value: 120
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 84a0c9500afdbe34fb12929f1f5ef871, type: 2}
@@ -590,7 +590,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5e1210a659c71f49b09ec14c4d40e77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  charsPerSecond: 10
+  charsPerSecond: 120
 --- !u!1 &742736921
 GameObject:
   m_ObjectHideFlags: 0
@@ -614,7 +614,7 @@ Transform:
   m_PrefabInternal: {fileID: 216788329}
   m_GameObject: {fileID: 742736921}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.22171938, y: 1.2217195, z: 0}
+  m_LocalPosition: {x: -1.2026726, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2006912318}
@@ -1408,7 +1408,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_guideFile: big_event_1
-  m_guideSound: Sound/GUIDE/big_event_2/big_event_2_talk_
+  m_guideSound: Sound/GUIDE/big_event_1/big_event_1_talk_
   m_nextScene: game1
   m_guide: {fileID: 480626368}
 --- !u!4 &1834743700
@@ -1476,11 +1476,11 @@ MonoBehaviour:
     e00: 540
     e01: 0
     e02: 0
-    e03: 1.22171938
+    e03: 1.2026726
     e10: 0
     e11: 540
     e12: 0
-    e13: -1.2217195
+    e13: 0
     e20: 0
     e21: 0
     e22: 540

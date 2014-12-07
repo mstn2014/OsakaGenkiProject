@@ -67,6 +67,11 @@ public class Guide : MonoBehaviour
             m_messageIndex = 0;
             StartCoroutine(CheckUseFlg());
         }
+
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            End();
+        }
     }
 
     //======================================================
