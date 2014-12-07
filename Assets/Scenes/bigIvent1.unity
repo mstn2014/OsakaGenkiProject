@@ -182,7 +182,7 @@ Prefab:
       objectReference: {fileID: 480626368}
     - target: {fileID: 11400000, guid: 131fd30c6d5b8d34c800ebc2d89b8054, type: 2}
       propertyPath: m_guideSound
-      value: Sound/GUIDE/big_event_2/big_event_2_talk_
+      value: Sound/GUIDE/big_event_1/big_event_1_talk_
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 131fd30c6d5b8d34c800ebc2d89b8054, type: 2}
@@ -1408,7 +1408,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_guideFile: big_event_1
-  m_guideSound: Sound/GUIDE/big_event_2/big_event_2_talk_
+  m_guideSound: Sound/GUIDE/big_event_1/big_event_1_talk_
   m_nextScene: game1
   m_guide: {fileID: 480626368}
 --- !u!4 &1834743700
