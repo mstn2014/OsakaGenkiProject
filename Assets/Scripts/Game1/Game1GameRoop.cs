@@ -17,7 +17,7 @@ public class Game1GameRoop : MonoBehaviour {
     private ScoreMgr m_scoreMgr;         //　スコア
     [Header("ゲーム開始時にオンにするオブジェクト一覧")]
     public GameObject m_timeFrame;      // 制限時間表示オブジェクト
-    public GameObject m_howTo;          // ハウトゥ
+    public DisplayHowTo m_howTo;          // ハウトゥ
 
 	InputMgr m_btnState;                // 入力インスタンス.
 	FadeMgr m_fadeMgr;                  // フェード.
@@ -67,18 +67,16 @@ public class Game1GameRoop : MonoBehaviour {
                             yield return null;
                         }
 
-                        m_howTo.SetActive(true);
-                        TweenScale ts = m_howTo.GetComponent<TweenScale>();
-                        ts.Play(true);
+                        m_howTo.Play();
 
-                        yield return new WaitForSeconds(ts.duration + 0.2f);
+                        yield return new WaitForSeconds(0.5f);
 
                         while(!m_btnState.RedButtonTrigger)
                         {
                             yield return null;
                         }
 
-                        m_howTo.GetComponent<TweenScale>().Play(false);
+                        m_howTo.End();
 
                         yield return new WaitForSeconds(1.0f);
 

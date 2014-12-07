@@ -35,6 +35,7 @@ public class Game3MobController : MonoBehaviour {
 	SoundMgr m_sound;          			// サウンド
     NavMeshAgent m_navMesh;             // ナビゲーションメッシュ
     Vector3 m_targetPos;
+    Transform m_paradeJoiner;
 
     UISprite m_waitSprite;              // 残り時間を表示するためのスプライト
 
@@ -85,6 +86,8 @@ public class Game3MobController : MonoBehaviour {
         m_waitSprite = GameObject.Find("RightWaitBar/WaitTime").GetComponent<UISprite>();
         m_navMesh = GetComponent<NavMeshAgent>();
         IsSelected = false;
+
+        m_paradeJoiner = GameObject.Find("ParadeJoiner").transform;
 
         m_otherController = this;
 
@@ -337,6 +340,7 @@ public class Game3MobController : MonoBehaviour {
                 m_balancer.Success();
                 m_lightMgr.ChangeColor("White");
 				m_sound.PlaySeCuccess();
+                transform.parent = m_paradeJoiner;
                 /*Hashtable param = new Hashtable(){
                     {"y",1},
                     {"time",0.1f},

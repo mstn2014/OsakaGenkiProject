@@ -21,7 +21,7 @@ public class Game3Mgr : MonoBehaviour
     SaveMgr m_saveData;     // セーブデータ
     public GameObject m_timeUp;     // タイムアップスプライト
     public Game3MoveObj m_moveObj;  // 移動オブジェクト
-    public GameObject m_howTo;      // ハウトゥ
+    public DisplayHowTo m_howTo;      // ハウトゥ
     public ResultSetting m_resultSet;
     public Game3Balancer m_balancer;
 
@@ -70,18 +70,16 @@ public class Game3Mgr : MonoBehaviour
             yield return null;
         }
 
-        TweenScale ts = m_howTo.GetComponent<TweenScale>();
-        ts.enabled = false;
-        ts.Play(true);
+        m_howTo.Play();
 
-        yield return new WaitForSeconds(ts.duration + 0.2f);
+        yield return new WaitForSeconds(0.5f);
 
         while (!m_Input.RedButtonTrigger)
         {
             yield return null;
         }
 
-        ts.Play(false);
+        m_howTo.End();
 
         yield return new WaitForSeconds(1.0f);
 

@@ -30,7 +30,7 @@ public class Game2StateMgr : MonoBehaviour {
     public Game2ModelMotion m_player;      // プレイヤーのモーション
     public Guide m_guide;                   // ガイド
     public GameObject m_guestMotion;             // ゲストのモーション
-    public GameObject m_howTo;              // ハウトゥ
+    public DisplayHowTo m_howTo;              // ハウトゥ
     SaveMgr m_saveData;                      // セーブデータ
     public GameObject m_camera;             // カメラ
 	private GameObject m_Event1;			//	盛りあがりイベント1
@@ -165,18 +165,16 @@ public class Game2StateMgr : MonoBehaviour {
             yield return null;
         }
 
-        m_howTo.SetActive(true);
-        TweenScale ts = m_howTo.GetComponent<TweenScale>();
-        ts.Play(true);
+        m_howTo.Play();
 
-        yield return new WaitForSeconds(ts.duration + 0.2f);
+        yield return new WaitForSeconds(0.5f);
 
         while (!m_btnState.RedButtonTrigger)
         {
             yield return null;
         }
 
-        ts.Play(false);
+        m_howTo.End();
 
         yield return new WaitForSeconds(1.0f);
 
