@@ -21,6 +21,8 @@ public class Game2LabelMgr : MonoBehaviour
     private int m_index;
     public Transform m_parent;              // 親オブジェクト
 
+	SoundMgr m_sound;          		// サウンド
+
 
     // 設定ファイル
     Game2Setting Setting;
@@ -28,6 +30,10 @@ public class Game2LabelMgr : MonoBehaviour
 	// Use this for initialization
 	void Start () {
         Application.targetFrameRate = 60;
+
+		// 共通設定の呼び出し.
+		GlobalSetting gs = Resources.Load<GlobalSetting>("Setting/GlobalSetting");
+		m_sound = gs.SoundMgr;
 
         // 設定ファイルの読み込み
         Setting = Resources.Load<Game2Setting>("Setting/Game2Setting");
@@ -76,18 +82,22 @@ public class Game2LabelMgr : MonoBehaviour
 		{
 			case "safe":
 				m_dispLabel[m_index] = Instantiate(m_safeLabel,Vector3.zero,Quaternion.identity) as GameObject;
+				m_sound.PlaySeSafe();
 				break;
 			
 			case "miss":
                 m_dispLabel[m_index] = Instantiate(m_missLabel, Vector3.zero, Quaternion.identity) as GameObject; 
+				m_sound.PlaySeMiss();
 				break;
 
 			case "good":
-                m_dispLabel[m_index] = Instantiate(m_goodLabel, Vector3.zero, Quaternion.identity) as GameObject; 
+                m_dispLabel[m_index] = Instantiate(m_goodLabel, Vector3.zero, Quaternion.identity) as GameObject;
+				m_sound.PlaySeGood();
 				break;
 
 			case "perfect":
                 m_dispLabel[m_index] = Instantiate(m_perfectLabel, Vector3.zero, Quaternion.identity) as GameObject; 
+				m_sound.PlaySePerfect();
 				break;
 		}
         m_dispLabel[m_index].transform.parent = m_parent;

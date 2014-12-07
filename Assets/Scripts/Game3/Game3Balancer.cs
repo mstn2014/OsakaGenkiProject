@@ -9,6 +9,8 @@ public class Game3Balancer : MonoBehaviour {
     int m_changeDiffCount;                  // 難易度を変える成功回数
     int m_successCon;                       // 連続で成功した回数をカウント
     int m_appearNum;                        // 出現
+
+	SoundMgr m_sound;          				// サウンド
     
     // public
     public ParticleSystem m_particle;       // スピードアップのエフェクト
@@ -45,6 +47,10 @@ public class Game3Balancer : MonoBehaviour {
         DanceTime = 2.0f;
         Difficulty = 0.1f;
         m_appearNum = 0;
+
+		// 共通設定の呼び出し
+		GlobalSetting gs = Resources.Load<GlobalSetting>("Setting/GlobalSetting");
+		m_sound = gs.SoundMgr;
 	}
 	
 	// Update is called once per frame
@@ -59,6 +65,7 @@ public class Game3Balancer : MonoBehaviour {
             UpDifficulty();
             m_successCon = 0;
             m_particle.Play();
+			m_sound.PlaySeSpeedup();
         }
         m_appearNum++;
     }

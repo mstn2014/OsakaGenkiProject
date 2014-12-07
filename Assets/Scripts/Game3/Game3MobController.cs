@@ -119,6 +119,7 @@ public class Game3MobController : MonoBehaviour {
                     m_lightMgr.ChangeColor("White");
                     GameObject.Find(m_lightName.Replace("Light", "") + "WaitBar/WaitTime").GetComponent<UISprite>().fillAmount = 1.0f; 
                     m_balancer.Miss();
+					m_sound.PlaySeMiss();
                     m_animator.SetTrigger("IsStand");
                     m_speed = 10.0f;
                     m_animator.SetFloat("speed", m_speed);
@@ -336,7 +337,7 @@ public class Game3MobController : MonoBehaviour {
                 m_otherController.IsOK = true;
                 m_balancer.Success();
                 m_lightMgr.ChangeColor("White");
-				m_sound.PlaySeCuccess();
+				m_sound.PlaySeSpotcuccess();
                 /*Hashtable param = new Hashtable(){
                     {"y",1},
                     {"time",0.1f},

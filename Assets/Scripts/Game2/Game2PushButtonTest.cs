@@ -95,7 +95,6 @@ public class Game2PushButtonTest : MonoBehaviour {
 							m_dispClass.Call("miss");
 							m_moveUpClass.DestroyButton();
 							m_missCount++;
-							m_sound.PlaySeMiss();
 						}
 						break;
 
@@ -111,7 +110,6 @@ public class Game2PushButtonTest : MonoBehaviour {
 							m_dispClass.Call("miss");
 							m_moveUpClass.DestroyButton();
 							m_missCount++;	
-							m_sound.PlaySeMiss();
 						}
 						break;
 
@@ -127,7 +125,6 @@ public class Game2PushButtonTest : MonoBehaviour {
 							m_dispClass.Call("miss");
 							m_moveUpClass.DestroyButton();
 							m_missCount++;
-							m_sound.PlaySeMiss();
 						}
 						break;
 
@@ -143,7 +140,6 @@ public class Game2PushButtonTest : MonoBehaviour {
 							m_dispClass.Call("miss");
 							m_moveUpClass.DestroyButton();
 							m_missCount++;
-							m_sound.PlaySeMiss();
 						}
 						break;
 				}
@@ -184,19 +180,16 @@ public class Game2PushButtonTest : MonoBehaviour {
         {
             m_dispClass.Call("perfect");
             m_score.AddScore(Setting.perfectPoint);
-			m_sound.PlaySeCuccess();
         }
         else if (distance <= Setting.goodRange)
         {
             m_dispClass.Call("good");
             m_score.AddScore(Setting.goodPoint);
-			m_sound.PlaySeReturn();
         }
         else
         {
             m_dispClass.Call("safe");
 			m_score.AddScore(Setting.safePoint);
-			m_sound.PlaySeQuestion();
         }
 	}
 }
