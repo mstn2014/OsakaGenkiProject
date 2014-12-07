@@ -274,6 +274,8 @@ public class Game2StateMgr : MonoBehaviour {
 		m_frame.SetActive(false);	//	フレーム非表示
         yield return new WaitForSeconds(1.5f);	//	3秒末
 
+        m_soundMgr.PlaySeHandclap();
+
         // GameObject.Find("DebugLog").GetComponent<UILabel>().text = "盛り上がりイベント発生中！！";
 
 		if(m_scoreMgr.Score >= m_sceneSetting.Event1Score && m_iventIndex == 0){

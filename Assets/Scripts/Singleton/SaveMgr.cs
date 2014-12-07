@@ -10,6 +10,7 @@ public class SaveMgr : SingletonMonoBehaviourFast<SaveMgr>
     public float game1Score = 0;
     public float game2Score = 0;
     public float game3Score = 0;
+    public float game3Max = 0;
     [Header("ユーザーランク")]
     public int userRank = 0;
 

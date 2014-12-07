@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0c38f33ade431d2439c41476d446bea7
+guid: 9928e93672c86c949b86c29eb8ea4184
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
@@ -8,7 +8,7 @@ ModelImporter:
     100004: asikubi_L
     100006: asikubi_R
     100008: atama
-    100010: hear1
+    100010: hear_m1_m2
     100012: hiji_L
     100014: hiji_R
     100016: hito1_L
@@ -43,45 +43,42 @@ ModelImporter:
     100074: kusuri4_L
     100076: kusuri4_R
     100078: //RootNode
-    100080: mune
-    100082: naka1_L
-    100084: naka1_R
-    100086: naka2_L
-    100088: naka2_R
-    100090: naka3_L
-    100092: naka3_R
-    100094: naka4_L
-    100096: naka4_R
-    100098: onaka
-    100100: oya1_L
-    100102: oya1_R
-    100104: oya2_L
-    100106: oya2_R
-    100108: oya3_L
-    100110: oya3_R
-    100112: oya4_L
-    100114: oya4_R
-    100116: polySurface35
-    100118: polySurface37
+    100080: m2_model
+    100082: mobface_m_f
+    100084: mune
+    100086: naka1_L
+    100088: naka1_R
+    100090: naka2_L
+    100092: naka2_R
+    100094: naka3_L
+    100096: naka3_R
+    100098: naka4_L
+    100100: naka4_R
+    100102: onaka
+    100104: oya1_L
+    100106: oya1_R
+    100108: oya2_L
+    100110: oya2_R
+    100112: oya3_L
+    100114: oya3_R
+    100116: oya4_L
+    100118: oya4_R
     100120: polySurface38
-    100122: polySurface40
-    100124: polySurface50
-    100126: polySurface52
-    100128: root
-    100130: sakotu_L
-    100132: sakotu_R
-    100134: tekubi_L
-    100136: tekubi_R
-    100138: tukene_L
-    100140: tukene_R
-    100142: tumasaki_L
-    100144: tumasaki_R
+    100122: root
+    100124: sakotu_L
+    100126: sakotu_R
+    100128: tekubi_L
+    100130: tekubi_R
+    100132: tukene_L
+    100134: tukene_R
+    100136: tumasaki_L
+    100138: tumasaki_R
     400000: asi_L
     400002: asi_R
     400004: asikubi_L
     400006: asikubi_R
     400008: atama
-    400010: hear1
+    400010: hear_m1_m2
     400012: hiji_L
     400014: hiji_R
     400016: hito1_L
@@ -116,79 +113,66 @@ ModelImporter:
     400074: kusuri4_L
     400076: kusuri4_R
     400078: //RootNode
-    400080: mune
-    400082: naka1_L
-    400084: naka1_R
-    400086: naka2_L
-    400088: naka2_R
-    400090: naka3_L
-    400092: naka3_R
-    400094: naka4_L
-    400096: naka4_R
-    400098: onaka
-    400100: oya1_L
-    400102: oya1_R
-    400104: oya2_L
-    400106: oya2_R
-    400108: oya3_L
-    400110: oya3_R
-    400112: oya4_L
-    400114: oya4_R
-    400116: polySurface35
-    400118: polySurface37
+    400080: m2_model
+    400082: mobface_m_f
+    400084: mune
+    400086: naka1_L
+    400088: naka1_R
+    400090: naka2_L
+    400092: naka2_R
+    400094: naka3_L
+    400096: naka3_R
+    400098: naka4_L
+    400100: naka4_R
+    400102: onaka
+    400104: oya1_L
+    400106: oya1_R
+    400108: oya2_L
+    400110: oya2_R
+    400112: oya3_L
+    400114: oya3_R
+    400116: oya4_L
+    400118: oya4_R
     400120: polySurface38
-    400122: polySurface40
-    400124: polySurface50
-    400126: polySurface52
-    400128: root
-    400130: sakotu_L
-    400132: sakotu_R
-    400134: tekubi_L
-    400136: tekubi_R
-    400138: tukene_L
-    400140: tukene_R
-    400142: tumasaki_L
-    400144: tumasaki_R
-    2300000: hear1
-    2300002: polySurface35
-    2300004: polySurface37
-    2300006: polySurface40
-    2300008: polySurface52
-    3300000: hear1
-    3300002: polySurface35
-    3300004: polySurface37
-    3300006: polySurface40
-    3300008: polySurface52
-    4300000: hear1
-    4300002: polySurface52
-    4300004: polySurface40
-    4300006: polySurface35
-    4300008: polySurface37
-    4300010: polySurface50
-    7400000: Take 001
-    7400002: mob_stand001
-    7400004: mob_stand002
-    7400006: mob_run
-    7400008: mob_walk
-    7400010: mob_pass
-    7400012: mob_pose
-    7400014: stand_mob_bonodori
-    7400016: mob_bonodori
-    7400018: mob_bonodori_stand
-    7400020: mob_stand_hula
-    7400022: mob_loop hula
-    7400024: mob_hula_stand
-    7400026: mob_sutand_belly
-    7400028: bmob_elly
-    7400030: mob_belly_stand
-    7400032: mob_stand_samba
-    7400034: mob_samba
-    7400036: mob_samba_stand
-    7400038: mob_stand_fla
-    7400040: mob_fla
-    7400042: mob_fla_stand
+    400122: root
+    400124: sakotu_L
+    400126: sakotu_R
+    400128: tekubi_L
+    400130: tekubi_R
+    400132: tukene_L
+    400134: tukene_R
+    400136: tumasaki_L
+    400138: tumasaki_R
+    2300000: hear_m1_m2
+    2300002: mobface_m_f
+    3300000: hear_m1_m2
+    3300002: mobface_m_f
+    4300000: hear_m1_m2
+    4300002: mobface_m_f
+    4300004: m2_model
+    7400000: mob_stand001
+    7400002: mob_stand002
+    7400004: mob_run
+    7400006: mob_walk
+    7400008: mob_pass
+    7400010: mob_pose
+    7400012: stand_mob_bonodori
+    7400014: mob_bonodori
+    7400016: mob_bonodori_stand
+    7400018: mob_stand_hula
+    7400020: mob_loop hula
+    7400022: mob_hula_stand
+    7400024: mob_sutand_belly
+    7400026: bmob_elly
+    7400028: mob_belly_stand
+    7400030: mob_stand_samba
+    7400032: mob_samba
+    7400034: mob_samba_stand
+    7400036: mob_stand_fla
+    7400038: mob_fla
+    7400040: mob_fla_stand
     9500000: //RootNode
-    13700000: polySurface50
+    13700000: m2_model
   materials:
     importMaterials: 1
     materialName: 0

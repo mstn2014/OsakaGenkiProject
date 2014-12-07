@@ -117,6 +117,7 @@ public class Game1GameRoop : MonoBehaviour {
 							m_sound.PlaySeMiss();
                             if (m_quest.IsComplete)
                             {
+                                StartCoroutine(m_effect.DispResult(1));
                                 m_state = GameState.stop;
                                 break;
                             }
@@ -134,6 +135,7 @@ public class Game1GameRoop : MonoBehaviour {
 							m_sound.PlaySeMiss();
                             if (m_quest.IsComplete)
                             {
+                                StartCoroutine(m_effect.DispResult(1));
                                 m_state = GameState.stop;
                                 break;
                             }
@@ -148,6 +150,7 @@ public class Game1GameRoop : MonoBehaviour {
 					if(m_quest.IsClear){
                         if (m_quest.IsComplete)
                         {
+                            StartCoroutine(m_effect.DispResult(0));
                             m_state = GameState.stop;
                             break;
                         }
@@ -161,6 +164,7 @@ public class Game1GameRoop : MonoBehaviour {
 					if(m_timer.IsPaused){			// 時間切れ
                         if (m_quest.IsComplete)
                         {
+                            StartCoroutine(m_effect.DispResult(2));
                             m_state = GameState.stop;
                             break;
                         }
