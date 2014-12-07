@@ -35249,6 +35249,7 @@ GameObject:
   - 92: {fileID: 825194323}
   - 124: {fileID: 825194322}
   - 81: {fileID: 825194321}
+  - 45: {fileID: 825194326}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -35321,6 +35322,14 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!45 &825194326
+Skybox:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 825194320}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 2100000, guid: f3ce626c2c2be5440952fbe70b58a72b, type: 2}
 --- !u!1 &826652993
 GameObject:
   m_ObjectHideFlags: 0
@@ -57846,11 +57855,11 @@ MonoBehaviour:
     e00: 540
     e01: 0
     e02: 0
-    e03: 0
+    e03: 1.2026726
     e10: 0
     e11: 540
     e12: 0
-    e13: -4.04494381
+    e13: 0
     e20: 0
     e21: 0
     e22: 540
@@ -66693,7 +66702,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1435284997}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.04494381, z: 0}
+  m_LocalPosition: {x: -1.2026726, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1219313353}
