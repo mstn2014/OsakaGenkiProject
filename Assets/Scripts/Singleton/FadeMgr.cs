@@ -118,8 +118,9 @@ public class FadeMgr : SingletonMonoBehaviourFast<FadeMgr>
             float time = 0;
             while (time <= interval)
             {
-                this.fadeAlpha = Mathf.Lerp(0f, 1f, time / interval);
                 time += Time.deltaTime;
+                this.fadeAlpha = Mathf.Lerp(0f, 1f, time / interval);
+                
                 yield return 0;
             }
             time = 0;
@@ -137,8 +138,8 @@ public class FadeMgr : SingletonMonoBehaviourFast<FadeMgr>
 
             while (time <= interval)
             {
-                this.fadeAlpha = Mathf.Lerp(1f, 0f, time / interval);
                 time += Time.deltaTime;
+                this.fadeAlpha = Mathf.Lerp(1f, 0f, time / interval);
                 yield return 0;
             }
 

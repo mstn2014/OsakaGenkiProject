@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 
 public class Game3ObjMgr : MonoBehaviour {
@@ -9,7 +10,7 @@ public class Game3ObjMgr : MonoBehaviour {
     float m_nowTime = 0.0f;
     float m_createTime = 3.0f;      // ライトに向かうモブを抽選する間隔
     // モブのリソース
-    GameObject m_mobResource;
+    List<GameObject> m_mobResource = new List<GameObject>();
     // モブのオブジェクト
     GameObject[] m_mob = new GameObject[mobNum];
     Game3MobController[] m_mobController = new Game3MobController[mobNum];     // モブのコントローラー
@@ -37,7 +38,17 @@ public class Game3ObjMgr : MonoBehaviour {
             m_createPos[i] = this.gameObject.transform.FindChild("pos" + (i+1).ToString()).transform.position;
         }
         // モブのロード
-        m_mobResource = Resources.Load<GameObject>("Prefab/Game3/Game3Mob");
+        m_mobResource.Add(Resources.Load<GameObject>("Prefab/Game3/mob_f_japan"));
+        m_mobResource.Add(Resources.Load<GameObject>("Prefab/Game3/mob_f_america"));
+        m_mobResource.Add(Resources.Load<GameObject>("Prefab/Game3/mob_f_brazil"));
+        m_mobResource.Add(Resources.Load<GameObject>("Prefab/Game3/mob_f_turky"));
+        m_mobResource.Add(Resources.Load<GameObject>("Prefab/Game3/mob_f_spain"));
+
+        m_mobResource.Add(Resources.Load<GameObject>("Prefab/Game3/mob_m_japan"));
+        m_mobResource.Add(Resources.Load<GameObject>("Prefab/Game3/mob_m_america"));
+        m_mobResource.Add(Resources.Load<GameObject>("Prefab/Game3/mob_m_brazil"));
+        m_mobResource.Add(Resources.Load<GameObject>("Prefab/Game3/mob_m_turky"));
+        m_mobResource.Add(Resources.Load<GameObject>("Prefab/Game3/mob_m_spain"));
 
         m_balancer = GetComponentInParent<Game3Balancer>();
         m_createTime = m_balancer.CreateTime;
@@ -46,7 +57,8 @@ public class Game3ObjMgr : MonoBehaviour {
 
         for (int i = 0; i < mobNum; i++)
         {
-            m_mob[i] = CreatePrefab.InstantiateGameObject(m_mobResource, m_createPos[i], m_mobResource.transform.rotation, m_mobResource.transform.localScale, this.gameObject);
+            int index = Random.Range(0, m_mobResource.Count);
+            m_mob[i] = CreatePrefab.InstantiateGameObject(m_mobResource[index], m_createPos[i], m_mobResource[index].transform.rotation, m_mobResource[index].transform.localScale, this.gameObject);
             m_mobController[i] = m_mob[i].GetComponent<Game3MobController>();
         }
 	}
@@ -81,7 +93,8 @@ public class Game3ObjMgr : MonoBehaviour {
         {
             if (m_mob[i] == go)
             {
-                m_mob[i] = CreatePrefab.InstantiateGameObject(m_mobResource, m_createPos[i], m_mobResource.transform.rotation, m_mobResource.transform.localScale, this.gameObject);
+                int index = Random.Range(0, m_mobResource.Count);
+                m_mob[i] = CreatePrefab.InstantiateGameObject(m_mobResource[index], m_createPos[i], m_mobResource[index].transform.rotation, m_mobResource[index].transform.localScale, this.gameObject);
                 m_mobController[i] = m_mob[i].GetComponent<Game3MobController>();
             }
         }

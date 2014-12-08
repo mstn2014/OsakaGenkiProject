@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Game1ObjMgr : MonoBehaviour {
 
 	public GameObject 	m_objParent;	// GameObjectの一番上(Inspectorより設定).
     public  GameObject 	m_player;		// 生成するプレイヤー(Inspectorより設定).
-	private GameObject 	m_gallery;		// 生成するギャラリー(Inspectorより設定).
+	private List<GameObject> 	m_gallery;		// 生成するギャラリー(Inspectorより設定).
 	private GameObject 	m_ground;		// 生成する背景(Inspectorより設定).
 	private bool		m_objPause;		// オブジェクトのポーズ
 	
@@ -22,7 +23,19 @@ public class Game1ObjMgr : MonoBehaviour {
 		GAME1 = Resources.Load<Game1_Setting>("Setting/Game1_Setting");
 
 		// リソースの読み込み.
-		m_gallery = Resources.Load ("Prefab/Game1/Game1Mob") as GameObject;
+        m_gallery = new List<GameObject>();
+        m_gallery.Add(Resources.Load("Prefab/Game1/mob_f_japan") as GameObject);
+        m_gallery.Add(Resources.Load("Prefab/Game1/mob_f_america") as GameObject);
+        m_gallery.Add(Resources.Load("Prefab/Game1/mob_f_brazil") as GameObject);
+        m_gallery.Add(Resources.Load("Prefab/Game1/mob_f_turky") as GameObject);
+        m_gallery.Add(Resources.Load("Prefab/Game1/mob_f_spain") as GameObject);
+
+        m_gallery.Add(Resources.Load("Prefab/Game1/mob_m_japan") as GameObject);
+        m_gallery.Add(Resources.Load("Prefab/Game1/mob_m_america") as GameObject);
+        m_gallery.Add(Resources.Load("Prefab/Game1/mob_m_brazil") as GameObject);
+        m_gallery.Add(Resources.Load("Prefab/Game1/mob_m_turky") as GameObject);
+        m_gallery.Add(Resources.Load("Prefab/Game1/mob_m_spain") as GameObject);
+
         // m_ground = Resources.Load("Prefab/Game1/Ground") as GameObject;
 		CreateGallery(0.0f);
 		CreateGallery(GAME1.Ground_PositionX);
@@ -58,8 +71,9 @@ public class Game1ObjMgr : MonoBehaviour {
 
                 checkPos = ((workPos.x - xOffset + m_objParent.transform.position.x)*(workPos.x - xOffset + m_objParent.transform.position.x)) + (workPos.z * workPos.z);
 				if(checkPos>ngCircle){
-					workObj = CreatePrefab.InstantiateGameObject(m_gallery,workPos,Quaternion.Euler(0,Random.Range(0.0f,360.0f),0),
-				                                          	   m_gallery.transform.localScale,m_objParent);
+                    int index = Random.Range(0,m_gallery.Count);
+					workObj = CreatePrefab.InstantiateGameObject(m_gallery[index],workPos,Quaternion.Euler(0,Random.Range(0.0f,360.0f),0),
+				                                          	   m_gallery[index].transform.localScale,m_objParent);
 
 					// ToDo キャラクターのアニメーションやテクスチャやスクリプトの設定
 

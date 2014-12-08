@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Game2CreateGuest : MonoBehaviour {
 
 	//	参加者
-	private GameObject m_guest;
+	private List<GameObject> m_guest = new List<GameObject>();
 	private int m_createGuestVal;	//	生成した参加者の数
 	private float m_setPositionX;	//	生成する位置X	
 	private float m_setPositionZ;	//	生成する位置Z
@@ -16,7 +17,18 @@ public class Game2CreateGuest : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		m_guest = Resources.Load<GameObject>("Prefab/Game2/guest");  //	プレハブ参加者読み込み.
+		m_guest.Add(Resources.Load<GameObject>("Prefab/Game2/mob_f_japan"));  //	プレハブ参加者読み込み.
+		m_guest.Add(Resources.Load<GameObject>("Prefab/Game2/mob_f_america"));  //	プレハブ参加者読み込み.
+		m_guest.Add(Resources.Load<GameObject>("Prefab/Game2/mob_f_brazil"));  //	プレハブ参加者読み込み.
+		m_guest.Add(Resources.Load<GameObject>("Prefab/Game2/mob_f_turky"));  //	プレハブ参加者読み込み.
+		m_guest.Add(Resources.Load<GameObject>("Prefab/Game2/mob_f_spain"));  //	プレハブ参加者読み込み.
+
+		m_guest.Add(Resources.Load<GameObject>("Prefab/Game2/mob_m_japan"));  //	プレハブ参加者読み込み.
+		m_guest.Add(Resources.Load<GameObject>("Prefab/Game2/mob_m_america"));  //	プレハブ参加者読み込み.
+		m_guest.Add(Resources.Load<GameObject>("Prefab/Game2/mob_m_brazil"));  //	プレハブ参加者読み込み.
+		m_guest.Add(Resources.Load<GameObject>("Prefab/Game2/mob_m_turky"));  //	プレハブ参加者読み込み.
+		m_guest.Add(Resources.Load<GameObject>("Prefab/Game2/mob_m_spain"));  //	プレハブ参加者読み込み.
+
 		m_createGuestVal = 0;
 	}
 	
@@ -39,11 +51,15 @@ public class Game2CreateGuest : MonoBehaviour {
         {
             //if (m_createGuestVal != m_sceneSetting.GuestPosition.Length)
             {
-                GameObject guest = Instantiate(m_guest, transform.position, transform.rotation) as GameObject;
+                GameObject guest = Instantiate(m_guest[Random.Range(0,m_guest.Count)], transform.position, transform.rotation) as GameObject;
                 guest.transform.parent = this.transform;
                 guest.name = "guest" + m_createGuestVal;
+                
+                // Game2ModelMotionを先につける
+                guest.AddComponent<Game2ModelMotion>();
+                Game2MobController mc = guest.AddComponent<Game2MobController>();
 
-                guest.GetComponent<Game2MobController>().JoinDance(m_createGuestVal, From.FindChild(m_createGuestVal.ToString()).position, To.FindChild(m_createGuestVal.ToString()).position);
+                mc.JoinDance(m_createGuestVal, From.FindChild(m_createGuestVal.ToString()).position, To.FindChild(m_createGuestVal.ToString()).position);
 
                 m_createGuestVal++;
             }
