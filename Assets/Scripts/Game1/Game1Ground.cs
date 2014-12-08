@@ -15,7 +15,7 @@ public class Game1Ground : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		Vector3 viwePos = Camera.main.WorldToViewportPoint (transform.position);
-		if (viwePos.x > 2.0f) {
+		if (viwePos.x > 3.0f) {
 			/*Vector3 workPos;
 			
 			workPos.x = transform.localPosition.x+GAME1.Ground_PositionX*2;

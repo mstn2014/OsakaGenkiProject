@@ -4,15 +4,29 @@ using System.Collections;
 public class Game1MobController : MonoBehaviour {
 
     Animator m_animator;        // モブのアニメーター
+    NavMeshAgent m_navi;
+    Vector3 m_nextPos;
+    bool m_isWalk;
+    bool m_isStop;
     public GameObject m_excl;          // !マークのエフェクト
     public Transform m_player;  // プレイヤーの
     public SpriteRenderer m_dango;  // ダンゴーを表示するレンダラー
+
+    const float walkRange = 10.0f;
 
 	// Use this for initialization
     void Awake()
     {
         m_animator = GetComponent<Animator>();
         transform.forward = Vector3.back;
+        m_navi = gameObject.AddComponent<NavMeshAgent>();
+        m_navi.radius = 0.03f;
+        m_navi.height = 0.25f;
+        m_navi.speed = 1.0f;
+        m_navi.angularSpeed = 180;
+        m_nextPos = m_player.position;
+        m_isWalk = false;
+        m_isStop = false;
     }
 
 	void Start () {
@@ -21,12 +35,30 @@ public class Game1MobController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+        StartCoroutine(WalkRandom());
 	}
 
-    void WalkRandom()
+    IEnumerator WalkRandom()
     {
+        float dist = m_navi.remainingDistance;
+        if (m_navi.pathStatus == NavMeshPathStatus.PathComplete && !m_isWalk && dist <= 0.2f)
+        {
+            m_isWalk = true;
+            DoStand();
+            yield return new WaitForSeconds(Random.Range(1.0f, 5.0f));
+            if( m_isStop )  yield break;
 
+            Vector3 nextPos = transform.position;
+            nextPos.x = nextPos.x + Random.Range(-walkRange, walkRange);
+            nextPos.z = nextPos.z + Random.Range(-walkRange, walkRange);
+            // nextPos.x = Mathf.Clamp(nextPos.x,-30.0f, 8.0f);
+            // nextPos.z = Mathf.Clamp(nextPos.z, -6f, 8.5f);
+            m_nextPos = nextPos;
+            m_navi.SetDestination(m_nextPos);
+            DoWalk(true);
+            m_isWalk = false;
+        }
+        Quaternion.LookRotation(m_nextPos - transform.position);
     }
 
     public void LookTarget(Transform target)
@@ -89,6 +121,24 @@ public class Game1MobController : MonoBehaviour {
 
     public void DoPose()
     {
+        m_animator.SetBool("IsWalk", false);
         m_animator.SetBool("IsPose", true);
+    }
+
+    public void DoWalk(bool b)
+    {
+        m_animator.SetBool("IsWalk", b);
+    }
+
+    public void DoStand()
+    {
+        m_animator.SetBool("IsWalk", false);
+        m_animator.SetBool("IsPose", false);
+    }
+
+    public void StopWalk()
+    {
+        m_navi.Stop();
+        m_isStop = true;
     }
 }

@@ -28,7 +28,17 @@ public class Game1MobMgr : MonoBehaviour {
             if (Vector2.Distance(new Vector2(m_player.position.x, m_player.position.z), new Vector2(mc.transform.position.x, mc.transform.position.z)) <= radius)
             {
                 mc.LookTarget(m_player);
+                mc.StopWalk();
             }
+        }
+    }
+
+    public void StopWalk()
+    {
+        GetController();
+        foreach (Game1MobController mc in m_mobController)
+        {
+            mc.StopWalk();
         }
     }
 }
