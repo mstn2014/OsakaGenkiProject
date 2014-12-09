@@ -44,14 +44,14 @@ MonoBehaviour:
   - name: RankB
     outer:
       serializedVersion: 2
-      x: 615
-      y: 1327
+      x: 0
+      y: 105
       width: 204
       height: 180
     inner:
       serializedVersion: 2
-      x: 615
-      y: 1327
+      x: 0
+      y: 105
       width: 204
       height: 180
     rotated: 0
@@ -62,14 +62,14 @@ MonoBehaviour:
   - name: RankS
     outer:
       serializedVersion: 2
-      x: 0
-      y: 1146
+      x: 205
+      y: 105
       width: 204
       height: 180
     inner:
       serializedVersion: 2
-      x: 0
-      y: 1146
+      x: 205
+      y: 105
       width: 204
       height: 180
     rotated: 0
@@ -80,14 +80,14 @@ MonoBehaviour:
   - name: RankA
     outer:
       serializedVersion: 2
-      x: 205
-      y: 965
+      x: 410
+      y: 105
       width: 204
       height: 180
     inner:
       serializedVersion: 2
-      x: 205
-      y: 965
+      x: 410
+      y: 105
       width: 204
       height: 180
     rotated: 0
@@ -98,14 +98,14 @@ MonoBehaviour:
   - name: RankSSS
     outer:
       serializedVersion: 2
-      x: 0
-      y: 1327
+      x: 615
+      y: 105
       width: 204
       height: 180
     inner:
       serializedVersion: 2
-      x: 0
-      y: 1327
+      x: 615
+      y: 105
       width: 204
       height: 180
     rotated: 0
@@ -116,14 +116,14 @@ MonoBehaviour:
   - name: RankE
     outer:
       serializedVersion: 2
-      x: 615
-      y: 1146
+      x: 961
+      y: 618
       width: 204
       height: 180
     inner:
       serializedVersion: 2
-      x: 615
-      y: 1146
+      x: 961
+      y: 618
       width: 204
       height: 180
     rotated: 0
@@ -134,14 +134,14 @@ MonoBehaviour:
   - name: RankSS
     outer:
       serializedVersion: 2
-      x: 410
-      y: 1327
+      x: 961
+      y: 437
       width: 204
       height: 180
     inner:
       serializedVersion: 2
-      x: 410
-      y: 1327
+      x: 961
+      y: 437
       width: 204
       height: 180
     rotated: 0
@@ -152,14 +152,14 @@ MonoBehaviour:
   - name: RankD
     outer:
       serializedVersion: 2
-      x: 205
-      y: 1327
+      x: 961
+      y: 256
       width: 204
       height: 180
     inner:
       serializedVersion: 2
-      x: 205
-      y: 1327
+      x: 961
+      y: 256
       width: 204
       height: 180
     rotated: 0
@@ -170,14 +170,14 @@ MonoBehaviour:
   - name: RankAA
     outer:
       serializedVersion: 2
-      x: 0
-      y: 965
+      x: 961
+      y: 75
       width: 204
       height: 180
     inner:
       serializedVersion: 2
-      x: 0
-      y: 965
+      x: 961
+      y: 75
       width: 204
       height: 180
     rotated: 0
@@ -188,14 +188,14 @@ MonoBehaviour:
   - name: RankC
     outer:
       serializedVersion: 2
-      x: 205
-      y: 1146
+      x: 1166
+      y: 618
       width: 204
       height: 180
     inner:
       serializedVersion: 2
-      x: 205
-      y: 1146
+      x: 1166
+      y: 618
       width: 204
       height: 180
     rotated: 0
@@ -206,14 +206,14 @@ MonoBehaviour:
   - name: RankAAA
     outer:
       serializedVersion: 2
-      x: 410
-      y: 1146
+      x: 1166
+      y: 437
       width: 204
       height: 180
     inner:
       serializedVersion: 2
-      x: 410
-      y: 1146
+      x: 1166
+      y: 437
       width: 204
       height: 180
     rotated: 0
@@ -225,15 +225,69 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 0
-      y: 1508
+      y: 484
       width: 960
       height: 540
     inner:
       serializedVersion: 2
       x: 0
-      y: 1508
+      y: 484
       width: 960
       height: 540
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: result_gauge1
+    outer:
+      serializedVersion: 2
+      x: 961
+      y: 799
+      width: 1057
+      height: 225
+    inner:
+      serializedVersion: 2
+      x: 961
+      y: 799
+      width: 1057
+      height: 225
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: result_gauge2
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 385
+      width: 876
+      height: 98
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 385
+      width: 876
+      height: 98
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: result_gauge3
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 286
+      width: 876
+      height: 98
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 286
+      width: 876
+      height: 98
     rotated: 0
     paddingLeft: 0
     paddingRight: 0

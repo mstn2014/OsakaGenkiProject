@@ -40,9 +40,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   userName: 
-  game1Score: 0
-  game2Score: 0
-  game3Score: 0
+  game1Score: 156
+  game2Score: 100
+  game3Score: 100
+  game3Max: 100
   userRank: 0
   gameState: 0
 --- !u!1001 &100100000

@@ -27,6 +27,7 @@ public class ResultMgr : MonoBehaviour {
     // public
     public GameObject m_one;    // 一つだけのゲームの結果を表示するときに使う
     public GameObject m_all;    // 総合得点を表示する
+    public UISprite m_gauge;
     public enum eType { OneTime, Sequence };
     public eType m_dispType;
 
@@ -170,14 +171,17 @@ public class ResultMgr : MonoBehaviour {
                     if (m_cnt <= point.Value)
                     {
                         point.Key.text = m_cnt.ToString();
+                        m_gauge.fillAmount = m_cnt / 100;
                     }
                     // カウンターが過ぎたらリストから外す
                     else if (m_cnt > point.Value)
                     {
                         point.Key.text = point.Value.ToString("0.0");
+                        m_gauge.fillAmount = point.Value / 100;
                         removeLabel.Add(point.Key);
                         m_cnt = 0;
                     }
+                    
                     break;
                 }
             }
@@ -196,7 +200,7 @@ public class ResultMgr : MonoBehaviour {
                 m_depth++;
             }
 
-            m_cnt++;
+            m_cnt += 1.0f;
             yield return null;
         }
     }

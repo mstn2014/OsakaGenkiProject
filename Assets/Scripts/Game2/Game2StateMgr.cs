@@ -31,6 +31,7 @@ public class Game2StateMgr : MonoBehaviour {
     public Guide m_guide;                   // ガイド
     public GameObject m_guestMotion;             // ゲストのモーション
     public DisplayHowTo m_howTo;              // ハウトゥ
+    public UISprite m_dancetype;
     SaveMgr m_saveData;                      // セーブデータ
     public GameObject m_camera;             // カメラ
 	private GameObject m_Event1;			//	盛りあがりイベント1
@@ -92,6 +93,8 @@ public class Game2StateMgr : MonoBehaviour {
 		m_guest = m_guestbuf.GetComponent<Game2CreateGuest>();
 
         m_iventIndex = 0;
+        m_dancetype.MakePixelPerfect();
+        m_dancetype.transform.localScale *= 1.4f;
 
         iTweenEvent.GetEvent(m_camera, "MoveToNear").Play();
 	}
@@ -319,6 +322,9 @@ public class Game2StateMgr : MonoBehaviour {
         {
             mc.ChangeMotion((Game2ModelMotion.DanceType)(m_createButton.CountryIndex + 1));
         }
+        m_dancetype.spriteName = "game2_logo" + (m_createButton.CountryIndex + 1).ToString() + "_type2";
+        m_dancetype.MakePixelPerfect();
+        m_dancetype.transform.localScale *= 1.4f;
 		m_frame.SetActive(true); // フレーム表示
     }
 

@@ -44,14 +44,14 @@ MonoBehaviour:
   - name: bat
     outer:
       serializedVersion: 2
-      x: 501
-      y: 727
+      x: 0
+      y: 45
       width: 316
       height: 138
     inner:
       serializedVersion: 2
-      x: 501
-      y: 727
+      x: 0
+      y: 45
       width: 316
       height: 138
     rotated: 0
@@ -62,13 +62,13 @@ MonoBehaviour:
   - name: good
     outer:
       serializedVersion: 2
-      x: 818
+      x: 1159
       y: 743
       width: 305
       height: 122
     inner:
       serializedVersion: 2
-      x: 818
+      x: 1159
       y: 743
       width: 305
       height: 122
@@ -80,14 +80,14 @@ MonoBehaviour:
   - name: safe
     outer:
       serializedVersion: 2
-      x: 501
-      y: 624
+      x: 1465
+      y: 763
       width: 339
       height: 102
     inner:
       serializedVersion: 2
-      x: 501
-      y: 624
+      x: 1465
+      y: 763
       width: 339
       height: 102
     rotated: 0
@@ -98,13 +98,13 @@ MonoBehaviour:
   - name: perfect
     outer:
       serializedVersion: 2
-      x: 501
+      x: 1159
       y: 866
       width: 638
       height: 117
     inner:
       serializedVersion: 2
-      x: 501
+      x: 1159
       y: 866
       width: 638
       height: 117
@@ -116,14 +116,14 @@ MonoBehaviour:
   - name: game2_yellow
     outer:
       serializedVersion: 2
-      x: 1901
-      y: 1797
+      x: 317
+      y: 61
       width: 122
       height: 122
     inner:
       serializedVersion: 2
-      x: 1901
-      y: 1797
+      x: 317
+      y: 61
       width: 122
       height: 122
     rotated: 0
@@ -152,14 +152,14 @@ MonoBehaviour:
   - name: button_yellow
     outer:
       serializedVersion: 2
-      x: 0
-      y: 252
+      x: 650
+      y: 604
       width: 230
       height: 230
     inner:
       serializedVersion: 2
-      x: 0
-      y: 252
+      x: 650
+      y: 604
       width: 230
       height: 230
     rotated: 0
@@ -171,13 +171,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 1901
-      y: 1920
+      y: 1007
       width: 128
       height: 128
     inner:
       serializedVersion: 2
       x: 1901
-      y: 1920
+      y: 1007
       width: 128
       height: 128
     rotated: 0
@@ -188,14 +188,14 @@ MonoBehaviour:
   - name: button_red
     outer:
       serializedVersion: 2
-      x: 0
-      y: 21
+      x: 881
+      y: 604
       width: 230
       height: 230
     inner:
       serializedVersion: 2
-      x: 0
-      y: 21
+      x: 881
+      y: 604
       width: 230
       height: 230
     rotated: 0
@@ -206,14 +206,14 @@ MonoBehaviour:
   - name: game2_red
     outer:
       serializedVersion: 2
-      x: 1901
-      y: 1674
+      x: 501
+      y: 260
       width: 122
       height: 122
     inner:
       serializedVersion: 2
-      x: 1901
-      y: 1674
+      x: 501
+      y: 260
       width: 122
       height: 122
     rotated: 0
@@ -224,14 +224,14 @@ MonoBehaviour:
   - name: button_blue
     outer:
       serializedVersion: 2
-      x: 231
-      y: 252
+      x: 650
+      y: 373
       width: 230
       height: 230
     inner:
       serializedVersion: 2
-      x: 231
-      y: 252
+      x: 650
+      y: 373
       width: 230
       height: 230
     rotated: 0
@@ -242,14 +242,14 @@ MonoBehaviour:
   - name: game2_green
     outer:
       serializedVersion: 2
-      x: 1901
-      y: 1551
+      x: 501
+      y: 137
       width: 122
       height: 122
     inner:
       serializedVersion: 2
-      x: 1901
-      y: 1551
+      x: 501
+      y: 137
       width: 122
       height: 122
     rotated: 0
@@ -260,14 +260,14 @@ MonoBehaviour:
   - name: button_green
     outer:
       serializedVersion: 2
-      x: 231
-      y: 21
+      x: 881
+      y: 373
       width: 230
       height: 230
     inner:
       serializedVersion: 2
-      x: 231
-      y: 21
+      x: 881
+      y: 373
       width: 230
       height: 230
     rotated: 0
@@ -278,14 +278,14 @@ MonoBehaviour:
   - name: game2_blue
     outer:
       serializedVersion: 2
-      x: 1901
-      y: 1428
+      x: 501
+      y: 14
       width: 122
       height: 122
     inner:
       serializedVersion: 2
-      x: 1901
-      y: 1428
+      x: 501
+      y: 14
       width: 122
       height: 122
     rotated: 0
@@ -311,6 +311,240 @@ MonoBehaviour:
     paddingRight: .00526315812
     paddingTop: .00939849578
     paddingBottom: .00563909765
+  - name: game2_gauge1
+    outer:
+      serializedVersion: 2
+      x: 501
+      y: 383
+      width: 148
+      height: 600
+    inner:
+      serializedVersion: 2
+      x: 501
+      y: 383
+      width: 148
+      height: 600
+    rotated: 0
+    paddingLeft: .472972959
+    paddingRight: .554054081
+    paddingTop: 0
+    paddingBottom: 0
+  - name: game2_gauge2
+    outer:
+      serializedVersion: 2
+      x: 1901
+      y: 1586
+      width: 80
+      height: 462
+    inner:
+      serializedVersion: 2
+      x: 1901
+      y: 1586
+      width: 80
+      height: 462
+    rotated: 0
+    paddingLeft: 1.20000005
+    paddingRight: 1.54999995
+    paddingTop: .0259740259
+    paddingBottom: .272727281
+  - name: game2_gauge_lv5
+    outer:
+      serializedVersion: 2
+      x: 317
+      y: 3
+      width: 109
+      height: 57
+    inner:
+      serializedVersion: 2
+      x: 317
+      y: 3
+      width: 109
+      height: 57
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: game2_gauge3
+    outer:
+      serializedVersion: 2
+      x: 1901
+      y: 1136
+      width: 73
+      height: 449
+    inner:
+      serializedVersion: 2
+      x: 1901
+      y: 1136
+      width: 73
+      height: 449
+    rotated: 0
+    paddingLeft: 1.38356161
+    paddingRight: 1.72602737
+    paddingTop: .042316258
+    paddingBottom: .293986648
+  - name: game2_gauge_lv3
+    outer:
+      serializedVersion: 2
+      x: 650
+      y: 44
+      width: 99
+      height: 46
+    inner:
+      serializedVersion: 2
+      x: 650
+      y: 44
+      width: 99
+      height: 46
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: game2_gauge_lv2
+    outer:
+      serializedVersion: 2
+      x: 750
+      y: 44
+      width: 99
+      height: 46
+    inner:
+      serializedVersion: 2
+      x: 750
+      y: 44
+      width: 99
+      height: 46
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: game2_gauge_lv4
+    outer:
+      serializedVersion: 2
+      x: 930
+      y: 326
+      width: 99
+      height: 46
+    inner:
+      serializedVersion: 2
+      x: 930
+      y: 326
+      width: 99
+      height: 46
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: game2_gauge_lv1
+    outer:
+      serializedVersion: 2
+      x: 422
+      y: 436
+      width: 76
+      height: 46
+    inner:
+      serializedVersion: 2
+      x: 422
+      y: 436
+      width: 76
+      height: 46
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: game2_logo3_type2
+    outer:
+      serializedVersion: 2
+      x: 650
+      y: 835
+      width: 508
+      height: 148
+    inner:
+      serializedVersion: 2
+      x: 650
+      y: 835
+      width: 508
+      height: 148
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: game2_logo5_type2
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 333
+      width: 421
+      height: 149
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 333
+      width: 421
+      height: 149
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: game2_logo4_type2
+    outer:
+      serializedVersion: 2
+      x: 650
+      y: 91
+      width: 245
+      height: 134
+    inner:
+      serializedVersion: 2
+      x: 650
+      y: 91
+      width: 245
+      height: 134
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: game2_logo2_type2
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 184
+      width: 407
+      height: 148
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 184
+      width: 407
+      height: 148
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: game2_logo1_type2
+    outer:
+      serializedVersion: 2
+      x: 650
+      y: 226
+      width: 279
+      height: 146
+    inner:
+      serializedVersion: 2
+      x: 650
+      y: 226
+      width: 279
+      height: 146
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   mCoordinates: 0
   mPixelSize: 1
   mReplacement: {fileID: 0}

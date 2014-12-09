@@ -33,7 +33,6 @@ public class SaveMgr : SingletonMonoBehaviourFast<SaveMgr>
 
 	// Use this for initialization
 	void Start () {
-	
 	}
 	
 	// Update is called once per frame
