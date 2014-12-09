@@ -45,13 +45,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 0
-      y: 105
+      y: 5
       width: 204
       height: 180
     inner:
       serializedVersion: 2
       x: 0
-      y: 105
+      y: 5
       width: 204
       height: 180
     rotated: 0
@@ -63,13 +63,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 205
-      y: 105
+      y: 5
       width: 204
       height: 180
     inner:
       serializedVersion: 2
       x: 205
-      y: 105
+      y: 5
       width: 204
       height: 180
     rotated: 0
@@ -81,13 +81,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 410
-      y: 105
+      y: 5
       width: 204
       height: 180
     inner:
       serializedVersion: 2
       x: 410
-      y: 105
+      y: 5
       width: 204
       height: 180
     rotated: 0
@@ -99,13 +99,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 615
-      y: 105
+      y: 5
       width: 204
       height: 180
     inner:
       serializedVersion: 2
       x: 615
-      y: 105
+      y: 5
       width: 204
       height: 180
     rotated: 0
@@ -261,13 +261,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 0
-      y: 385
+      y: 285
       width: 876
       height: 98
     inner:
       serializedVersion: 2
       x: 0
-      y: 385
+      y: 285
       width: 876
       height: 98
     rotated: 0
@@ -279,15 +279,231 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 0
-      y: 286
+      y: 186
       width: 876
       height: 98
     inner:
       serializedVersion: 2
       x: 0
-      y: 286
+      y: 186
       width: 876
       height: 98
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: 6
+    outer:
+      serializedVersion: 2
+      x: 877
+      y: 422
+      width: 57
+      height: 61
+    inner:
+      serializedVersion: 2
+      x: 877
+      y: 422
+      width: 57
+      height: 61
+    rotated: 0
+    paddingLeft: .0701754391
+    paddingRight: .0526315793
+    paddingTop: 0
+    paddingBottom: .0491803288
+  - name: percent
+    outer:
+      serializedVersion: 2
+      x: 1077
+      y: 13
+      width: 53
+      height: 61
+    inner:
+      serializedVersion: 2
+      x: 1077
+      y: 13
+      width: 53
+      height: 61
+    rotated: 0
+    paddingLeft: .113207549
+    paddingRight: .094339624
+    paddingTop: 0
+    paddingBottom: .0491803288
+  - name: 9
+    outer:
+      serializedVersion: 2
+      x: 877
+      y: 322
+      width: 57
+      height: 61
+    inner:
+      serializedVersion: 2
+      x: 877
+      y: 322
+      width: 57
+      height: 61
+    rotated: 0
+    paddingLeft: .0701754391
+    paddingRight: .0526315793
+    paddingTop: 0
+    paddingBottom: .0491803288
+  - name: 5
+    outer:
+      serializedVersion: 2
+      x: 877
+      y: 223
+      width: 57
+      height: 61
+    inner:
+      serializedVersion: 2
+      x: 877
+      y: 223
+      width: 57
+      height: 61
+    rotated: 0
+    paddingLeft: .0701754391
+    paddingRight: .0526315793
+    paddingTop: 0
+    paddingBottom: .0491803288
+  - name: 2
+    outer:
+      serializedVersion: 2
+      x: 820
+      y: 124
+      width: 57
+      height: 61
+    inner:
+      serializedVersion: 2
+      x: 820
+      y: 124
+      width: 57
+      height: 61
+    rotated: 0
+    paddingLeft: .0701754391
+    paddingRight: .0526315793
+    paddingTop: 0
+    paddingBottom: .0491803288
+  - name: 7
+    outer:
+      serializedVersion: 2
+      x: 878
+      y: 124
+      width: 57
+      height: 61
+    inner:
+      serializedVersion: 2
+      x: 878
+      y: 124
+      width: 57
+      height: 61
+    rotated: 0
+    paddingLeft: .0877192989
+    paddingRight: .0350877196
+    paddingTop: 0
+    paddingBottom: .0491803288
+  - name: 3
+    outer:
+      serializedVersion: 2
+      x: 820
+      y: 62
+      width: 57
+      height: 61
+    inner:
+      serializedVersion: 2
+      x: 820
+      y: 62
+      width: 57
+      height: 61
+    rotated: 0
+    paddingLeft: .0701754391
+    paddingRight: .0526315793
+    paddingTop: 0
+    paddingBottom: .0491803288
+  - name: 4
+    outer:
+      serializedVersion: 2
+      x: 878
+      y: 62
+      width: 57
+      height: 61
+    inner:
+      serializedVersion: 2
+      x: 878
+      y: 62
+      width: 57
+      height: 61
+    rotated: 0
+    paddingLeft: .0701754391
+    paddingRight: .0526315793
+    paddingTop: 0
+    paddingBottom: .0491803288
+  - name: 0
+    outer:
+      serializedVersion: 2
+      x: 961
+      y: 13
+      width: 57
+      height: 61
+    inner:
+      serializedVersion: 2
+      x: 961
+      y: 13
+      width: 57
+      height: 61
+    rotated: 0
+    paddingLeft: .0526315793
+    paddingRight: .0701754391
+    paddingTop: .0163934417
+    paddingBottom: .0327868834
+  - name: 8
+    outer:
+      serializedVersion: 2
+      x: 1019
+      y: 13
+      width: 57
+      height: 61
+    inner:
+      serializedVersion: 2
+      x: 1019
+      y: 13
+      width: 57
+      height: 61
+    rotated: 0
+    paddingLeft: .0701754391
+    paddingRight: .0526315793
+    paddingTop: 0
+    paddingBottom: .0491803288
+  - name: 1
+    outer:
+      serializedVersion: 2
+      x: 1131
+      y: 13
+      width: 34
+      height: 61
+    inner:
+      serializedVersion: 2
+      x: 1131
+      y: 13
+      width: 34
+      height: 61
+    rotated: 0
+    paddingLeft: .411764711
+    paddingRight: .470588237
+    paddingTop: 0
+    paddingBottom: .0491803288
+  - name: result_gauge4
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 384
+      width: 876
+      height: 99
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 384
+      width: 876
+      height: 99
     rotated: 0
     paddingLeft: 0
     paddingRight: 0

@@ -43,9 +43,9 @@ MonoBehaviour:
   game1Score: 156
   game2Score: 100
   game3Score: 100
-  game3Max: 100
+  game3Max: 120
   userRank: 0
-  gameState: 0
+  gameState: 3
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

@@ -21,6 +21,7 @@ public class ResultMgr : MonoBehaviour {
     int m_effectCnt;            // 演出を行った回数
     Dictionary<UILabel,float> m_pointLabel = new Dictionary<UILabel,float>();   // ポイントを表示するラベル
     List<UISprite> m_effectList = new List<UISprite>(); // エフェクトを追加するオブジェクトのリスト
+    public List<UISprite> m_gaugeList = new List<UISprite>();
     float m_cnt;                // ポイントのカウントアップ変数
     int m_depth;                // スプライトのデプス
 
@@ -28,6 +29,8 @@ public class ResultMgr : MonoBehaviour {
     public GameObject m_one;    // 一つだけのゲームの結果を表示するときに使う
     public GameObject m_all;    // 総合得点を表示する
     public UISprite m_gauge;
+    public ResultPercent m_percent;
+    public List<ResultPercent> m_percentList = new List<ResultPercent>();
     public enum eType { OneTime, Sequence };
     public eType m_dispType;
 
@@ -172,12 +175,20 @@ public class ResultMgr : MonoBehaviour {
                     {
                         point.Key.text = m_cnt.ToString();
                         m_gauge.fillAmount = m_cnt / 100;
+                        m_gaugeList[0].fillAmount = m_cnt / 100;
+                        m_percentList[0].SetNum(m_cnt);
+                        m_percent.SetNum(m_cnt);
                     }
                     // カウンターが過ぎたらリストから外す
                     else if (m_cnt > point.Value)
                     {
                         point.Key.text = point.Value.ToString("0.0");
                         m_gauge.fillAmount = point.Value / 100;
+                        m_gaugeList[0].fillAmount = point.Value / 100;
+                        m_percent.SetNum(point.Value);
+                        m_percentList[0].SetNum(point.Value);
+                        m_percentList.RemoveAt(0);
+                        m_gaugeList.RemoveAt(0);
                         removeLabel.Add(point.Key);
                         m_cnt = 0;
                     }
