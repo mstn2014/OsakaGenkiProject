@@ -59,7 +59,7 @@ public class Game1GameRoop : MonoBehaviour {
 			if (m_start) {
 				switch(m_state){
                 case GameState.guide:
-                        yield return new WaitForSeconds(2.0f);
+                        yield return new WaitForSeconds(12.0f);
 
                         m_guide.Begin("Message/small_event_1_0","Sound/GUIDE/small_event_1_0/small_event_1_0_talk_");
                         while (m_guide.IsUse)

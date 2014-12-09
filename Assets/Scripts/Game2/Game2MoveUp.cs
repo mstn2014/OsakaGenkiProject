@@ -28,8 +28,8 @@ public class Game2MoveUp : MonoBehaviour
 	
 			// 画面外で消去
 			Vector3 view_pos = Camera.main.WorldToViewportPoint(transform.position);
-			if( view_pos.x < -1.0f || view_pos.x > 2.0f ||
-			    view_pos.y < -1.0f || view_pos.y > 2.0f ){
+			if( view_pos.x < -3.0f || view_pos.x > 3.0f ||
+			    view_pos.y < -3.0f || view_pos.y > 3.0f ){
 				Destroy( this.gameObject );
 			}
 		}

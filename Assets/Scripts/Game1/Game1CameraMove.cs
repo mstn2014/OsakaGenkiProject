@@ -8,8 +8,8 @@ public class Game1CameraMove : MonoBehaviour {
     public Transform[] m_point;
 	// Use this for initialization
 	void Start () {
-        transform.position = m_point[0].position;
-        transform.rotation = Quaternion.LookRotation(m_target.position - transform.position);
+        //transform.position = m_point[0].position;
+        //transform.rotation = Quaternion.LookRotation(m_target.position - transform.position);
 	}
 	
 	// Update is called once per frame
