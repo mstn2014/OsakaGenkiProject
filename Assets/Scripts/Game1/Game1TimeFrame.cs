@@ -35,7 +35,7 @@ public class Game1TimeFrame : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (m_timer.IsPaused != true) {
+		if (m_timer.IsPaused == false && !m_timer.IsStop ) {
 						if (m_count == TimeCount.Total) {
 								return;
 						}
@@ -49,8 +49,8 @@ public class Game1TimeFrame : MonoBehaviour {
 								m_revisionTime += m_countRatio [(int)m_count];
 								m_count++;
 						}
-				} else {
-			InitTimeCount();		
+				} else if( m_timer.IsPaused ){
+			        InitTimeCount();		
 				}
 	}
 

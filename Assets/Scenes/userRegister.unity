@@ -431,6 +431,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e713d25a3b4b3c45a807da98021e275, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_scaleLeft: {fileID: 1676486759}
+  m_scaleRight: {fileID: 1494063044}
   m_userSetting: {fileID: 11400000, guid: 822c9a9b372ee6445995eaff2dcdfab9, type: 2}
   m_inputName: {fileID: 2055561166}
 --- !u!1 &1182697391
@@ -532,8 +534,8 @@ MonoBehaviour:
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
   mDepth: 3
-  mAtlas: {fileID: 11400000, guid: dd4a3074152695c4094e348d49abcc3a, type: 2}
-  mSpriteName: MessageBack
+  mAtlas: {fileID: 11400000, guid: 8335c153e56a47b448b7d3f6836967cd, type: 2}
+  mSpriteName: name_ui1
   mFillCenter: 1
   mType: 0
   mFillDirection: 4
@@ -593,6 +595,7 @@ GameObject:
   - 4: {fileID: 1494063041}
   - 114: {fileID: 1494063042}
   - 114: {fileID: 1494063043}
+  - 114: {fileID: 1494063044}
   m_Layer: 5
   m_Name: ArrowRight
   m_TagString: Untagged
@@ -608,7 +611,7 @@ Transform:
   m_GameObject: {fileID: 1494063040}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 768, y: 0, z: 0}
-  m_LocalScale: {x: 128, y: 128, z: 1}
+  m_LocalScale: {x: 126, y: 125, z: 1}
   m_Children: []
   m_Father: {fileID: 269722680}
   m_RootOrder: 0
@@ -626,8 +629,8 @@ MonoBehaviour:
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
   mDepth: 3
-  mAtlas: {fileID: 11400000, guid: dd4a3074152695c4094e348d49abcc3a, type: 2}
-  mSpriteName: ArrowRight
+  mAtlas: {fileID: 11400000, guid: 8335c153e56a47b448b7d3f6836967cd, type: 2}
+  mSpriteName: name_right
   mFillCenter: 1
   mType: 0
   mFillDirection: 4
@@ -670,6 +673,49 @@ MonoBehaviour:
   callWhenFinished: 
   from: {x: 768, y: 0, z: 0}
   to: {x: 780, y: 0, z: 0}
+--- !u!114 &1494063044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1494063040}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75e7459110b9666449485c40f25362a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  method: 0
+  style: 0
+  animationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 2.0026648
+      outSlope: 2.0026648
+      tangentMode: 10
+    - time: .5
+      value: 1.0013324
+      inSlope: .00267386436
+      outSlope: .00267386436
+      tangentMode: 10
+    - time: 1
+      value: .00267386436
+      inSlope: -1.99731708
+      outSlope: -1.99731708
+      tangentMode: 10
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  ignoreTimeScale: 1
+  delay: 0
+  duration: .200000003
+  steeperCurves: 0
+  tweenGroup: 0
+  eventReceiver: {fileID: 0}
+  callWhenFinished: 
+  from: {x: 126, y: 125, z: 1}
+  to: {x: 252, y: 250, z: 2}
+  updateTable: 0
 --- !u!1 &1606364185
 GameObject:
   m_ObjectHideFlags: 0
@@ -693,7 +739,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1606364185}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.18421054, z: 0}
+  m_LocalPosition: {x: -1.2026726, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1965404574}
@@ -728,6 +774,7 @@ GameObject:
   - 4: {fileID: 1676486756}
   - 114: {fileID: 1676486757}
   - 114: {fileID: 1676486758}
+  - 114: {fileID: 1676486759}
   m_Layer: 5
   m_Name: ArrowLeft
   m_TagString: Untagged
@@ -743,7 +790,7 @@ Transform:
   m_GameObject: {fileID: 1676486755}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -768, y: 0, z: 0}
-  m_LocalScale: {x: 128, y: 128, z: 1}
+  m_LocalScale: {x: 125, y: 125, z: 1}
   m_Children: []
   m_Father: {fileID: 269722680}
   m_RootOrder: 1
@@ -761,8 +808,8 @@ MonoBehaviour:
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
   mDepth: 3
-  mAtlas: {fileID: 11400000, guid: dd4a3074152695c4094e348d49abcc3a, type: 2}
-  mSpriteName: ArrowLeft
+  mAtlas: {fileID: 11400000, guid: 8335c153e56a47b448b7d3f6836967cd, type: 2}
+  mSpriteName: name_left
   mFillCenter: 1
   mType: 0
   mFillDirection: 4
@@ -805,6 +852,49 @@ MonoBehaviour:
   callWhenFinished: 
   from: {x: -768, y: 0, z: 0}
   to: {x: -780, y: 0, z: 0}
+--- !u!114 &1676486759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1676486755}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75e7459110b9666449485c40f25362a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  method: 0
+  style: 0
+  animationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 10
+    - time: .5
+      value: 1
+      inSlope: 5.96046448e-08
+      outSlope: 5.96046448e-08
+      tangentMode: 10
+    - time: 1
+      value: 5.96046448e-08
+      inSlope: -1.99999988
+      outSlope: -1.99999988
+      tangentMode: 10
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  ignoreTimeScale: 1
+  delay: 0
+  duration: .200000003
+  steeperCurves: 0
+  tweenGroup: 0
+  eventReceiver: {fileID: 0}
+  callWhenFinished: 
+  from: {x: 125, y: 125, z: 1}
+  to: {x: 250, y: 250, z: 2}
+  updateTable: 0
 --- !u!1 &1754144522
 GameObject:
   m_ObjectHideFlags: 0
@@ -966,11 +1056,11 @@ MonoBehaviour:
     e00: 540
     e01: 0
     e02: 0
-    e03: 0
+    e03: 1.2026726
     e10: 0
     e11: 540
     e12: 0
-    e13: -1.18421054
+    e13: 0
     e20: 0
     e21: 0
     e22: 540

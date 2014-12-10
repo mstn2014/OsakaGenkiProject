@@ -36,7 +36,7 @@ public class Game2Gauge : MonoBehaviour {
 
         float fill = m_scoreMgr.Score / eventScore;
 
-        if( fill >= 1.0f && state != constEventScore.Count){
+        if( fill >= 1.0f && state < constEventScore.Count){
             eventScore = constEventScore[state++];
             fill = m_scoreMgr.Score / eventScore;
 
@@ -45,6 +45,13 @@ public class Game2Gauge : MonoBehaviour {
             m_tweenRotate.Reset();
             m_tweenRotate.Play(true);
         }
+        else if (state == constEventScore.Count)
+        {
+            fill = 1.0f;
+            state++;
+            m_lv.spriteName = "game2_gauge_lv" + state.ToString();
+            m_lv.MakePixelPerfect();       
+        }
         fill = Mathf.Clamp(fill, 0.0f, 1.0f);
         m_gauge.fillAmount = fill;
         m_gauge.fillAmount *= (1.0f / constEventScore.Count * state);
@@ -52,6 +59,9 @@ public class Game2Gauge : MonoBehaviour {
         // ドクンの演出
         if (m_tmpScore != m_scoreMgr.Score)
         {
+            m_lv.MakePixelPerfect();
+            m_tweenScale.to = m_lv.transform.localScale;
+            m_tweenScale.from = m_lv.transform.localScale * 2.0f;
             m_tweenScale.Reset();
             m_tweenScale.Play(true);
         }

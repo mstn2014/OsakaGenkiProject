@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using WWWKit;
+using MiniJSON;
 
 public class ResultMgr : MonoBehaviour {
 
@@ -9,6 +11,7 @@ public class ResultMgr : MonoBehaviour {
     InputMgr m_inputMgr;        // インプット
     FadeMgr m_fadeMgr;          // フェード
 	SoundMgr m_sound;          	// サウンド
+    WWWClientManager m_rankServer;  // ランキングサーバー
     
     // ローカル変数
     SaveMgr.eState m_state;    // どのシーンから飛んできたか。どのシーンの結果を返すか判断するフラグ。
@@ -31,6 +34,7 @@ public class ResultMgr : MonoBehaviour {
     public UISprite m_gauge;
     public ResultPercent m_percent;
     public List<ResultPercent> m_percentList = new List<ResultPercent>();
+    public UISprite m_name;
     public enum eType { OneTime, Sequence };
     public eType m_dispType;
 
@@ -42,7 +46,7 @@ public class ResultMgr : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        
+        m_rankServer = new WWWClientManager(this);
         m_setting = Resources.Load<ResultSetting>("Setting/ResultSetting");
 
         // 共通設定の呼び出し
@@ -190,6 +194,10 @@ public class ResultMgr : MonoBehaviour {
                         m_percentList.RemoveAt(0);
                         m_gaugeList.RemoveAt(0);
                         removeLabel.Add(point.Key);
+                        if (m_depth == -2)
+                        {
+                            postMessage(point.Value);
+                        }
                         m_cnt = 0;
                     }
                     
@@ -224,16 +232,19 @@ public class ResultMgr : MonoBehaviour {
                 m_score = m_save.game1Score;
                 m_maxPoint = m_setting.game1MaxPoint;
                 m_rank = m_setting.Rank;
+                m_name.spriteName = "result_game1";
                 break;
             case SaveMgr.eState.GAME2:
                 m_score = m_save.game2Score;
                 m_maxPoint = m_setting.game2MaxPoint;
                 m_rank = m_setting.Rank;
+                m_name.spriteName = "result_game2";
                 break;
             case SaveMgr.eState.GAME3:
                 m_score = m_save.game3Score;
                 m_maxPoint = m_save.game3Max;
                 m_rank = m_setting.Rank;
+                m_name.spriteName = "result_game3";
                 break;
             case SaveMgr.eState.ALL:
                 m_score = m_save.game1Score + m_save.game2Score + m_save.game3Score;
@@ -281,5 +292,27 @@ public class ResultMgr : MonoBehaviour {
         {
             go.SetActive(false);
         }
+    }
+
+    void postMessage(float _score)
+    {
+        string url = "http://mstn2014-osaka.herokuapp.com/users/regist";
+        // ポストするキーはstring型で送る
+        Dictionary<string, string> post = new Dictionary<string, string>();
+
+        // ランダムな名前を生成
+        string name = m_save.userName;
+
+        post.Add("name", name);
+        float score = _score;
+        post.Add("score", score.ToString());
+        post.Add("costume", Random.Range(0, 5).ToString());
+        m_rankServer.POST(url, post, "ReceivePost");
+        Debug.Log(name.ToString() + " " + score.ToString() + " " + "POSTリクエストを送信しました。");
+    }
+
+    void ReceivePost(WWW www)
+    {
+        Debug.Log(www.text);
     }
 }

@@ -2,6 +2,8 @@
 using System.Collections;
 
 public class Game1CameraMove : MonoBehaviour {
+    [Header("カメラの初期位置")]
+    public iTweenPath m_path;
 
     [Header("カメラの注視点")]
     public Transform m_target;
@@ -10,6 +12,8 @@ public class Game1CameraMove : MonoBehaviour {
 	void Start () {
         //transform.position = m_point[0].position;
         //transform.rotation = Quaternion.LookRotation(m_target.position - transform.position);
+        transform.position = m_path.nodes[0];
+
 	}
 	
 	// Update is called once per frame

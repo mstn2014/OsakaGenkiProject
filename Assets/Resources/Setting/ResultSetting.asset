@@ -11,27 +11,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a156c58ec6f079944a07c5e9f9f73ea3, type: 3}
   m_Name: ResultSetting
   m_EditorClassIdentifier: 
-  game1MaxPoint: 216
+  game1MaxPoint: 200
   game2MaxPoint: 258
   game3MaxPoint: 50
   Rank:
   - key: SSS
-    value: .949999988
+    value: .980000019
   - key: SS
     value: .899999976
   - key: S
-    value: .850000024
+    value: .800000012
   - key: AAA
     value: .699999988
   - key: AA
-    value: .600000024
-  - key: A
     value: .5
+  - key: A
+    value: .400000006
   - key: B
-    value: .349999994
+    value: .300000012
   - key: C
-    value: .25
+    value: .200000003
   - key: D
-    value: .150000006
+    value: .100000001
   - key: E
     value: 0

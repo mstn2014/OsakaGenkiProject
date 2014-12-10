@@ -59,7 +59,7 @@ public class Game1GameRoop : MonoBehaviour {
 			if (m_start) {
 				switch(m_state){
                 case GameState.guide:
-                        yield return new WaitForSeconds(12.0f);
+                        yield return new WaitForSeconds(9.0f);
 
                         m_guide.Begin("Message/small_event_1_0","Sound/GUIDE/small_event_1_0/small_event_1_0_talk_");
                         while (m_guide.IsUse)
@@ -159,7 +159,7 @@ public class Game1GameRoop : MonoBehaviour {
                         }
 					}
 
-					if(m_timer.IsPaused){			// 時間切れ
+					if(m_timer.IsStop){			// 時間切れ
                         if (m_quest.IsComplete)
                         {
                             StartCoroutine(m_effect.DispResult(2));
@@ -173,10 +173,12 @@ public class Game1GameRoop : MonoBehaviour {
                         }
 					}					
 					break;
-                case GameState.product: 
+                case GameState.product:
+                    m_timer.StopTimer();              
+                    yield return new WaitForSeconds(2.0f);
                     m_timeFrame.SetActive(false); 
-                    
-					m_timer.ResetTimer();		// タイマー初期化.
+                    m_timer.ResetTimer();		// タイマー初期化
+					
 					m_quest.ReadyNextRound();
                     
 					while(!m_product.IsEnd){

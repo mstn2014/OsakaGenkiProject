@@ -386,14 +386,14 @@ MonoBehaviour:
   - name: game2_gauge_lv3
     outer:
       serializedVersion: 2
-      x: 650
-      y: 44
+      x: 930
+      y: 326
       width: 99
       height: 46
     inner:
       serializedVersion: 2
-      x: 650
-      y: 44
+      x: 930
+      y: 326
       width: 99
       height: 46
     rotated: 0
@@ -404,14 +404,14 @@ MonoBehaviour:
   - name: game2_gauge_lv2
     outer:
       serializedVersion: 2
-      x: 750
-      y: 44
+      x: 1030
+      y: 326
       width: 99
       height: 46
     inner:
       serializedVersion: 2
-      x: 750
-      y: 44
+      x: 1030
+      y: 326
       width: 99
       height: 46
     rotated: 0
@@ -423,13 +423,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 930
-      y: 326
+      y: 279
       width: 99
       height: 46
     inner:
       serializedVersion: 2
       x: 930
-      y: 326
+      y: 279
       width: 99
       height: 46
     rotated: 0
@@ -540,6 +540,42 @@ MonoBehaviour:
       y: 226
       width: 279
       height: 146
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: game2_gauge_lv0
+    outer:
+      serializedVersion: 2
+      x: 1030
+      y: 279
+      width: 99
+      height: 46
+    inner:
+      serializedVersion: 2
+      x: 1030
+      y: 279
+      width: 99
+      height: 46
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: game2_gauge_lv6
+    outer:
+      serializedVersion: 2
+      x: 650
+      y: 39
+      width: 181
+      height: 51
+    inner:
+      serializedVersion: 2
+      x: 650
+      y: 39
+      width: 181
+      height: 51
     rotated: 0
     paddingLeft: 0
     paddingRight: 0

@@ -12,19 +12,19 @@ MonoBehaviour:
   m_Name: Game1_Setting
   m_EditorClassIdentifier: 
   Round_TimeLimit:
-  - 2.9000001
-  - 3.5999999
   - 4.30000019
   - 5
   - 5.69999981
   - 6.4000001
   - 7.0999999
   - 7.80000019
-  MinQuestNum: 3
+  - 9
+  - 10
+  MinQuestNum: 5
   MaxQuestNum: 10
   QuestInterval: 50
   WeightValue: .100000001
-  MaxRoundNum: 2
+  MaxRoundNum: 6
   Gallery_Width: 7
   Gallery_Height: 7
   Gallery_Interval: 3

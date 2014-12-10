@@ -19,6 +19,9 @@ public class ScrollChar : MonoBehaviour {
     CharState[] m_charState = new CharState[dispCharNum];   // 各文字を制御するスクリプト
     GameObject[] m_keyborad = new GameObject[dispCharNum];  // 各文字のプレハブ
 
+    public TweenScale m_scaleLeft;
+    public TweenScale m_scaleRight;
+
     [Header("設定ファイル")]
     [SerializeField]
     UserRegSetting m_userSetting;
@@ -55,7 +58,10 @@ public class ScrollChar : MonoBehaviour {
             foreach (CharState cs in m_charState)
             {
 				m_sound.PlaySeMoveCursor();
-                cs.MoveLeft();
+                m_scaleLeft.enabled = true;
+                m_scaleLeft.Reset();
+                m_scaleLeft.Play(true);
+                cs.MoveRight();
             }  
         }
 
@@ -64,8 +70,11 @@ public class ScrollChar : MonoBehaviour {
         {
             foreach (CharState cs in m_charState)
             {
-				m_sound.PlaySeMoveCursor();
-                cs.MoveRight();
+                m_sound.PlaySeMoveCursor();
+                m_scaleRight.enabled = true;
+                m_scaleRight.Reset();
+                m_scaleRight.Play(true);
+                cs.MoveLeft();
             }
         }
 

@@ -44,14 +44,14 @@ MonoBehaviour:
   - name: game1_ui2
     outer:
       serializedVersion: 2
-      x: 1431
-      y: 1530
+      x: 1430
+      y: 348
       width: 229
       height: 229
     inner:
       serializedVersion: 2
-      x: 1431
-      y: 1530
+      x: 1430
+      y: 348
       width: 229
       height: 229
     rotated: 0
@@ -63,13 +63,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 0
-      y: 1760
+      y: 694
       width: 1827
       height: 107
     inner:
       serializedVersion: 2
       x: 0
-      y: 1760
+      y: 694
       width: 1827
       height: 107
     rotated: 0
@@ -81,13 +81,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 0
-      y: 1206
+      y: 140
       width: 296
       height: 296
     inner:
       serializedVersion: 2
       x: 0
-      y: 1206
+      y: 140
       width: 296
       height: 296
     rotated: 0
@@ -117,13 +117,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 0
-      y: 1503
+      y: 437
       width: 512
       height: 256
     inner:
       serializedVersion: 2
       x: 0
-      y: 1503
+      y: 437
       width: 512
       height: 256
     rotated: 0
@@ -135,13 +135,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 0
-      y: 1984
+      y: 918
       width: 1891
       height: 1047
     inner:
       serializedVersion: 2
       x: 0
-      y: 1984
+      y: 918
       width: 1891
       height: 1047
     rotated: 0
@@ -189,13 +189,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 0
-      y: 1868
+      y: 802
       width: 1833
       height: 115
     inner:
       serializedVersion: 2
       x: 0
-      y: 1868
+      y: 802
       width: 1833
       height: 115
     rotated: 0
@@ -206,14 +206,14 @@ MonoBehaviour:
   - name: game1_ui
     outer:
       serializedVersion: 2
-      x: 0
-      y: 999
+      x: 513
+      y: 23
       width: 240
       height: 206
     inner:
       serializedVersion: 2
-      x: 0
-      y: 999
+      x: 513
+      y: 23
       width: 240
       height: 206
     rotated: 0
@@ -224,14 +224,14 @@ MonoBehaviour:
   - name: game1_ui3
     outer:
       serializedVersion: 2
-      x: 1661
-      y: 1530
+      x: 1660
+      y: 348
       width: 229
       height: 229
     inner:
       serializedVersion: 2
-      x: 1661
-      y: 1530
+      x: 1660
+      y: 348
       width: 229
       height: 229
     rotated: 0
@@ -243,13 +243,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 513
-      y: 1644
+      y: 578
       width: 917
       height: 115
     inner:
       serializedVersion: 2
       x: 513
-      y: 1644
+      y: 578
       width: 917
       height: 115
     rotated: 0
@@ -261,13 +261,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 513
-      y: 1528
+      y: 462
       width: 916
       height: 115
     inner:
       serializedVersion: 2
       x: 513
-      y: 1528
+      y: 462
       width: 916
       height: 115
     rotated: 0
@@ -293,6 +293,240 @@ MonoBehaviour:
     paddingRight: .00526315812
     paddingTop: .00939849578
     paddingBottom: .00563909765
+  - name: game1_ui7_1_3
+    outer:
+      serializedVersion: 2
+      x: 513
+      y: 346
+      width: 697
+      height: 115
+    inner:
+      serializedVersion: 2
+      x: 513
+      y: 346
+      width: 697
+      height: 115
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: game1_ui8_2
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 1966
+      width: 1893
+      height: 1065
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 1966
+      width: 1893
+      height: 1065
+    rotated: 0
+    paddingLeft: .00792392995
+    paddingRight: .00633914443
+    paddingTop: 0
+    paddingBottom: .0140845068
+  - name: game1_ui7_1_4
+    outer:
+      serializedVersion: 2
+      x: 513
+      y: 230
+      width: 692
+      height: 115
+    inner:
+      serializedVersion: 2
+      x: 513
+      y: 230
+      width: 692
+      height: 115
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: 9
+    outer:
+      serializedVersion: 2
+      x: 3795
+      y: 3037
+      width: 57
+      height: 61
+    inner:
+      serializedVersion: 2
+      x: 3795
+      y: 3037
+      width: 57
+      height: 61
+    rotated: 0
+    paddingLeft: .0701754391
+    paddingRight: .0526315793
+    paddingTop: 0
+    paddingBottom: .0491803288
+  - name: 1
+    outer:
+      serializedVersion: 2
+      x: 4035
+      y: 3601
+      width: 34
+      height: 61
+    inner:
+      serializedVersion: 2
+      x: 4035
+      y: 3601
+      width: 34
+      height: 61
+    rotated: 0
+    paddingLeft: .411764711
+    paddingRight: .470588237
+    paddingTop: 0
+    paddingBottom: .0491803288
+  - name: 8
+    outer:
+      serializedVersion: 2
+      x: 3853
+      y: 3037
+      width: 57
+      height: 61
+    inner:
+      serializedVersion: 2
+      x: 3853
+      y: 3037
+      width: 57
+      height: 61
+    rotated: 0
+    paddingLeft: .0701754391
+    paddingRight: .0526315793
+    paddingTop: 0
+    paddingBottom: .0491803288
+  - name: 7
+    outer:
+      serializedVersion: 2
+      x: 4035
+      y: 4035
+      width: 57
+      height: 61
+    inner:
+      serializedVersion: 2
+      x: 4035
+      y: 4035
+      width: 57
+      height: 61
+    rotated: 0
+    paddingLeft: .0877192989
+    paddingRight: .0350877196
+    paddingTop: 0
+    paddingBottom: .0491803288
+  - name: 4
+    outer:
+      serializedVersion: 2
+      x: 4035
+      y: 3973
+      width: 57
+      height: 61
+    inner:
+      serializedVersion: 2
+      x: 4035
+      y: 3973
+      width: 57
+      height: 61
+    rotated: 0
+    paddingLeft: .0701754391
+    paddingRight: .0526315793
+    paddingTop: 0
+    paddingBottom: .0491803288
+  - name: 2
+    outer:
+      serializedVersion: 2
+      x: 4035
+      y: 3911
+      width: 57
+      height: 61
+    inner:
+      serializedVersion: 2
+      x: 4035
+      y: 3911
+      width: 57
+      height: 61
+    rotated: 0
+    paddingLeft: .0701754391
+    paddingRight: .0526315793
+    paddingTop: 0
+    paddingBottom: .0491803288
+  - name: 6
+    outer:
+      serializedVersion: 2
+      x: 4035
+      y: 3849
+      width: 57
+      height: 61
+    inner:
+      serializedVersion: 2
+      x: 4035
+      y: 3849
+      width: 57
+      height: 61
+    rotated: 0
+    paddingLeft: .0701754391
+    paddingRight: .0526315793
+    paddingTop: 0
+    paddingBottom: .0491803288
+  - name: 5
+    outer:
+      serializedVersion: 2
+      x: 4035
+      y: 3787
+      width: 57
+      height: 61
+    inner:
+      serializedVersion: 2
+      x: 4035
+      y: 3787
+      width: 57
+      height: 61
+    rotated: 0
+    paddingLeft: .0701754391
+    paddingRight: .0526315793
+    paddingTop: 0
+    paddingBottom: .0491803288
+  - name: 0
+    outer:
+      serializedVersion: 2
+      x: 4035
+      y: 3725
+      width: 57
+      height: 61
+    inner:
+      serializedVersion: 2
+      x: 4035
+      y: 3725
+      width: 57
+      height: 61
+    rotated: 0
+    paddingLeft: .0526315793
+    paddingRight: .0701754391
+    paddingTop: .0163934417
+    paddingBottom: .0327868834
+  - name: 3
+    outer:
+      serializedVersion: 2
+      x: 4035
+      y: 3663
+      width: 57
+      height: 61
+    inner:
+      serializedVersion: 2
+      x: 4035
+      y: 3663
+      width: 57
+      height: 61
+    rotated: 0
+    paddingLeft: .0701754391
+    paddingRight: .0526315793
+    paddingTop: 0
+    paddingBottom: .0491803288
   mCoordinates: 0
   mPixelSize: 1
   mReplacement: {fileID: 0}

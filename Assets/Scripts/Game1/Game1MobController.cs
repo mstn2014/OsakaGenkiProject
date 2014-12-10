@@ -74,7 +74,7 @@ public class Game1MobController : MonoBehaviour {
         else
         {
             m_navi.SetDestination(m_nextPos + transform.parent.position);
-            Quaternion.LookRotation(m_nextPos - transform.position);
+            Quaternion.LookRotation( new Vector3( transform.position.x, m_nextPos.y - transform.position.y,transform.position.z));
         }
     }
 

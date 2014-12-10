@@ -5,6 +5,7 @@ public class Game1CountDown : MonoBehaviour {
 
 	private float	m_timer;
 	private bool	m_paused;
+    private bool    m_stop;
 	
 	private Game1Question	m_quest;
 
@@ -15,6 +16,10 @@ public class Game1CountDown : MonoBehaviour {
 	public bool IsPaused{
 		get{return m_paused;}
 	}
+    public bool IsStop
+    {
+        get { return m_stop; }
+    }
 	public float IsTimer{
 		get{return m_timer;}
 	}
@@ -37,18 +42,23 @@ public class Game1CountDown : MonoBehaviour {
 		if (m_paused)	return;
 		m_timer -= Time.deltaTime;
 		if (m_timer <= 0.0f) {
-			ResetTimer();	// ToDo たぶんここでメモリリークする
-
+			//ResetTimer();	// ToDo たぶんここでメモリリークする
+            m_stop = true;
 			// 何かの処理.
 		}
 	}
 
-	public void ResetTimer(){		
+    public void StopTimer(){
+        m_stop = true;
+    }
+
+	public void ResetTimer(){
 		m_timer = GAME1.Round_TimeLimit[m_quest.IsNowRound-1];
 		m_paused = true;
 	}
 
 	public void StartTimer(){
 		m_paused = false;
+        m_stop = false;
 	}
 }

@@ -11,6 +11,7 @@ public class Game1Question : MonoBehaviour {
 	private int m_nowRound;				// 現在のラウンド.
 	private int m_nowQuestNum;			// 現在のボタン数.
 	private int m_nowAns;				// 今何ボタン目か.
+    private int m_touchCnt;             // ボタンを押した回数
 	private float m_createWeight;		// 生成されるボタンの重み.
 	private QuesBox[] m_box;			// 格納用配列.
 	private bool m_create;				// 生成確認.
@@ -23,6 +24,7 @@ public class Game1Question : MonoBehaviour {
     private ScoreMgr m_scoreMgr;        // スコア
 	SoundMgr m_sound;          			// サウンド
     public GameObject m_QestionGuide;   // 問題の時に現れるガイドさん
+    public Game1TapCount m_tapCnt;      // 残り回数
 
 	// Game1共通設定.
 	private Game1_Setting GAME1;
@@ -148,7 +150,8 @@ public class Game1Question : MonoBehaviour {
 	//======================================================
 	public bool CheckAns(int ans){
 		// 正解なら 
-
+        m_touchCnt++;
+        m_tapCnt.SetCount(m_nowQuestNum - m_touchCnt);
 		if (ans == m_box [m_nowAns].ans) {
 			Debug.Log ("正解");
 			m_sound.PlaySeCuccess();
@@ -234,7 +237,9 @@ public class Game1Question : MonoBehaviour {
 		m_complete = false;
 		m_nowRound = 1;
 		m_nowAns = 0;
+        m_touchCnt = 0; 
 		m_nowQuestNum = GAME1.MinQuestNum;
+        m_tapCnt.SetCount(m_nowQuestNum);
 		m_createWeight = 0.5f;
 	}
 
@@ -245,5 +250,6 @@ public class Game1Question : MonoBehaviour {
 		InitQuest ();
 		m_nowQuestNum	= workQuest + 1;
 		m_nowRound		= workRound + 1;
+        m_tapCnt.SetCount(m_nowQuestNum);
 	}
 }
