@@ -66,6 +66,7 @@ public class Guide : MonoBehaviour
             m_guideMgr.EndGuide();
             m_messageIndex = 0;
             StartCoroutine(CheckUseFlg());
+            this.GetComponent<AudioSource>().Stop();
         }
 
         if (Input.GetKeyDown(KeyCode.Return))

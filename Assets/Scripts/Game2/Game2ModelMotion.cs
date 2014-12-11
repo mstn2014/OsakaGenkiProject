@@ -21,5 +21,6 @@ public class Game2ModelMotion : MonoBehaviour {
     {
         m_danceState = type;
         m_animator.SetInteger("DanceType", (int)m_danceState);
+        GetComponent<FaceMgr>().ChangeFace(FaceMgr.eFaceType.SMILE);
     }
 }

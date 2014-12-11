@@ -11172,6 +11172,7 @@ MonoBehaviour:
   m_player: {fileID: 1681739911}
   m_guide: {fileID: 1868096851}
   m_countDown: {fileID: 411416540}
+  m_camera: {fileID: 166595401}
   m_timeFrame: {fileID: 1416750955}
   m_howTo: {fileID: 968015057}
 --- !u!114 &666063834

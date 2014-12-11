@@ -13,6 +13,7 @@ public class Game1GameRoop : MonoBehaviour {
     public Game1PlayerController m_player; // プレイヤー
     public Guide m_guide;               // ガイドマネージャ
     public StartCountDown m_countDown;  // カウントダウン
+    public Game1CameraMove m_camera;
     SaveMgr m_saveData;         // セーブデータ
     private ScoreMgr m_scoreMgr;         //　スコア
     [Header("ゲーム開始時にオンにするオブジェクト一覧")]
@@ -91,11 +92,17 @@ public class Game1GameRoop : MonoBehaviour {
                     }
                     
                     m_player.gameObject.SetActive(true);
+
+                    while (m_camera.IsMove)
+                    {
+                        yield return null;
+                    }
 					///// ラウンドへの初期化 /////
 					m_timer.ResetTimer();		// タイマー初期化.
 					m_effect.InitEffect();		// エフェクト関連初期化.
 					StartCoroutine (m_quest.CreateQuestion ());	// 問題生成.
-					while (!m_quest.IsCreate) {
+                    while (!m_quest.IsCreate)
+                    {
 						yield return null;
 					}
 

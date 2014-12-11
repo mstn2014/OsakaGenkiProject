@@ -45,7 +45,7 @@ public class Game2Gauge : MonoBehaviour {
             m_tweenRotate.Reset();
             m_tweenRotate.Play(true);
         }
-        else if (state == constEventScore.Count)
+        else if ( fill >= 1.0f && state == constEventScore.Count)
         {
             fill = 1.0f;
             state++;

@@ -141,6 +141,7 @@ public class Game3MobController : MonoBehaviour {
                 m_navMesh.SetDestination(m_targetPos);
                 m_animator.SetTrigger("IsStand");
                 m_animator.SetFloat("speed", 10);
+                m_objMgr.CreateNewMob(this.gameObject);
                 m_state = State.DanceReady;
                 break;
             case State.DanceReady:
@@ -369,6 +370,6 @@ public class Game3MobController : MonoBehaviour {
     {
         m_animator.SetInteger("DanceType",Random.Range(0,5));
         LookTarget(GameObject.Find("Game3Player").transform);
-        m_objMgr.CreateNewMob(this.gameObject);
+        
     }
 }
