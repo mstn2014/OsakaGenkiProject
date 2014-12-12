@@ -1049,6 +1049,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400138}
   - 95: {fileID: 9500000}
+  - 114: {fileID: 11400000}
   m_Layer: 0
   m_Name: mob_m_america
   m_TagString: Untagged
@@ -2034,6 +2035,30 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 252b0b81c9d169447b7da34645d42c47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_face: {fileID: 2100000, guid: 9e6bcf9711144f64b95e91a8381c2928, type: 2}
+  m_normal:
+  - {fileID: 2800000, guid: 234c5db3e81f321418ea2bf9c16b1604, type: 3}
+  m_grad: []
+  m_pass:
+  - {fileID: 2800000, guid: 97b07b296b9ed6343beb2ba38b1e830d, type: 3}
+  m_sad: []
+  m_smile:
+  - {fileID: 2800000, guid: a93e8c838f736a94498d6acf7630d093, type: 3}
+  m_faceType: 0
+  m_blinkTime: .0500000007
+  IsAuto: 1
+  IsPlayer: 0
 --- !u!137 &13700000
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

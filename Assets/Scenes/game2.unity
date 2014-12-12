@@ -53778,12 +53778,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_face: {fileID: 2100000, guid: deac3a95e1352ad419b3cf7c29078be0, type: 2}
-  m_texture:
+  m_normal:
   - {fileID: 2800000, guid: 4e80f23abe6da6940a5857e803199d1e, type: 3}
+  m_grad:
+  - {fileID: 2800000, guid: a5134360a03125648ad01026ea349c61, type: 3}
+  - {fileID: 2800000, guid: fc9e3fae81fb0cb4c8a1b0a93b2a8ed8, type: 3}
+  m_pass:
   - {fileID: 2800000, guid: 70c8ebfe2f6894e42b1731e7fbd6b8dd, type: 3}
-  - {fileID: 2800000, guid: f11051cc269e66547a8aebd76c69fcce, type: 3}
-  - {fileID: 2800000, guid: c66dec816354c5a4cba92e362a294d43, type: 3}
+  m_sad:
+  - {fileID: 2800000, guid: 33369eafb51bd814a8a4802915b6deb5, type: 3}
+  m_smile:
+  - {fileID: 2800000, guid: 7ce4b7d394c2f404e85e3f4a4cb841fa, type: 3}
+  - {fileID: 2800000, guid: e9fa07f440ded854ebaa626f2e254968, type: 3}
   m_faceType: 0
+  m_blinkTime: .0500000007
+  IsAuto: 1
+  IsPlayer: 1
 --- !u!1 &1422820051
 GameObject:
   m_ObjectHideFlags: 0

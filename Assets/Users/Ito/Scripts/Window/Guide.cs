@@ -47,7 +47,7 @@ public class Guide : MonoBehaviour
         if (!IsUse) return;
 
         // メッセージ送り
-        if (m_btnState.RedButtonTrigger && m_windowMgr.IsFinished && (m_messageText.Count > (m_messageIndex + 1)))
+        if (m_btnState.AnyButtonTrigger && m_windowMgr.IsFinished && (m_messageText.Count > (m_messageIndex + 1)))
         {
             m_windowMgr.Text = m_messageText[++m_messageIndex];
             string speakName = m_soundPath + m_messageIndex.ToString();
@@ -60,7 +60,7 @@ public class Guide : MonoBehaviour
 			m_sound.PlaySeReturn();
         }
         //　メッセージが最後まで行った時の処理 
-        else if (m_btnState.RedButtonTrigger && m_windowMgr.IsFinished && (m_messageText.Count == (m_messageIndex + 1)))
+        else if (m_btnState.AnyButtonTrigger && m_windowMgr.IsFinished && (m_messageText.Count == (m_messageIndex + 1)))
         {
             m_windowMgr.CloseWindow();
             m_guideMgr.EndGuide();
