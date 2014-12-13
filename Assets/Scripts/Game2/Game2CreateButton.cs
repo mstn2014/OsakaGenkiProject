@@ -117,7 +117,7 @@ public class Game2CreateButton : MonoBehaviour {
                     m_contryIndex++;
                     m_createTime = Setting.createButtonTime;
                     WaitFlg = true;
-                    if (m_contryIndex == countryNum)
+                    if (m_contryIndex == 3)
                     {
                         IsFinished = true;
                     }

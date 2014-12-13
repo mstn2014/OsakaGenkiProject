@@ -14,6 +14,9 @@ public class Game1EffectMgr : MonoBehaviour {
 	private GameObject	m_panel;			// NGUIの親.
     public Game1MobMgr m_mobMgr;            // モブの管理（エフェクトも）
     public Game1CameraMove m_camera;
+    public ParticleSystem m_perfectEff;
+    public ParticleSystem m_missEff;
+    public ParticleSystem m_timeupEff;
 	
 	// Game1共通設定.
 	private Game1_Setting GAME1;
@@ -97,31 +100,34 @@ public class Game1EffectMgr : MonoBehaviour {
 	public IEnumerator DispResult(int type){
 		m_effectPause = true;
 		GameObject result;
-		result = CreatePrefab.InstantiateGameObject (m_result, Vector3.zero, Quaternion.identity,
+		/*result = CreatePrefab.InstantiateGameObject (m_result, Vector3.zero, Quaternion.identity,
 		                                            new Vector3 (GAME1.result_ScaleXY, GAME1.result_ScaleXY, -100), m_panel);
-		UISprite workLabel = result.GetComponent<UISprite>();
+		UISprite workLabel = result.GetComponent<UISprite>();*/
 
 		switch (type) {
 		case 0:
-			workLabel.spriteName = ("game1_perfect");
+            m_perfectEff.Play();
+			//workLabel.spriteName = ("game1_perfect");
 		    break;
 		case 1:
-			workLabel.spriteName = ("game1_miss");
+            m_missEff.Play();
+			//workLabel.spriteName = ("game1_miss");
 			break;
 		case 2:
-			workLabel.spriteName = ("game1_timeup");
+            m_timeupEff.Play();
+			//workLabel.spriteName = ("game1_timeup");
 		    break;
 		}
 
-        workLabel.MakePixelPerfect();
-        workLabel.transform.localScale *= 2.0f;
+        //workLabel.MakePixelPerfect();
+        //workLabel.transform.localScale *= 2.0f;
 
 		// テキストの透過.
-		TweenAlpha resultAlpha = result.GetComponent<TweenAlpha> ();
+		/*TweenAlpha resultAlpha = result.GetComponent<TweenAlpha> ();
 		resultAlpha.from = 1f;
 		resultAlpha.to = 0f;
 		resultAlpha.duration = GAME1.result_FadeTime;
-		resultAlpha.Play (true);
+		resultAlpha.Play (true);*/
 
 		yield return new WaitForSeconds(GAME1.result_FadeTime); 
 

@@ -8056,7 +8056,7 @@ Transform:
   m_PrefabInternal: {fileID: 136346261}
   m_GameObject: {fileID: 130063209}
   m_LocalRotation: {x: -0, y: -.707106829, z: 0, w: .707106829}
-  m_LocalPosition: {x: -6.1353302, y: .357416868, z: -.00647790125}
+  m_LocalPosition: {x: -4.46850348, y: .357416868, z: -.542752802}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1812068833}
@@ -8186,6 +8186,22 @@ Prefab:
     - target: {fileID: 400388, guid: a96bd6f9d2d9cb3448fe930a02052d7d, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 400042, guid: a96bd6f9d2d9cb3448fe930a02052d7d, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -4.46850348
+      objectReference: {fileID: 0}
+    - target: {fileID: 400042, guid: a96bd6f9d2d9cb3448fe930a02052d7d, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -.542752802
+      objectReference: {fileID: 0}
+    - target: {fileID: 400462, guid: a96bd6f9d2d9cb3448fe930a02052d7d, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -4.44188309
+      objectReference: {fileID: 0}
+    - target: {fileID: 400462, guid: a96bd6f9d2d9cb3448fe930a02052d7d, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -.48056069
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a96bd6f9d2d9cb3448fe930a02052d7d, type: 2}
@@ -10057,6 +10073,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_effectParent: {fileID: 220646072}
+  m_spot: {fileID: 0}
 --- !u!95 &220646074
 Animator:
   serializedVersion: 3
@@ -16203,7 +16220,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 321335997}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.2026726, y: 0, z: 0}
+  m_LocalPosition: {x: -1.19733918, y: 2.39467835, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2044782132}
@@ -33261,6 +33278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_effectParent: {fileID: 773203464}
+  m_spot: {fileID: 0}
 --- !u!95 &773203466
 Animator:
   serializedVersion: 3
@@ -71060,7 +71078,7 @@ Transform:
   m_PrefabInternal: {fileID: 136346261}
   m_GameObject: {fileID: 1368831996}
   m_LocalRotation: {x: -0, y: -.707106829, z: 0, w: .707106829}
-  m_LocalPosition: {x: -6.10870886, y: .357416868, z: .0557142198}
+  m_LocalPosition: {x: -4.44188309, y: .357416868, z: -.48056069}
   m_LocalScale: {x: 1.50522232, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1812068833}
@@ -74625,7 +74643,7 @@ MonoBehaviour:
   mPivot: 4
   mDepth: 0
   mAtlas: {fileID: 11400000, guid: 7731deda6bfc16643b4bbdd93d9e9193, type: 2}
-  mSpriteName: 'OGS_logo '
+  mSpriteName: OGS_logo
   mFillCenter: 1
   mType: 0
   mFillDirection: 4
@@ -98431,11 +98449,11 @@ MonoBehaviour:
     e00: 540
     e01: 0
     e02: 0
-    e03: 1.2026726
+    e03: 1.19733918
     e10: 0
     e11: 540
     e12: 0
-    e13: 0
+    e13: -2.39467835
     e20: 0
     e21: 0
     e22: 540

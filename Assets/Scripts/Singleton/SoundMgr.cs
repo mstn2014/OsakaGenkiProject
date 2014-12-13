@@ -207,8 +207,15 @@ public class SoundMgr : SingletonMonoBehaviourFast<SoundMgr>
 
 	public void PlaySeHandclap()
 	{
+        //audioSourceSE[9].volume = 0.1f;
 		audioSourceSE[9].PlayOneShot(se_handclap);
 	}
+
+    public void PlaySeHandclapLast()
+    {
+        audioSourceSE[9].volume = 0.3f;
+        audioSourceSE[9].PlayOneShot(se_handclap);
+    }
 
 	public void PlaySeCuccess()
 	{
@@ -237,6 +244,7 @@ public class SoundMgr : SingletonMonoBehaviourFast<SoundMgr>
 
 	public void PlaySeHanabi()
 	{
+        audioSourceSE[15].volume = 0.5f;
 		audioSourceSE[15].PlayOneShot(se_Hanabi);
 	}
 

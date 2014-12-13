@@ -132,7 +132,7 @@ public class Game3Mgr : MonoBehaviour
             m_Main2DFlg.SetActive(true);	// ゲームを有効化(2D)
             m_MainFlg.SetActive(true);	// ゲームを有効化
             m_moveObj.IsMove = true;
-            iTweenEvent.GetEvent(m_parade, "ShakeParade").Play();
+            //iTweenEvent.GetEvent(m_parade, "ShakeParade").Play();
             m_state = Game3State.GAME;		// ステート更新
         }
     }
@@ -154,7 +154,7 @@ public class Game3Mgr : MonoBehaviour
         m_MainFlg.SetActive(false);	// ゲームを有効化
         m_Main2DFlg.SetActive(false);	// ゲームを有効化(2D)
         m_timeUp.SetActive(true);       // タイムアップを表示
-        iTweenEvent.GetEvent(m_parade, "ShakeParade").Stop();
+        //iTweenEvent.GetEvent(m_parade, "ShakeParade").Stop();
 
         yield return new WaitForSeconds(3.0f);
 

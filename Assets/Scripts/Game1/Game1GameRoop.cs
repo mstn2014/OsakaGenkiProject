@@ -167,6 +167,7 @@ public class Game1GameRoop : MonoBehaviour {
 					}
 
 					if(m_timer.IsStop){			// 時間切れ
+                        m_sound.PlaySeMiss();
                         if (m_quest.IsComplete)
                         {
                             StartCoroutine(m_effect.DispResult(2));

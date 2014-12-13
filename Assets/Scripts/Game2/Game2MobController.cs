@@ -10,7 +10,7 @@ public class Game2MobController : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
-        m_Player = GameObject.Find("Game2Player").transform;
+        m_Player = GameObject.Find("bonodori").transform;
         m_motion = this.GetComponent<Game2ModelMotion>();
         m_buttonMgr = GameObject.Find("ButtonMgr").GetComponent<Game2CreateButton>();
 	}

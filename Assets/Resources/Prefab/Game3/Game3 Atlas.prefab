@@ -80,14 +80,14 @@ MonoBehaviour:
   - name: game3_ui4
     outer:
       serializedVersion: 2
-      x: 0
-      y: 242
+      x: 675
+      y: 962
       width: 265
       height: 21
     inner:
       serializedVersion: 2
-      x: 0
-      y: 242
+      x: 675
+      y: 962
       width: 265
       height: 21
     rotated: 0
@@ -98,14 +98,14 @@ MonoBehaviour:
   - name: game3_ui3
     outer:
       serializedVersion: 2
-      x: 0
-      y: 231
+      x: 675
+      y: 951
       width: 247
       height: 10
     inner:
       serializedVersion: 2
-      x: 0
-      y: 231
+      x: 675
+      y: 951
       width: 247
       height: 10
     rotated: 0
@@ -131,6 +131,42 @@ MonoBehaviour:
     paddingRight: .00526315812
     paddingTop: .00939849578
     paddingBottom: .00563909765
+  - name: game3_maru
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 7
+      width: 256
+      height: 256
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 7
+      width: 256
+      height: 256
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: game3_batu
+    outer:
+      serializedVersion: 2
+      x: 434
+      y: 744
+      width: 240
+      height: 239
+    inner:
+      serializedVersion: 2
+      x: 434
+      y: 744
+      width: 240
+      height: 239
+    rotated: 0
+    paddingLeft: .0250000004
+    paddingRight: .0416666679
+    paddingTop: .0460251048
+    paddingBottom: .0251046028
   mCoordinates: 0
   mPixelSize: 1
   mReplacement: {fileID: 0}

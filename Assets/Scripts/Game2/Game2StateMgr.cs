@@ -27,11 +27,12 @@ public class Game2StateMgr : MonoBehaviour {
     // コンポーネント関連
     public GameObject m_frame;              // フレームとリングのオブジェクト
     public GameObject m_extra;              // そのたのゲーム関連オブジェクト
-    public Game2ModelMotion m_player;      // プレイヤーのモーション
+    public Game2ModelMotion[] m_player;      // プレイヤーのモーション
     public Guide m_guide;                   // ガイド
     public GameObject m_guestMotion;             // ゲストのモーション
     public DisplayHowTo m_howTo;              // ハウトゥ
     public UISprite m_dancetype;
+    public ParticleSystem m_changeModelEff; // モデルチェンジのエフェクト
     SaveMgr m_saveData;                      // セーブデータ
     public GameObject m_camera;             // カメラ
 	private GameObject m_Event1;			//	盛りあがりイベント1
@@ -49,14 +50,15 @@ public class Game2StateMgr : MonoBehaviour {
     bool m_waitFlg = false;                         
 
 	// Use this for initialization
-	void Start () {
+    void Start()
+    {
         // 共通設定の呼び出し
         GlobalSetting gs = Resources.Load<GlobalSetting>("Setting/GlobalSetting");
         m_btnState = gs.InputMgr;
         m_fadeMgr = gs.FadeMgr;
         m_soundMgr = gs.SoundMgr;
         m_saveData = gs.SaveMgr;
-		m_soundMgr.PlayGame_2();
+        m_soundMgr.PlayGame_2();
         // ボタン生成を呼び出す
         m_createButton = m_extra.transform.FindChild("ButtonMgr").GetComponent<Game2CreateButton>();
         // ステートの設定
@@ -72,32 +74,45 @@ public class Game2StateMgr : MonoBehaviour {
         //m_messageText = textParser.LoadText(m_sceneSetting.messageTextPath);
         m_messageIndex = 0;
 
-		//　イベント関連読み込み
-		m_Event1 = GameObject.Find("Event1");
-		m_Event1.gameObject.SetActive(false);
+        //　イベント関連読み込み
+        m_Event1 = GameObject.Find("Event1");
+        m_Event1.gameObject.SetActive(false);
 
-		m_Event2 = GameObject.Find("Event2");
-		m_Event2.gameObject.SetActive(false);
+        m_Event2 = GameObject.Find("Event2");
+        m_Event2.gameObject.SetActive(false);
 
-		m_Event3 = GameObject.Find("Event3");
-		m_Event3.gameObject.SetActive(false);
+        m_Event3 = GameObject.Find("Event3");
+        m_Event3.gameObject.SetActive(false);
 
-		m_Event4 = GameObject.Find("Event4");
-		m_Event4.gameObject.SetActive(false);
+        m_Event4 = GameObject.Find("Event4");
+        m_Event4.gameObject.SetActive(false);
 
-		m_Event5 = GameObject.Find("Event5");
-		m_Event5.gameObject.SetActive(false);
+        m_Event5 = GameObject.Find("Event5");
+        m_Event5.gameObject.SetActive(false);
 
-		//	参加者増加用.
-		m_guestbuf = GameObject.Find ("CreateGuest");
-		m_guest = m_guestbuf.GetComponent<Game2CreateGuest>();
+        //	参加者増加用.
+        m_guestbuf = GameObject.Find("CreateGuest");
+        m_guest = m_guestbuf.GetComponent<Game2CreateGuest>();
 
         m_iventIndex = 0;
         m_dancetype.MakePixelPerfect();
         m_dancetype.transform.localScale *= 1.4f;
 
+        foreach (Game2ModelMotion mm in m_player)
+        {
+            foreach (Renderer r in mm.GetComponentsInChildren<Renderer>())
+            {
+                r.enabled = false;
+            }
+        }
+
+        foreach (Renderer r in m_player[0].GetComponentsInChildren<Renderer>())
+        {
+            r.enabled = true;
+        }
+
         iTweenEvent.GetEvent(m_camera, "MoveToNear").Play();
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -119,7 +134,6 @@ public class Game2StateMgr : MonoBehaviour {
                 Game();
                 break;
             case Game2State.END:
-                End();
                 break;
         }
 	}
@@ -182,6 +196,7 @@ public class Game2StateMgr : MonoBehaviour {
         yield return new WaitForSeconds(1.0f);
 
         m_state = Game2State.COUNTDOWN;
+        ChangePlayerModel(1);
         m_soundMgr.FadeStopBGM(0.3f);
         m_waitFlg = false;
     }
@@ -228,7 +243,10 @@ public class Game2StateMgr : MonoBehaviour {
 			m_soundMgr.FadePlayBGM(0.5f);
             m_extra.SetActive(true);
             m_state = Game2State.GAME;
-            m_player.ChangeMotion((Game2ModelMotion.DanceType)(m_createButton.CountryIndex+1));
+            foreach (Game2ModelMotion mm in m_player)
+            {
+                mm.ChangeMotion((Game2ModelMotion.DanceType)(m_createButton.CountryIndex + 1));
+            }
             m_soundMgr.PlayDanceBGM(m_createButton.CountryIndex);
         }
     }
@@ -248,7 +266,10 @@ public class Game2StateMgr : MonoBehaviour {
             // ゲーム終了時の処理を書く
             StartCoroutine(RankIvent());
             m_waitFlg = true;
-            m_player.ChangeMotion(Game2ModelMotion.DanceType.POSE);
+            foreach (Game2ModelMotion mm in m_player)
+            {
+                mm.ChangeMotion(Game2ModelMotion.DanceType.POSE);
+            }
             foreach (Game2ModelMotion mc in m_guestMotion.GetComponentsInChildren<Game2ModelMotion>())
             {
                 mc.ChangeMotion(Game2ModelMotion.DanceType.POSE);
@@ -260,7 +281,10 @@ public class Game2StateMgr : MonoBehaviour {
 			// ToDo：ここに盛り上がりイベントを書く。
 			StartCoroutine( LivelyIvent() );
             iTweenEvent.GetEvent(m_camera, "MoveToFar").Play();
-            m_player.ChangeMotion(Game2ModelMotion.DanceType.POSE);
+            foreach (Game2ModelMotion mm in m_player)
+            {
+                mm.ChangeMotion(Game2ModelMotion.DanceType.POSE);
+            }
             foreach (Game2ModelMotion mc in m_guestMotion.GetComponentsInChildren<Game2ModelMotion>())
             {
                 mc.ChangeMotion(Game2ModelMotion.DanceType.POSE);
@@ -314,8 +338,12 @@ public class Game2StateMgr : MonoBehaviour {
 		yield return new WaitForSeconds(5.0f);
         // GameObject.Find("DebugLog").GetComponent<UILabel>().text = "";
         m_createButton.WaitFlg = false;
+        ChangePlayerModel(m_createButton.CountryIndex+1);
         m_waitFlg = false;
-        m_player.ChangeMotion((Game2ModelMotion.DanceType)(m_createButton.CountryIndex+1));
+        foreach (Game2ModelMotion mm in m_player)
+        {
+            mm.ChangeMotion((Game2ModelMotion.DanceType)(m_createButton.CountryIndex+1));
+        }
         m_soundMgr.PlayDanceBGM(m_createButton.CountryIndex);
         iTweenEvent.GetEvent(m_camera, "MoveToNear").Play();
         foreach (Game2ModelMotion mc in m_guestMotion.GetComponentsInChildren<Game2ModelMotion>())
@@ -364,19 +392,26 @@ public class Game2StateMgr : MonoBehaviour {
     }
 
     //======================================================
-    // @brief:結果ステート
-    // 得点からランクを表示する
+    // @brief:表示するオブジェクトを変更する
     //------------------------------------------------------
     // @author:K.Ito
     // @param:none
     // @return:none
     //======================================================
-    void End()
+    void ChangePlayerModel(int index)
     {
+        foreach(Game2ModelMotion mm in m_player){
+            foreach (Renderer r in mm.GetComponentsInChildren<Renderer>())
+            {
+                r.enabled = false;
+            }
+        }
 
+        foreach (Renderer r in m_player[index].GetComponentsInChildren<Renderer>())
+        {
+            r.enabled = true;
+        };
+
+        m_changeModelEff.Play();
     }
-
-
-
-    
 }

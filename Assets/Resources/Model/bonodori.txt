@@ -1,0 +1,21 @@
+1-60 loop player_stand001
+90-150 loop player_stand002
+190-220 loop player_run
+250-300 loop player_walk
+330-360 loop player_pass
+390-420 loop player_pose
+440-450 player_stand_bonodori
+450-700 loop player_bonodori
+700-720 player_bonodori_stand
+760-770 player_stand_hula
+770-1140 loop player_hula
+1140-1150 player_hula_stand
+1200-1210 player_sutand_belly
+1210-1590 loop player_belly
+1590-1610 player_belly_stand
+1630-1640 player_stand_samba
+1640-1900 loop player_samba
+1900-1910 player_samba_stand
+2010-2020 player_stand_fla
+2020-2380 loop player_fla
+2380-2390 player_fla_stand

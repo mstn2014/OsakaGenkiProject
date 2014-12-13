@@ -127,6 +127,13 @@ public class Game3MobController : MonoBehaviour {
                     m_speed = 10.0f;
                     m_animator.SetFloat("speed", m_speed);
                     m_state = State.Bye;
+                    GameObject go = GameObject.Find(m_lightName.Replace("Light", "") + "Sucess/Marubatu");
+                    go.GetComponent<UISprite>().spriteName = "game3_batu";
+                    go.GetComponent<UISprite>().enabled = true;
+                    go.GetComponent<TweenAlpha>().Reset();
+                    go.GetComponent<TweenAlpha>().Play(true);
+                    go.GetComponent<TweenPosition>().Reset();
+                    go.GetComponent<TweenPosition>().Play(true);
                     break;
                 }
                 CheckHitLight(1.0f);
@@ -334,6 +341,13 @@ public class Game3MobController : MonoBehaviour {
             if (pushButton.Contains(this.gameObject.tag))
             {
                 GameObject.Find(m_lightName.Replace("Light", "") + "WaitBar/WaitTime").GetComponent<UISprite>().fillAmount = 1.0f;
+                GameObject go = GameObject.Find(m_lightName.Replace("Light", "") + "Sucess/Marubatu");
+                go.GetComponent<UISprite>().spriteName = "game3_maru";
+                go.GetComponent<UISprite>().enabled = true;
+                go.GetComponent<TweenAlpha>().Reset();
+                go.GetComponent<TweenAlpha>().Play(true);
+                go.GetComponent<TweenPosition>().Reset();
+                go.GetComponent<TweenPosition>().Play(true);
                 m_scoreMgr.AddScore(1.0f);
                 m_state = State.Parade;
                 m_speed = 0.0f;
@@ -341,7 +355,7 @@ public class Game3MobController : MonoBehaviour {
                 m_otherController.IsOK = true;
                 m_balancer.Success();
                 m_lightMgr.ChangeColor("White");
-				m_sound.PlaySeSpotcuccess();
+				m_sound.PlaySeCuccess();
                 transform.parent = m_paradeJoiner;
                 /*Hashtable param = new Hashtable(){
                     {"y",1},

@@ -90,10 +90,12 @@ public class FaceMgr : MonoBehaviour {
                         {
                             m_nowTex = m_pass[0];
                             m_faceType = eFaceType.PASS;
-                            break;
                         }
-                        m_nowTex = m_grad[0];
-                        m_faceType = eFaceType.GRAD;
+                        else
+                        {
+                            m_nowTex = m_grad[0];
+                            m_faceType = eFaceType.GRAD;
+                        }
                         break;
                     case 2:
                         m_nowTex = m_smile[0];

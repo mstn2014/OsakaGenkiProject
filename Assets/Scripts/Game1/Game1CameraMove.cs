@@ -42,4 +42,9 @@ public class Game1CameraMove : MonoBehaviour {
     {
         IsMove = false;
     }
+
+    void InitCamera()
+    {
+        iTween.LookTo(this.gameObject, m_target.position, 2.0f);
+    }
 }

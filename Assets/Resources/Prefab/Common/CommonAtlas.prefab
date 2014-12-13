@@ -45,13 +45,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 0
-      y: 794
+      y: 754
       width: 1920
       height: 1080
     inner:
       serializedVersion: 2
       x: 0
-      y: 794
+      y: 754
       width: 1920
       height: 1080
     rotated: 0
@@ -59,35 +59,17 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: 'OGS_logo '
-    outer:
-      serializedVersion: 2
-      x: 0
-      y: 1875
-      width: 2294
-      height: 2221
-    inner:
-      serializedVersion: 2
-      x: 0
-      y: 1875
-      width: 2294
-      height: 2221
-    rotated: 0
-    paddingLeft: .0448997393
-    paddingRight: .0448997393
-    paddingTop: .0630346686
-    paddingBottom: .0625844225
   - name: common_bgframe
     outer:
       serializedVersion: 2
       x: 1921
-      y: 794
+      y: 754
       width: 1920
       height: 1080
     inner:
       serializedVersion: 2
       x: 1921
-      y: 794
+      y: 754
       width: 1920
       height: 1080
     rotated: 0
@@ -98,13 +80,13 @@ MonoBehaviour:
   - name: common_ui2
     outer:
       serializedVersion: 2
-      x: 3744
+      x: 3784
       y: 3902
       width: 182
       height: 194
     inner:
       serializedVersion: 2
-      x: 3744
+      x: 3784
       y: 3902
       width: 182
       height: 194
@@ -116,13 +98,13 @@ MonoBehaviour:
   - name: common_ui1
     outer:
       serializedVersion: 2
-      x: 3927
+      x: 3967
       y: 3902
       width: 87
       height: 194
     inner:
       serializedVersion: 2
-      x: 3927
+      x: 3967
       y: 3902
       width: 87
       height: 194
@@ -134,13 +116,13 @@ MonoBehaviour:
   - name: common_ui4
     outer:
       serializedVersion: 2
-      x: 2295
+      x: 2335
       y: 2549
       width: 743
       height: 187
     inner:
       serializedVersion: 2
-      x: 2295
+      x: 2335
       y: 2549
       width: 743
       height: 187
@@ -152,13 +134,13 @@ MonoBehaviour:
   - name: common_ui3
     outer:
       serializedVersion: 2
-      x: 3744
+      x: 3784
       y: 3707
       width: 182
       height: 194
     inner:
       serializedVersion: 2
-      x: 3744
+      x: 3784
       y: 3707
       width: 182
       height: 194
@@ -170,14 +152,14 @@ MonoBehaviour:
   - name: game1_perfect
     outer:
       serializedVersion: 2
-      x: 3110
-      y: 2574
+      x: 3150
+      y: 3115
       width: 493
       height: 89
     inner:
       serializedVersion: 2
-      x: 3110
-      y: 2574
+      x: 3150
+      y: 3115
       width: 493
       height: 89
     rotated: 0
@@ -188,13 +170,13 @@ MonoBehaviour:
   - name: common_ui5
     outer:
       serializedVersion: 2
-      x: 2295
+      x: 2335
       y: 2354
       width: 557
       height: 194
     inner:
       serializedVersion: 2
-      x: 2295
+      x: 2335
       y: 2354
       width: 557
       height: 194
@@ -206,13 +188,13 @@ MonoBehaviour:
   - name: game1_miss
     outer:
       serializedVersion: 2
-      x: 3744
+      x: 3784
       y: 3619
       width: 209
       height: 87
     inner:
       serializedVersion: 2
-      x: 3744
+      x: 3784
       y: 3619
       width: 209
       height: 87
@@ -224,14 +206,14 @@ MonoBehaviour:
   - name: game1_timeup
     outer:
       serializedVersion: 2
-      x: 3110
-      y: 2664
+      x: 3150
+      y: 3205
       width: 499
       height: 89
     inner:
       serializedVersion: 2
-      x: 3110
-      y: 2664
+      x: 3150
+      y: 3205
       width: 499
       height: 89
     rotated: 0
@@ -242,14 +224,14 @@ MonoBehaviour:
   - name: bg_base
     outer:
       serializedVersion: 2
-      x: 3110
-      y: 2876
+      x: 1921
+      y: 213
       width: 960
       height: 540
     inner:
       serializedVersion: 2
-      x: 3110
-      y: 2876
+      x: 1921
+      y: 213
       width: 960
       height: 540
     rotated: 0
@@ -261,13 +243,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 0
-      y: 273
+      y: 233
       width: 1920
       height: 520
     inner:
       serializedVersion: 2
       x: 0
-      y: 273
+      y: 233
       width: 1920
       height: 520
     rotated: 0
@@ -278,13 +260,13 @@ MonoBehaviour:
   - name: bg_text_box2
     outer:
       serializedVersion: 2
-      x: 2295
+      x: 2335
       y: 2737
       width: 814
       height: 679
     inner:
       serializedVersion: 2
-      x: 2295
+      x: 2335
       y: 2737
       width: 814
       height: 679
@@ -296,13 +278,13 @@ MonoBehaviour:
   - name: bg_text_box
     outer:
       serializedVersion: 2
-      x: 2295
+      x: 2335
       y: 3417
       width: 1448
       height: 679
     inner:
       serializedVersion: 2
-      x: 2295
+      x: 2335
       y: 3417
       width: 1448
       height: 679
@@ -314,13 +296,13 @@ MonoBehaviour:
   - name: bg_ranking
     outer:
       serializedVersion: 2
-      x: 2295
+      x: 2335
       y: 2232
       width: 612
       height: 121
     inner:
       serializedVersion: 2
-      x: 2295
+      x: 2335
       y: 2232
       width: 612
       height: 121
@@ -332,14 +314,14 @@ MonoBehaviour:
   - name: bg_dancepoint
     outer:
       serializedVersion: 2
-      x: 3110
-      y: 2754
+      x: 3150
+      y: 3295
       width: 850
       height: 121
     inner:
       serializedVersion: 2
-      x: 3110
-      y: 2754
+      x: 3150
+      y: 3295
       width: 850
       height: 121
     rotated: 0
@@ -350,13 +332,13 @@ MonoBehaviour:
   - name: bg_result
     outer:
       serializedVersion: 2
-      x: 2295
+      x: 2335
       y: 2110
       width: 479
       height: 121
     inner:
       serializedVersion: 2
-      x: 2295
+      x: 2335
       y: 2110
       width: 479
       height: 121
@@ -365,6 +347,24 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: OGS_logo
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 1835
+      width: 2334
+      height: 2261
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 1835
+      width: 2334
+      height: 2261
+    rotated: 0
+    paddingLeft: .0355612673
+    paddingRight: .0355612673
+    paddingTop: .0530738607
+    paddingBottom: .0526315793
   mCoordinates: 0
   mPixelSize: 1
   mReplacement: {fileID: 0}

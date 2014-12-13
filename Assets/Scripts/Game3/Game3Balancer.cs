@@ -13,7 +13,8 @@ public class Game3Balancer : MonoBehaviour {
 	SoundMgr m_sound;          				// サウンド
     
     // public
-    public ParticleSystem m_particle;       // スピードアップのエフェクト
+    public ParticleSystem m_spdUpEff;       // スピードアップのエフェクト
+    public ParticleSystem m_spdDwnEff;      // スピードダウンのエフェクト
 
     // public 
     public float CreateTime
@@ -64,8 +65,8 @@ public class Game3Balancer : MonoBehaviour {
         {
             UpDifficulty();
             m_successCon = 0;
-            m_particle.Play();
-			m_sound.PlaySeSpeedup();
+            m_spdUpEff.Play();
+			m_sound.PlaySePerfect();
         }
         m_appearNum++;
     }
@@ -75,6 +76,7 @@ public class Game3Balancer : MonoBehaviour {
         DownDifficulty();
         m_successCon = 0;
         m_appearNum++;
+        m_spdDwnEff.Play();
     }
 
     void UpDifficulty()

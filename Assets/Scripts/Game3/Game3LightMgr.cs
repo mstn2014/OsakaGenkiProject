@@ -8,7 +8,10 @@ public class Game3LightMgr : MonoBehaviour {
 
     float m_offsetValue = 1.0f / 6.0f;
 
+    [Header("エフェクトの親オブジェクト")]
     public Transform m_effectParent;  // エフェクトの親オブジェクト
+    [Header("スポットライトの足元のオブジェクト")]
+    public SpriteRenderer m_spot;
     ParticleSystem[] m_particle;
 
     public enum eColor { RED, YELLOW, GREEN, BLUE, PURPLE, WHITE };
@@ -42,12 +45,12 @@ public class Game3LightMgr : MonoBehaviour {
 
         Color col = Color.white;
         switch(color){
-            case eColor.RED: col = Color.red; col.a = 128; break;
-            case eColor.YELLOW: col = Color.yellow; col.a = 128; break;
-            case eColor.GREEN: col = Color.green; col.a = 128; break;
-            case eColor.BLUE: col = Color.blue; col.a = 128; break;
-            case eColor.PURPLE: col = new Color(200,0,255,128); break;
-            case eColor.WHITE: col = Color.white; col.a = 128; break;
+            case eColor.RED: col = Color.red; col.a = 128; m_spot.color = new Color(1.0f, 0.0f, 0.0f, 0.3f); break;
+            case eColor.YELLOW: col = Color.yellow; col.a = 128; m_spot.color = new Color(1.0f, 0.92f, 0.016f, 0.3f); break;
+            case eColor.GREEN: col = Color.green; col.a = 128; m_spot.color = new Color(0.0f, 1.0f, 0.0f, 0.3f); break;
+            case eColor.BLUE: col = Color.blue; col.a = 128; m_spot.color = new Color(0.0f, 0.0f, 1.0f, 0.3f); break;
+            case eColor.PURPLE: col = new Color(200, 0, 255, 128); m_spot.color = new Color(0.8f, 0.0f, 1.0f, 0.3f); break;
+            case eColor.WHITE: col = Color.white; col.a = 128; m_spot.color = new Color(1.0f, 1.0f, 1.0f, 0.3f); break;
         }
 
         // パーティクルの色変更
