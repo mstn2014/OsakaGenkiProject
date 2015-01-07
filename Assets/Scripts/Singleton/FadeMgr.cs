@@ -131,6 +131,8 @@ public class FadeMgr : SingletonMonoBehaviourFast<FadeMgr>
             //シーン切替
             Application.LoadLevel(scene);
 
+            // 暗転してから一秒待つ
+            yield return new WaitForSeconds(1.0f);
             
 		    m_sound.FadePlayBGM(0.5f);
 

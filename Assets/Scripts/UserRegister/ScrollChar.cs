@@ -16,6 +16,7 @@ public class ScrollChar : MonoBehaviour {
     InputMgr m_btnState;            // ボタン
     FadeMgr m_fadeMgr;              // シーン遷移
 	SoundMgr m_sound;          		// サウンド
+    NameDisplay m_name;             // 名前を表示するオブジェクト
     CharState[] m_charState = new CharState[dispCharNum];   // 各文字を制御するスクリプト
     GameObject[] m_keyborad = new GameObject[dispCharNum];  // 各文字のプレハブ
 
@@ -39,6 +40,8 @@ public class ScrollChar : MonoBehaviour {
         m_fadeMgr = gs.FadeMgr;
 		m_sound = gs.SoundMgr;
         m_saveData = gs.SaveMgr;
+
+        m_name = m_inputName.GetComponentInChildren<NameDisplay>();
         
         // 設定ファイルから初期文字位置を取り出す
         index = m_userSetting.initChar;
@@ -87,10 +90,9 @@ public class ScrollChar : MonoBehaviour {
         else if (m_btnState.RedButtonPress)
         {
             m_triggerTime += Time.deltaTime;
-            string str = m_inputName.GetComponentInChildren<UILabel>().text;
-            if (m_triggerTime >= m_userSetting.returnTime && str.Length > 0)
+            if (m_triggerTime >= m_userSetting.returnTime && m_name.Name.Length > 0)
             {
-                m_saveData.userName = str;
+                m_saveData.userName = m_name.Name;
                 m_fadeMgr.LoadLevel("game1");
             }
         }
@@ -105,10 +107,7 @@ public class ScrollChar : MonoBehaviour {
             {
                 if (cs.Pos == 3)
                 {
-                    if (m_inputName.GetComponentInChildren<UILabel>().text.Length < m_userSetting.nameLength)
-                    {
-                        m_inputName.GetComponentInChildren<UILabel>().text += cs.Text;
-                    }
+                        m_name.AddName(cs.Text);
                 }
             } 
         }
@@ -117,11 +116,7 @@ public class ScrollChar : MonoBehaviour {
         if (m_btnState.BlueButtonTrigger)
         {
 			m_sound.PlaySeCansel();
-            string str = m_inputName.GetComponentInChildren<UILabel>().text;
-            if (str.Length > 0)
-            {
-                m_inputName.GetComponentInChildren<UILabel>().text = str.Substring(0, str.Length - 1);
-            }
+            m_name.DeleteName();
         }
 	}
 

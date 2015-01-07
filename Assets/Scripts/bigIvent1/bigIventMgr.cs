@@ -6,6 +6,7 @@ public class bigIventMgr : MonoBehaviour {
     InputMgr m_btnState;        // 入力インスタンス
     FadeMgr m_scene;            // シーン遷移マネージ
 	SoundMgr m_sound;           // サウンド
+    SaveMgr m_save;             // セーブデータ
 
     // インスペクターで設定する
     [Header("ガイドのファイルを指定")]
@@ -44,13 +45,13 @@ public class bigIventMgr : MonoBehaviour {
     IEnumerator BeginScene()
     {
         yield return new WaitForSeconds(3.0f);
-        m_guide.Begin("Message/" + m_guideFile, m_guideSound);
+        //m_guide.Begin("Message/" + m_guideFile, m_guideSound);
         m_isStart = true;
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if (m_isStart && !m_guide.IsUse)
+        if (m_isStart && m_btnState.AnyButtonTrigger)
         {
             m_scene.LoadLevel(m_nextScene);
             m_isStart = false;

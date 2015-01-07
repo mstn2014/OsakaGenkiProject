@@ -153,13 +153,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 3150
-      y: 3115
+      y: 2863
       width: 493
       height: 89
     inner:
       serializedVersion: 2
       x: 3150
-      y: 3115
+      y: 2863
       width: 493
       height: 89
     rotated: 0
@@ -207,13 +207,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 3150
-      y: 3205
+      y: 2953
       width: 499
       height: 89
     inner:
       serializedVersion: 2
       x: 3150
-      y: 3205
+      y: 2953
       width: 499
       height: 89
     rotated: 0
@@ -315,13 +315,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 3150
-      y: 3295
+      y: 3043
       width: 850
       height: 121
     inner:
       serializedVersion: 2
       x: 3150
-      y: 3295
+      y: 3043
       width: 850
       height: 121
     rotated: 0
@@ -365,6 +365,42 @@ MonoBehaviour:
     paddingRight: .0355612673
     paddingTop: .0530738607
     paddingBottom: .0526315793
+  - name: big_event2_ui1
+    outer:
+      serializedVersion: 2
+      x: 3150
+      y: 3291
+      width: 944
+      height: 125
+    inner:
+      serializedVersion: 2
+      x: 3150
+      y: 3291
+      width: 944
+      height: 125
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: big_event2_ui1_2
+    outer:
+      serializedVersion: 2
+      x: 3150
+      y: 3165
+      width: 944
+      height: 125
+    inner:
+      serializedVersion: 2
+      x: 3150
+      y: 3165
+      width: 944
+      height: 125
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   mCoordinates: 0
   mPixelSize: 1
   mReplacement: {fileID: 0}

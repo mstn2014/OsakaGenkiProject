@@ -110,14 +110,14 @@ public class Game2CreateButton : MonoBehaviour {
             if (m_patternIndex == m_pattern[m_contryIndex].Length )
             {
                 // 試行回数が2回なら次
-                if (m_playCount >= 1)
+                if (m_playCount >= 0)
                 {
                     // とりあえず次の国のパターンを表示
                     m_playCount = 0;
                     m_contryIndex++;
                     m_createTime = Setting.createButtonTime;
                     WaitFlg = true;
-                    if (m_contryIndex == 3)
+                    if (m_contryIndex == 5)
                     {
                         IsFinished = true;
                     }

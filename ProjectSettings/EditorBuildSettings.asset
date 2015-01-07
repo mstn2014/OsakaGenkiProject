@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/title.unity
   - enabled: 1
     path: Assets/Scenes/bigIvent1.unity
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/userRegister.unity
   - enabled: 1
     path: Assets/Scenes/game1.unity

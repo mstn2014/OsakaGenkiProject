@@ -314,5 +314,6 @@ public class ResultMgr : MonoBehaviour {
     void ReceivePost(WWW www)
     {
         Debug.Log(www.text);
+        m_save.userRank = int.Parse(www.text);
     }
 }

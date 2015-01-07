@@ -39,13 +39,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 570d27ba863204a4e9c34a0b785e1170, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  userName: "\u3071\u3077\u308F\u304F\u3093"
+  userName: ABC
   game1Score: 156
   game2Score: 100
   game3Score: 100
   game3Max: 120
   userRank: 2
-  gameState: 0
+  gameState: 3
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

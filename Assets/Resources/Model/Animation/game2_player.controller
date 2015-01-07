@@ -864,7 +864,7 @@ StateMachine:
       - {fileID: 110100000}
   m_MotionSetCount: 2
   m_AnyStatePosition: {x: 50, y: 20, z: 0}
-  m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
+  m_ParentStateMachinePosition: {x: 804, y: 24, z: 0}
 --- !u!1107 &110745305
 StateMachine:
   serializedVersion: 2

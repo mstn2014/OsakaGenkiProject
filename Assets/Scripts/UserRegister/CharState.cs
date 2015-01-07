@@ -7,7 +7,7 @@ using System.Collections;
 public class CharState : MonoBehaviour {
 
     // private
-    UILabel m_text;         // Text表示のためのUILabel
+    UISprite m_text;         // Text表示のためのUILabel
     int     m_pos;          // 現在の位置情報
     bool    m_effectFlg;    // Tweenで移動するためのフラグ
     int     m_stringPos;    // UserRegSettingのuserCharの何番目の文字を表示しているか
@@ -20,7 +20,7 @@ public class CharState : MonoBehaviour {
 
     public string Text
     {
-        get { return m_text.text; }
+        get { return m_text.spriteName; }
     }
 
     public int Pos
@@ -53,7 +53,7 @@ public class CharState : MonoBehaviour {
     }
 
 	void Start () {
-        if (m_text == null) m_text = GetComponent<UILabel>();
+        if (m_text == null) m_text = GetComponent<UISprite>();
 	}   
 	
 	// Update is called once per frame
@@ -127,8 +127,8 @@ public class CharState : MonoBehaviour {
     //======================================================
     void SetText()
     {
-        if (m_text == null) m_text = GetComponent<UILabel>();
-        m_text.text = m_userSetting.userChar[m_stringPos].ToString();
+        if (m_text == null) m_text = GetComponent<UISprite>();
+        m_text.spriteName = m_userSetting.userChar[m_stringPos].ToString();
     }
 
     //======================================================
