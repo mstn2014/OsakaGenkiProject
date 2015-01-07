@@ -19,8 +19,8 @@ MonoBehaviour:
   Round6_TimeLimit: 6.4000001
   Round7_TimeLimit: 7.0999999
   Round8_TimeLimit: 7.80000019
-  MinQuestNum: 3
-  MaxQuestNum: 10
+  MinQuestNum: 5
+  MaxQuestNum: 100
   QuestInterval: 30
   WeightValue: .100000001
   GalleryNum: 10

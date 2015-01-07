@@ -31,8 +31,10 @@ public class Game2StateMgr : MonoBehaviour {
     public Guide m_guide;                   // ガイド
     public GameObject m_guestMotion;             // ゲストのモーション
     public DisplayHowTo m_howTo;              // ハウトゥ
+    public DisplayHowTo m_intro;            // イントロ
     public UISprite m_dancetype;
     public ParticleSystem m_changeModelEff; // モデルチェンジのエフェクト
+    public GameObject m_endSprite;          // 終わりを表示するスプライト
     SaveMgr m_saveData;                      // セーブデータ
     public GameObject m_camera;             // カメラ
 	private GameObject m_Event1;			//	盛りあがりイベント1
@@ -155,7 +157,8 @@ public class Game2StateMgr : MonoBehaviour {
         // 3秒待つ
         yield return new WaitForSeconds(3.0f);
 
-        m_guide.Begin("Message/small_event_2_0", "Sound/GUIDE/small_event_2_0/small_event_2_0_talk_");
+        //m_guide.Begin("Message/small_event_2_0", "Sound/GUIDE/small_event_2_0/small_event_2_0_talk_");
+        
         m_state = Game2State.GUIDE;
     }
 
@@ -177,10 +180,23 @@ public class Game2StateMgr : MonoBehaviour {
 
     IEnumerator GuideTime()
     {
-        while (m_guide.IsUse)
+        /*while (m_guide.IsUse)
+        {
+            yield return null;
+        }*/
+
+        m_intro.Play();
+
+        yield return new WaitForSeconds(0.5f);
+
+        while (!m_btnState.RedButtonTrigger)
         {
             yield return null;
         }
+
+        m_intro.End();
+
+        yield return new WaitForSeconds(1.0f);
 
         m_howTo.Play();
 
@@ -364,9 +380,12 @@ public class Game2StateMgr : MonoBehaviour {
 
         // ガイドを呼び出す
 
-        m_guide.Begin("Message/small_event_2_1", "Sound/GUIDE/small_event_2_1/small_event_2_1_talk_");
+        //m_guide.Begin("Message/small_event_2_1", "Sound/GUIDE/small_event_2_1/small_event_2_1_talk_");
+        m_endSprite.SetActive(true);
         m_frame.SetActive(false);
         m_extra.SetActive(false);
+
+        yield return new WaitForSeconds(2.0f);
 
         while (m_guide.IsUse)
         {

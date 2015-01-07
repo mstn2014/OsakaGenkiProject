@@ -41,73 +41,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 9bc2b1c53c2849e4e89907842e1ce0b3, type: 2}
   sprites:
-  - name: torayaki_hukidashi
+  - name: mika
     outer:
       serializedVersion: 2
       x: 0
-      y: 610
-      width: 421
-      height: 260
+      y: 715
+      width: 951
+      height: 3381
     inner:
       serializedVersion: 2
       x: 0
-      y: 610
-      width: 421
-      height: 260
+      y: 715
+      width: 951
+      height: 3381
     rotated: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: guide
-    outer:
-      serializedVersion: 2
-      x: 0
-      y: 1724
-      width: 1266
-      height: 2372
-    inner:
-      serializedVersion: 2
-      x: 0
-      y: 1724
-      width: 1266
-      height: 2372
-    rotated: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
+    paddingLeft: 1.03890646
+    paddingRight: .568874896
+    paddingTop: .0224785563
+    paddingBottom: .0147885242
   - name: sidouyaku_hukidashi
     outer:
       serializedVersion: 2
-      x: 0
-      y: 871
+      x: 952
+      y: 3244
       width: 907
       height: 852
     inner:
       serializedVersion: 2
-      x: 0
-      y: 871
+      x: 952
+      y: 3244
       width: 907
       height: 852
-    rotated: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: common_bgframe
-    outer:
-      serializedVersion: 2
-      x: 1267
-      y: 3016
-      width: 1920
-      height: 1080
-    inner:
-      serializedVersion: 2
-      x: 1267
-      y: 3016
-      width: 1920
-      height: 1080
     rotated: 0
     paddingLeft: 0
     paddingRight: 0

@@ -11,8 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a156c58ec6f079944a07c5e9f9f73ea3, type: 3}
   m_Name: ResultSetting
   m_EditorClassIdentifier: 
-  game1MaxPoint: 200
-  game2MaxPoint: 258
+  game1MaxPoint: 145
+  game2MaxPoint: 129
   game3MaxPoint: 50
   Rank:
   - key: SSS

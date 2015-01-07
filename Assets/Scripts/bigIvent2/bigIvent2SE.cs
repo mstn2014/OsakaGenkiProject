@@ -4,6 +4,7 @@ using System.Collections;
 public class bigIvent2SE : MonoBehaviour {
 
     SoundMgr m_sound;
+    public bool isPlay = true; 
 	// Use this for initialization
 	void Start () {
         // 共通設定の呼び出し.
@@ -20,7 +21,7 @@ public class bigIvent2SE : MonoBehaviour {
 
     IEnumerator HandClap()
     {
-        while (true)
+        while (isPlay)
         {
             m_sound.PlaySeHandclapLast();
             yield return new WaitForSeconds(Random.Range(3.0f, 5.0f));
@@ -29,7 +30,7 @@ public class bigIvent2SE : MonoBehaviour {
 
     IEnumerator Hanabi()
     {
-        while (true)
+        while (isPlay)
         {
             m_sound.PlaySeHanabi();
             yield return new WaitForSeconds(Random.Range(1.0f, 3.0f));

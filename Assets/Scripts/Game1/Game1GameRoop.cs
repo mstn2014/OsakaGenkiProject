@@ -19,6 +19,8 @@ public class Game1GameRoop : MonoBehaviour {
     [Header("ゲーム開始時にオンにするオブジェクト一覧")]
     public GameObject m_timeFrame;      // 制限時間表示オブジェクト
     public DisplayHowTo m_howTo;          // ハウトゥ
+    public DisplayHowTo m_intro;          // イントロ
+    public GameObject m_endSprite;        // エンド画像
 
 	InputMgr m_btnState;                // 入力インスタンス.
 	FadeMgr m_fadeMgr;                  // フェード.
@@ -62,11 +64,23 @@ public class Game1GameRoop : MonoBehaviour {
                 case GameState.guide:
                         yield return new WaitForSeconds(9.0f);
 
-                        m_guide.Begin("Message/small_event_1_0","Sound/GUIDE/small_event_1_0/small_event_1_0_talk_");
+                        m_intro.Play();
+                        /* m_guide.Begin("Message/small_event_1_0","Sound/GUIDE/small_event_1_0/small_event_1_0_talk_");
                         while (m_guide.IsUse)
                         {
                             yield return null;
+                        }*/
+
+                        yield return new WaitForSeconds(0.5f);
+
+                        while(!m_btnState.RedButtonTrigger)
+                        {
+                            yield return null;
                         }
+
+                        m_intro.End();
+
+                        yield return new WaitForSeconds(1.0f);
 
                         m_howTo.Play();
 
@@ -208,15 +222,20 @@ public class Game1GameRoop : MonoBehaviour {
 					break;
                 case GameState.stop:
                     m_timeFrame.SetActive(false);
-                    yield return new WaitForSeconds(3.0f);
+
+                    yield return new WaitForSeconds(2.0f);
+
+                    m_endSprite.SetActive(true);
+
+                    yield return new WaitForSeconds(2.0f);
 
                     m_effect.InitCircle();
 
-                    m_guide.Begin("Message/small_event_1_1", "Sound/GUIDE/small_event_1_1/small_event_1_1_talk_");
+                    /*m_guide.Begin("Message/small_event_1_1", "Sound/GUIDE/small_event_1_1/small_event_1_1_talk_");
                     while (m_guide.IsUse)
                     {
                         yield return null;
-                    }
+                    }*/
 
                     m_saveData.game1Score = m_scoreMgr.Score;
                     m_saveData.gameState = SaveMgr.eState.GAME1;

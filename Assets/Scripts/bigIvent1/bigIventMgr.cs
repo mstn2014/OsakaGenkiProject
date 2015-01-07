@@ -16,12 +16,12 @@ public class bigIventMgr : MonoBehaviour {
     [Header("次のシーンを指定")]
     public string m_nextScene;         // 次のシーンを指定
 
-
+    public bool isGuide = false;
 
     // コンポーネント関連
     [Header("コンポーネントを取得")]
     public Guide m_guide;
-
+    bigIvent2SE m_se;
     // 
     bool m_isStart;             // お姉さんの会話が始まったらtrue
 
@@ -39,22 +39,47 @@ public class bigIventMgr : MonoBehaviour {
 
         m_isStart = false;
 
+        m_se = GetComponent<bigIvent2SE>();
+
         StartCoroutine(BeginScene());
 	}
 
     IEnumerator BeginScene()
     {
-        yield return new WaitForSeconds(3.0f);
-        //m_guide.Begin("Message/" + m_guideFile, m_guideSound);
+        yield return new WaitForSeconds(5.0f);
+        if (isGuide)
+        {
+            m_guide.Begin("Message/" + m_guideFile, "none");
+
+            while (m_guide.IsUse)
+            {
+                yield return null;
+            }
+
+            yield return new WaitForSeconds(3.0f);
+        }
         m_isStart = true;
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if (m_isStart && m_btnState.AnyButtonTrigger)
+
+        if (!isGuide)
         {
-            m_scene.LoadLevel(m_nextScene);
-            m_isStart = false;
+            if (m_isStart && m_btnState.AnyButtonTrigger)
+            {
+                m_scene.LoadLevel(m_nextScene);
+                m_isStart = false;
+            }
+        }
+        else if (isGuide)
+        {
+            if (m_isStart)
+            {
+                m_se.isPlay = false;
+                m_scene.LoadLevel(m_nextScene);
+                m_isStart = false;
+            }
         }
 	}
 }

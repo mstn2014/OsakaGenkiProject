@@ -22,9 +22,11 @@ public class Game3Mgr : MonoBehaviour
     public GameObject m_timeUp;     // タイムアップスプライト
     public Game3MoveObj m_moveObj;  // 移動オブジェクト
     public DisplayHowTo m_howTo;      // ハウトゥ
+    public DisplayHowTo m_intro;    // イントロ
     public ResultSetting m_resultSet;
     public Game3Balancer m_balancer;
     public GameObject m_parade;
+    public GameObject m_endSprite;  // エンドスプライト
 
     // ステート
     enum Game3State
@@ -64,12 +66,25 @@ public class Game3Mgr : MonoBehaviour
     {
         yield return new WaitForSeconds(3.0f);
 
-        m_Guide.Begin(Setting.FirstMessagePath,"Sound/GUIDE/small_event_3_0/small_event_3_0_talk_");
+        /*m_Guide.Begin(Setting.FirstMessagePath,"Sound/GUIDE/small_event_3_0/small_event_3_0_talk_");
 
         while (m_Guide.IsUse)
         {
             yield return null;
+        }*/
+
+        m_intro.Play();
+
+        yield return new WaitForSeconds(0.5f);
+
+        while (!m_Input.RedButtonTrigger)
+        {
+            yield return null;
         }
+
+        m_intro.End();
+
+        yield return new WaitForSeconds(1.0f);
 
         m_howTo.Play();
 
@@ -161,7 +176,10 @@ public class Game3Mgr : MonoBehaviour
         m_timeUp.SetActive(false);
         m_moveObj.IsMove = false;
 
-        m_Guide.Begin(Setting.LastMessagePath, "Sound/GUIDE/small_event_3_1/small_event_3_1_talk_");
+        //m_Guide.Begin(Setting.LastMessagePath, "Sound/GUIDE/small_event_3_1/small_event_3_1_talk_");
+        m_endSprite.SetActive(true);
+
+        yield return new WaitForSeconds(2.0f);
 
         while (m_Guide.IsUse)
         {

@@ -40,11 +40,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   userName: ABC
-  game1Score: 156
-  game2Score: 100
-  game3Score: 100
-  game3Max: 120
-  userRank: 2
+  game1Score: 0
+  game2Score: 0
+  game3Score: 0
+  game3Max: 0
+  userRank: 1
   gameState: 3
 --- !u!1001 &100100000
 Prefab:

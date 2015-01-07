@@ -70,11 +70,11 @@ MonoBehaviour:
     value: .150000006
   - key: E
     value: 0
-  Event1Score: 20
-  Event2Score: 40
-  Event3Score: 60
-  Event4Score: 80
-  Event5Score: 100
+  Event1Score: 10
+  Event2Score: 20
+  Event3Score: 30
+  Event4Score: 40
+  Event5Score: 60
   Event1Guest: 10
   Event2Guest: 10
   Event3Guest: 20

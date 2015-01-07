@@ -60,6 +60,6 @@ public class TitleMgr : MonoBehaviour {
         m_player.MoveToFront();
         m_effect.SetActive(true);
         yield return new WaitForSeconds(m_setting.nextSceneTime);
-        m_fade.LoadLevel("userRegister");
+        m_fade.LoadLevel("bigIvent1");
     }
 }

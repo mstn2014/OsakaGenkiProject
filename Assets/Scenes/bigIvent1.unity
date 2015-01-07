@@ -184,6 +184,10 @@ Prefab:
       propertyPath: m_guideSound
       value: Sound/GUIDE/big_event_1/big_event_1_talk_
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 131fd30c6d5b8d34c800ebc2d89b8054, type: 2}
+      propertyPath: m_nextScene
+      value: userRegister
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 131fd30c6d5b8d34c800ebc2d89b8054, type: 2}
   m_RootGameObject: {fileID: 1834743698}
@@ -230,15 +234,27 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: 84a0c9500afdbe34fb12929f1f5ef871, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -1.2026726
+      value: -1.19733918
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: 84a0c9500afdbe34fb12929f1f5ef871, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 2.39467835
       objectReference: {fileID: 0}
     - target: {fileID: 11400014, guid: 84a0c9500afdbe34fb12929f1f5ef871, type: 2}
       propertyPath: charsPerSecond
       value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 84a0c9500afdbe34fb12929f1f5ef871, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 839
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 84a0c9500afdbe34fb12929f1f5ef871, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -435
+      objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: 84a0c9500afdbe34fb12929f1f5ef871, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 84a0c9500afdbe34fb12929f1f5ef871, type: 2}
@@ -267,7 +283,7 @@ Transform:
   m_PrefabInternal: {fileID: 216788329}
   m_GameObject: {fileID: 264481526}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 839.417786, y: -411.278168, z: 0}
+  m_LocalPosition: {x: 839, y: -435, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1766410832}
@@ -440,7 +456,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &480626367
 Transform:
   m_ObjectHideFlags: 0
@@ -614,7 +630,7 @@ Transform:
   m_PrefabInternal: {fileID: 216788329}
   m_GameObject: {fileID: 742736921}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.2026726, y: 0, z: 0}
+  m_LocalPosition: {x: -1.19733918, y: 2.39467835, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2006912318}
@@ -1283,6 +1299,55 @@ MonoBehaviour:
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
+--- !u!1 &1677125216
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1677125217}
+  - 114: {fileID: 1677125218}
+  m_Layer: 5
+  m_Name: Sprite
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1677125217
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1677125216}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1614, y: 1002, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2006912318}
+  m_RootOrder: 3
+--- !u!114 &1677125218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1677125216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mColor: {r: 1, g: 1, b: 1, a: 1}
+  mPivot: 4
+  mDepth: 6
+  mAtlas: {fileID: 11401592, guid: e221e657d2c415b4f94aec205107f1a7, type: 2}
+  mSpriteName: big_event1_tutorial
+  mFillCenter: 1
+  mType: 0
+  mFillDirection: 4
+  mFillAmount: 1
+  mInvert: 0
 --- !u!1 &1766410831
 GameObject:
   m_ObjectHideFlags: 0
@@ -1409,7 +1474,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_guideFile: big_event_1
   m_guideSound: Sound/GUIDE/big_event_1/big_event_1_talk_
-  m_nextScene: game1
+  m_nextScene: userRegister
   m_guide: {fileID: 480626368}
 --- !u!4 &1834743700
 Transform:
@@ -1452,6 +1517,7 @@ Transform:
   - {fileID: 1474600481}
   - {fileID: 264481527}
   - {fileID: 480626367}
+  - {fileID: 1677125217}
   m_Father: {fileID: 742736922}
   m_RootOrder: 0
 --- !u!114 &2006912319
@@ -1476,11 +1542,11 @@ MonoBehaviour:
     e00: 540
     e01: 0
     e02: 0
-    e03: 1.2026726
+    e03: 1.19733918
     e10: 0
     e11: 540
     e12: 0
-    e13: 0
+    e13: -2.39467835
     e20: 0
     e21: 0
     e22: 540
