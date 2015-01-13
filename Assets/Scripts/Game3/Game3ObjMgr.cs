@@ -66,7 +66,7 @@ public class Game3ObjMgr : MonoBehaviour {
 	void Update () {
         m_nowTime += Time.deltaTime;
         // ライトに向かうモブの抽選
-        if (m_nowTime >= m_createTime)
+        if (m_nowTime >= (m_createTime+0.2f))
         {
             m_nowTime = 0.0f;
             Game3MobController[] ret = m_mobController.Where(mc => !mc.IsSelected).ToArray();
@@ -84,7 +84,9 @@ public class Game3ObjMgr : MonoBehaviour {
            
             m_createTime = m_balancer.CreateTime;
         }
-        SelectedMob.OtherMobController = m_otherMgr.SelectedMob;
+        //SelectedMob.OtherMobController = m_otherMgr.SelectedMob;
+        if (m_otherMgr.SelectedMob != null)
+        m_otherMgr.SelectedMob.OtherMobController =  SelectedMob;
 	}
 
     public void CreateNewMob(GameObject go)

@@ -39,11 +39,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 570d27ba863204a4e9c34a0b785e1170, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  userName: ABC
-  game1Score: 0
-  game2Score: 0
-  game3Score: 0
-  game3Max: 0
+  userName: NOBUO
+  game1Score: 70
+  game2Score: 60
+  game3Score: 40
+  game3Max: 100
   userRank: 1
   gameState: 3
 --- !u!1001 &100100000

@@ -120,9 +120,9 @@ public class Game3MobController : MonoBehaviour {
                     Invoke("DestoryMyself", 2.0f);
                     GetComponent<NavMeshAgent>().SetDestination(m_sayonaraPoint.transform.position);
                     m_lightMgr.ChangeColor("White");
-                    GameObject.Find(m_lightName.Replace("Light", "") + "WaitBar/WaitTime").GetComponent<UISprite>().fillAmount = 1.0f; 
+                    GameObject.Find(m_lightName.Replace("Light", "") + "WaitBar/WaitTime").GetComponent<UISprite>().fillAmount = 1.0f;
                     m_balancer.Miss();
-					m_sound.PlaySeMiss();
+                    m_sound.PlaySeMiss();
                     m_animator.SetTrigger("IsStand");
                     m_speed = 10.0f;
                     m_animator.SetFloat("speed", m_speed);
@@ -136,7 +136,10 @@ public class Game3MobController : MonoBehaviour {
                     go.GetComponent<TweenPosition>().Play(true);
                     break;
                 }
-                CheckHitLight(1.0f);
+                else
+                {
+                    CheckHitLight(1.0f);
+                }
                 break;
             case State.Parade:
                 // iTweenによるパレード参加
@@ -170,13 +173,18 @@ public class Game3MobController : MonoBehaviour {
             case State.Forward:
                 break;
             case State.Light:
-                if (m_isPush && !IsOK )
+                if (m_isPush && !IsOK)
                 {
                     m_nowTime = m_balancer.DanceTime;
                 }
-                IsOK = false;
+                else if (m_isPush)
+                {
+                    IsOK = false;
+                }
+                m_isPush = false;
                 break;
             case State.Parade:
+                
                 break;
         }
     }
@@ -307,7 +315,7 @@ public class Game3MobController : MonoBehaviour {
     public bool CheckHitLight(float th)
     {
         float distance = Vector3.Distance(this.transform.position, m_light.transform.position);
-        m_isPush = false;
+        
         if (distance <= th)
         {
             m_nowTime += Time.deltaTime;

@@ -234,11 +234,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: 84a0c9500afdbe34fb12929f1f5ef871, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -1.19733918
+      value: -1.22171938
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: 84a0c9500afdbe34fb12929f1f5ef871, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2.39467835
+      value: 1.2217195
       objectReference: {fileID: 0}
     - target: {fileID: 11400014, guid: 84a0c9500afdbe34fb12929f1f5ef871, type: 2}
       propertyPath: charsPerSecond
@@ -256,6 +256,11 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11400032, guid: 84a0c9500afdbe34fb12929f1f5ef871, type: 2}
+      propertyPath: mAtlas
+      value: 
+      objectReference: {fileID: 11400000, guid: 7731deda6bfc16643b4bbdd93d9e9193,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 84a0c9500afdbe34fb12929f1f5ef871, type: 2}
   m_RootGameObject: {fileID: 1798837164}
@@ -630,7 +635,7 @@ Transform:
   m_PrefabInternal: {fileID: 216788329}
   m_GameObject: {fileID: 742736921}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.19733918, y: 2.39467835, z: 0}
+  m_LocalPosition: {x: -1.22171938, y: 1.2217195, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2006912318}
@@ -1048,7 +1053,7 @@ MonoBehaviour:
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
   mDepth: 2
-  mAtlas: {fileID: 11400000, guid: 70b9b17be2150b442b6ee2a5442a5664, type: 2}
+  mAtlas: {fileID: 11400000, guid: 7731deda6bfc16643b4bbdd93d9e9193, type: 2}
   mSpriteName: common_bgframe
   mFillCenter: 1
   mType: 0
@@ -1475,6 +1480,7 @@ MonoBehaviour:
   m_guideFile: big_event_1
   m_guideSound: Sound/GUIDE/big_event_1/big_event_1_talk_
   m_nextScene: userRegister
+  isGuide: 0
   m_guide: {fileID: 480626368}
 --- !u!4 &1834743700
 Transform:
@@ -1542,11 +1548,11 @@ MonoBehaviour:
     e00: 540
     e01: 0
     e02: 0
-    e03: 1.19733918
+    e03: 1.22171938
     e10: 0
     e11: 540
     e12: 0
-    e13: -2.39467835
+    e13: -1.2217195
     e20: 0
     e21: 0
     e22: 540
